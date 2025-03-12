@@ -1,0 +1,17 @@
+,file,type
+1,src/framework/plugin/repo/PluginRepoFactory.sol#L15-17,Declare immutable
+2,src/framework/plugin/setup/PluginSetupProcessor.sol#L128,Declare immutable
+3,src/framework/utils/TokenFactory.sol#L26-36,Declare immutable
+4,src/plugins/counter-example/v1/CounterV1PluginSetup.sol#L20-21,Declare immutable
+5,src/plugins/counter-example/v2/CounterV2PluginSetup.sol#L20-21,Declare immutable
+6,src/framework/plugin/repo/PluginRepo.sol#L120,Cache re-reading state variables
+7,src/framework/utils/ens/ENSSubdomainRegistrar.sol#L82,Cache re-reading state variables
+8,src/plugins/token/MerkleMinter.sol#L74,Cache re-reading state variables
+9,src/core/dao/DAO.sol#L248,Cache re-reading state variables
+10,src/framework/plugin/repo/PluginRepo.sol#L155,Cache re-reading state variables
+11,src/framework/plugin/repo/PluginRepo.sol#L43,Cache re-reading state variables
+12,src/plugins/governance/majority-voting/MajorityVotingBase.sol#L313-L321,Cache re-reading state variables
+13,src/plugins/governance/majority-voting/MajorityVotingBase.sol#L324,Cache re-reading state variables
+14,src/plugins/governance/majority-voting/token/TokenVoting.sol#L91,Cache function call
+15,src/plugins/governance/majority-voting/token/TokenVoting.sol#L97,Cache function call
+16,src/plugins/governance/multisig/Multisig.sol#L216,Cache function call

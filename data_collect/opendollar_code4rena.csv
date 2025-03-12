@@ -1,0 +1,21 @@
+,file,type
+1,/src/contracts/AccountingEngine.sol#L58,Declare immutable
+2,/src/contracts/oracles/UniV3Relayer.sol#L23-37,Declare immutable
+3,/src/contracts/proxies/ODSafeManager.sol#L26,Declare immutable
+4,/src/contracts/AccountingEngine.sol,Remove unnecessary casting/expression
+5,/src/contracts/proxies/ODSafeManager.sol,Reorder comparison statement
+6,/src/contracts/proxies/Vault721.sol,Reorder comparison statement
+7,/src/contracts/proxies/Vault721.sol#L104,Reorder modifier
+8,/src/contracts/proxies/ODSafeManager.sol#L136,Use storage istead of memory
+9,/src/contracts/proxies/ODSafeManager.sol#L155,Use storage istead of memory
+10,/src/contracts/proxies/ODSafeManager.sol#L168,Use storage istead of memory
+11,/src/contracts/proxies/ODSafeManager.sol#L189,Use storage istead of memory
+12,/src/contracts/proxies/ODSafeManager.sol#L205,Use storage istead of memory
+13,/src/contracts/proxies/ODSafeManager.sol#L217,Use storage istead of memory
+14,/src/contracts/proxies/ODSafeManager.sol#L242,Use storage istead of memory
+15,/src/contracts/proxies/ODSafeManager.sol#L249,Use storage istead of memory
+16,/src/contracts/proxies/ODSafeManager.sol#L118,Merge functions
+17,/src/contracts/proxies/actions/BasicActions.sol#L98,Skip single-use local variables
+18,/src/contracts/proxies/actions/BasicActions.sol#L128,Skip single-use local variables
+19,/src/contracts/proxies/actions/BasicActions.sol#l179,Skip single-use local variables
+20,/src/contracts/proxies/actions/BasicActions.sol#L354,Skip single-use local variables

@@ -1,0 +1,12 @@
+,file,type
+1,/contracts/staking/NeoTokyoStaker.sol#L1433-L1435,merge functions
+2,/contracts/staking/NeoTokyoStaker.sol#L232-L511,Optimize variable storage layout
+3,/contracts/staking/NeoTokyoStaker.sol#L710-L752,Cache re-reading state variables
+4,/contracts/staking/NeoTokyoStaker.sol#L1021-L1030,Cache re-reading state variables
+5,/contracts/staking/NeoTokyoStaker.sol#L1264-L1396,Cache re-reading state variables
+6,/contracts/staking/NeoTokyoStaker.sol#L1605-L1644,Cache re-reading state variables
+7,/contracts/staking/NeoTokyoStaker.sol#L715-L744,Cache re-reading state variables
+8,/contracts/staking/NeoTokyoStaker.sol#L1277-L1368,Cache re-reading state variables
+9,/contracts/staking/NeoTokyoStaker.sol#L1432-L1435,Cache re-reading state variables
+10,/contracts/staking/NeoTokyoStaker.sol#L1097-L1102,Use = over +=
+11,/contracts/staking/NeoTokyoStaker.sol#L1514-L1516,Use = over +=

@@ -1,0 +1,21 @@
+,file,type,status
+1,src/Lottery.sol#L33,Optimize bool variables,tp
+2,src/RNSourceController.sol#L16,Optimize bool variables,tp
+3,src/Lottery.sol#L125,Cache array length pre-loop,tp
+4,src/ReferralSystem.sol#L35,Cache array length pre-loop,tp
+5,src/Lottery.sol#L205,Use pre-increment,fp
+6,src/Ticket.sol#L24,Use pre-increment,fp
+7,src/TicketUtils.sol#L60,Use pre-increment,tp
+8,src/LotteryMath.sol#L14-24,Using private for constants,tp
+9,src/LotteryToken.sol#L12,Using private for constants,tp
+10,src/PercentageMath.sol#L8-11,Using private for constants,tp
+11,src/LotterySetup.sol#L27-128,Use bitwise shifts,tp
+12,src/Lottery.sol#L125,Using unchecked blocks,tp
+13,src/LotterySetup.sol#L169,Using unchecked blocks,tp
+14,src/ReferralSystem.sol#L35,Using unchecked blocks,tp
+15,src/TicketUtils.sol#L28,Using unchecked blocks,tp
+16,src/Lottery.sol#L208,Use != 0 instead of > 0 for unsigned integer comparison,fp
+17,src/LotteryMath.sol#L83,Use != 0 instead of > 0 for unsigned integer comparison,fp
+18,src/LotterySetup.sol#L133,Use != 0 instead of > 0 for unsigned integer comparison,fp
+19,src/ReferralSystem.sol#L98,Use != 0 instead of > 0 for unsigned integer comparison,fp
+20,src/staking/Staking.sol#L94,Use != 0 instead of > 0 for unsigned integer comparison,fp

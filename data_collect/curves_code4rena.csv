@@ -1,0 +1,14 @@
+,,type,file
+,,merge functions,/contracts/FeeSplitter.sol#L80-L87
+,,merge functions,/contracts/Curves.sol#L439-L454
+,,merge functions,/contracts/Curves.sol#L504-L509
+,,merge statements,/contracts/Curves.sol#L327-L336
+181,expression order change,Comparison statement order adjustment,contracts/FeeSplitter.sol
+182,expression order change,Comparison statement order adjustment,contracts/Curves.sol
+183,state variable,State variables should be cached in stack variables rather than re-reading them from storage,contracts/Curves.sol
+184,state variable,State variables should be cached in stack variables rather than re-reading them from storage,contracts/FeeSplitter.sol
+185,state check,Using unchecked blocks to save gas,contracts/Curves.sol
+186,state check,Using unchecked blocks to save gas,contracts/Curves.sol
+187,state variable,Do not declare local variables used only once,contracts/Curves.sol
+188,state variable,Do not declare local variables used only once,contracts/Curves.sol
+189,state variable,Do not declare local variables used only once,contracts/Curves.sol

@@ -1,0 +1,4 @@
+,,file,type
+156,statement maerging,thruster-protocol/thruster-cfmm/contracts/ThrusterPair.sol#L222-L223,merging require()/revert() checks
+157,statement maerging,thruster-protocol/thruster-clmm/contracts/ThrusterPool.sol#L756-L759,merging require()/revert() checks
+158,loop variable,thruster-protocol/thruster-treasure/contracts/ThrusterTreasure.sol#L230,creating memory variable or emitting should be outside of loop

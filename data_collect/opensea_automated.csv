@@ -1,0 +1,16 @@
+,file,type,status
+1,conduit/ConduitController.sol#L197,Use assembly to check for address(0),tp
+2,lib/SignatureVerification.sol#L94,Use assembly to check for address(0),tp
+3,lib/Executor.sol#L128,Use assembly to check for address(0),tp
+4,conduit/Conduit.sol#L33,Optimize bool variables,tp
+5,lib/OrderCombiner.sol#L247,Cache array length pre-loop,tp
+6,lib/OrderFulfiller.sol#L217,Cache array length pre-loop,tp
+7,lib/Consideration.sol#L301,Use calldata for immutable arguments,tp
+8,conduit/Conduit.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+9,interfaces/AbridgedTokenInterfaces.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+10,lib/ConsiderationConstants.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+11,conduit/lib/ConduitEnums.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+12,interfaces/ConduitControllerInterface.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+13,interfaces/ConsiderationEventsAndErrors.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+14,interfaces/CriteriaResolutionErrors.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+15,lib/TokenTransferrer.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp

@@ -1,0 +1,10 @@
+,file,type
+1,WildcatSanctionsEscrow.sol,Cache re-reading state variables
+2,MarketState.sol,Optimize variable storage layout
+3,WildcatMarket.sol,Emit/require/revert/return before state update
+4,WildcatMarketConfig.sol,Emit/require/revert/return before state update
+5,WildcatMarketConfig.sol,Emit/require/revert/return before state update
+6,WildcatMarketWithdrawals.sol,Emit/require/revert before state update
+7,WildcatMarketWithdrawals.sol,Emit/require/revert/return before state update
+8,FeeMath.sol&MathUtils.sol,merge functions
+9,WildcatMarketWithdrawals.sol,Emit/require/revert/return before state update

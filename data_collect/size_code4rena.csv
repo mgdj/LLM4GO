@@ -1,0 +1,9 @@
+,file,type
+1,SizeSealed.sol:258,merge functions
+2,ISizeSealed.sol:46,Optimize variable storage layout
+3,ISizeSealed.sol:83,Optimize variable storage layout
+4,SizeSealed.sol:294,Use = over +=
+5,SizeSealed.sol:373,Use = over +=
+6,ECCMath.sol:26,Skip single-use local variables
+7,SizeSealed.sol:157,Emit/require before state update
+8,SizeSealed.sol:283,Reorder comparison statement

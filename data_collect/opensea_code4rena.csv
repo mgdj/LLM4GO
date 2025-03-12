@@ -1,0 +1,8 @@
+,file,type
+1,FulfillmentApplier.sol#L93-97,Use bitwise shifts
+2,FulfillmentApplier.sol#L220,Use bitwise shifts
+3,seaport/contracts/lib/ConsiderationDecoder.sol#L386,Use bitwise shifts
+4,seaport/contracts/lib/ConsiderationEncoder.sol#L567,Use bitwise shifts
+5,OrderValidator.sol#L863,Reorder comparison statement
+6,PointerLibraries.sol#L224,Reorder comparison statement
+7,OrderCombiner.sol#L272,Use pre-increment

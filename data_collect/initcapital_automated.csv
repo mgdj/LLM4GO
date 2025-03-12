@@ -1,0 +1,23 @@
+,,file,type,status
+223,statement conversion,contracts/core/Config.sol#L24,Optimize bool variables,tp
+224,statement conversion,contracts/core/InitCore.sol#L47,Optimize bool variables,tp
+225,statement conversion,contracts/core/PosManager.sol#L39,Optimize bool variables,tp
+226,statement conversion,contracts/hook/MoneyMarketHook.sol#L45,Optimize bool variables,tp
+227,loop variable,contracts/common/Multicall.sol#L14,Cache array length pre-loop,tp
+228,loop variable,contracts/core/Config.sol#L110,Cache array length pre-loop,tp
+229,loop variable,contracts/core/InitCore.sol,Cache array length pre-loop,tp
+230,loop variable,contracts/core/LiqIncentiveCalculator.sol,Cache array length pre-loop,tp
+231,loop variable,contracts/core/PosManager.sol,Cache array length pre-loop,tp
+232,loop variable,contracts/hook/MoneyMarketHook.sol,Cache array length pre-loop,tp
+233,loop variable,contracts/oracle/Api3OracleReader.sol,Cache array length pre-loop,tp
+234,loop variable,contracts/core/PosManager.sol#L291,Use pre-increment,tp
+235,statement conversion,contracts/core/InitCore.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+236,statement conversion,contracts/core/PosManager.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+237,statement conversion,contracts/helper/swap_helper/MoeSwapHelper.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+238,statement conversion,contracts/lending_pool/LendingPool.sol,Use != 0 instead of > 0 for unsigned integer comparison,fp
+239,statement conversion,contracts/risk_manager/RiskManager.sol#L73,Use != 0 instead of > 0 for unsigned integer comparison,fp
+240,statement conversion,contracts/wrapper/WLpMoeMasterChef.sol#L325,Use != 0 instead of > 0 for unsigned integer comparison,fp
+241,efficient calculation,contracts/core/InitCore.sol#L132,Splitting require statements,tp
+242,efficient calculation,contracts/core/InitCore.sol#L206,Splitting require statements,tp
+243,efficient calculation,contracts/core/InitCore.sol#L543,Splitting require statements,tp
+244,efficient calculation,contracts/hook/MarginTradingHook.sol#L432,Splitting require statements,tp

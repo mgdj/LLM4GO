@@ -1,0 +1,16 @@
+,file,type
+1,Exchange.sol#L146,Optimize variable storage layout
+2,Exchange.sol#L607,Using unchecked blocks
+3,Exchange.sol#L316,Use = over +=
+4,Exchange.sol#L599,Declaration outside loops
+5,Exchange.sol#L184,Use pre-increment
+6,Exchange.sol#L598,Use pre-increment
+7,Exchange.sol#L184,Using unchecked blocks
+8,Exchange.sol#L598,Using unchecked blocks
+9,Exchange.sol#L49,Use custom errors
+10,Pool.sol#L63,Use custom errors
+11,Pool.sol#L71-L72,Emit/require before state update
+12,Exchange.sol#L537,merge functions
+13,Exchange.sol#L653,merge functions
+14,Exchange.sol#L329,Cache re-reading state variables
+15,Exchange.sol#L347,Cache re-reading state variables

@@ -1,0 +1,11 @@
+,file,type,status
+1,/contracts/WardenPledge.sol#L60,Declare immutable for efficiency
+2,/contracts/WardenPledge.sol#L62,Declare immutable for efficiency
+3,/contracts/WardenPledge.sol#L222-L274,Cache re-reading state variables
+4,/contracts/WardenPledge.sol#L222-L274,Cache re-reading state variables
+5,/contracts/WardenPledge.sol#L299-L358,Cache re-reading state variables
+6,/contracts/WardenPledge.sol#L222-L274,Emit/require before state update
+7,/contracts/WardenPledge.sol#L456-L480,Emit/require before state update
+8,/contracts/WardenPledge.sol#L525-L533,Emit/require before state update
+9,/contracts/WardenPledge.sol#L227,Using storage instead of memory
+10,/contracts/WardenPledge.sol#L268,Using unchecked blocks

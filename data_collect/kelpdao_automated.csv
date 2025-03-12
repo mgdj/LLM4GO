@@ -1,0 +1,16 @@
+,file,type,status
+8,src/LRTConfig.sol#L15,Optimize bool variables,tp
+9,src/LRTConfig.sol#L73,Mark revert functions payable,tp
+10,src/LRTConfig.sol#L149,Mark revert functions payable,tp
+11,src/LRTDepositPool.sol#L162,Mark revert functions payable,tp
+12,src/LRTDepositPool.sol#L208,Mark revert functions payable,tp
+13,src/LRTOracle.sol#L45,Mark revert functions payable,tp
+14,src/LRTOracle.sol#L102,Mark revert functions payable,tp
+15,src/NodeDelegator.sol#L127,Mark revert functions payable,tp
+16,src/RSETH.sol#L47,Mark revert functions payable,tp
+17,src/RSETH.sol#L53,Mark revert functions payable,tp
+18,src/RSETH.sol#L73,Mark revert functions payable,tp
+19,src/oracles/ChainlinkPriceOracle.sol#L37,Mark revert functions payable,tp
+20,src/utils/LRTConfigRoleChecker.sol#L47,Mark revert functions payable,tp
+21,src/RSETH.sol#L21-22,Using private for constants,fp
+22,src/utils/LRTConstants.sol#L7-19,Using private for constants,fp

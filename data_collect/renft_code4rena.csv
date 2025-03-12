@@ -1,0 +1,17 @@
+,file,type
+1,src/policies/Create.sol#L647-#L657,Comparison statement order adjustment
+2,src/policies/Guard.sol#L324-#L331,Comparison statement order adjustment
+3,/src/modules/PaymentEscrow.sol#L294,Check value before state update
+4,/src/modules/Storage.sol#L201,Check value before state update
+5,/src/modules/Storage.sol#L233,Check value before state update
+6,/src/modules/Storage.sol#L264,Check value before state update
+7,/src/modules/PaymentEscrow.sol#L242,Cache state variables before loops
+8,/src/policies/Create.sol#L480,Cache state variables before loops
+9,/src/policies/Create.sol#L601,Cache state variables before loops
+10,/src/policies/Create.sol#L700,Cache state variables before loops
+11,/src/policies/Stop.sol#L210,Cache state variables before loops
+12,/src/policies/Admin.sol#L74-#L86,Cache re-reading state variables
+13,/src/policies/Factory.sol#L189,Cache re-reading state variables
+14,/src/policies/Guard.sol#L93,Cache re-reading state variables
+15,/src/policies/Guard.sol#L335,Cache re-reading state variables
+16,/src/policies/Stop.sol#L96-#L98,Cache re-reading state variables

@@ -1,0 +1,22 @@
+,file,type
+1,/src/xETH.sol#L44-54,Cache re-reading state variables
+2,/src/xETH.sol#L63,reorder or remove modifiers
+3,/src/xETH.sol#L75,reorder or remove modifiers
+4,/src/wxETH.sol#L10,Remove unused variables/functions
+5,/src/wxETH.sol#L60-L62,Optimize variable storage layout
+6,/src/wxETH.sol#L73,Remove unnecessary casting/expression
+7,/src/wxETH.sol#L156,Cache re-reading state variables
+8,/src/wxETH.sol#L170,Remove unused variables/functions
+9,/src/wxETH.sol#L191,Remove unnecessary casting/expression
+10,/src/wxETH.sol#L236-254,Cache re-reading state variables
+11,/src/wxETH.sol#L241,Using unchecked blocks
+12,/src/CVXStaker.sol#L190-195,Cache re-reading state variables
+13,/src/AMO2.sol#L12,Remove unused variables/functions
+14,/src/AMO2.sol#L240,Use calldata for immutable arguments
+15,/src/AMO2.sol#L287,Use calldata for immutable arguments
+16,/src/AMO2.sol#L336,Use calldata for immutable arguments
+17,/src/AMO2.sol#L361,Use calldata for immutable arguments
+18,/src/AMO2.sol#L256-261,Cache re-reading state variables
+19,/src/AMO2.sol#L314-317,Cache re-reading state variables
+20,/src/AMO2.sol#L391-395,Cache re-reading state variables
+21,/src/AMO2.sol#L640-L642,Remove unused variables/functions

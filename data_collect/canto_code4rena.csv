@@ -1,0 +1,9 @@
+,file,type
+1,/src/Market.sol#L150,merge functions
+2,/src/Market.sol#l174,merge functions
+3,/src/Market.sol#L203,merge functions
+4,/src/Market.sol#L226,merge functions
+5,/src/Market.sol#L263,merge functions
+6,LiquidityMining.sol#L53-57,Reorder comparison statement
+7,LiquidityMining.sol#L87-97,Cache state variables before loops
+8,LiquidityMining.sol,Reorder comparison statement

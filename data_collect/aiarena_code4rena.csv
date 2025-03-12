@@ -1,0 +1,9 @@
+,file,type
+1,/main/src/Neuron.sol#L139-L142,Remove unnecessary casting/expression
+2,/main/src/Neuron.sol#L143,merge functions
+3,/src/RankedBattle.sol#L284,Remove unnecessary casting/expression
+4,/src/RankedBattle.sol#L466-L471,Check value before state update
+5,/src/FighterFarm.sol#L373,Remove unnecessary casting/expression
+6,/src/MergingPool.sol#L150,Cache state variables before loops
+7,/src/MergingPool.sol#L151-L153,merge functions
+8,/src/AiArenaHelper.sol#L41-L52,Remove unnecessary casting/expression

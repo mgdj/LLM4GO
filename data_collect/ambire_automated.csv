@@ -1,0 +1,6 @@
+,file,type,status
+10,AmbireAccount.sol#L164,Cache array length pre-loop,tp
+11,libs/SignatureValidator.sol#L87,Cache array length pre-loop,tp
+12,AmbireAccount.sol#L60,Use pre-increment,tp
+13,AmbireAccount.sol#L198,Use pre-increment,tp
+14,libs/SignatureValidator.sol#L87,Use pre-increment,tp

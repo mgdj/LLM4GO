@@ -1,0 +1,24 @@
+,file,type,status
+31,contracts/FeeManager/DeclarationsFeeManager.sol#L172,Using private for constants,tp
+32,contracts/WiseOracleHub/Declarations.sol#L79,Using private for constants,tp
+33,contracts/WiseSecurity/WiseSecurityDeclarations.sol#L185,Using private for constants,tp
+34,contracts/FeeManager/FeeManager.sol#L220,Use = over +=,fp
+35,contracts/FeeManager/FeeManagerHelper.sol#L94,Use = over +=,tp
+36,contracts/FeeManager/FeeManagerHelper.sol#L201,Use = over +=,fp
+37,contracts/MainHelper.sol#L587,Use = over +=,fp
+38,contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#L140,Use = over +=,tp
+39,contracts/WiseSecurity/WiseSecurity.sol#L481,Use = over +=,fp
+40,contracts/WiseSecurity/WiseSecurityHelper.sol#L48,Use = over +=,fp
+41,contracts/FeeManager/DeclarationsFeeManager.sol#L149,Optimize bool variables,tp
+42,contracts/FeeManager/FeeManager.sol#L47,Optimize bool variables,tp
+43,contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#l106,Optimize bool variables,tp
+44,contracts/WiseLendingDeclaration.sol#L286-291,Optimize bool variables,tp
+45,contracts/WrapperHub/Declarations.sol#L25,Optimize bool variables,tp
+46,contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#L63,Optimize bool variables,tp
+47,contracts/WrapperHub/AaveHub.sol#L71,Cache array length pre-loop,tp
+48,contracts/PositionNFTs.sol#L178,Use pre-increment,tp
+49,contracts/PowerFarms/PendlePowerFarm/PendlePowerManager.sol#L206,Use pre-increment,tp
+50,contracts/WrapperHub/AaveHub.sol#L71,Use pre-increment,tp
+51,contracts/PowerFarms/PowerFarmNFTs/PowerFarmNFTs.sol#L228,Use pre-increment,tp
+52,contracts/PoolManager.sol#L285-286,Use bitwise shifts,tp
+53,contracts/WrapperHub/AaveHub.sol#L71,Using unchecked blocks,tp

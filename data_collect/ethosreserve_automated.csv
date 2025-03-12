@@ -1,0 +1,39 @@
+,file,type,status
+1,Ethos-Core/contracts/ActivePool.sol#L93,Use assembly to check for the zero address,tp
+2,Ethos-Core/contracts/LUSDToken.sol,Use assembly to check for the zero address,tp
+3,Ethos-Core/contracts/ActivePool.sol#L32,Optimize bool variables,tp
+4,Ethos-Core/contracts/CollateralConfig.sol#L18,Optimize bool variables,tp
+5,Ethos-Core/contracts/LQTY/CommunityIssuance.sol#L21,Optimize bool variables,tp
+6,Ethos-Core/contracts/LUSDToken.sol#L37,Optimize bool variables,tp
+7,Ethos-Vault/contracts/ReaperVaultV2.sol#L49,Optimize bool variables,tp
+8,Ethos-Core/contracts/CollateralConfig.sol#L56,Cache array length pre-loop,tp
+9,Ethos-Core/contracts/LQTY/LQTYStaking.sol#L206,Cache array length pre-loop,tp
+10,Ethos-Core/contracts/StabilityPool.sol#L640,Cache array length pre-loop,tp
+11,Ethos-Core/contracts/TroveManager.sol#L808,Cache array length pre-loop,tp
+12,Ethos-Core/contracts/TroveManager.sol#L715,Use calldata for immutable arguments,tp
+13,Ethos-Core/contracts/ActivePool.sol#L85,Use custom errors,tp
+14,Ethos-Core/contracts/BorrowerOperations.sol#L525,Use custom errors,tp
+15,Ethos-Core/contracts/CollateralConfig.sol#L51,Use custom errors,tp
+16,Ethos-Core/contracts/LQTY/CommunityIssuance.sol#L70,Use custom errors,tp
+17,Ethos-Core/contracts/LUSDToken.sol#L362,Use custom errors,tp
+18,Ethos-Vault/contracts/ReaperVaultERC4626.sol#L270,Use custom errors,tp
+19,Ethos-Vault/contracts/ReaperVaultV2.sol#L150,Use custom errors,tp
+20,Ethos-Core/contracts/ActivePool.sol#L125,Mark revert functions payable,tp
+21,Ethos-Core/contracts/LQTY/CommunityIssuance.sol#L101,Mark revert functions payable,tp
+22,Ethos-Core/contracts/LQTY/CommunityIssuance.sol#L120,Mark revert functions payable,tp
+23,Ethos-Core/contracts/ActivePool.sol#L108,Use pre-increment,tp
+24,Ethos-Core/contracts/CollateralConfig.sol#L56,Use pre-increment,tp
+25,Ethos-Core/contracts/LQTY/LQTYStaking.sol#L206,Use pre-increment,tp
+26,Ethos-Core/contracts/LUSDToken.sol#L286,Use pre-increment,fp
+27,Ethos-Core/contracts/StabilityPool.sol#L351,Use pre-increment,tp
+28,Ethos-Core/contracts/TroveManager.sol#L608,Use pre-increment,tp
+29,Ethos-Core/contracts/ActivePool.sol#L30,Using private for constants,tp
+30,Ethos-Core/contracts/CollateralConfig.sol#L21-25,Using private for constants,tp
+31,Ethos-Core/contracts/StabilityPool.sol#L150,Using private for constants,tp
+32,Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol#L24-29,Using private for constants,tp
+33,Ethos-Vault/contracts/abstract/ReaperBaseStrategyV4.sol#L23-52,Using private for constants,tp
+34,Ethos-Core/contracts/ActivePool.sol#L278,Use != 0 instead of > 0 for unsigned integer comparison,tp
+35,Ethos-Core/contracts/BorrowerOperations.sol#L128,Use != 0 instead of > 0 for unsigned integer comparison,tp
+36,Ethos-Core/contracts/LQTY/LQTYStaking.sol#L152,Use != 0 instead of > 0 for unsigned integer comparison,tp
+37,Ethos-Core/contracts/LUSDToken.sol#L279,Use != 0 instead of > 0 for unsigned integer comparison,fp
+38,Ethos-Core/contracts/TroveManager.sol#L424,Use != 0 instead of > 0 for unsigned integer comparison,tp

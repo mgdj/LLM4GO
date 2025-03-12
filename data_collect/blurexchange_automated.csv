@@ -1,0 +1,10 @@
+,file,type,status
+1,Exchange.sol#L307,Cache array length pre-loop,tp
+2,Exchange.sol#L412,Use != 0 instead of > 0 for unsigned integer comparison,fp
+3,Exchange.sol#L85,Optimize bool variables,tp
+4,Exchange.sol#L36,Use custom errors,tp
+5,Exchange.sol#L246-249,Use custom errors,tp
+6,Exchange.sol#L604,Use custom errors,tp
+7,Exchange.sol#L177,Use pre-increment,tp
+8,Exchange.sol#L307,Use pre-increment,tp
+9,Exchange.sol#L70-74,Using private for constants,tp

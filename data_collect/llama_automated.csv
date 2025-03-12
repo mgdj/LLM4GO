@@ -1,0 +1,32 @@
+,file,type,status
+22,/src/LlamaFactory.sol#L279-L282,Check value before state update,tp
+23,/src/LlamaCore.sol#L242,Cache re-reading state variables,fp
+24,/src/LlamaPolicy.sol#L395,Cache re-reading state variables,fp
+25,/src/strategies/LlamaAbsolutePeerReview.sol#L58,Cache re-reading state variables,tp
+26,/src/strategies/LlamaAbsoluteQuorum.sol#L36,Cache re-reading state variables,tp
+27,/src/strategies/LlamaAbsoluteStrategyBase.sol#L156,Cache re-reading state variables,fp
+28,/src/strategies/LlamaRelativeQuorum.sol#L202,Cache re-reading state variables,fp
+29,/src/LlamaPolicy.sol#L394,Use = over +=,tp
+30,/src/LlamaPolicy.sol#L151,Cache array length pre-loop,tp
+31,/src/llama-scripts/LlamaGovernanceScript.sol#L210,Cache array length pre-loop,tp
+32,/src/strategies/LlamaAbsoluteStrategyBase.sol#L177,Cache array length pre-loop,tp
+33,/src/strategies/LlamaRelativeQuorum.sol#L177,Cache array length pre-loop,tp
+34,/src/lib/ERC721NonTransferableMinimalProxy.sol#L56,Optimize bool variables,tp
+35,/src/LlamaCore.sol#L189,Optimize bool variables,tp
+36,/src/LlamaFactory.sol#L86,Optimize bool variables,tp
+37,/src/LlamaPolicy.sol#L114,Optimize bool variables,tp
+38,/src/strategies/LlamaAbsoluteStrategyBase.sol#L107,Optimize bool variables,tp
+39,/src/strategies/LlamaRelativeQuorum.sol#L102,Optimize bool variables,tp
+40,/src/lib/ERC721NonTransferableMinimalProxy.sol#L97,Use = over +=,tp
+41,/src/LlamaFactory.sol#L68,Using private for constants,tp
+42,/src/LlamaPolicy.sol#L105,Using private for constants,tp
+43,/src/lib/Checkpoints.sol#L216,Use bitwise shifts,tp
+44,/src/lib/Checkpoints.sol#L38,Use custom errors,tp
+45,/src/lib/ERC721NonTransferableMinimalProxy.sol#L41,Use custom errors,tp
+46,/src/accounts/LlamaAccount.sol#L147,Mark revert functions payable,tp
+47,/src/accounts/LlamaAccount.sol#L214,Mark revert functions payable,fp
+48,/src/LlamaCore.sol#L429,Mark revert functions payable,fp
+49,/src/LlamaFactory.sol#L154-L165,Mark revert functions payable,fp
+50,/src/LlamaPolicyMetadataParamRegistry.sol#L82,Mark revert functions payable,fp
+51,/src/LlamaPolicy.sol#L190,Mark revert functions payable,fp
+52,/src/llama-scripts/LlamaGovernanceScript.sol#L62-L65,Mark revert functions payable,fp

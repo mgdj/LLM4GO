@@ -1,0 +1,24 @@
+,file,type,status
+14,src/libraries/CreateOffererLib.sol#L199,Use calldata for immutable arguments,tp
+15,src/libraries/CreateOffererLib.sol#L274,Use calldata for immutable arguments,tp
+16,src/libraries/CreateOffererLib.sol#L378,Use calldata for immutable arguments,tp
+17,src/libraries/CreateOffererLib.sol#L393,Use calldata for immutable arguments,tp
+18,src/DelegateToken.sol#L39,Optimize bool variables,tp
+19,src/libraries/DelegateTokenRegistryHelpers.sol#L37,Cache re-reading state variables,fp
+20,src/libraries/DelegateTokenRegistryHelpers.sol#L57,Cache re-reading state variables,fp
+21,src/CreateOfferer.sol#L52,Mark revert functions payable,tp
+22,src/CreateOfferer.sol#L71,Mark revert functions payable,tp
+23,lib/delegate-registry/src/DelegateRegistry.sol#L35,Cache array length pre-loop,tp
+24,lib/delegate-registry/src/DelegateRegistry.sol#L275,Cache array length pre-loop,tp
+25,lib/delegate-registry/src/DelegateRegistry.sol#L389,Use pre-increment,fp
+26,lib/delegate-registry/src/DelegateRegistry.sol#L420,Use pre-increment,fp
+27,src/libraries/CreateOffererLib.sol#L355,Splitting require statements,tp
+28,src/libraries/DelegateTokenTransferHelpers.sol#L78,Splitting require statements,tp
+29,lib/delegate-registry/src/DelegateRegistry.sol#L35,Using unchecked blocks,tp
+30,lib/delegate-registry/src/DelegateRegistry.sol#L275,Using unchecked blocks,tp
+31,lib/delegate-registry/src/DelegateRegistry.sol#L312,Using unchecked blocks,tp
+32,src/CreateOfferer.sol#L30,Use assembly to check for address(0),tp
+33,src/DelegateToken.sol#L53-55,Use assembly to check for address(0),tp
+34,src/DelegateToken.sol#L100-107,Use assembly to check for address(0),tp
+35,src/PrincipalToken.sol#L21-23,Use assembly to check for address(0),tp
+36,src/libraries/CreateOffererLib.sol#L146,Use assembly to check for address(0),tp

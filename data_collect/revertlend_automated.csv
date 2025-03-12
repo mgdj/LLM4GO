@@ -1,0 +1,37 @@
+,type,file,status
+,Use = over +=,src/V3Oracle.sol#L440-441,fp
+,Use = over +=,src/V3Vault.sol#L569,tp
+,Use = over +=,src/V3Vault.sol#L1220,fp
+,Use = over +=,src/transformers/LeverageTransformer.sol#L62,fp
+,Use = over +=,src/transformers/V3Utils.sol#L319,fp
+,Use assembly,src/V3Vault.sol#L719,tp
+,Use assembly,src/automators/Automator.sol#L26,tp
+,Use assembly,src/transformers/V3Utils.sol#L805,tp
+,Optimize bool variables,src/V3Vault.sol#L163-164,tp
+,Optimize bool variables,src/automators/Automator.sol#L34-35,tp
+088,Use calldata for immutable arguments,transformers/V3Utils.sol,tp
+,Declare immutable for efficiency,src/V3Oracle.sol#L79-83,tp
+,Declare immutable for efficiency,src/V3Vault.sol#L178-184,tp
+,Declare immutable for efficiency,src/transformers/V3Utils.sol#L37,tp
+,Declare immutable for efficiency,src/utils/Swapper.sol#L42-46,tp
+090,Mark revert functions payable,src/V3Oracle.sol,tp
+,Mark revert functions payable,src/V3Vault.sol,tp
+,Mark revert functions payable,src/automators/Automator.sol,tp
+,Mark revert functions payable,src/transformers/AutoCompound.sol,tp
+,Using private for constants,src/InterestRateModel.sol,tp
+,Using private for constants,src/V3Oracle.sol#L25,tp
+,Using private for constants,src/V3Vault.sol#L36,tp
+,Using private for constants,AutoCompound.sol,tp
+,Using unchecked blocks,src/automators/Automator.sol#L111,tp
+,Using unchecked blocks,src/transformers/AutoCompound.sol#L233,tp
+,Use bitwise shifts,src/InterestRateModel.sol#L16,tp
+,Use bitwise shifts,src/V3Vault.sol#L38,tp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/V3Oracle.sol,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/V3Vault.sol,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/automators/AutoExit.sol#L199,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/automators/Automator.sol#L113,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/transformers/AutoCompound.sol#L123,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/transformers/LeverageTransformer.sol#L52,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/transformers/V3Utils.sol#L142,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/utils/FlashloanLiquidator.sol#L90,fp
+,Use != 0 instead of > 0 for unsigned integer comparison,src/utils/Swapper.sol#L133,fp

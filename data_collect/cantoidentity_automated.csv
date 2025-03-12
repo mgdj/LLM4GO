@@ -1,0 +1,10 @@
+,file,type,status
+1,src/CidNFT.sol#L137,Use assembly to check for address(0),tp
+2,src/SubprotocolRegistry.sol#L90,Use assembly to check for address(0),tp
+3,src/CidNFT.sol#L150,Cache array length pre-loop,tp
+4,src/CidNFT.sol#L214,Cache array length pre-loop,fp
+5,src/CidNFT.sol#L120-122,Use calldata for immutable arguments,tp
+6,src/CidNFT.sol#L17,Using private for constants,tp
+7,src/SubprotocolRegistry.sol#L17,Using private for constants,tp
+8,src/AddressRegistry.sol#L2,Use != 0 instead of > 0 for unsigned integer comparison,fp
+9,src/SubprotocolRegistry.sol#L2,Use != 0 instead of > 0 for unsigned integer comparison,fp

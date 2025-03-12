@@ -1,0 +1,31 @@
+,file,type
+1,/contracts/SocializingPool.sol#L67-L82,Cache re-reading state variables
+2,/contracts/SDCollateral.sol#L91-L96,Cache re-reading state variables
+3,/contracts/Auction.sol#L83-L90,Cache re-reading state variables
+4,/contracts/Auction.sol#L49-L58,Cache re-reading state variables
+5,/contracts/StaderStakePoolsManager.sol#L37-L39,Optimize variable storage layout
+6,/contracts/StaderOracle.sol#L18-L41,Optimize variable storage layout
+7,/contracts/SocializingPool.sol#L24-L31,Optimize variable storage layout
+8,/contracts/Auction.sol#L15-L16,Optimize variable storage layout
+9,/contracts/PermissionedPool.sol#L24-L29,Optimize variable storage layout
+10,/contracts/PermissionlessPool.sol#L21-L29,Optimize variable storage layout
+11,/contracts/UserWithdrawalManager.sol#L41-L47,Optimize variable storage layout
+12,/contracts/interfaces/ISocializingPool.sol#L9-L26,Optimize variable storage layout
+13,/contracts/interfaces/INodeRegistry.sol#L6-L15,Optimize variable storage layout
+14,/contracts/NodeELRewardVault.sol#L32-L39C36,Cache re-reading state variables
+15,/contracts/ValidatorWithdrawalVault.sol#L42-L49,Repetitive code optimization
+16,/contracts/ValidatorWithdrawalVault.sol#L54-L62,Repetitive code optimization
+17,/contracts/SDCollateral.sol#L78-L84,Repetitive code optimization
+18,/contracts/SDCollateral.sol#L62-L68,Repetitive code optimization
+19,/contracts/Penalty.sol#L100-L107,Repetitive code optimization
+20,/contracts/PermissionlessNodeRegistry.sol#L131-L138,Repetitive code optimization
+21,/contracts/PermissionlessNodeRegistry.sol#L110-L114,Repetitive code optimization
+22,/contracts/PermissionedNodeRegistry.sol#L155-L180,Cache state variables before loops
+23,/contracts/PermissionlessNodeRegistry.sol#L140-L166,Cache state variables before loops
+24,/contracts/PermissionlessNodeRegistry.sol#L199-L207,merge functions
+25,/contracts/UserWithdrawalManager.sol#L132-L145,Cache state variables before loops
+26,/contracts/PermissionlessPool.sol#L94-L109,Cache state variables before loops
+27,/contracts/StaderOracle.sol#L18-L19,Optimize bool variables
+28,/contracts/ValidatorWithdrawalVault.sol#L55-L58,use inline assembly for arithmetic operations
+29,/contracts/ValidatorWithdrawalVault.sol#L31-L33C73,use inline assembly for arithmetic operations
+30,/main/contracts/NodeELRewardVault.sol#L25-L27,use inline assembly for arithmetic operations

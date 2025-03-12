@@ -1,0 +1,1251 @@
+type,status
+Remove unused variables/functions,tp
+Remove unused variables/functions,tp
+Declare immutable,tp
+Declare immutable,tp
+Declare immutable,tp
+Declare immutable,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Remove unused variables/functions,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Cache array length pre-loop,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Check value before state update,tp
+Check value before state update,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Use assembly to check for the zero address,tp
+Use assembly to check for the zero address,tp
+Use assembly to check for the zero address,tp
+Use assembly to check for the zero address,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Repetitive code optimization,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,tp
+Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+Cache array length outside of loop,tp
+Cache array length outside of loop,tp
+State variables should be cached in stack variables rather than re-reading them from storage,tp
+Functions guaranteed to revert when called by normal users can be marked payable,fp
+Functions guaranteed to revert when called by normal users can be marked payable,fp
+Functions guaranteed to revert when called by normal users can be marked payable,fp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private rather than public for constants saves gas saves gas,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+Using bools for storage incurs overhead,tp
+Using bools for storage incurs overhead,tp
+Cache array length outside of loop,tp
+Cache array length outside of loop,tp
+Cache array length outside of loop,tp
+Use calldata instead of memory for function arguments that do not get mutated,tp
+Use calldata instead of memory for function arguments that do not get mutated,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+Using private rather than public for constants saves gas,tp
+Using private rather than public for constants saves gas,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Splitting require statements,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Check value before state update,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Use = over +=,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Use = over +=,tp
+Using private for constants,tp
+Using private for constants,tp
+Use bitwise shifts,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,fp
+Use pre-increment,fp
+Use pre-increment,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use bitwise shifts,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use calldata for immutable arguments,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Splitting require statements,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Cache re-reading state variables,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Using unchecked blocks to save gas,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use = over +=,tp
+Use = over +=,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Using private for constants,tp
+Using private for constants,tp
+Use bitwise shifts,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Check value before state update,tp
+Check value before state update,fp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Remove unused variables/functions,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+Use calldata for immutable arguments,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Cache re-reading state variables,fp*
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Use = over +=,fp
+Use = over +=,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Use calldata for immutable arguments,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Skip single-use local variables,tp
+Declare immutable for efficiency,tp
+Use assembly,tp
+Use assembly,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use assembly,tp
+Cache re-reading state variables,fp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Remove unused variables/functions,tp
+Cache array length pre-loop,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Optimize bool variables,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Optimize bool variables,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,fp
+Use pre-increment,fp
+Splitting require statements,tp
+Splitting require statements,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use bitwise shifts,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Remove unused variables/functions,fp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,fp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using private for constants,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use custom errors,tp
+Use custom errors,tp
+Check value before state update,tp
+Optimize bool variables,tp
+Cache re-reading state variables,fp
+Cache re-reading state variables,fp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Splitting require statements,tp
+Use calldata for immutable arguments,tp
+Splitting require statements,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Using private for constants,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use assembly to check for address(0),tp
+Use assembly to check for address(0),tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,fp
+Use calldata for immutable arguments,tp
+Using private for constants,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use calldata for immutable arguments,tp
+Use = over +=,tp
+Use = over +=,tp
+Using unchecked blocks,tp
+Splitting require statements,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use assembly,tp
+Optimize bool variables,tp
+Cache re-reading state variables,tp
+Declare immutable for efficiency,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Using private for constants,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Skip single-use local variables,tp
+Skip single-use local variables,tp
+Skip single-use local variables,tp
+Skip single-use local variables,tp
+Use = over +=,tp
+Use pre-increment,tp
+Use unchecked blocks,tp
+Optimize bool variables,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Using private for constants,fp
+Using private for constants,fp
+Optimize bool variables,tp
+Check value before state update,tp
+Check value before state update,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use assembly to check for the zero address,tp
+Use assembly to check for the zero address,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Use custom errors,tp
+Use custom errors,tp
+Use = over +=,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,tp
+Use = over +=,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Assembly Tricks,tp
+Assembly Tricks,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Check value before state update,tp
+Remove unused variables/functions,fp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use bitwise shifts,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use assembly to check for the zero address,tp
+Use assembly to check for the zero address,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use calldata for immutable arguments,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,fp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Use assembly,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Use calldata for immutable arguments,tp
+Use custom errors,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Use bitwise shifts,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Use bitwise shifts,tp
+Splitting require statements,tp
+Splitting require statements,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use = over +=,tp
+Use = over +=,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache re-reading state variables,tp
+Skip single-use local variables,tp
+Declare immutable for efficiency,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+use != 0 instead of > 0 for unsigned integer comparison,fp
+use != 0 instead of > 0 for unsigned integer comparison,fp
+use != 0 instead of > 0 for unsigned integer comparison,fp
+Use = over +=,tp
+Use = over +=,tp
+Use = over +=,tp
+a = a + b is more gas effective than a += b for state variables,
+a = a + b is more gas effective than a += b for state variables,
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+use inline assembly for arithmetic operations,tp
+Optimize bool variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Mark revert functions payable,fp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Avoid declaring unused variables or unused internal function,fp
+Avoid declaring unused variables or unused internal function,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use assembly to check for address(0),tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Using private for constants,tp
+Use bitwise shifts,tp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Use != 0 instead of > 0 for unsigned integer comparison,fp
+Remove unused variables/functions,tp
+Remove unused variables/functions,tp
+Remove unused variables/functions,tp
+Remove unused variables/functions,fp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use bitwise shifts,tp
+Optimize bool variables,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Use = over +=,fp
+Use = over +=,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,tp
+Use = over +=,fp
+Use = over +=,fp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Use bitwise shifts,tp
+Using unchecked blocks,tp
+Optimize bool variables,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Use bitwise shifts,fp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Use != 0 instead of > 0 for unsigned integer comparison,tp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Use = over +=,tp
+Optimize bool variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Use calldata for immutable arguments,tp
+Use calldata for immutable arguments,tp
+Declare immutable for efficiency,tp
+Declare immutable for efficiency,tp
+Using private for constants,tp
+Using private for constants,tp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Remove unused variables/functions,fp
+Cache re-reading state variables,tp
+Cache re-reading state variables,tp
+Use pre-increment,tp
+Use pre-increment,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use bitwise shifts,tp
+Use = over +=,fp
+Use = over +=,fp
+Use = over +=,tp
+Use = over +=,fp
+Use = over +=,tp
+Using private for constants,tp
+Using private for constants,tp
+Using private for constants,tp
+Splitting require statements,tp
+Using unchecked blocks,tp
+Using unchecked blocks,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Use custom errors,tp
+Optimize bool variables,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Cache array length pre-loop,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Mark revert functions payable,tp
+Use pre-increment&Using unchecked blocks,tp
+Use pre-increment&Using unchecked blocks,tp
+Use pre-increment&Using unchecked blocks,tp
+Use pre-increment&Using unchecked blocks,tp
+Using private rather than public for constants saves gas,tp
+Use != 0 instead of > 0 for unsigned integer comparison,
+Use != 0 instead of > 0 for unsigned integer comparison,
+Use != 0 instead of > 0 for unsigned integer comparison,
+Use != 0 instead of > 0 for unsigned integer comparison,

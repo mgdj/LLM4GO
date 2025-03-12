@@ -1,0 +1,30 @@
+,file,type,status
+18,mixins/Auth.sol#L42,Optimize bool variables,tp
+19,p1/BasketHandler.sol#L139,Optimize bool variables,tp
+20,plugins/mocks/BadCollateralPlugin.sol#L10-11,Optimize bool variables,tp
+21,plugins/mocks/ERC1271Mock.sol#L14,Optimize bool variables,tp
+22,plugins/mocks/InvalidBrokerMock.sol#l22-24,Optimize bool variables,tp
+23,plugins/mocks/InvalidFiatCollateral.sol#L9,Optimize bool variables,tp
+24,libraries/String.sol#L14,Cache array length pre-loop,tp
+25,p1/BasketHandler.sol#L218,Cache array length pre-loop,tp
+26,p1/Distributor.sol#L108,Cache array length pre-loop,tp
+27,p1/RToken.sol#L270,Cache array length pre-loop,tp
+28,p1/mixins/RecollateralizationLib.sol#L242,Cache array length pre-loop,tp
+29,p1/mixins/RewardableLib.sol#L27,Cache array length pre-loop,tp
+30,mixins/Auth.sol#L94,Use custom errors,tp
+31,mixins/ComponentRegistry.sol#L37,Use custom errors,tp
+32,p1/AssetRegistry.sol#L74,Use custom errors,tp
+33,p1/BackingManager.sol#L73,Use custom errors,tp
+34,p1/BasketHandler.sol#L168,Use custom errors,tp
+35,p1/Broker.sol#L57,Use custom errors,tp
+36,p1/Distributor.sol#L92,Use custom errors,tp
+37,p1/RToken.sol#L159,Use custom errors,tp
+38,p1/StRSR.sol#L168,Use custom errors,tp
+39,mixins/Auth.sol#L65,Mark revert functions payable,tp
+40,mixins/Auth.sol#L135,Mark revert functions payable,tp
+41,mixins/Auth.sol#L157,Mark revert functions payable,tp
+42,mixins/ComponentRegistry.sol#L19,Mark revert functions payable,tp
+43,p1/Main.sol#L64,Mark revert functions payable,tp
+44,p1/mixins/Component.sol#L33,Mark revert functions payable,tp
+45,plugins/mocks/vendor/EasyAuction.sol#L926,Mark revert functions payable,tp
+46,vendor/ERC20PermitUpgradeable.sol#L61,Mark revert functions payable,tp

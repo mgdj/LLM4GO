@@ -1,0 +1,17 @@
+,file,type,status
+17,src/Create2Deployer.sol#L16,Optimize bool variables,tp
+18,src/Kernel.sol#L221-230,Optimize bool variables,tp
+19,src/modules/Storage.sol#L20-58,Optimize bool variables,tp
+20,src/modules/PaymentEscrow.sol#L231,Cache re-reading state variables,tp
+21,src/modules/Storage.sol#L197,Cache re-reading state variables,tp
+22,src/packages/Signer.sol#L170,Cache re-reading state variables,tp
+23,src/policies/Create.sol#L209,Cache re-reading state variables,tp
+24,src/policies/Stop.sol#L205,Cache re-reading state variables,tp
+25,src/Kernel.sol#L54,Mark revert functions payable,tp
+26,src/modules/PaymentEscrow.sol#L320,Mark revert functions payable,tp
+27,src/modules/PaymentEscrow.sol#L397,Mark revert functions payable,tp
+28,src/modules/Storage.sol#L274,Mark revert functions payable,tp
+29,src/policies/Admin.sol#L126,Mark revert functions payable,tp
+30,src/policies/Create.sol#L273,Use pre-increment,tp
+31,src/policies/Create.sol#L433,Use != 0 instead of > 0 for unsigned integer comparison,fp
+32,src/policies/Stop.sol#L288,Use != 0 instead of > 0 for unsigned integer comparison,fp

@@ -1,0 +1,48 @@
+,file,type,status
+31,contracts/Auction.sol#L144-L149,Check value before state update,tp
+32,/contracts/Penalty.sol#L62-L66,Check value before state update,tp
+33,/contracts/PermissionedNodeRegistry.sol#L416-L420,Check value before state update,tp
+34,/contracts/PermissionedPool.sol#L236-L245,Check value before state update,tp
+35,/contracts/PermissionlessNodeRegistry.sol#L268-L272,Check value before state update,tp
+36,/contracts/PermissionlessPool.sol#L66-L75,Check value before state update,tp
+37,/contracts/StaderStakePoolsManager.sol#L109-L113,Check value before state update,tp
+38,/contracts/VaultProxy.sol#L68-L72,Check value before state update,tp
+39,/contracts/VaultProxy.sol#L9,Remove unused variables/functions,fp
+40,/contracts/PermissionedNodeRegistry.sol#L477,Use = over +=,tp
+41,/contracts/PermissionedPool.sol#L280,Use = over +=,tp
+42,/contracts/PermissionlessNodeRegistry.sol#L383,Use = over +=,tp
+43,/contracts/SocializingPool.sol#L81,Use = over +=,tp
+44,/contracts/UserWithdrawalManager.sol#L105,Use = over +=,tp
+45,/contracts/PermissionedNodeRegistry.sol#L224,Using unchecked blocks,tp
+46,/contracts/PermissionedNodeRegistry.sol#L91,Using unchecked blocks,tp
+47,/contracts/PermissionedPool.sol#L112,Using unchecked blocks,tp
+48,/contracts/PermissionlessNodeRegistry.sol#L504,Using unchecked blocks,tp
+49,/contracts/PoolSelector.sol#L130,Using unchecked blocks,tp
+50,/contracts/PoolUtils.sol#L104,Using unchecked blocks,tp
+51,/contracts/StaderStakePoolsManager.sol#L232,Using unchecked blocks,tp
+52,/contracts/StaderOracle.sol#L41,Optimize bool variables,tp
+53,/contracts/SocializingPool.sol#L29,Optimize bool variables,tp
+54,/contracts/ValidatorWithdrawalVault.sol#L19,Optimize bool variables,tp
+55,/contracts/VaultProxy.sol#L9,Optimize bool variables,tp
+56,/contracts/Auction.sol#L59,Use pre-increment,tp
+57,/contracts/PermissionedNodeRegistry.sol#L91,Use pre-increment,tp
+58,/contracts/PermissionedPool.sol#L112,Use pre-increment,tp
+59,/contracts/PermissionlessNodeRegistry.sol#L162,Use pre-increment,tp
+60,/contracts/PoolSelector.sol#L130,Use pre-increment,tp
+61,/contracts/PoolUtils.sol#L104,Use pre-increment,tp
+62,/contracts/SocializingPool.sol#L145,Use pre-increment,tp
+63,/contracts/StaderOracle.sol#L88,Use pre-increment,tp
+64,/contracts/Auction.sol#L22,Using private for constants,tp
+65,/contracts/ETHx.sol#L21,Using private for constants,tp
+66,/contracts/PermissionedPool.sol#L33,Using private for constants,tp
+67,/contracts/PermissionlessNodeRegistry.sol#L43,Using private for constants,tp
+68,/contracts/PermissionlessPool.sol#L23,Using private for constants,tp
+69,/contracts/PoolSelector.sol#L21,Using private for constants,tp
+70,/contracts/StaderConfig.sol#L12,Using private for constants,tp
+71,/contracts/StaderOracle.sol#L148,Use bitwise shifts,tp
+72,/contracts/Auction.sol#L138,Mark revert functions payable,tp
+73,/contracts/ETHx.sol#L47,Mark revert functions payable,tp
+74,/contracts/factory/VaultFactory.sol#L34-L39,Mark revert functions payable,tp
+75,/contracts/OperatorRewardsCollector.sol#L56,Mark revert functions payable,tp
+76,/contracts/StaderConfig.sol#L107,Mark revert functions payable,tp
+77,/contracts/VaultProxy.sol#L57,Mark revert functions payable,tp

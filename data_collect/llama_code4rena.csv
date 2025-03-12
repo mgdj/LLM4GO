@@ -1,0 +1,22 @@
+,file,type
+1,/src/LlamaCore.sol#L542-L559,Cache re-reading state variables
+2,/src/strategies/LlamaAbsolutePeerReview.sol#L56-L58,Cache re-reading state variables
+3,/src/strategies/LlamaRelativeQuorum.sol#L220-L223,Cache re-reading state variables
+4,/src/strategies/LlamaRelativeQuorum.sol#L240-L242,Cache re-reading state variables
+5,/main/src/LlamaFactory.sol#L260-L263,Cache re-reading state variables
+6,/src/LlamaPolicy.sol#L227,Cache state variables before loops
+7,/src/LlamaPolicy.sol#L151-L168,Cache state variables before loops
+8,/src/LlamaPolicy.sol#L393-L396,Cache state variables before loops
+9,/src/LlamaPolicy.sol#L161-L163,Cache state variables before loops
+10,/src/LlamaPolicy.sol#L490-L491,Cache state variables before loops
+11,/src/LlamaPolicy.sol#L155-L159,Cache re-reading state variables
+12,/src/LlamaPolicy.sol#L161-L163,Cache re-reading state variables
+13,/src/llama-scripts/LlamaGovernanceScript.sol#L111-L115,merge functions
+14,/src/llama-scripts/LlamaGovernanceScript.sol#L120-L125,merge functions
+15,/src/llama-scripts/LlamaGovernanceScript.sol#L131-L135,merge functions
+16,/src/llama-scripts/LlamaGovernanceScript.sol#L140-L146,merge functions
+17,/src/LlamaPolicy.sol#L443-L448,Cache re-reading state variables
+18,/src/strategies/LlamaAbsoluteQuorum.sol#L27-L35,Reorder comparison statement
+19,/src/strategies/LlamaAbsolutePeerReview.sol#L74-L82,Reorder comparison statement
+20,/src/LlamaPolicy.sol#L412-L418,Reorder comparison statement
+21,/src/LlamaCore.sol#L317-L324,Reorder comparison statement

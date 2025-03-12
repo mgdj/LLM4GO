@@ -1,0 +1,17 @@
+,file,type
+1,/src/EthRouter.sol#L106-L138,Cache re-reading state variables
+2,/src/EthRouter.sol#L159-L200,Cache re-reading state variables
+3,/src/PrivatePool.sol#L385-L393,Use calldata for immutable arguments
+4,/src/PrivatePool.sol#L661-L664,Use calldata for immutable arguments
+5,/src/PrivatePool.sol#L742-L746,Cache re-reading state variables
+6,/src/PrivatePool.sol#L731-L738,Cache re-reading state variables
+7,/src/PrivatePool.sol#L225-L259,Cache re-reading state variables
+8,/src/PrivatePool.sol#L238-L271,Cache state variables before loops
+9,/src/PrivatePool.sol#L496-L498,Cache state variables before loops
+10,/src/PrivatePool.sol#L219-L225,Emit/require before state update
+11,/src/PrivatePool.sol#L230-L231,Use = over +=
+12,/src/PrivatePool.sol#L323-L324,Use = over +=
+13,/src/PrivatePool.sol#L225,Splitting require statements
+14,/src/PrivatePool.sol#L344-L350,Splitting require statements
+15,/src/EthRouter.sol#L101-L103,Splitting require statements
+16,/src/EthRouter.sol#L228-L230,Splitting require statements

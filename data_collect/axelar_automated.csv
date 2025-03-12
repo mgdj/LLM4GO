@@ -1,0 +1,33 @@
+,file,type,status
+18,/contracts/interchain-governance-executor/InterchainProposalSender.sol#L63-L63,Cache array length pre-loop,tp
+19,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L74-L74,Cache array length pre-loop,tp
+20,/contracts/its/utils/Multicall.sol#L24-L24,Cache array length pre-loop,tp
+21,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L74-L74,Use pre-increment,tp
+22,/contracts/its/remote-address-validator/RemoteAddressValidator.sol#L56-L56,Use pre-increment,tp
+23,/contracts/cgp/auth/MultisigBase.sol#L124-L124,Use pre-increment,tp
+24,/contracts/cgp/AxelarGateway.sol#L634-L634,Use != 0 instead of > 0 for unsigned integer comparison,tp
+25,/contracts/interchain-governance-executor/InterchainProposalSender.sol#L91-L91,Use != 0 instead of > 0 for unsigned integer comparison,tp
+26,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L161-L161,Use != 0 instead of > 0 for unsigned integer comparison,tp
+27,/contracts/gmp-sdk/upgradable/Upgradable.sol#L60-L60,Use != 0 instead of > 0 for unsigned integer comparison,tp
+28,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L41-L41,Remove unused variables/functions,fp
+29,/contracts/cgp/governance/InterchainGovernance.sol#L155-L155,Remove unused variables/functions,fp
+30,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L92-L92,Check value before state update,tp
+31,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L107-L107,Check value before state update,tp
+32,/contracts/cgp/auth/MultisigBase.sol#L122-L124,Using unchecked blocks,tp
+33,/contracts/cgp/auth/MultisigBase.sol#L153-L168,Using unchecked blocks,tp
+34,/contracts/its/interchain-token/InterchainToken.sol#L43-L66,Cache re-reading state variables,fp
+35,/contracts/its/interchain-token/InterchainToken.sol#L79-L104,Cache re-reading state variables,fp
+36,/contracts/cgp/AxelarGateway.sol#L384-L417,Cache re-reading state variables,fp
+37,/contracts/cgp/AxelarGateway.sol#L96-L103,Cache re-reading state variables,fp
+38,/contracts/cgp/governance/InterchainGovernance.sol#L87-L100,Use assembly to check for the zero address,tp
+39,/contracts/cgp/auth/MultisigBase.sol#L149-L173,Use assembly to check for the zero address,tp
+40,/contracts/cgp/AxelarGateway.sol#L259-L260,Use assembly to check for the zero address,tp
+41,/contracts/cgp/AxelarGateway.sol#L306-L313,Use assembly to check for the zero address,tp
+42,/contracts/cgp/AxelarGateway.sol#L203-L203,Using unchecked blocks,tp
+43,/contracts/its/utils/FlowLimit.sol#L64-L64,Using unchecked blocks,tp
+44,/contracts/its/utils/FlowLimit.sol#L114-L114,Using unchecked blocks,tp
+45,/contracts/gmp-sdk/upgradable/InitProxy.sol#L35-L50,Cache re-reading state variables,fp
+46,/contracts/cgp/auth/MultisigBase.sol#L149-L173,Cache re-reading state variables,fp
+47,/contracts/gmp-sdk/upgradable/FinalProxy.sol#L37-L40,Cache re-reading state variables,fp
+48,/contracts/its/remote-address-validator/RemoteAddressValidator.sol#L83-L85,Cache re-reading state variables,fp
+49,/contracts/cgp/auth/MultisigBase.sol#L149-L168,Repetitive code optimization,fp

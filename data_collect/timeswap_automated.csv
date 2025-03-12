@@ -1,0 +1,32 @@
+,file,type,status
+1,packages/v2-option/src/TimeswapV2Option.sol#L99,Use assembly,tp
+2,packages/v2-option/src/TimeswapV2OptionFactory.sol#L44-45,Use assembly,tp
+3,packages/v2-option/src/libraries/OptionFactory.sol#L19,Use assembly,tp
+4,packages/v2-option/src/libraries/OptionPair.sol#L22,Use assembly,tp
+5,packages/v2-option/src/structs/Param.sol#L107-109,Use assembly,tp
+6,packages/v2-pool/src/TimeswapV2Pool.sol#L156,Use assembly,tp
+7,packages/v2-pool/src/libraries/PoolFactory.sol#L19,Use assembly,tp
+8,packages/v2-pool/src/structs/Param.sol#L134,Use assembly,tp
+9,packages/v2-option/src/TimeswapV2Option.sol#L53,Optimize bool variables,tp
+10,packages/v2-option/src/structs/Process.sol#L34,Cache array length pre-loop,tp
+11,packages/v2-token/src/TimeswapV2LiquidityToken.sol#L227,Cache array length pre-loop,tp
+12,packages/v2-token/src/base/ERC1155Enumerable.sol#L48,Cache array length pre-loop,tp
+13,packages/v2-option/src/TimeswapV2Option.sol#L145,Cache re-reading state variables,tp
+14,packages/v2-pool/src/TimeswapV2Pool.sol#L234,Cache re-reading state variables,tp
+15,packages/v2-pool/src/structs/Pool.sol#L296,Use calldata for immutable arguments,tp
+16,packages/v2-library/src/BytesLib.sol#L13-14,Use custom errors,tp
+17,packages/v2-library/src/FullMath.sol#L146,Use pre-increment,tp
+18,packages/v2-library/src/Math.sol#L51,Use pre-increment,tp
+19,packages/v2-option/src/structs/Process.sol#L42,Use pre-increment,tp
+20,packages/v2-option/src/TimeswapV2Option.sol#L7,Use bitwise shifts,fp
+21,packages/v2-option/src/TimeswapV2OptionFactory.sol#L7,Use bitwise shifts,fp
+22,packages/v2-option/src/libraries/OptionFactory.sol#L4,Use bitwise shifts,fp
+23,packages/v2-option/src/structs/Option.sol#L4-6,Use bitwise shifts,fp
+24,packages/v2-pool/src/TimeswapV2Pool.sol#L4-12,Use bitwise shifts,fp
+25,packages/v2-pool/src/base/OwnableTwoSteps.sol#L4-5,Use bitwise shifts,fp
+26,packages/v2-pool/src/structs/Pool.sol#L4-10,Use bitwise shifts,fp
+27,packages/v2-token/src/TimeswapV2LiquidityToken.sol#L6,Use bitwise shifts,fp
+28,packages/v2-token/src/TimeswapV2Token.sol#L6,Use bitwise shifts,fp
+29,packages/v2-library/src/BytesLib.sol#L12,Remove unused variables/functions,fp
+30,packages/v2-library/src/CatchError.sol#L12,Remove unused variables/functions,fp
+31,packages/v2-library/src/Error.sol#l67,Remove unused variables/functions,fp

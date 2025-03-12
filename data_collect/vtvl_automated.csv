@@ -1,0 +1,9 @@
+,file,type,status
+1,VTVLVesting.sol#L333-L341,Use calldata for immutable arguments,tp
+2,VariableSupplyERC20Token.sol#L43,Use = over +=,tp
+3,VTVLVesting.sol#L301,Use = over +=,tp
+4,contracts/VTVLVesting.sol#L353,Using unchecked blocks,tp
+5,contracts/VTVLVesting.sol#L344,Splitting require statements,tp
+6,AccessProtected.sol#L39,Mark revert functions payable,tp
+7,VariableSupplyERC20Token.sol#L36,Mark revert functions payable,tp
+8,VTVLVesting.sol#L317-L325,Mark revert functions payable,tp

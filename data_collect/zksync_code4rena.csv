@@ -1,0 +1,52 @@
+,,type,file
+,,Cache re-reading state variables,/contracts/state-transition/chain-deps/facets/Executor.sol
+023,redundancy operation,Remove unnecessary casting/expression,SystemContext.sol
+024,expression order change,Emit/require before state update,L2SharedBridge.sol
+025,casting variable,Optimize variable storage layout,ethereum/contracts/upgrades/BaseZkSyncUpgrade.sol
+026,casting variable,Optimize variable storage layout,ethereum/contracts/common/Messaging.sol
+027,casting variable,Optimize variable storage layout,ethereum/contracts/state-transition/chain-interfaces/IExecutor.sol
+028,casting variable,Optimize variable storage layout,ethereum/contracts/governance/Governance.sol
+029,state variable,Cache re-reading state variables,zksync/contracts/bridge/L2StandardERC20.sol
+030,state variable,Cache re-reading state variables,system-contracts/contracts/SystemContext.sol
+031,expression order change,Emit/require before state update,ethereum/contracts/state-transition/chain-deps/facets/Admin.sol
+032,expression order change,Emit/require before state update,ethereum/contracts/state-transition/chain-deps/facets/Admin.sol
+033,loop variable,Cache array length pre-loop,system-contracts/contracts/Compressor.sol
+034,loop variable,Cache array length pre-loop,ethereum/contracts/common/libraries/L2ContractHelper.sol
+035,loop variable,Cache array length pre-loop,ethereum/contracts/upgrades/BaseZkSyncUpgrade.sol
+036,loop variable,Cache array length pre-loop,ethereum/contracts/state-transition/chain-deps/DiamondProxy.sol
+037,redundancy operation,Remove unnecessary casting/expression,ethereum/contracts/state-transition/chain-deps/facets/Executor.sol
+038,loop variable,Cache array length pre-loop,ethereum/contracts/state-transition/chain-deps/facets/Executor.sol
+039,redundancy operation,Remove unnecessary casting/expression,ethereum/contracts/state-transition/libraries/PriorityQueue.sol
+040*,statement maerging,Merge statements,ethereum/contracts/state-transition/libraries/PriorityQueue.sol
+041,redundancy operation,Remove unnecessary casting/expression,system-contracts/contracts/libraries/SystemContractHelper.sol
+042,efficient calculation,Using unchecked blocks,ethereum/contracts/bridge/L1ERC20Bridge.sol
+043,redundancy computation,Remove unnecessary casting/expression,system-contracts/contracts/SystemContext.sol
+044,,Remove unnecessary casting/expression,ethereum/contracts/bridge/L1SharedBridge.sol
+045,efficient calculation,Using unchecked blocks,system-contracts/contracts/L2BaseToken.sol
+046,,Remove unused variables/functions,system-contracts/contracts/Constants.sol
+047,redundancy computation,Remove unnecessary casting/expression,ethereum/contracts/upgrades/BaseZkSyncUpgradeGenesis.sol
+048,efficient calculation,!A || !B => !(A & B),ethereum/contracts/state-transition/chain-deps/DiamondProxy.sol
+049,redundancy computation,Remove unnecessary casting/expression,system-contracts/contracts/ContractDeployer.sol
+050,efficient calculation,Merge statements,ethereum/contracts/state-transition/libraries/TransactionValidator.sol
+051,efficient calculation,Use calldata for immutable arguments,ethereum/contracts/state-transition/libraries/TransactionValidator.sol
+052,expression order change,Reorder comparison statement,ethereum/contracts/upgrades/BaseZkSyncUpgrade.sol
+053,expression order change,Reorder comparison statement,ethereum/contracts/state-transition/chain-deps/facets/Admin.sol
+054,expression order change,Emit/require before state update,system-contracts/contracts/GasBoundCaller.sol
+055,expression order change,Emit/require before state update,ethereum/contracts/state-transition/chain-deps/facets/Executor.sol
+056,expression order change,Reorder comparison statement,system-contracts/contracts/NonceHolder.sol
+057,loop variable,Declaration outside loops,system-contracts/contracts/ImmutableSimulator.sol
+058,loop variable,Declaration outside loops,system-contracts/contracts/Compressor.sol
+059,loop variable,Declaration outside loops,ethereum/contracts/state-transition/chain-deps/facets/Mailbox.sol
+060,efficient calculation,Use bitwise shifts,system-contracts/contracts/Compressor.sol
+061,efficient calculation,Use bitwise shifts,ethereum/contracts/state-transition/libraries/Merkle.sol
+062,redundancy operation,Remove unnecessary casting/expression,ethereum/contracts/state-transition/chain-deps/DiamondInit.sol
+063,redundancy operation,Remove unnecessary casting/expression,ethereum/contracts/state-transition/StateTransitionManager.sol
+064,,merge statements,ethereum/contracts/state-transition/libraries/TransactionValidator.sol
+065,statement conversion,Skip single-use local variables,system-contracts/contracts/libraries/EfficientCall.sol
+066,,Using unchecked blocks,system-contracts/contracts/L2BaseToken.sol
+067,,Optimize bool variables,ethereum/contracts/bridge/L1SharedBridge.sol
+068,Function declaration change,When public function is never called internally and is only expected to be invoked externally it is more gas-efficient to explicitly declare it as external,ethereum/contracts/state-transition/chain-deps/facets/Mailbox.sol
+069,,Using private for constants,ethereum/contracts/state-transition/ValidatorTimelock.sol
+070,Function declaration change,When public function is never called internally and is only expected to be invoked externally it is more gas-efficient to explicitly declare it as external,ethereum/contracts/state-transition/chain-deps/facets/Mailbox.sol
+071,statement conversion,Skip single-use local variables,zksync/contracts/bridge/L2SharedBridge.sol
+072,statement conversion,Skip single-use local variables,zksync/contracts/bridge/L2SharedBridge.sol

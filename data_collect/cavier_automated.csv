@@ -1,0 +1,14 @@
+,file,type,status
+1,src/PrivatePool.sol#L94-L100,Optimize bool variables,tp
+2,src/EthRouter.sol#L106,Cache array length pre-loop,tp
+3,src/Factory.sol#L119,Cache array length pre-loop,tp
+4,src/PrivatePool.sol#L238,Cache array length pre-loop,tp
+5,src/EthRouter.sol#L106,Use pre-increment,tp
+6,src/Factory.sol#L119,Use pre-increment,tp
+7,src/PrivatePool.sol#L238,Use pre-increment,tp
+8,src/EthRouter.sol#L106,Using unchecked blocks,tp
+9,src/Factory.sol#L119,Using unchecked blocks,tp
+10,src/PrivatePool.sol#L238,Using unchecked blocks,tp
+11,src/EthRouter.sol#L121,Use != 0 instead of > 0 for unsigned integer comparison,tp
+12,src/Factory.sol#L87,Use != 0 instead of > 0 for unsigned integer comparison,tp
+13,src/PrivatePool.sol#L225,Use != 0 instead of > 0 for unsigned integer comparison,tp

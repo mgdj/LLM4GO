@@ -1,0 +1,12 @@
+,file,type,status
+22,src/wxETH.sol#L62,Optimize bool variables,tp
+23,src/CVXStaker.sol#L191,Cache array length pre-loop,tp
+24,src/CVXStaker.sol#L78,Mark revert functions payable,tp
+25,src/CVXStaker.sol#L126,Mark revert functions payable,tp
+26,src/CVXStaker.sol#L146,Mark revert functions payable,tp
+27,src/CVXStaker.sol#L159,Mark revert functions payable,tp
+28,src/xETH.sol#L37,Mark revert functions payable,tp
+29,src/CVXStaker.sol#L191,Use pre-increment,tp
+30,src/AMO2.sol#L116-120,Using private for constants,tp
+31,src/wxETH.sol#L47-50,Using private for constants,tp
+32,src/CVXStaker.sol#L150,Use != 0 instead of > 0 for unsigned integer comparison,fp

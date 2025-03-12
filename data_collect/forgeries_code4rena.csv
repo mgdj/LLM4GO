@@ -1,0 +1,12 @@
+,file,type
+1,/src/interfaces/IVRFNFTRandomDraw.sol#L59-L68,Optimize variable storage layout
+2,/src/interfaces/IVRFNFTRandomDraw.sol#L71-L90,Optimize variable storage layout
+3,/src/VRFNFTRandomDraw.sol#L75-L138,Cache re-reading state variables
+4,/src/VRFNFTRandomDraw.sol#L141-L169,Cache re-reading state variables
+5,/src/VRFNFTRandomDraw.sol#L277-L300,Cache re-reading state variables
+6,/src/VRFNFTRandomDraw.sol#L304-L320,Cache re-reading state variables
+7,/src/VRFNFTRandomDraw.sol#L112-L115,Using unchecked blocks
+8,/src/ownable/OwnableUpgradeable.sol#L119-L125,merge functions
+9,/src/VRFNFTRandomDrawFactory.sol#L21,Using private for constants
+10,/src/VRFNFTRandomDraw.sol#L173,Mark revert functions payable
+11,/src/VRFNFTRandomDraw.sol#L304,Mark revert functions payable

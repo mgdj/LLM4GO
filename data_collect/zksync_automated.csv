@@ -1,0 +1,66 @@
+,file,type,status
+1,contracts/ethereum/contracts/bridge/L1SharedBridge.sol#L160,Use = over +=,fp
+2,contracts/ethereum/contracts/state-transition/chain-deps/facets/Executor.sol#L602,Use = over +=,fp
+3,contracts/ethereum/contracts/state-transition/libraries/TransactionValidator.sol#L83,Use = over +=,fp
+4,system-contracts/contracts/BootloaderUtilities.sol#L97,Use = over +=,fp
+5,system-contracts/contracts/Compressor.sol#L61,Use = over +=,fp
+6,system-contracts/contracts/ContractDeployer.sol#L271,Use = over +=,fp
+7,system-contracts/contracts/L2BaseToken.sol#L46,Use = over +=,fp
+8,system-contracts/contracts/SystemContext.sol#L272,Use = over +=,fp
+9,contracts/ethereum/contracts/bridge/L1ERC20Bridge.sol#L27,Optimize bool variables,tp
+10,contracts/ethereum/contracts/bridge/L1SharedBridge.sol#L57-61,Optimize bool variables,tp
+11,contracts/ethereum/contracts/bridgehub/Bridgehub.sol#L21-23,Optimize bool variables,tp
+12,contracts/ethereum/contracts/state-transition/ValidatorTimelock.sol#L50,Optimize bool variables,tp
+13,contracts/ethereum/contracts/state-transition/chain-deps/ZkSyncStateTransitionStorage.sol#L74,Optimize bool variables,tp
+14,contracts/ethereum/contracts/governance/Governance.sol#L225,Cache array length pre-loop,tp
+15,contracts/ethereum/contracts/state-transition/ValidatorTimelock.sol#L116,Cache array length pre-loop,tp
+16,contracts/ethereum/contracts/state-transition/chain-deps/facets/Executor.sol#L137,Cache array length pre-loop,tp
+17,contracts/ethereum/contracts/upgrades/BaseZkSyncUpgrade.sol#L226,Cache array length pre-loop,tp
+18,system-contracts/contracts/Compressor.sol#L61,Cache array length pre-loop,tp
+19,contracts/ethereum/contracts/bridge/L1ERC20Bridge.sol#L64,Use custom errors,tp
+20,contracts/ethereum/contracts/bridge/L1SharedBridge.sol#L69,Use custom errors,tp
+21,contracts/ethereum/contracts/bridgehub/Bridgehub.sol#L43,Use custom errors,tp
+22,contracts/ethereum/contracts/common/ReentrancyGuard.sol#L58,Use custom errors,tp
+23,contracts/ethereum/contracts/common/libraries/L2ContractHelper.sol#L23,Use custom errors,tp
+24,contracts/ethereum/contracts/governance/Governance.sol#L42,Use custom errors,tp
+25,system-contracts/contracts/SystemContext.sol#L219,Use custom errors,tp
+26,system-contracts/contracts/NonceHolder.sol#L66,Use custom errors,tp
+27,system-contracts/contracts/L1Messenger.sol#L208,Use custom errors,tp
+28,system-contracts/contracts/DefaultAccount.sol#L100,Use custom errors,tp
+29,system-contracts/contracts/Compressor.sol#L63,Use custom errors,tp
+30,contracts/ethereum/contracts/bridge/L1SharedBridge.sol#L116,Mark revert functions payable,tp
+31,contracts/ethereum/contracts/bridgehub/Bridgehub.sol#L57,Mark revert functions payable,tp
+32,contracts/ethereum/contracts/governance/Governance.sol#L129,Mark revert functions payable,tp
+33,contracts/ethereum/contracts/state-transition/StateTransitionManager.sol#L98,Mark revert functions payable,tp
+34,contracts/ethereum/contracts/state-transition/ValidatorTimelock.sol#L73,Mark revert functions payable,tp
+35,contracts/ethereum/contracts/state-transition/chain-deps/facets/Admin.sol#L23,Mark revert functions payable,tp
+36,contracts/ethereum/contracts/state-transition/chain-deps/facets/Executor.sol#L340,Mark revert functions payable,tp
+37,contracts/ethereum/contracts/state-transition/chain-deps/facets/Mailbox.sol#L38,Mark revert functions payable,tp
+38,system-contracts/contracts/AccountCodeStorage.sol#L35,Mark revert functions payable,tp
+39,system-contracts/contracts/SystemContext.sol#L84,Mark revert functions payable,tp
+40,system-contracts/contracts/NonceHolder.sol#L65,Mark revert functions payable,tp
+41,contracts/ethereum/contracts/state-transition/chain-deps/facets/Executor.sol#L633,Use pre-increment,tp
+42,system-contracts/contracts/Compressor.sol#L135,Use pre-increment,tp
+43,system-contracts/contracts/L1Messenger.sol#L109,Use pre-increment,tp
+44,system-contracts/contracts/PubdataChunkPublisher.sol#L36,Use pre-increment,tp
+45,contracts/ethereum/contracts/common/Config.sol#L14,Use bitwise shifts,tp
+46,contracts/ethereum/contracts/common/libraries/L2ContractHelper.sol#L25,Use bitwise shifts,tp
+47,contracts/ethereum/contracts/state-transition/StateTransitionManager.sol#L64,Use bitwise shifts,tp
+48,contracts/ethereum/contracts/state-transition/libraries/LibMap.sol#L23-27,Use bitwise shifts,tp
+49,system-contracts/contracts/Compressor.sol#L52-57,Use bitwise shifts,tp
+50,system-contracts/contracts/BootloaderUtilities.sol#L97,Use bitwise shifts,tp
+51,contracts/ethereum/contracts/common/libraries/L2ContractHelper.sol#L41,Splitting require statements,tp
+52,system-contracts/contracts/KnownCodesStorage.sol#L79,Splitting require statements,tp
+53,contracts/ethereum/contracts/governance/Governance.sol#L225,Using unchecked blocks,tp
+54,contracts/ethereum/contracts/state-transition/ValidatorTimelock.sol#L116,Using unchecked blocks,tp
+55,contracts/ethereum/contracts/state-transition/chain-deps/facets/Executor.sol#L633,Using unchecked blocks,tp
+56,contracts/ethereum/contracts/upgrades/BaseZkSyncUpgrade.sol#L226,Using unchecked blocks,tp
+57,system-contracts/contracts/ImmutableSimulator.sol#L38,Using unchecked blocks,tp
+58,system-contracts/contracts/L1Messenger.sol#L210,Using unchecked blocks,tp
+59,contracts/ethereum/contracts/bridge/L1SharedBridge.sol#L122,Use != 0 instead of > 0 for unsigned integer comparison,fp
+60,contracts/ethereum/contracts/bridgehub/Bridgehub.sol#L309,Use != 0 instead of > 0 for unsigned integer comparison,fp
+61,contracts/ethereum/contracts/state-transition/chain-deps/facets/Executor.sol#L424,Use != 0 instead of > 0 for unsigned integer comparison,fp
+62,contracts/ethereum/contracts/state-transition/libraries/Diamond.sol#L07,Use != 0 instead of > 0 for unsigned integer comparison,fp
+63,system-contracts/contracts/AccountCodeStorage.sol#L102,Use != 0 instead of > 0 for unsigned integer comparison,fp
+64,system-contracts/contracts/ContractDeployer.sol#L325,Use != 0 instead of > 0 for unsigned integer comparison,fp
+65,system-contracts/contracts/SystemContext.sol#L222,Use != 0 instead of > 0 for unsigned integer comparison,fp

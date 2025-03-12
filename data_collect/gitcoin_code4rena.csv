@@ -1,0 +1,5 @@
+,file,type
+1,/id-staking-v2/contracts/IdentityStaking.sol#L338,check before updating state variable with same value
+2,/id-staking-v2/contracts/IdentityStaking.sol#L247,check before updating state variable with same value
+3,/id-staking-v2/contracts/IdentityStaking.sol#L467,creating memory variable or emitting should be outside of loop
+4,/id-staking-v2/contracts/IdentityStaking.sol#L497,creating memory variable or emitting should be outside of loop

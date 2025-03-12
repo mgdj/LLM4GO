@@ -1,0 +1,37 @@
+,,type,file,status
+205,expression reduction,Optimize bool variables,src/FighterFarm.sol,tp
+206,expression reduction,Optimize bool variables,src/GameItems.sol,tp
+207,expression reduction,Optimize bool variables,src/MergingPool.sol,tp
+208,expression reduction,Optimize bool variables,src/Neuron.sol,tp
+209,expression reduction,Optimize bool variables,src/RankedBattle.sol,tp
+210,expression reduction,Optimize bool variables,src/VoltageManager.sol,tp
+211,loop variable,Cache array length pre-loop,src/FighterFarm.sol,tp
+212,state variable,Cache re-reading state variables,src/FighterFarm.sol,tp
+213,state variable,Cache re-reading state variables,src/GameItems.sol,tp
+214,state variable,Cache re-reading state variables,src/Neuron.sol,tp
+215,efficient calculation,Use calldata for immutable arguments,src/AiArenaHelper.sol,tp
+216,efficient calculation,Use calldata for immutable arguments,src/AiArenaHelper.sol,tp
+217,efficient calculation,Use calldata for immutable arguments,src/GameItems.sol,tp
+218,expression reduction,Use custom errors,src/AiArenaHelper.sol,tp
+219,expression reduction,Use custom errors,src/FighterFarm.sol,tp
+220,expression reduction,Use custom errors,src/GameItems.sol,tp
+221,expression reduction,Use custom errors,src/MergingPool.sol,tp
+222,expression reduction,Use custom errors,src/Neuron.sol,tp
+223,expression reduction,Use custom errors,src/RankedBattle.sol,tp
+224,expression reduction,Use custom errors,src/StakeAtRisk.sol,tp
+225,loop variable,Use pre-increment,src/AiArenaHelper.sol,tp
+226,loop variable,Use pre-increment,src/AiArenaHelper.sol,tp
+227,loop variable,Use pre-increment,src/FighterFarm.sol,tp
+228,loop variable,Use pre-increment,src/MergingPool.sol,tp
+229,loop variable,Use pre-increment,src/Neuron.sol,tp
+230,loop variable,Use pre-increment,src/RankedBattle.sol,tp
+231,expression reduction,Using private for constants,src/FighterFarm.sol,tp
+232,expression reduction,Using private for constants,src/Neuron.sol,tp
+233,expression reduction,Using private for constants,src/RankedBattle.sol,tp
+234,efficient calculation,Splitting require statements,src/FighterFarm.sol,tp
+235,,Use != 0 instead of > 0 for unsigned integer comparison,src/AiArenaHelper.sol#102,fp
+,,Use != 0 instead of > 0 for unsigned integer comparison,src/GameItems.sol#L258,fp
+,,Use != 0 instead of > 0 for unsigned integer comparison,src/MergingPool.sol#L164,fp
+,,Use != 0 instead of > 0 for unsigned integer comparison,src/RankedBattle.sol#L235,fp
+,,Use != 0 instead of > 0 for unsigned integer comparison,src/StakeAtRisk.sol#L2,fp
+,,Use != 0 instead of > 0 for unsigned integer comparison,src/VoltageManager.sol#L95,fp

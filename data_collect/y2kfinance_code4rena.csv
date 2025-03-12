@@ -1,0 +1,16 @@
+,file,type
+1,src/SemiFungibleVault.sol#L91,Use custom errors
+2,src/SemiFungibleVault.sol#L165,Use custom errors
+3,src/oracles/PegOracle.sol#L23-25,Use custom errors
+4,src/rewards/StakingRewards.sol#L96,Use custom errors
+5,src/Controller.sol#L148,merge functions
+6,src/Controller.sol#L199-120,Cache re-reading state variables
+7,src/oracles/PegOracle.sol#L29,Cache re-reading state variables
+8,src/rewards/RewardsFactory.sol#L90-91,Cache re-reading state variables
+9,src/Controller.sol#L67-111,merge functions
+10,src/Vault.sol#L85-100,merge functions
+11,src/Vault.sol#L54,Optimize bool variables
+12,src/Vault.sol#L188-190,Cache re-reading state variables
+13,src/VaultFactory.sol#L188,Cache re-reading state variables
+14,src/oracles/PegOracle.sol#L29,Cache re-reading state variables
+15,src/rewards/StakingRewards.sol#L160,Cache re-reading state variables

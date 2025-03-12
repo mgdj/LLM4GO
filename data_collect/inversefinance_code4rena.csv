@@ -1,0 +1,17 @@
+,file,type
+1,src/DBR.sol#L11-12,Declare immutable for efficiency
+2,src/BorrowController.sol#L17,merge functions
+3,src/DBR.sol#L44,merge functions
+4,src/Market.sol#L92,merge functions
+5,src/Oracle.sol#L35,merge functions
+6,src/DBR.sol,Repetitive code optimization
+7,src/DBR.sol#L110,Using unchecked blocks
+8,src/Fed.sol#L124,Using unchecked blocks
+9,src/Market.sol#L521,Using unchecked blocks
+10,src/Market.sol#L53,Optimize variable storage layout
+11,src/Market.sol#L213,Repetitive code optimization
+12,src/DBR.sol#L174,Use = over +=
+13,src/Market.sol#L395,Use = over +=
+14,src/DBR.sol#L341,merge functions
+15,src/DBR.sol#L286,Cache re-reading state variables
+16,src/Market.sol#L391,Cache re-reading state variables

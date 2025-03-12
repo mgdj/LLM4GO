@@ -1,0 +1,8 @@
+,file,type,status
+1,src/PrelaunchPoints.sol#L420,Use assembly,tp
+2,src/PrelaunchPoints.sol#L35-48,Optimize bool variables,tp
+3,src/PrelaunchPoints.sol#L478,Cache re-reading state variables,tp
+4,src/PrelaunchPoints.sol#L96-97,Declare immutable for efficiency,tp
+5,src/PrelaunchPoints.sol#L303,Mark revert functions payable,tp
+6,src/PrelaunchPoints.sol#L107,Use pre-increment,tp
+7,src/PrelaunchPoints.sol#L28-47,Using private for constants,tp

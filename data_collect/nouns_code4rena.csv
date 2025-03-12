@@ -1,0 +1,37 @@
+,file,type
+1,/contracts/governance/NounsDAOExecutorV2.sol#L89-L91,Optimize variable storage layout
+2,/contracts/governance/NounsDAOExecutor.sol#L66-L68,Optimize variable storage layout
+3,/contracts/governance/fork/newdao/NounsAuctionHouseFork.sol#L50-L69,Optimize variable storage layout
+4,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L48-L85,Optimize variable storage layout
+5,/contracts/governance/NounsDAOInterfaces.sol#L380-L403,Optimize variable storage layout
+6,/contracts/governance/NounsDAOInterfaces.sol#L653-L717,Optimize variable storage layout
+7,/contracts/governance/NounsDAOLogicV3.sol#L278-L288,Use calldata for immutable arguments
+8,/contracts/governance/NounsDAOLogicV3.sol#L313-L322,Use calldata for immutable arguments
+9,/contracts/governance/NounsDAOLogicV3.sol#L338-L355,Use calldata for immutable arguments
+10,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L206-L216,Use calldata for immutable arguments
+11,/contracts/governance/NounsDAOExecutorV2.sol#L130-L148,Use calldata for immutable arguments
+12,/contracts/governance/NounsDAOExecutor.sol#L107-L125,Use calldata for immutable arguments
+13,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L218-L245,Cache state variables before loops
+14,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L148-L157,Cache state variables before loops
+15,/contracts/governance/NounsDAOLogicV2.sol#L206-L213,Cache re-reading state variables
+16,/contracts/governance/NounsDAOLogicV2.sol#L325-L329,Cache re-reading state variables
+17,/contracts/governance/NounsDAOLogicV2.sol#L389-L396,Cache re-reading state variables
+18,/contracts/governance/fork/newdao/NounsAuctionHouseFork.sol#L261-L265,Cache re-reading state variables
+19,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L777-L779,Cache re-reading state variables
+20,/contracts/governance/NounsDAOLogicV2.sol#L143-L161,Reorder comparison statement
+21,/contracts/governance/NounsDAOLogicV2.sol#L204-L221,Reorder comparison statement
+22,/contracts/governance/NounsDAOLogicV2.sol#L615-L617,Reorder comparison statement
+23,/contracts/governance/NounsDAOLogicV2.sol#L644-L651,Reorder comparison statement
+24,/contracts/governance/NounsDAOLogicV2.sol#L663-L669,Reorder comparison statement
+25,/contracts/governance/NounsDAOLogicV2.sol#L702-L711,Reorder comparison statement
+26,/contracts/governance/NounsDAOProxy.sol#L78-L80,Reorder comparison statement
+27,/contracts/governance/NounsDAOLogicV3.sol#L150-L153,Reorder comparison statement
+28,/contracts/governance/NounsDAOV3Admin.sol#L351-L365,Reorder comparison statement
+29,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L176-L178,Reorder comparison statement
+30,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L646-L650,Reorder comparison statement
+31,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L166-L185,Reorder comparison statement
+32,/contracts/governance/fork/newdao/token/base/ERC721CheckpointableUpgradeable.sol#L145-L154,Reorder comparison statement
+33,/contracts/base/ERC721Checkpointable.sol#L243-L245,Splitting require statements
+34,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L381-L383,Splitting require statements
+35,/contracts/governance/fork/NounsDAOV3Fork.sol#L141-L160,Skip single-use local variables
+36,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L166-L185,Skip single-use local variables

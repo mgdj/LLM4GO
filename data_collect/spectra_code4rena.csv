@@ -1,0 +1,13 @@
+,file,type
+1,main/src/tokens/PrincipalToken.sol#L52-L53,Optimize variable storage layout
+2,src/tokens/PrincipalToken.sol#L560C5-L578C6,Reorder comparison statement
+3,src/tokens/PrincipalToken.sol#L59,Optimize variable storage layout
+4,src/tokens/PrincipalToken.sol#L446C1-L451C6,Function modifier removal or reordering
+5,src/tokens/PrincipalToken.sol#L828C1-L842C6,Function modifier removal or reordering
+6,src/libraries/PrincipalTokenUtil.sol#L55C1-L130C6,Cache re-reading state variables
+7,src/tokens/PrincipalToken.sol#L750-L754,Function modifier removal or reordering
+8,src/tokens/PrincipalToken.sol#L906C2-L914C6,Cache re-reading state variables
+9,src/tokens/PrincipalToken.sol#L414-L416,Cache re-reading state variables
+10,/src/libraries/PrincipalTokenUtil.sol#L75C12-L75C86,Using unchecked blocks
+11,/src/libraries/PrincipalTokenUtil.sol#L104C21-L105C65,Using unchecked blocks
+12,src/proxy/AMTransparentUpgradeableProxy.sol#L88-102,merge functions

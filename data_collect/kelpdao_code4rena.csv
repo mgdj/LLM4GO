@@ -1,0 +1,8 @@
+,file,type
+1,/src/utils/LRTConfigRoleChecker.sol#L47,merge functions
+2,/src/LRTDepositPool.sol#L202,Remove unused variables/functions
+3,/src/NodeDelegator.sol#L38,Skip single-use local variables
+4,/src/NodeDelegator.sol#L51,Skip single-use local variables
+5,/src/NodeDelegator.sol#L74,Skip single-use local variables
+6,/src/NodeDelegator.sol#L121,Skip single-use local variables
+7,/src/LRTDepositPool.sol#L183,Skip single-use local variables

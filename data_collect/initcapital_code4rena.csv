@@ -1,0 +1,4 @@
+,file,type
+1,/contracts/core/InitCore.sol#L513,Remove unnecessary casting/expression
+2,/contracts/core/InitCore.sol#L572,Remove unnecessary casting/expression
+3,/contracts/core/InitCore.sol#L203-204,Cache state variables before loops

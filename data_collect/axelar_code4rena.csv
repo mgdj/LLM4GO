@@ -1,0 +1,17 @@
+,file,type
+1,/contracts/its/remote-address-validator/RemoteAddressValidator.sol,merge functions
+2,/contracts/its/interchain-token-service/InterchainTokenService.sol#L422,Use calldata for immutable arguments
+3,/contracts/its/interchain-token-service/InterchainTokenService.sol#L467,Use calldata for immutable arguments
+4,/contracts/cgp/auth/MultisigBase.sol#L142,Use calldata for immutable arguments
+5,/contracts/interchain-governance-executor/InterchainProposalSender.sol#L80,Use calldata for immutable arguments
+6,/contracts/gmp-sdk/deploy/ConstAddressDeployer.sol#L24,Use calldata for immutable arguments
+7,/contracts/gmp-sdk/deploy/ConstAddressDeployer.sol#L43,Use calldata for immutable arguments
+8,/contracts/cgp/auth/MultisigBase.sol#L15-21,Optimize bool variables
+9,/contracts/cgp/governance/AxelarServiceGovernance.sol#L22,Optimize bool variables
+10,/contracts/interchain-governance-executor/InterchainProposalExecutor.sol#L24-27,Optimize bool variables
+11,/contracts/cgp/auth/MultisigBase.sol#L172-173,Reorder comparison statement
+12,/contracts/cgp/AxelarGateway.sol#L274,Emit/require/revert/return before state update
+13,/contracts/its/remote-address-validator/RemoteAddressValidator.sol#L58,Splitting require statements
+14,/contracts/cgp/AxelarGateway.sol#L88,Splitting require statements
+15,/contracts/cgp/AxelarGateway.sol#L446,Splitting require statements
+16,/contracts/cgp/AxelarGateway.sol#L635,Splitting require statements

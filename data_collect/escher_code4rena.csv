@@ -1,0 +1,13 @@
+,file,type
+1,src/minters/LPDA.sol,Optimize variable storage layout
+2,src/minters/FixedPrice.sol,Cache re-reading state variables
+3,src/minters/OpenEdition.sol,Cache re-reading state variables
+4,src/minters/FixedPrice.sol,Using unchecked blocks
+5,src/minters/LPDA.sol,Using unchecked blocks
+6,src/minters/OpenEdition.sol,Using unchecked blocks
+7,src/minters/OpenEdition.sol,merge functions
+8,src/minters/FixedPrice.sol,merge functions
+9,src/minters/FixedPrice.sol,Use pre-increment
+10,src/minters/LPDA.sol,Use pre-increment
+11,src/minters/OpenEdition.sol,Use pre-increment
+12,src/minters/LPDA.sol,Use = over +=

@@ -1,0 +1,9 @@
+,file,type,status
+1,contracts/staking/NeoTokyoStaker.sol#L511,Optimize bool variables,tp
+2,contracts/staking/NeoTokyoStaker.sol#L717,Cache array length pre-loop,tp
+3,contracts/staking/NeoTokyoStaker.sol#L728,Use pre-increment,tp
+4,contracts/staking/BYTES2.sol#L37,Using private for constants,tp
+5,contracts/staking/NeoTokyoStaker.sol#L206-230,Using private for constants,tp
+6,contracts/staking/BYTES2.sol#L152,Use bitwise shifts,tp
+7,contracts/staking/BYTES2.sol#L123,Use != 0 instead of > 0 for unsigned integer comparison,fp
+8,contracts/staking/NeoTokyoStaker.sol#L1477,Use != 0 instead of > 0 for unsigned integer comparison,fp

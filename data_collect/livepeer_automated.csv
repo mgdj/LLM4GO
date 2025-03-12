@@ -1,0 +1,29 @@
+,file,type,status
+15,BondingManager.sol#L253-254,Use custom errors,tp
+16,BondingManager.sol#L279-281,Use custom errors,tp
+17,BondingManager.sol#L491-499,Use custom errors,tp
+18,BondingManager.sol#L754-755,Use custom errors,tp
+19,GovernorCountingOverridable.sol#L154-158,Use = over +=,fp
+20,GovernorCountingOverridable.sol#L193,Use = over +=,fp
+21,GovernorCountingOverridable.sol#L202-207,Use = over +=,fp
+22,BondingManager.sol#L156,Check value before state update,tp
+23,BondingManager.sol#L463,Check value before state update,fp
+24,BondingManager.sol#L462,Cache re-reading state variables,fp
+25,BondingVotes.sol#L325,Cache re-reading state variables,fp
+26,BondingManager.sol#L1459,Remove unused variables/functions,fp
+27,BondingVotes.sol#L387,Remove unused variables/functions,fp
+28,GovernorCountingOverridable.sol#L64,Remove unused variables/functions,fp
+29,BondingManager.sol#L155,Mark revert functions payable,tp
+30,BondingManager.sol#L394,Mark revert functions payable,tp
+31,BondingVotes.sol#L258-266,Mark revert functions payable,tp
+32,BondingManager.sol#L343,Splitting require statements,tp
+33,BondingManager.sol#L719,Splitting require statements,tp
+34,Remove or replace unused state variables#L224,Remove unused variables/functions,tp
+35,BondingManager.sol#l279,use inline assembly for arithmetic operations,tp
+36,BondingVotes.sol#L337,use inline assembly for arithmetic operations,tp
+37,Treasury.sol#L16-21,Use calldata for immutable arguments,tp
+38,BondingManager.sol#L402,Use != 0 instead of > 0 for unsigned integer comparison,tp
+39,BondingVotes.sol#L306,Use != 0 instead of > 0 for unsigned integer comparison,tp
+40,EarningsPoolLIP36.sol#l18,Cache re-reading state variables,fp*
+41,BondingVotes.sol#L303,Cache re-reading state variables,fp
+42,BondingManager.sol#L485,Cache re-reading state variables,fp

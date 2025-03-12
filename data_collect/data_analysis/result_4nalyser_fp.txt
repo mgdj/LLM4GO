@@ -1,0 +1,13 @@
+use != 0 instead of > 0 for unsigned integer comparison: 95
+use = over +=: 46
+cache re-reading state variables: 27
+remove unused variables/functions: 23
+use bitwise shifts: 13
+mark revert functions payable: 9
+use pre-increment: 6
+functions guaranteed to revert when called by normal users can be marked payable: 3
+avoid declaring unused variables or unused internal function: 2
+using private for constants: 2
+repetitive code optimization: 1
+check value before state update: 1
+cache array length pre-loop: 1

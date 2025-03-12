@@ -1,0 +1,51 @@
+,file,type,status
+37,/contracts/governance/NounsDAOLogicV2.sol#L305,Cache array length pre-loop,tp
+38,/contracts/governance/NounsDAOV3Admin.sol#L602,Cache array length pre-loop,tp
+39,/contracts/governance/NounsDAOV3Proposals.sol#L409,Cache array length pre-loop,tp
+40,/contracts/governance/fork/NounsDAOForkEscrow.sol#L117,Cache array length pre-loop,tp
+41,/contracts/governance/fork/NounsDAOV3Fork.sol#L83,Cache array length pre-loop,tp
+42,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L209,Cache array length pre-loop,tp
+43,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L149,Cache array length pre-loop,tp
+44,/contracts/governance/NounsDAOLogicV2.sol#L305,Use pre-increment,tp
+45,/contracts/governance/NounsDAOV3Admin.sol#L602,Use pre-increment,tp
+46,/contracts/governance/NounsDAOV3Proposals.sol#L409,Use pre-increment,tp
+47,/contracts/governance/fork/NounsDAOForkEscrow.sol#L117,Use pre-increment,tp
+48,/contracts/governance/fork/NounsDAOV3Fork.sol#L83,Use pre-increment,tp
+49,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L209,Use pre-increment,tp
+50,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L149,Use pre-increment,tp
+51,/contracts/governance/NounsDAOV3Admin.sol#L162,Mark revert functions payable,tp
+52,/contracts/governance/fork/NounsDAOForkEscrow.sol#L116,Mark revert functions payable,tp
+53,/contracts/governance/fork/newdao/NounsAuctionHouseFork.sol#L159,Mark revert functions payable,tp
+54,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L198,Mark revert functions payable,tp
+55,/contracts/governance/NounsDAOLogicV2.sol#L1010,Use bitwise shifts,tp
+56,/contracts/governance/NounsDAOV3DynamicQuorum.sol#L110,Use bitwise shifts,tp
+57,/contracts/governance/fork/newdao/token/base/ERC721CheckpointableUpgradeable.sol#L196,Use bitwise shifts,tp
+58,/contracts/governance/NounsDAOV3Proposals.sol#L592,Use = over +=,fp
+59,/contracts/governance/NounsDAOV3Proposals.sol#L839,Use = over +=,fp
+60,/contracts/governance/fork/NounsDAOForkEscrow.sol#L124,Use = over +=,tp
+61,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L156,Use = over +=,tp
+62,/contracts/governance/NounsDAOExecutor.sol#L62-L64,Using private for constants,tp
+63,/contracts/governance/NounsDAOV3Admin.sol#L112-148,Using private for constants,tp
+64,/contracts/governance/NounsDAOV3Proposals.sol#L139-149,Using private for constants,tp
+65,/contracts/governance/NounsDAOV3Votes.sol#L44-63,Using private for constants,tp
+66,/contracts/governance/fork/newdao/NounsAuctionHouseFork.sol#L48,Using private for constants,tp
+67,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L116-150,Using private for constants,tp
+68,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L46,Using private for constants,tp
+69,/script/DeployDAOV3NewContractsMainnet.s.sol#L8-L11,Using private for constants,tp
+70,/script/DeployDAOV3NewContractsTestnet.s.sol#L8-28,Using private for constants,tp
+71,/script/ProposeENSReverseLookupConfigMainnet.s.sol#L13-15,Using private for constants,tp
+72,/script/ProposeTimelockMigrationCleanupMainnet.s.sol#L13-20,Using private for constants,tp
+73,/contracts/governance/NounsDAOLogicV2.sol#L305,Using unchecked blocks,tp
+74,/contracts/governance/NounsDAOV3Admin.sol#L602,Using unchecked blocks,tp
+75,/contracts/governance/NounsDAOV3Proposals.sol#L409,Using unchecked blocks,tp
+76,/contracts/governance/fork/NounsDAOForkEscrow.sol#L117,Using unchecked blocks,tp
+77,/contracts/governance/fork/NounsDAOV3Fork.sol#L83,Using unchecked blocks,tp
+78,/contracts/governance/fork/newdao/governance/NounsDAOLogicV1Fork.sol#L209,Using unchecked blocks,tp
+79,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L149,Using unchecked blocks,tp
+80,/contracts/governance/NounsDAOProxy.sol#L78,Assembly Tricks,tp
+81,/contracts/governance/fork/newdao/token/base/ERC721CheckpointableUpgradeable.sol#L123,Assembly Tricks,tp
+82,/contracts/governance/NounsDAOExecutor.sol#L70,Optimize bool variables,tp
+83,/contracts/governance/NounsDAOExecutorV2.sol#L93,Optimize bool variables,tp
+84,/contracts/governance/NounsDAOInterfaces.sol#L688,Optimize bool variables,tp
+85,/contracts/governance/fork/newdao/token/NounsTokenFork.sol#L70-76,Optimize bool variables,tp
+86,/script/DeployDAOV3NewContractsBase.s.sol#L27,Optimize bool variables,tp

@@ -1,0 +1,11 @@
+,file,type
+1,/src/LotterySetup.sol#L164,Use calldata for immutable arguments
+2,/src/VRFv2RNSource.sol#L32,Use calldata for immutable arguments
+3,/src/staking/StakedTokenLock.sol#L24,Mark revert functions payable
+4,/src/Lottery.sol#L173,Use = over +=
+5,/src/LotteryMath.sol#L55,Use = over +=
+6,/src/ReferralSystem.sol#L64,Use = over +=
+7,/src/TicketUtils.sol#L29,Use = over +=
+8,/src/staking/StakedTokenLock.sol#L30,Use = over +=
+9,/src/interfaces/ILotterySetup.sol#L63-L78,Optimize variable storage layout
+10,/src/interfaces/ILotterySetup.sol#L53-L60,Optimize variable storage layout

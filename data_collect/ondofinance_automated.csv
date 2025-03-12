@@ -1,0 +1,20 @@
+,file,type,status
+7,DestinationBridge.sol#L134,Cache array length pre-loop,tp
+8,SourceBridge.sol#L164,Cache array length pre-loop,tp
+9,rUSDYFactory.sol#L130,Cache array length pre-loop,tp
+10,DestinationBridge.sol#L48,Using private for constants,tp
+11,SourceBridge.sol#L24,Using private for constants,tp
+12,RWADynamicOracle.sol#L23-28,Using private for constants,tp
+13,SourceBridge.sol#L168,Use custom errors,tp
+14,rUSDY.sol#L307,Use custom errors,tp
+15,rUSDY.sol#L139-140,Check value before state update,tp
+16,DestinationBridge.sol#L43-45,Optimize bool variables,tp
+17,rUSDY.sol#L543,Cache re-reading state variables,fp
+18,rUSDYFactory.sol#L75,Cache re-reading state variables,fp
+19,DestinationBridge.sol#L20,Mark revert functions payable,tp
+20,SourceBridge.sol#L121,Mark revert functions payable,tp
+21,RWADynamicOracle.sol#L151,Mark revert functions payable,tp
+22,rUSDY.sol#L62,Mark revert functions payable,tp
+23,RWADynamicOracle.sol#L201,Splitting require statements,tp
+24,SourceBridge.sol#L121-124,Use calldata for immutable arguments,tp
+25,rUSDY.sol#L633,Splitting require statements,tp

@@ -1,0 +1,104 @@
+,file,type,status
+20,contracts/core/RdpxV2Core.sol#L103,Remove unused variables/functions,tp
+21,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L52,Remove unused variables/functions,tp
+22,contracts/amo/UniV3LiquidityAmo.sol#L82#L85#L88,Declare immutable,tp
+23,contracts/perp-vault/PerpetualAtlanticVault.sol,Declare immutable,tp
+24,contracts/core/RdpxV2Core.sol#L126,Declare immutable,tp
+25,contracts/perp-vault/PerpetualAtlanticVaultLP.sol,Declare immutable,tp
+26,contracts/amo/UniV3LiquidityAmo.sol#L193,Cache re-reading state variables,fp
+27,contracts/amo/UniV3LiquidityAmo.sol#L253-257,Cache re-reading state variables,tp
+28,contracts/amo/UniV3LiquidityAmo.sol#L164,Cache re-reading state variables,fp
+29,contracts/amo/UniV3LiquidityAmo.sol#L304,Cache re-reading state variables,fp
+30,contracts/amo/UniV3LiquidityAmo.sol#L358-361,Cache re-reading state variables,tp
+31,contracts/core/RdpxV2Core.sol#L370,Cache re-reading state variables,fp
+32,contracts/core/RdpxV2Core.sol#L343-345,Cache re-reading state variables,tp
+33,contracts/core/RdpxV2Core.sol#L549,Cache re-reading state variables,fp
+34,contracts/core/RdpxV2Core.sol#L122-123,Cache re-reading state variables,fp
+35,contracts/amo/UniV2LiquidityAmo.sol#L147,Cache array length pre-loop,tp
+36,contracts/amo/UniV3LiquidityAmo.sol#L120,Cache array length pre-loop,tp
+37,contracts/core/RdpxV2Core.sol#L167,Cache array length pre-loop,tp
+38,contracts/core/RdpxV2Core.sol#L246,Cache array length pre-loop,tp
+39,contracts/core/RdpxV2Core.sol#L775,Cache array length pre-loop,tp
+40,contracts/core/RdpxV2Core.sol#L836,Cache array length pre-loop,tp
+41,contracts/core/RdpxV2Core.sol#L996,Cache array length pre-loop,tp
+42,contracts/decaying-bonds/RdpxDecayingBonds.sol#L103,Cache array length pre-loop,tp
+43,contracts/perp-vault/PerpetualAtlanticVault.sol#L225,Cache array length pre-loop,tp
+44,contracts/perp-vault/PerpetualAtlanticVault.sol#L328,Cache array length pre-loop,tp
+45,contracts/perp-vault/PerpetualAtlanticVault.sol#L413,Cache array length pre-loop,tp
+46,contracts/amo/UniV2LiquidityAmo.sol#L147,Using unchecked blocks,tp
+47,contracts/amo/UniV3LiquidityAmo.sol#L120,Using unchecked blocks,tp
+48,contracts/core/RdpxV2Core.sol#L167,Using unchecked blocks,tp
+49,contracts/core/RdpxV2Core.sol#L246,Using unchecked blocks,tp
+50,contracts/core/RdpxV2Core.sol#L775,Using unchecked blocks,tp
+51,contracts/core/RdpxV2Core.sol#L836,Using unchecked blocks,tp
+52,contracts/core/RdpxV2Core.sol#L996,Using unchecked blocks,tp
+53,contracts/decaying-bonds/RdpxDecayingBonds.sol#L103,Using unchecked blocks,tp
+54,contracts/perp-vault/PerpetualAtlanticVault.sol#L225,Using unchecked blocks,tp
+55,contracts/perp-vault/PerpetualAtlanticVault.sol#L328,Using unchecked blocks,tp
+56,contracts/perp-vault/PerpetualAtlanticVault.sol#L413,Using unchecked blocks,tp
+57,contracts/amo/UniV2LiquidityAmo.sol#L83,Splitting require statements,tp
+58,contracts/reLP/ReLPContract.sol#L126,Splitting require statements,tp
+59,contracts/amo/UniV2LiquidityAmo.sol,Using private for constants,tp
+60,contracts/core/RdpxV2Bond.sol,Using private for constants,tp
+61,contracts/perp-vault/PerpetualAtlanticVault.sol,Using private for constants,tp
+62,contracts/amo/UniV2LiquidityAmo.sol#L83,Use custom errors,tp
+63,contracts/amo/UniV2LiquidityAmo.sol#L112,Use custom errors,tp
+64,contracts/amo/UniV2LiquidityAmo.sol#L131-133,Use custom errors,tp
+65,contracts/core/RdpxV2Core.sol#L244-247,Use custom errors,tp
+66,contracts/decaying-bonds/RdpxDecayingBonds.sol#L99,Use custom errors,tp
+67,contracts/decaying-bonds/RdpxDecayingBonds.sol#L120,Use custom errors,tp
+68,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L94,Use custom errors,tp
+69,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L123,Use custom errors,tp
+70,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L162,Use custom errors,tp
+71,contracts/amo/UniV2LiquidityAmo.sol,Mark revert functions payable,tp
+72,contracts/amo/UniV3LiquidityAmo.sol,Mark revert functions payable,tp
+73,contracts/core/RdpxV2Bond.sol,Mark revert functions payable,tp
+74,contracts/core/RdpxV2Core.sol,Mark revert functions payable,tp
+75,contracts/decaying-bonds/RdpxDecayingBonds.sol,Mark revert functions payable,tp
+76,contracts/dpxETH/DpxEthToken.sol,Mark revert functions payable,tp
+77,contracts/perp-vault/PerpetualAtlanticVault.sol,Mark revert functions payable,tp
+78,contracts/perp-vault/PerpetualAtlanticVaultLP.sol,Mark revert functions payable,tp
+79,contracts/reLP/ReLPContract.sol,Mark revert functions payable,tp
+80,contracts/core/RdpxV2Core.sol#L535-539,Use bitwise shifts,tp
+81,contracts/core/RdpxV2Core.sol#L570-579,Use bitwise shifts,tp
+82,contracts/core/RdpxV2Core.sol#L1170-1179,Use bitwise shifts,tp
+83,contracts/perp-vault/PerpetualAtlanticVault.sol#L270,Use bitwise shifts,tp
+84,contracts/reLP/ReLPContract.sol#L274-290,Use bitwise shifts,tp
+85,contracts/core/RdpxV2Bond.sol#L45,Remove unused variables/functions,fp
+86,contracts/core/RdpxV2Core.sol#L556,Use != 0 instead of > 0 for unsigned integer comparison,fp
+87,contracts/perp-vault/PerpetualAtlanticVault.sol#L547,Use != 0 instead of > 0 for unsigned integer comparison,fp
+88,contracts/perp-vault/PerpetualAtlanticVault.sol#L559,Use != 0 instead of > 0 for unsigned integer comparison,fp
+89,contracts/perp-vault/PerpetualAtlanticVault.sol#L597,Use != 0 instead of > 0 for unsigned integer comparison,fp
+90,contracts/amo/UniV2LiquidityAmo.sol#L109,Check value before state update,tp
+91,contracts/core/RdpxV2Core.sol#L180,Check value before state update,tp
+92,contracts/core/RdpxV2Core.sol#L193,Check value before state update,tp
+93,contracts/core/RdpxV2Core.sol#L206,Check value before state update,tp
+94,contracts/core/RdpxV2Core.sol#L216,Check value before state update,tp
+95,contracts/core/RdpxV2Core.sol#L228,Check value before state update,tp
+96,contracts/core/RdpxV2Core.sol#L441,Check value before state update,tp
+97,contracts/core/RdpxV2Core.sol#L455,Check value before state update,tp
+98,contracts/perp-vault/PerpetualAtlanticVault.sol#L237,Check value before state update,tp
+99,contracts/reLP/ReLPContract.sol#L90,Check value before state update,tp
+100,contracts/reLP/ReLPContract.sol#L171,Check value before state update,tp
+101,contracts/reLP/ReLPContract.sol#L186,Check value before state update,tp
+102,contracts/amo/UniV2LiquidityAmo.sol#L235,Use = over +=,tp
+103,contracts/amo/UniV2LiquidityAmo.sol#L283,Use = over +=,tp
+104,contracts/core/RdpxV2Core.sol#L486,Use = over +=,tp
+105,contracts/core/RdpxV2Core.sol#L570,Use = over +=,tp
+106,contracts/core/RdpxV2Core.sol#L681,Use = over +=,fp
+107,contracts/core/RdpxV2Core.sol#L650,Use = over +=,fp
+108,contracts/core/RdpxV2Core.sol#L711,Use = over +=,fp
+109,contracts/core/RdpxV2Core.sol#L720,Use = over +=,fp
+110,contracts/core/RdpxV2Core.sol#L779-780,Use = over +=,fp
+111,contracts/core/RdpxV2Core.sol#L803,Use = over +=,fp
+112,contracts/core/RdpxV2Core.sol#L916,Use = over +=,fp
+113,contracts/core/RdpxV2Core.sol#L964,Use = over +=,fp
+114,contracts/core/RdpxV2Core.sol#L1067,Use = over +=,fp
+115,contracts/core/RdpxV2Core.sol#L1106-1110,Use = over +=,fp
+116,contracts/perp-vault/PerpetualAtlanticVault.sol#L302-307,Use = over +=,fp
+117,contracts/perp-vault/PerpetualAtlanticVault.sol#L440-449,Use = over +=,fp
+118,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L132,Use = over +=,tp
+119,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L164,Use = over +=,tp
+120,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L181-186,Use = over +=,tp
+121,contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L195-L213,Use = over +=,tp
+122,contracts/core/RdpxV2Core.sol,Optimize bool variables,tp

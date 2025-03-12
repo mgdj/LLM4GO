@@ -1,0 +1,26 @@
+,file,type
+1,/contracts/LUSDToken.sol#L37-L71,Optimize variable storage layout
+2,/contracts/ReaperVaultV2.sol#L46-L78,Optimize variable storage layout
+3,/contracts/TroveManager.sol#L21-L66,Optimize variable storage layout
+4,/contracts/LQTY/CommunityIssuance.sol#L21-L46,Optimize variable storage layout
+5,/contracts/abstract/ReaperBaseStrategyv4.sol#L28-L58,Optimize variable storage layout
+6,/contracts/ReaperVaultV2.sol#L25-L33,Optimize variable storage layout
+7,/contracts/ReaperVaultV2.sol#L578-L582,Cache re-reading state variables
+8,/contracts/StabilityPool.sol#L575-L579,Cache re-reading state variables
+9,/contracts/CollateralConfig.sol#L46-L54,Reorder comparison statement
+10,/contracts/CollateralConfig.sol#L85-L100,Reorder comparison statement
+11,/contracts/ActivePool.sol#L71-L94,Reorder comparison statement
+12,/contracts/ActivePool.sol#L125-L130,Reorder comparison statement
+13,/contracts/ReaperVaultV2.sol#L144-L156,Reorder comparison statement
+14,/contracts/ReaperVaultV2.sol#L178-L184,Reorder comparison statement
+15,/contracts/abstract/ReaperBaseStrategyv4.sol#L63-L88,Reorder comparison statement
+16,/contracts/ReaperVaultV2.sol#L319-L338,Cache re-reading state variables
+17,/contracts/ReaperVaultERC4626.sol#L51-L54,Cache re-reading state variables
+18,/contracts/ReaperVaultERC4626.sol#L122-L126,Cache re-reading state variables
+19,/contracts/ReaperVaultV2.sol#L168,Use = over +=
+20,/contracts/ReaperVaultV2.sol#L235,Using unchecked blocks
+21,/contracts/ReaperStrategyGranarySupplyOnly.sol#L81,Using unchecked blocks
+22,/contracts/BorrowerOperations.sol#L653-L654,Using unchecked blocks
+23,/contracts/TroveManager.sol#L1539,Splitting require statements
+24,/contracts/LUSDToken.sol#L347-L351,Splitting require statements
+25,/contracts/ActivePool.sol#L171-L188,Cache re-reading state variables

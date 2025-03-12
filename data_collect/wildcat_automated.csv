@@ -1,0 +1,51 @@
+,file,type,status
+10,WildcatMarketController.sol#L154,Cache array length pre-loop,tp
+11,WildcatMarketController.sol#L170,Cache array length pre-loop,tp
+12,WildcatMarketController.sol#L183,Cache array length pre-loop,tp
+13,StringQuery.sol#L23,Use bitwise shifts,tp
+14,StringQuery.sol#L73,Use bitwise shifts,tp
+15,/src/market/WildcatMarket.sol#L78-85,Use = over +=,fp
+16,/src/market/WildcatMarket.sol#L237,Use = over +=,fp
+17,/src/market/WildcatMarketBase.sol#L682-687,Use = over +=,fp
+18,/src/market/WildcatMarketBase.sol#L716-721,Use = over +=,fp
+19,/src/market/WildcatMarketToken.sol#L85,Use = over +=,fp
+20,/src/market/WildcatMarketWithdrawals.sol#L113-115,Use = over +=,fp
+21,/src/WildcatSanctionsSentinel.sol#L26,Optimize bool variables,tp
+22,/src/access/AccessControlHooks.sol#L91,Optimize bool variables,tp
+23,/src/access/FixedTermLoanHooks.sol#L102,Optimize bool variables,tp
+24,/src/access/AccessControlHooks.sol#L399,Cache array length pre-loop,tp
+25,/src/access/FixedTermLoanHooks.sol#L436,Cache array length pre-loop,tp
+26,/src/market/WildcatMarketWithdrawals.sol#L222,Cache array length pre-loop,tp
+27,/src/HooksFactory.sol#L201,Mark revert functions payable,tp
+28,/src/WildcatArchController.sol#L157,Mark revert functions payable,tp
+29,/src/WildcatArchController.sol#L200,Mark revert functions payable,tp
+30,/src/WildcatArchController.sol#L245,Mark revert functions payable,tp
+31,/src/WildcatArchController.sol#L296,Mark revert functions payable,tp
+32,/src/WildcatArchController.sol#L347,Mark revert functions payable,tp
+33,/src/access/AccessControlHooks.sol#L200,Mark revert functions payable,tp
+34,/src/access/AccessControlHooks.sol#L249,Mark revert functions payable,tp
+35,/src/access/FixedTermLoanHooks.sol#L229,Mark revert functions payable,tp
+36,/src/access/FixedTermLoanHooks.sol#L254,Mark revert functions payable,tp
+37,/src/access/FixedTermLoanHooks.sol#L482,Mark revert functions payable,tp
+38,/src/market/WildcatMarket.sol#L37,Mark revert functions payable,tp
+39,/src/market/WildcatMarket.sol#L146,Mark revert functions payable,tp
+40,/src/market/WildcatMarket.sol#L226,Mark revert functions payable,tp
+41,/src/HooksFactory.sol#L232,Use pre-increment,tp
+42,/src/HooksFactory.sol#L577,Use pre-increment,tp
+43,/src/WildcatArchController.sol#L187,Use pre-increment,tp
+44,/src/WildcatArchController.sol#L276,Use pre-increment,tp
+45,/src/WildcatArchController.sol#L378,Use pre-increment,tp
+46,/src/access/AccessControlHooks.sol#L594,Use pre-increment,tp
+47,/src/access/FixedTermLoanHooks.sol#L274,Use pre-increment,tp
+48,/src/market/WildcatMarketWithdrawals.sol#L310,Use pre-increment,fp
+49,/src/HooksFactory.sol#L232,Using unchecked blocks,tp
+50,/src/HooksFactory.sol#L577,Using unchecked blocks,tp
+51,/src/WildcatArchController.sol#L187,Using unchecked blocks,tp
+52,/src/WildcatArchController.sol#L276,Using unchecked blocks,tp
+53,/src/WildcatArchController.sol#L378,Using unchecked blocks,tp
+54,/src/access/AccessControlHooks.sol#L594,Using unchecked blocks,tp
+55,/src/access/FixedTermLoanHooks.sol#L274,Using unchecked blocks,tp
+56,/src/WildcatSanctionsSentinel.sol#L13,Using private for constants,tp
+57,/src/access/FixedTermLoanHooks.sol#L97,Using private for constants,tp
+58,/src/HooksFactory.sol#L159,Use != 0 instead of > 0 for unsigned integer comparison,fp
+59,/src/HooksFactory.sol#L163,Use != 0 instead of > 0 for unsigned integer comparison,tp

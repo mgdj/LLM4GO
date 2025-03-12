@@ -1,0 +1,7 @@
+,file,type,status
+1,src/VRFNFTRandomDrawFactory.sol#L25,Use assembly,tp
+2,src/ownable/OwnableUpgradeable.sol#L25,Use assembly,tp
+3,src/VRFNFTRandomDraw.sol#L75,Use calldata for immutable arguments,tp
+4,src/VRFNFTRandomDrawFactory.sol#L38,Use calldata for immutable arguments,tp
+5,src/interfaces/IVRFNFTRandomDraw.sol#L95,Use calldata for immutable arguments,tp
+6,src/interfaces/IVRFNFTRandomDrawFactory.sol,Use calldata for immutable arguments,tp

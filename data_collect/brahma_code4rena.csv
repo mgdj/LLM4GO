@@ -1,0 +1,14 @@
+,file,type
+1,/src/core/AddressProvider.sol#L112,Using private for constants
+2,/contracts/src/core/AddressProvider.sol#L121,Using private for constants
+3,/src/core/registries/WalletRegistry.sol#L63,Using private for constants
+4,/src/core/registries/PolicyRegistry.sol#L42-#L66,merge functions
+5,/src/core/PolicyValidator.sol#L162-#L166,Using unchecked blocks
+6,/src/core/PolicyValidator.sol#L63,Skip single-use local variables
+7,/src/core/TransactionValidator.sol#L166,Cache re-reading state variables
+8,/src/libraries/SafeHelper.sol#L111,Cache re-reading state variables
+9,/src/core/PolicyValidator.sol#L26-28,Bytes constants are more efficient than string constants
+10,/src/core/ExecutorPlugin.sol#L53-55,Bytes constants are more efficient than string constants
+11,/src/libraries/TypeHashHelper.sol#L64,Use name return
+12,/src/libraries/TypeHashHelper.sol#L84,Use name return
+13,/src/libraries/SafeHelper.sol#L84,Use name return

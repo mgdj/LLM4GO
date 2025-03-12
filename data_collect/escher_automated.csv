@@ -1,0 +1,22 @@
+,file,type,status
+1,src/minters/LPDAFactory.sol,Use assembly,tp
+2,src/minters/FixedPrice.sol,Cache re-reading state variables,fp
+3,src/Escher.sol#L21,Use calldata for immutable arguments,tp
+4,src/Escher721.sol#L35-36,Use calldata for immutable arguments,tp
+5,src/Escher721Factory.sol#L28-29,Use calldata for immutable arguments,tp
+6,src/minters/OpenEdition.sol#L82,Use calldata for immutable arguments,tp
+7,src/uris/Generative.sol#L14,Use calldata for immutable arguments,tp
+8,src/Escher.sol#L61,Use custom errors,tp
+9,src/Escher721Factory.sol#L32,Use custom errors,tp
+10,src/minters/FixedPrice.sol#L51,Use custom errors,tp
+11,src/minters/FixedPriceFactory.sol#L30-32,Use custom errors,tp
+12,src/minters/LPDA.sol#L62-68,Use custom errors,tp
+13,src/minters/LPDAFactory.sol#L30-36,Use custom errors,tp
+14,src/minters/OpenEdition.sol#L61-63,Use custom errors,tp
+15,src/minters/OpenEditionFactory.sol#L30-32,Use custom errors,tp
+16,src/minters/FixedPrice.sol#L109,Use bitwise shifts,fp
+17,src/minters/LPDA.sol#L84,Use bitwise shifts,fp
+18,src/minters/OpenEdition.sol#L92,Use bitwise shifts,fp
+19,src/minters/LPDA.sol#L103,Use != 0 instead of > 0 for unsigned integer comparison,fp
+20,src/minters/LPDAFactory.sol#L35,Use != 0 instead of > 0 for unsigned integer comparison,fp
+21,src/uris/Generative.sol#L27,Remove unused variables/functions,tp

@@ -1,0 +1,7 @@
+,file,type
+1,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol,State variables should be cached in stack variables rather than re-reading them from storage
+2,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol,Pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes[reducing their sizes]
+3,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol,Use immutables variables directly instead of caching them in stack
+4,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol,Use already cached value instead of re-reading from storage
+5,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L200-#L262,Unnecessary casting or expression
+6,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L431,Unnecessary casting or expression

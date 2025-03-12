@@ -1,0 +1,26 @@
+,file,type
+1,/src/Vault.sol#L215-L224,Optimize variable storage layout
+2,/src/abstract/TieredLiquidityDistributor.sol#L361-L369,Cache state variables before loops
+3,/src/VaultFactory.sol#L55-L66,Use calldata for immutable arguments
+4,/src/PrizePool.sol#L316-L328,Cache re-reading state variables
+5,/src/PrizePool.sol#L483,Use cached variable
+6,/src/PrizePool.sol#L372-L385,Use cached variable
+7,/src/abstract/TieredLiquidityDistributor.sol#L235-L326,Reorder comparison statement
+8,/src/Vault.sol#L550-L568,Reorder comparison statement
+9,/src/PrizePool.sol#L851-L877,Skip single-use local variables
+10,/src/RngRelayAuction.sol#L167,Declaration outside loops
+11,/src/RngAuction.sol#L370,Cache re-reading state variables
+12,/src/RngAuction.sol#L382,Cache re-reading state variables
+13,/src/RngAuction.sol#L386,Cache re-reading state variables
+14,/src/LiquidationPair.sol#L332,Splitting require statements
+15,/src/RngAuction.sol#L179,Splitting require statements
+16,/src/PrizeVault.sol#L599,Use immutables variables directly instead of caching them in stack
+17,/src/PrizeVault.sol#L825,Use immutables variables directly instead of caching them in stack
+18,/src/PrizeVault.sol#L261,use inline assembly for arithmetic operations
+19,/src/PrizeVault.sol#L269,use inline assembly for arithmetic operations
+20,/src/PrizeVault.sol#L532,use inline assembly for arithmetic operations
+21,/src/abstract/Claimable.sol#L53,use inline assembly for arithmetic operations
+22,/src/PrizeVault.sol#L562,use inline assembly for arithmetic operations
+23,/src/PrizeVault.sol#L697,use inline assembly for arithmetic operations
+24,/src/PrizeVaultFactory.sol#L123,use inline assembly for arithmetic operations
+25,/src/PrizeVaultFactory.sol#L103,Use pre-increment

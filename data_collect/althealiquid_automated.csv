@@ -1,0 +1,24 @@
+,file,type,status
+7,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L133,Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+8,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L139,Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+9,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L65,Using bools for storage incurs overhead,tp
+10,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L80,Using bools for storage incurs overhead,tp
+11,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L171,Cache array length outside of loop,tp
+12,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L271,Cache array length outside of loop,tp
+13,liquid-infrastructure/contracts/LiquidInfrastructureNFT.sol#L120,Cache array length outside of loop,tp
+14,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L457-462,Use calldata instead of memory for function arguments that do not get mutated,tp
+15,liquid-infrastructure/contracts/LiquidInfrastructureNFT.sol#L63,Use calldata instead of memory for function arguments that do not get mutated,tp
+16,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L106,Mark revert functions payable,tp
+17,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L394,Mark revert functions payable,tp
+18,liquid-infrastructure/contracts/LiquidInfrastructureNFT.sol#L203,Mark revert functions payable,tp
+19,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L171,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+20,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L271,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+21,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L371,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+22,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L467,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+23,liquid-infrastructure/contracts/LiquidInfrastructureNFT.sol#L120,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too),tp
+24,liquid-infrastructure/contracts/LiquidInfrastructureNFT.sol#L54,Using private rather than public for constants saves gas,tp
+25,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L46-53,Using private rather than public for constants saves gas,tp
+26,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L186,Use != 0 instead of > 0 for unsigned integer comparison,fp
+27,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L199,Use != 0 instead of > 0 for unsigned integer comparison,fp
+28,liquid-infrastructure/contracts/LiquidInfrastructureERC20.sol#L265,Use != 0 instead of > 0 for unsigned integer comparison,fp
+29,liquid-infrastructure/contracts/LiquidInfrastructureNFT.sol#L178,Use != 0 instead of > 0 for unsigned integer comparison,fp

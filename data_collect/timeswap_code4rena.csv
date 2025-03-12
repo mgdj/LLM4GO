@@ -1,0 +1,21 @@
+,file,type
+1,/src/TimeswapV2OptionDeployer.sol#L31,Remove unnecessary casting/expression
+2,/src/TimeswapV2OptionFactory.sol#L43-L57,merge functions
+3,/src/base/OwnableTwoSteps.sol#L31,Cache re-reading state variables
+4,/src/structs/LiquidityPosition.sol#L93,use delete
+5,/src/FullMath.sol#L165-L168,Using unchecked blocks
+6,/src/base/OwnableTwoSteps.sol#L24,merge functions
+7,/src/TimeswapV2PoolFactory.sol#L37-L43,Check value before state update
+8,/src/TimeswapV2Pool.sol#L189,merge functions
+9,/src/base/OwnableTwoSteps.sol#L24,merge functions
+10,/src/CatchError.sol#L15,Splitting require statements
+11,/src/FullMath.sol#L257,Splitting require statements
+12,/src/Math.sol#L51,Splitting require statements
+13,/src/structs/Param.sol#L111,Splitting require statements
+14,/src/TimeswapV2Pool.sol#L167,Splitting require statements
+15,/src/libraries/ConstantProduct.sol#L411,Splitting require statements
+16,/src/structs/Param.sol#L136,Splitting require statements
+17,/src/base/ERC1155Enumerable.sol#L60,Splitting require statements
+18,/src/TimeswapV2Token.sol#L5,Remove unused variables/functions
+19,/src/TimeswapV2Token.sol#L42,Use assembly
+20,/src/structs/Param.sol#L121,Splitting require statements

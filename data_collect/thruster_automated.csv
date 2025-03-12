@@ -1,0 +1,51 @@
+,,file,type,status
+159,state variable,contracts/ThrusterTreasure.sol#L94,Use = over +=,tp
+160,state variable,contracts/ThrusterTreasure.sol#L255,Use = over +=,tp
+161,loop variable,contracts/ThrusterTreasure.sol#L111,Cache array length pre-loop,tp
+162,loop variable,contracts/ThrusterTreasure.sol#L226,Cache array length pre-loop,tp
+163,state variable,contracts/ThrusterTreasure.sol#L227-L239,Cache re-reading state variables,tp
+164,state variable,contracts/ThrusterTreasure.sol#L107,Skip single-use local variables,tp
+165,state variable,contracts/ThrusterTreasure.sol#L66-L71,Declare immutable for efficiency,tp
+166,state conversion,contracts/ThrusterTreasure.sol#L139,Mark revert functions payable,tp
+167,state conversion,contracts/ThrusterTreasure.sol#L150,Mark revert functions payable,tp
+168,state conversion,contracts/ThrusterTreasure.sol#L192,Mark revert functions payable,tp
+169,state conversion,contracts/ThrusterTreasure.sol#L253,Mark revert functions payable,tp
+170,state conversion,contracts/ThrusterTreasure.sol#L321,Mark revert functions payable,tp
+171,loop variable,contracts/ThrusterTreasure.sol#L108,Use pre-increment,tp
+172,loop variable,contracts/ThrusterTreasure.sol#L111,Use pre-increment,tp
+173,loop variable,contracts/ThrusterTreasure.sol#L226,Use pre-increment,tp
+174,loop variable,contracts/ThrusterTreasure.sol#L286,Use pre-increment,tp
+175,statement conversion,contracts/ThrusterTreasure.sol#L31,Using private for constants,tp
+176,statement conversion,contracts/ThrusterTreasure.sol#L89,use != 0 instead of > 0 for unsigned integer comparison,fp
+177,statement conversion,contracts/ThrusterTreasure.sol#L104,use != 0 instead of > 0 for unsigned integer comparison,fp
+178,statement conversion,contracts/ThrusterTreasure.sol#L306,use != 0 instead of > 0 for unsigned integer comparison,fp
+179,state variable,contracts/NonfungiblePositionManager.sol#L227-L240,Use = over +=,tp
+180,state variable,contracts/NonfungiblePositionManager.sol#L272-L278,Use = over +=,tp
+181,state variable,contracts/NonfungiblePositionManager.sol#L321-L326,Use = over +=,tp
+182,state variable,contracts/ThrusterPool.sol#L647-L660,a = a + b is more gas effective than a += b for state variables
+183,state variable,contracts/ThrusterPool.sol#L731-L734,a = a + b is more gas effective than a += b for state variables
+184,efficient calculation,contracts/NonfungiblePositionManager.sol#L305,use inline assembly for arithmetic operations,tp
+185,efficient calculation,contracts/ThrusterPool.sol#L597,use inline assembly for arithmetic operations,tp
+186,efficient calculation,contracts/ThrusterPool.sol#L681,use inline assembly for arithmetic operations,tp
+187,efficient calculation,contracts/ThrusterPoolFactory.sol#L51-L72,use inline assembly for arithmetic operations,tp
+188,efficient calculation,contracts/base/PoolInitializer.sol#L23,use inline assembly for arithmetic operations,tp
+189,efficient calculation,contracts/ThrusterPoolFactory.sol#L27,Optimize bool variables,tp
+190,state variable,contracts/ThrusterPool.sol#L403-L410,Cache re-reading state variables,tp
+191,state variable,contracts/ThrusterPool.sol#L598-L682,Cache re-reading state variables,tp
+192,state variable,contracts/NonfungiblePositionManager.sol#L78,Declare immutable for efficiency,tp
+193,state variable,contracts/ThrusterPool.sol#L134-L136,Declare immutable for efficiency,tp
+194,state variable,contracts/ThrusterPoolDeployer.sol#L30,Declare immutable for efficiency,tp
+195,state variable,contracts/ThrusterPoolFactory.sol#L32,Declare immutable for efficiency,tp
+196,statement conversion,contracts/ThrusterPool.sol#L764,Mark revert functions payable,fp
+197,statement conversion,contracts/ThrusterPool.sol#L798,Mark revert functions payable,fp
+198,statement conversion,contracts/ThrusterPoolDeployer.sol#L45,Mark revert functions payable,fp
+199,statement conversion,contracts/NonfungiblePositionManager.sol#L153,Use pre-increment,tp
+200,statement conversion,contracts/ThrusterPool.sol#L784-L789,Use pre-increment,tp
+201,statement conversion,contracts/ThrusterPool.sol#L42-44,Using private for constants,tp
+202,efficient calculation,contracts/NonfungiblePositionManager.sol,Use != 0 instead of > 0 for unsigned integer comparison,tp
+203,efficient calculation,contracts/ThrusterPool.sol,Use != 0 instead of > 0 for unsigned integer comparison,tp
+204,efficient calculation,contracts/ThrusterPoolFactory.sol#L83,Use != 0 instead of > 0 for unsigned integer comparison,tp
+205,efficient calculation,contracts/base/PoolInitializer.sol#L20,Use != 0 instead of > 0 for unsigned integer comparison,tp
+206,efficient calculation,contracts/libraries/PoolAddress.sol#L30,Use != 0 instead of > 0 for unsigned integer comparison,tp
+207,redundancy operation,contracts/libraries/PoolAddress.sol#L20,Avoid declaring unused variables or unused internal function,fp
+208,redundancy operation,contracts/libraries/PoolAddress.sol#L29,Avoid declaring unused variables or unused internal function,fp

@@ -1,0 +1,34 @@
+,file,type,status
+26,/src/PrizeVault.sol#L388,Using unchecked blocks to save gas,tp
+27,/src/PrizeVault.sol#L680,Using unchecked blocks to save gas,tp
+28,/src/PrizeVault.sol#L813,Using unchecked blocks to save gas,tp
+29,/src/PrizeVault.sol#L828,Using unchecked blocks to save gas,tp
+30,/src/PrizeVault.sol#L934,Using unchecked blocks to save gas,tp
+31,/src/PrizeVault.sol#L553,Cache re-reading state variables,tp
+32,/src/PrizeVault.sol#L458,Using unchecked blocks to save gas,tp
+33,/src/PrizeVault.sol#L612,Using unchecked blocks to save gas,tp
+34,/src/PrizeVault.sol#L665,Using unchecked blocks to save gas,tp
+35,/src/PrizeVault.sol#L672,Using unchecked blocks to save gas,tp
+36,/src/PrizeVault.sol#L844,Using unchecked blocks to save gas,tp
+37,/src/PrizeVault.sol#L845,Using unchecked blocks to save gas,tp
+38,/src/PrizeVault.sol#L894,Using unchecked blocks to save gas,tp
+39,/src/PrizeVault.sol#L895,Using unchecked blocks to save gas,tp
+40,/src/PrizeVault.sol#L611,Mark revert functions payable,tp
+41,/src/PrizeVault.sol#L659,Mark revert functions payable,tp
+42,/src/PrizeVault.sol#L703,Mark revert functions payable,tp
+43,/src/PrizeVault.sol#L735,Mark revert functions payable,tp
+44,/src/PrizeVault.sol#L742,Mark revert functions payable,tp
+45,/src/PrizeVault.sol#L753,Mark revert functions payable,tp
+46,/src/PrizeVault.sol#L759,Mark revert functions payable,tp
+47,/src/PrizeVault.sol#L74-L80,Using private for constants,tp
+48,/src/PrizeVaultFactory.sol#L63,Using private for constants,tp
+49,/src/abstract/Claimable.sol#L21,Using private for constants,tp
+50,/src/PrizeVault.sol#L617,Use = over +=,tp
+51,/src/PrizeVault.sol#L685,Use = over +=,tp
+52,/src/PrizeVault.sol#L300-L301,use inline assembly for arithmetic operations,tp
+53,/src/PrizeVault.sol#L743,use inline assembly for arithmetic operations,tp
+54,/src/TwabERC20.sol#L47,use inline assembly for arithmetic operations,tp
+55,/src/abstract/Claimable.sol#L65,use inline assembly for arithmetic operations,tp
+56,/src/abstract/Claimable.sol#L97,use inline assembly for arithmetic operations,tp
+57,/src/abstract/Claimable.sol#L129,use inline assembly for arithmetic operations,tp
+58,/src/PrizeVault.sol#L684,Use != 0 instead of > 0 for unsigned integer comparison,fp

@@ -1,0 +1,24 @@
+,file,type,status
+1,/main/contracts/Equity.sol#L192,Cache re-reading state variables,tp
+2,/main/contracts/Equity.sol#L312,Cache re-reading state variables,tp
+3,/main/contracts/Equity.sol#L192,Use pre-increment,tp
+4,/main/contracts/Equity.sol#L312,Use pre-increment,tp
+5,/contracts/Frankencoin.sol#L165,Mark revert functions payable,tp
+6,/contracts/Frankencoin.sol#L280,Mark revert functions payable,tp
+7,/contracts/Ownable.sol#L31,Mark revert functions payable,tp
+8,/contracts/Position.sol#L98,Use bitwise shifts,tp
+9,/contracts/Equity.sol#L199,Use = over +=,fp
+10,/contracts/ERC20.sol#L156-L157,Use = over +=,fp
+11,/contracts/Frankencoin.sol#L169,Use = over +=,tp
+12,/contracts/MintingHub.sol#L167-L168,Use = over +=,fp
+13,/contracts/Position.sol#L99,Use = over +=,tp
+14,/contracts/Equity.sol#L39,Using private for constants,tp
+15,/contracts/Frankencoin.sol#L25,Using private for constants,tp
+16,/contracts/MintingHub.sol#L20,Using private for constants,tp
+17,/contracts/ERC20PermitLight.sol#L56,Splitting require statements,tp
+18,/main/contracts/Equity.sol#L192,Using unchecked blocks,tp
+19,/main/contracts/Equity.sol#L312,Using unchecked blocks,tp
+20,/contracts/Equity.sol#L293,Use custom errors,tp
+21,/contracts/ERC20PermitLight.sol#L56,Use custom errors,tp
+22,/contracts/MintingHub.sol#L255,Use custom errors,tp
+23,/contracts/StablecoinBridge.sol#L81,Use custom errors,tp

@@ -1,0 +1,7 @@
+,file,type
+1,SubprotocolRegistry.sol#L88,Emit/require before state update
+2,SubprotocolRegistry.sol#L93,Emit/require before state update
+3,CidNFT.sol#L150,Using unchecked blocks
+4,CidNFT.sol#L193,Using unchecked blocks
+5,CidNFT.sol#L279-280,Using unchecked blocks
+6,AddressRegistry.sol#L54,Cache re-reading state variables

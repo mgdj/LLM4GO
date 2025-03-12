@@ -1,0 +1,18 @@
+,file,type,status
+1,apps/smart-contracts/core/contracts/DepositHook.sol#L15,Optimize bool variables,tp
+2,apps/smart-contracts/core/contracts/DepositRecord.sol#L12,Optimize bool variables,tp
+3,apps/smart-contracts/core/contracts/PrePOMarketFactory.sol#L13,Optimize bool variables,tp
+4,apps/smart-contracts/core/contracts/WithdrawHook.sol#L12,Optimize bool variables,tp
+5,apps/smart-contracts/core/contracts/Collateral.sol#L47-48,Use custom errors,tp
+6,apps/smart-contracts/core/contracts/DepositHook.sol#L28,Use custom errors,tp
+7,apps/smart-contracts/core/contracts/DepositRecord.sol#L19,Use custom errors,tp
+8,apps/smart-contracts/core/contracts/PrePOMarket.sol#L43-45,Use custom errors,tp
+9,apps/smart-contracts/core/contracts/WithdrawHook.sol#L33,Use custom errors,tp
+10,packages/prepo-shared-contracts/contracts/NFTScoreRequirement.sol#L23-26,Use custom errors,tp
+11,apps/smart-contracts/core/contracts/Collateral.sol#L19-20,Using private for constants,tp
+12,apps/smart-contracts/core/contracts/DepositTradeHelper.sol#L12,Using private for constants,tp
+13,apps/smart-contracts/core/contracts/TokenSender.sol#L25,Using private for constants,tp
+14,apps/smart-contracts/core/contracts/Collateral.sol#L47,Use != 0 instead of > 0 for unsigned integer comparison,fp
+15,apps/smart-contracts/core/contracts/DepositHook.sol#L48,Use != 0 instead of > 0 for unsigned integer comparison,fp
+16,apps/smart-contracts/core/contracts/PrePOMarket.sol#L91-92,Use != 0 instead of > 0 for unsigned integer comparison,fp
+17,apps/smart-contracts/core/contracts/WithdrawHook.sol#L75,Use != 0 instead of > 0 for unsigned integer comparison,fp

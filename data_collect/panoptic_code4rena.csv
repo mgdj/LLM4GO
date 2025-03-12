@@ -1,0 +1,13 @@
+,file,type
+1,LiquidityChunk.sol,merge functions
+2,FeesCalc.sol,merge functions
+3,PanopticMath.sol,Use assembly
+4,Math.sol,Using unchecked blocks
+5,Math.sol,Remove unnecessary casting/expression
+6,Math.sol,Repetitive code optimization
+7,Math.sol,merge functions
+8,Math.sol,Use assembly
+9,Math.sol,merge functions
+10,ERC1155Minimal.sol,!A || !B => !(A & B)
+11,ERC1155Minimal.sol,Check value before state update
+12,SemiFungiablePositionManager.sol,Cache array length pre-loop

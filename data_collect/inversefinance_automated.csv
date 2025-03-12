@@ -1,0 +1,18 @@
+,file,type,status
+1,DBR.sol#L63,Use != 0 instead of > 0 for unsigned integer comparison,fp
+2,Fed.sol#L133,Use != 0 instead of > 0 for unsigned integer comparison,fp
+3,Market.sol#L75,Use != 0 instead of > 0 for unsigned integer comparison,fp
+4,Oracle.sol#L79,Use != 0 instead of > 0 for unsigned integer comparison,fp
+5,escrows/INVEscrow.sol#L81,Use != 0 instead of > 0 for unsigned integer comparison,fp
+6,BorrowController.sol#L11,Optimize bool variables,tp
+7,DBR.sol#L24-25,Optimize bool variables,tp
+8,Market.sol#L53,Optimize bool variables,tp
+9,BorrowController.sol#L18,Use custom errors,tp
+10,DBR.sol#L45,Use custom errors,tp
+11,Fed.sol#L49,Use custom errors,tp
+12,Market.sol#L75-76,Use custom errors,tp
+13,Oracle.sol#L36,Use custom errors,tp
+14,escrows/INVEscrow.sol#L45,Use custom errors,tp
+15,DBR.sol#L239,Use pre-increment,tp
+16,Market.sol#L438,Use pre-increment,tp
+17,DBR.sol#L13,Using private for constants,tp

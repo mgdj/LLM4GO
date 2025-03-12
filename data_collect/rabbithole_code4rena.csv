@@ -1,0 +1,13 @@
+,file,type
+1,/contracts/QuestFactory.sol#L61-L69,Use calldata for immutable arguments
+2,/contracts/RabbitHoleReceipt.sol#L98,Use calldata for immutable arguments
+3,/contracts/RabbitHoleTickets.sol#L83,Use calldata for immutable arguments
+4,/contracts/QuestFactory.sol#L98,Cache re-reading state variables
+5,/contracts/ReceiptRenderer.sol#L66,Cache re-reading state variables
+6,/contracts/Quest.sol#L115,Use = over +=
+7,/contracts/Quest.sol#L70,Using unchecked blocks
+8,/contracts/RabbitHoleReceipt.sol#L117,Using unchecked blocks
+9,/contracts/Erc20Quest.sol#L13,Using private for constants
+10,/contracts/Quest.sol#L15,Using private for constants
+11,/contracts/RabbitHoleReceipt.sol#L161,Use custom errors
+12,/contracts/RabbitHoleTickets.sol#L92-L97,Mark revert functions payable

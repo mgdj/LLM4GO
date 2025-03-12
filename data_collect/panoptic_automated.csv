@@ -1,0 +1,14 @@
+,file,type,status
+1,contracts/SemiFungiblePositionManager.sol,Optimize bool variables,tp
+2,contracts/tokens/ERC1155Minimal.sol#L67,Optimize bool variables,tp
+3,contracts/SemiFungiblePositionManager.sol#L550,Cache array length pre-loop,tp
+4,contracts/multicall/Multicall.sol#L14,Cache array length pre-loop,tp
+5,contracts/tokens/ERC1155Minimal.sol#L141,Cache array length pre-loop,tp
+6,contracts/SemiFungiblePositionManager.sol#L1316,Use bitwise shifts,fp
+7,contracts/SemiFungiblePositionManager.sol#L220,Use != 0 instead of > 0 for unsigned integer comparison,tp
+8,contracts/libraries/Math.sol#L25,Use != 0 instead of > 0 for unsigned integer comparison,tp
+9,contracts/libraries/CallbackLib.sol#L28,Remove unused variables/functions,fp
+10,contracts/libraries/PanopticMath.sol#L38,Remove unused variables/functions,fp
+11,contracts/libraries/SafeTransferLib.sol#L16,Remove unused variables/functions,fp
+12,contracts/types/LeftRight.sol#L25,Remove unused variables/functions,fp
+13,contracts/types/TokenId.sol#L80,Remove unused variables/functions,fp

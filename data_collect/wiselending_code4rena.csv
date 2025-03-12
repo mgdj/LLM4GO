@@ -1,0 +1,31 @@
+,file,type
+1,/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#L497-#L524,Unnecessary casting or expression
+2,/main/contracts/WiseLending.sol#L77-#L90,Use already cached value instead of re-reading from storage
+3,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L502-#L524,Use already cached value instead of re-reading from storage
+4,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L608-#L645,Use already cached value instead of re-reading from storage
+5,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L647-#L680,Use already cached value instead of re-reading from storage
+6,/main/contracts/FeeManager/FeeManager.sol#L194-#L208,Use already cached value instead of re-reading from storage
+7,/main/contracts/WiseOracleHub/WiseOracleHub.sol#L171-#L192,Use already cached value instead of re-reading from storage
+8,/main/contracts/WiseOracleHub/WiseOracleHub.sol#L327-#L352,Use already cached value instead of re-reading from storage
+9,/main/contracts/WiseOracleHub/OracleHelper.sol#L49-#L51,Do not declare local variables used only once
+10,/main/contracts/WiseOracleHub/OracleHelper.sol#L138-#L140,Do not declare local variables used only once
+11,/main/contracts/WiseLowLevelHelper.sol#L144-#L153,Redundant state variable getters
+12,/main/contracts/FeeManager/FeeManager.sol#L884-#L892,Redundant state variable getters
+13,/main/contracts/MainHelper.sol#L1099,Use already cached value instead of re-reading from storage
+14,/main/contracts/WiseSecurity/WiseSecurity.sol#L491-#L492,Using unchecked blocks to save gas[Unchecked Divisions]
+15,/main/contracts/WiseSecurity/WiseSecurity.sol#L548-#L549,Using unchecked blocks to save gas[Unchecked Divisions]
+16,/main/contracts/MainHelper.sol#L525-#L526,Using unchecked blocks to save gas[Unchecked Divisions]
+17,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L403-#L404,Using unchecked blocks to save gas[Unchecked Divisions]
+18,/main/contracts/WrapperHub/AaveHelper.sol#L322-#L323,Using unchecked blocks to save gas[Unchecked Divisions]
+19,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L239,Use already cached value instead of re-reading from storage
+20,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L243,Use already cached value instead of re-reading from storage
+21,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L244,Use already cached value instead of re-reading from storage
+22,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L249,Use already cached value instead of re-reading from storage
+23,/main/contracts/MainHelper.sol#L258-#L276,Comparison statement order adjustment
+24,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#L685-#L686,Using calldata instead of memory for read-only arguments in external functions saves gas
+25,/main/contracts/FeeManager/FeeManager.sol#L573,Using calldata instead of memory for read-only arguments in external functions saves gas
+26,/main/contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#L60-#L63,Using calldata instead of memory for read-only arguments in external functions saves gas
+27,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#L213-#L214,Using calldata instead of memory for read-only arguments in external functions saves gas
+28,/main/contracts/PositionNFTs.sol#L320,Using calldata instead of memory for read-only arguments in external functions saves gas
+29,/main/contracts/PositionNFTs.sol#L329,Using calldata instead of memory for read-only arguments in external functions saves gas
+30,/main/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmTokenFactory.sol#L37-#L38,Using calldata instead of memory for read-only arguments in external functions saves gas

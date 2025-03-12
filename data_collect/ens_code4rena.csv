@@ -1,0 +1,25 @@
+,file,type
+1,ReverseRegistrar.sol:82,Use assembly
+2,ETHRegistrarController.sol:73,Use assembly
+3,NameWrapper.sol:217,Use assembly
+4,DNSSECImpl.sol:93,Use pre-increment
+5,ETHRegistrarController.sol:256,Use pre-increment
+6,BytesUtils.sol:266,Use pre-increment
+7,ERC1155Fuse.sol:92,Use pre-increment
+8,DNSSECImpl.sol:93,Using unchecked blocks
+9,ETHRegistrarController.sol:256,Using unchecked blocks
+10,BytesUtils.sol:266,Using unchecked blocks
+11,ERC1155Fuse.sol:92,Using unchecked blocks
+12,ReverseRegistrar.sol:9,Use calldata for immutable arguments
+13,ReverseRegistrar.sol:112,Use calldata for immutable arguments
+14,DNSSECImpl.sol:46,Use calldata for immutable arguments
+15,ETHRegistrarController.sol:67,Use calldata for immutable arguments
+16,BytesUtils.sol:11,Use calldata for immutable arguments
+17,NameWrapper.sol:541,Use calldata for immutable arguments
+18,BytesUtil.sol:12,Use calldata for immutable arguments
+19,RRUtils.sol:97,Use calldata for immutable arguments
+20,BytesUtils.sol:268,Splitting require statements
+21,ERC1155Fuse.sol:216,Splitting require statements
+22,ReverseRegistrar.sol:53,Use assembly
+23,NameWrapper.sol:132,Use assembly
+24,ERC1155Fuse.sol:61,Use assembly

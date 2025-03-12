@@ -1,0 +1,12 @@
+,file,type
+1,/contracts/StakedUSDeV2.sol#L22,use constant
+2,/contracts/EthenaMinting.sol#L111,merge functions
+3,/contracts/EthenaMinting.sol#L162,merge functions
+4,/contracts/EthenaMinting.sol#L413,Reorder comparison statement
+5,/contracts/StakedUSDe.sol#L245,Reorder comparison statement
+6,/contracts/StakedUSDe.sol#L89,cache function calls
+7,/contracts/StakedUSDe.sol#L89,Remove unnecessary casting/expression
+8,/contracts/EthenaMinting.sol#L339,Reorder comparison statement
+9,/contracts/EthenaMinting.sol#L436,Emit local variables instead of state variable
+10,/contracts/EthenaMinting.sol#L433,Emit local variables instead of state variable
+11,/contracts/StakedUSDeV2.sol#L126,Emit local variables instead of state variable

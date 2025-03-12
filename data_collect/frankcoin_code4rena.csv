@@ -1,0 +1,18 @@
+,file,type
+1,/contracts/Equity.sol#L290-L297,Reorder comparison statement
+2,/contracts/MintingHub.sol#L88-L113,Reorder comparison statement
+3,/contracts/Position.sol#L76-L86,Reorder comparison statement
+4,Reorder comparison statement,Reorder comparison statement
+5,/contracts/Equity.sol#L144-L148,Cache re-reading state variables
+6,/contracts/Frankencoin.sol#L83-L90,Cache re-reading state variables
+7,/contracts/Frankencoin.sol#L204-L213,Cache re-reading state variables
+8,/contracts/Equity.sol#L247,Using unchecked blocks
+9,/contracts/Equity.sol#L294,Using unchecked blocks
+10,/contracts/Frankencoin.sol#L144,Using unchecked blocks
+11,/contracts/Position.sol#L138,Using unchecked blocks
+12,/contracts/MintingHub.sol#L263,Using unchecked blocks
+13,/contracts/ERC20.sol#L132,Using unchecked blocks
+14,/contracts/MintingHub.sol#L124-L132,Remove unnecessary casting/expression
+15,/contracts/Frankencoin.sol#L204-L213,Remove unnecessary casting/expression
+16,/contracts/Frankencoin.sol#L138-L146,Remove unnecessary casting/expression
+17,/contracts/Position.sol#L120-L126,Remove unnecessary casting/expression

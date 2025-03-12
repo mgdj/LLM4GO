@@ -1,0 +1,13 @@
+,file,type
+1,contracts/VTVLVesting.sol#L82,Use custom errors
+2,contracts/AccessProtected.sol#L25,Use custom errors
+3,contracts/token/FullPremintERC20Token.sol#L11,Use custom errors
+4,contracts/token/VariableSupplyERC20Token.sol#L27,Use custom errors
+5,contracts/VTVLVesting.sol,Using unchecked blocks
+6,contracts/VTVLVesting.sol#L374,Cache re-reading state variables
+7,contracts/token/VariableSupplyERC20Token.sol#L40,Cache re-reading state variables
+8,contracts/AccessProtected.sol#L12,Optimize bool variables
+9,contracts/VTVLVesting.sol#L124,Skip single-use local variables
+10,contracts/VTVLVesting.sol#L353,Use pre-increment
+11,contracts/VTVLVesting.sol#L161,Use = over +=
+12,contracts/token/VariableSupplyERC20Token.sol#L43,Use = over +=

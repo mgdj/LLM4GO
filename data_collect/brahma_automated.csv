@@ -1,0 +1,18 @@
+,file,type,status
+14,src/core/registries/WalletRegistry.sol#L27,Optimize bool variables,tp
+15,src/core/AddressProvider.sol#L52,Check value before state update,tp
+16,src/core/AddressProvider.sol#L77,Check value before state update,tp
+17,src/core/ConsoleFallbackHandler.sol#L39,Use calldata for immutable arguments,tp
+18,src/core/ConsoleFallbackHandler.sol#L68,Use calldata for immutable arguments,tp
+19,src/core/SafeModerator.sol#L36,Use calldata for immutable arguments,tp
+20,src/core/SafeModeratorOverridable.sol#L42,Use calldata for immutable arguments,tp
+21,src/core/TransactionValidator.sol#L64,Use calldata for immutable arguments,tp
+22,src/core/AddressProvider.sol#L148,Use assembly to check for the zero address,tp
+23,src/core/AddressProviderService.sol#L28,Use assembly to check for the zero address,tp
+24,src/core/ExecutorPlugin.sol#L117,Splitting require statements,tp
+25,src/core/PolicyValidator.sol#L135,Splitting require statements,tp
+26,src/core/TransactionValidator.sol#L165,Splitting require statements,tp
+27,src/core/SafeEnabler.sol#L48,Splitting require statements,tp
+28,src/core/ConsoleFallbackHandler.sol#L44,Use custom errors,tp
+29,src/core/SafeEnabler.sol#L48,Use custom errors,tp
+30,src/core/SafeEnabler.sol#L53,Use = over +=,fp

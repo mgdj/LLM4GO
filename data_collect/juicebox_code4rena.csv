@@ -1,0 +1,11 @@
+,file,type
+1,/contracts/JBXBuybackDelegate.sol#L106-L113,Optimize variable storage layout
+2,/contracts/JBXBuybackDelegate.sol#L231-L232,use inline assembly for arithmetic operations
+3,/contracts/JBXBuybackDelegate.sol#L153,use inline assembly for arithmetic operations
+4,/contracts/JBXBuybackDelegate.sol#L196,use inline assembly for arithmetic operations
+5,/contracts/JBXBuybackDelegate.sol#L221,use inline assembly for arithmetic operations
+6,/contracts/JBXBuybackDelegate.sol#L325,use inline assembly for arithmetic operations
+7,/contracts/JBXBuybackDelegate.sol#L352,use inline assembly for arithmetic operations
+8,/contracts/JBXBuybackDelegate.sol#L185,use inline assembly for arithmetic operations
+9,/contracts/JBXBuybackDelegate.sol#L218,use inline assembly for arithmetic operations
+10,/contracts/JBXBuybackDelegate.sol#L158-L159,use inline assembly for arithmetic operations

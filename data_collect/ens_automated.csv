@@ -1,0 +1,10 @@
+,file,type,status
+25,DNSSECImpl.sol:93,Cache array length pre-loop,tp
+26,ETHRegistrarController.sol:256,Cache array length pre-loop,tp
+27,ERC1155Fuse.sol:92,Cache array length pre-loop,tp
+28,RRUtils.sol:310,Cache array length pre-loop,tp
+29,ReverseRegistrar.sol:46,Use custom errors,tp
+30,ETHRegistrarController.sol:101,Use custom errors,tp
+31,ERC1155Fuse.sol:62,Use custom errors,tp
+32,BytesUtil.sol:28,Use custom errors,tp
+33,RRUtils.sol:307,Use custom errors,tp

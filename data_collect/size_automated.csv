@@ -1,0 +1,5 @@
+,file,type,status
+1,SizeSealed.sol#L244,Cache array length pre-loop,tp
+2,SizeSealed.sol#L302,Cache array length pre-loop,tp
+3,SizeSealed.sol#L244,Use pre-increment,tp
+4,SizeSealed.sol#L302,Use pre-increment,tp

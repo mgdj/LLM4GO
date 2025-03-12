@@ -1,0 +1,10 @@
+,file,type
+1,AmbireAccount.sol#L145,Remove unnecessary casting/expression
+2,,Cache re-reading state variables
+3,AmbireAccountFactory.sol,Remove unnecessary casting/expression
+4,SignatureValidator.sol,Remove unnecessary casting/expression
+5,AmbireAccount.sol,Remove unused variables/functions
+6,/contracts/AmbireAccount.sol#L113,Use custom errors
+7,/contracts/AmbireAccountFactory.sol#L36,Use custom errors
+8,/contracts/libs/Bytes.sol#L6,Use custom errors
+9,/contracts/libs/SignatureValidator.sol#L43,Use custom errors

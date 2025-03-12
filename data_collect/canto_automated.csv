@@ -1,0 +1,30 @@
+,file,type,status
+6,1155tech-contracts/src/Market.sol#L49-64,Optimize bool variables,tp
+7,src/asDFactory.sol#L15,Optimize bool variables,tp
+8,src/asD.sol#L29-30,Use calldata for immutable arguments,tp
+9,src/asDFactory.sol#L33,Use calldata for immutable arguments,tp
+10,1155tech-contracts/src/Market.sol#L105,Use custom errors,tp
+11,1155tech-contracts/src/Market.sol#L119-120,Use custom errors,tp
+12,1155tech-contracts/src/Market.sol#L151,Use custom errors,tp
+13,1155tech-contracts/src/Market.sol#L254,Use custom errors,tp
+14,1155tech-contracts/src/Market.sol#L301-310,Use custom errors,tp
+15,src/asD.sol#L54-64,Use custom errors,tp
+16,src/asD.sol#L81-86,Use custom errors,tp
+17,1155tech-contracts/src/Market.sol#L104,Mark revert functions payable,tp
+18,1155tech-contracts/src/Market.sol#L244,Mark revert functions payable,tp
+19,1155tech-contracts/src/Market.sol#L300,Mark revert functions payable,tp
+20,1155tech-contracts/src/Market.sol#L309,Mark revert functions payable,tp
+21,src/asD.sol#L72,Mark revert functions payable,tp
+22,1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L20,Use pre-increment,tp
+23,1155tech-contracts/src/Market.sol#L14-16,Using private for constants,tp
+24,1155tech-contracts/src/Market.sol#L165,Use != 0 instead of > 0 for unsigned integer comparison,fp
+25,1155tech-contracts/src/Market.sol#L216,Use != 0 instead of > 0 for unsigned integer comparison,fp
+26,1155tech-contracts/src/Market.sol#L266,Use != 0 instead of > 0 for unsigned integer comparison,fp
+27,1155tech-contracts/src/Market.sol#L289,Use != 0 instead of > 0 for unsigned integer comparison,fp
+28,1155tech-contracts/src/Market.sol#L134,Skip single-use local variables,tp
+29,1155tech-contracts/src/Market.sol#L143,Skip single-use local variables,tp
+30,1155tech-contracts/src/Market.sol#L196,Skip single-use local variables,tp
+31,1155tech-contracts/src/Market.sol#L273,Skip single-use local variables,tp
+32,1155tech-contracts/src/Market.sol#L295,Use = over +=,tp
+33,1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L20,Use pre-increment,tp
+34,1155tech-contracts/src/Market.sol#L197,Use unchecked blocks,tp

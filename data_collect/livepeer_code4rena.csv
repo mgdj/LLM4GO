@@ -1,0 +1,15 @@
+,file,type
+1,/contracts/bonding/BondingManager.sol#L1564,merge functions
+2,/contracts/bonding/BondingManager.sol#L249,Cache re-reading state variables
+3,/contracts/bonding/BondingManager.sol#L485,merge functions
+4,/contracts/bonding/BondingManager.sol#L482,merge functions
+5,/contracts/bonding/BondingManager.sol#L1307,merge functions
+6,/contracts/bonding/BondingManager.sol#L745,merge functions
+7,/contracts/bonding/BondingManager.sol#L394,merge functions
+8,/contracts/bonding/BondingVotes.sol#L258,merge functions
+9,/contracts/bonding/BondingManager.sol#L745,Emit/require before state update
+10,/contracts/bonding/BondingManager.sol#L155-L159,Use custom errors
+11,/contracts/bonding/BondingManager.sol#L186,Use custom errors
+12,/contracts/bonding/BondingManager.sol#L462-L469,use custom errors
+13,/contracts/bonding/BondingManager.sol#L1176-L1182,use custom errors
+14,/contracts/bonding/BondingManager.sol#L1176,use custom errors

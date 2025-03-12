@@ -1,0 +1,3 @@
+,file,type,status
+11,juice-buyback/contracts/JBXBuybackDelegate.sol#L192,Skip single-use local variables,tp
+12,juice-buyback/contracts/JBXBuybackDelegate.sol,Declare immutable for efficiency,tp

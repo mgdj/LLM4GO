@@ -1,0 +1,19 @@
+,,type,file,status
+,,Optimize bool variables,Security.sol,tp
+158,,Cache array length pre-loop,Curves.sol,tp
+159,,Cache array length pre-loop,Curves.sol,tp
+160,,Cache array length pre-loop,FeeSplitter.sol,tp
+161,,Cache array length pre-loop,FeeSplitter.sol,tp
+,,Mark revert functions payable,contracts/Curves.sol#L113,tp
+,,Mark revert functions payable,contracts/CurvesERC20.sol#L12,tp
+,,Mark revert functions payable,contracts/FeeSplitter.sol#L96,tp
+,,Mark revert functions payable,contracts/Security.sol#L23,tp
+172,,Use pre-increment&Using unchecked blocks,Curves.sol,tp
+173,,Use pre-increment&Using unchecked blocks,Curves.sol,tp
+174,,Use pre-increment&Using unchecked blocks,FeeSplitter.sol,tp
+175,,Use pre-increment&Using unchecked blocks,FeeSplitter.sol,tp
+176,,Using private rather than public for constants saves gas,Curves.sol,tp
+177,,Use != 0 instead of > 0 for unsigned integer comparison,fp
+178,,Use != 0 instead of > 0 for unsigned integer comparison,fp
+179,,Use != 0 instead of > 0 for unsigned integer comparison,fp
+180,,Use != 0 instead of > 0 for unsigned integer comparison,fp

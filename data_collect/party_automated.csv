@@ -1,0 +1,31 @@
+,file,type,status
+8,contracts/crowdfund/CrowdfundFactory.sol#L229,use inline assembly for arithmetic operations,tp
+9,contracts/crowdfund/ETHCrowdfundBase.sol#L175,use inline assembly for arithmetic operations,tp
+10,contracts/crowdfund/InitialETHCrowdfund.sol#L278,use inline assembly for arithmetic operations,tp
+11,contracts/crowdfund/ReraiseETHCrowdfund.sol#L211,use inline assembly for arithmetic operations,tp
+12,contracts/party/PartyGovernance.sol#L446,use inline assembly for arithmetic operations,tp
+13,contracts/party/PartyGovernanceNFT.sol#L157,use inline assembly for arithmetic operations,tp
+14,contracts/proposals/ProposalExecutionEngine.sol#L122,use inline assembly for arithmetic operations,tp
+15,contracts/crowdfund/ETHCrowdfundBase.sol#L84,Optimize bool variables,tp
+16,contracts/party/PartyGovernance.sol#L148-205,Optimize bool variables,tp
+17,contracts/party/PartyGovernanceNFT.sol#L30,Optimize bool variables,tp
+18,contracts/crowdfund/ReraiseETHCrowdfund.sol#L316,Cache array length pre-loop,tp
+19,contracts/operators/CollectionBatchBuyOperator.sol#L109,Cache array length pre-loop,tp
+20,contracts/party/PartyGovernance.sol#L306,Cache array length pre-loop,tp
+21,contracts/proposals/ArbitraryCallsProposal.sol#L66,Cache array length pre-loop,tp
+22,contracts/crowdfund/CrowdfundFactory.sol#L59,Use calldata for immutable arguments,tp
+23,contracts/crowdfund/InitialETHCrowdfund.sol#L91-92,Use calldata for immutable arguments,tp
+24,contracts/operators/CollectionBatchBuyOperator.sol#L80,Use calldata for immutable arguments,tp
+25,contracts/party/PartyFactory.sol#L20-23,Use calldata for immutable arguments,tp
+26,contracts/party/PartyGovernance.sol#L656-658,Use calldata for immutable arguments,tp
+27,contracts/party/PartyGovernance.sol#L421,Use bitwise shifts,tp
+28,contracts/crowdfund/ReraiseETHCrowdfund.sol#L316,Use pre-increment,tp
+29,contracts/operators/CollectionBatchBuyOperator.sol#L109,Use pre-increment,tp
+30,contracts/party/PartyGovernance.sol#L306,Use pre-increment,tp
+31,contracts/proposals/ArbitraryCallsProposal.sol#L66,Use pre-increment,tp
+32,contracts/crowdfund/ETHCrowdfundBase.sol#L216,Use != 0 instead of > 0 for unsigned integer comparison,fp
+33,contracts/crowdfund/InitialETHCrowdfund.sol#L121,Use != 0 instead of > 0 for unsigned integer comparison,fp
+34,contracts/crowdfund/ReraiseETHCrowdfund.sol#L83,Use != 0 instead of > 0 for unsigned integer comparison,fp
+35,contracts/crowdfund/ReraiseETHCrowdfund.sol#L192,Use != 0 instead of > 0 for unsigned integer comparison,fp
+36,contracts/proposals/ArbitraryCallsProposal.sol#L108,Use != 0 instead of > 0 for unsigned integer comparison,fp
+37,contracts/party/PartyGovernanceNFT.sol#L61,Remove unused variables/functions,fp

@@ -1,0 +1,27 @@
+,file,type
+1,src/PrelaunchPoints.sol#L337,Check value before state update
+2,src/PrelaunchPoints.sol#L353-354,Check value before state update
+3,src/PrelaunchPoints.sol#L373,Check value before state update
+4,/src/PrelaunchPoints.sol#L253,Using unchecked blocks
+5,src/PrelaunchPoints.sol#L296,Skip single-use local variables
+6,/src/PrelaunchPoints.sol#L25,Optimize variable storage layout
+7,/src/PrelaunchPoints.sol#L439,Splitting require statements
+8,/src/PrelaunchPoints.sol#L97,Use calldata for immutable arguments
+9,/src/PrelaunchPoints.sol#L176,Use assembly
+
+index,state,item,file,result,type
+190,,check before updating state variable with same value,src/PrelaunchPoints.sol,true,3.6
+191,,check before updating state variable with same value,src/PrelaunchPoints.sol,true,3.6
+192,,check before updating state variable with same value,src/PrelaunchPoints.sol,true,3.6
+193,,State variables should be cached in stack variables rather than re-reading them from storage,src/PrelaunchPoints.sol,true,3.2
+194,,Pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes,src/PrelaunchPoints.sol,false,3.4
+195,,Using bools for storage incurs overhead,src/PrelaunchPoints.sol,true,3.7
+196,,use inline assembly for arithmetic operations,src/PrelaunchPoints.sol,partially true,4.1
+197,,use inline assembly for arithmetic operations,src/PrelaunchPoints.sol,partially true,4.1
+198,,use inline assembly for arithmetic operations,src/PrelaunchPoints.sol,partially true,4.1
+199,expression reduction,use inline assembly for arithmetic operations,src/PrelaunchPoints.sol,true,4.1
+200,state variable,State variables should be cached in stack variables rather than re-reading them from storage,src/PrelaunchPoints.sol,true,3.2
+201,expression reduction,Functions guaranteed to revert when called by normal users can be marked payable,src/PrelaunchPoints.sol,true,1.1
+202,expression reduction,Functions guaranteed to revert when called by normal users can be marked payable,src/PrelaunchPoints.sol,false,1.1
+203,efficient calculation,++i costs less gas compared to i++ or i += 1 (same for --i vs i-- or i -= 1),src/PrelaunchPoints.sol,true,2.3
+204,expression reduction,Using private rather than public for constants saves gas,src/PrelaunchPoints.sol,true,2.5

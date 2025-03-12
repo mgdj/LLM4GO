@@ -1,0 +1,30 @@
+,file,type
+1,TokenSender.sol#L26-29,Declare immutable for efficiency
+2,WithdrawHook.sol#L22-30,Declare immutable for efficiency
+3,DepositRecord.sol#L14-16,Declare immutable for efficiency
+4,Collateral.sol#L21-27,Declare immutable for efficiency
+5,DepositHook.sol#L17-25,Declare immutable for efficiency
+6,ManagerWithdrawHook.sol#L13-15,Declare immutable for efficiency
+7,PrePOMarketFactory.sol#L13-L14,Cache re-reading state variables
+8,PrePOMarket.sol#L68,Cache re-reading state variables
+9,WithdrawHook.sol#L76,Cache re-reading state variables
+10,Collateral.sol#L46,Cache re-reading state variables
+11,DepositHook.sol#L49,Cache re-reading state variables
+12,PrePOMarket.sol#L82,Skip single-use local variables
+13,PrePOMarketFactory.sol#L42-L45,Skip single-use local variables
+14,PrePOMarket.sol#L82,Using unchecked blocks
+15,WithdrawHook.sol#L76,Using unchecked blocks
+16,Collateral.sol#L50,Using unchecked blocks
+17,WithdrawHook.sol#L64,Use = over +=
+18,DepositRecord.sol#L31,Use = over +=
+19,NFTScoreRequirement.sol#L59,Cache state variables before loops
+20,PrePOMarket.sol#L77-L78,Reorder comparison statement
+21,Collateral.sol#L47-L48,Reorder comparison statement
+22,PrePOMarketFactory.sol#L22,Use calldata for immutable arguments
+23,NFTScoreRequirement.sol#L22,Use calldata for immutable arguments
+24,PrePOMarketFactory.sol#L41,merge functions
+25,PrePOMarket.sol#L68,Use assembly
+26,Collateral.sol#L51,Use assembly
+27,PrePOMarket.sol#L69,Check value before state update
+28,DepositTradeHelper.sol#L26,Check value before state update
+29,Collateral.sol#L82,Check value before state update

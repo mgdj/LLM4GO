@@ -1,0 +1,21 @@
+,file,type,status
+10,src/tokens/PrincipalToken.sol#L714-L715,Use = over +=,tp
+11,src/tokens/PrincipalToken.sol#L47,Optimize bool variables,tp
+12,src/tokens/PrincipalToken.sol#L136-L156,Cache re-reading state variables,tp
+13,src/tokens/PrincipalToken.sol#L182-L183,Cache re-reading state variables,tp
+14,src/tokens/PrincipalToken.sol#L312,Cache re-reading state variables,tp
+15,src/tokens/PrincipalToken.sol#L499,Cache re-reading state variables,tp
+16,src/tokens/PrincipalToken.sol#L628,Cache re-reading state variables,tp
+17,src/tokens/PrincipalToken.sol#L903,Cache re-reading state variables,tp
+18,src/proxy/AMProxyAdmin.sol#L43,Use calldata for immutable arguments,tp
+19,src/tokens/PrincipalToken.sol#L394,Use calldata for immutable arguments,tp
+20,src/proxy/AMTransparentUpgradeableProxy.sol#L86,Declare immutable for efficiency,tp
+21,src/tokens/PrincipalToken.sol#L106,Declare immutable for efficiency,tp
+22,src/libraries/RayMath.sol#L12,Using private for constants,tp
+23,src/proxy/AMProxyAdmin.sol#L23,Using private for constants,tp
+24,src/libraries/PrincipalTokenUtil.sol#L157,Remove unused variables/functions,fp
+25,src/libraries/PrincipalTokenUtil.sol#L178,Remove unused variables/functions,fp
+26,src/libraries/PrincipalTokenUtil.sol#L188,Remove unused variables/functions,fp
+27,src/libraries/RayMath.sol#L20,Remove unused variables/functions,fp
+28,src/libraries/RayMath.sol#L35,Remove unused variables/functions,fp
+29,src/libraries/RayMath.sol#L57,Remove unused variables/functions,fp

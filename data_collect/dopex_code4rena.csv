@@ -1,0 +1,20 @@
+,file,type
+1,/contracts/amo/UniV3LiquidityAmo.sol#L68-72,Declare immutable for efficiency
+2,/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L46L67,Declare immutable for efficiency
+3,/contracts/perp-vault/PerpetualAtlanticVault.sol#L104,Use constant
+4,/contracts/perp-vault/PerpetualAtlanticVault.sol,Optimize variable storage layout
+5,/contracts/core/RdpxV2Core.sol,Optimize variable storage layout
+6,/contracts/perp-vault/PerpetualAtlanticVault.sol#L594,cache function call
+7,/contracts/core/RdpxV2Core.sol#L240,Use calldata for immutable arguments
+8,/contracts/core/RdpxV2Core.sol#L270,Use calldata for immutable arguments
+9,/contracts/core/RdpxV2Core.sol#L764,Use calldata for immutable arguments
+10,/contracts/core/RdpxV2Core.sol#L819,Use calldata for immutable arguments
+11,/contracts/core/RdpxV2Core.sol#L1135,Use calldata for immutable arguments
+12,/contracts/perp-vault/PerpetualAtlanticVault.sol#L315,Use calldata for immutable arguments
+13,/contracts/perp-vault/PerpetualAtlanticVault.sol#L405,Use calldata for immutable arguments
+14,/contracts/core/RdpxV2Core.sol#L980,Cache re-reading state variables
+15,/contracts/perp-vault/PerpetualAtlanticVault.sol#L372,Cache re-reading state variables
+16,/contracts/perp-vault/PerpetualAtlanticVault.sol#L510,Cache re-reading state variables
+17,/contracts/perp-vault/PerpetualAtlanticVault.sol#L315,Cache re-reading state variables
+18,/contracts/core/RdpxV2Core.sol#L966,Cache re-reading state variables
+19,/contracts/core/RdpxV2Core.sol#L980,Cache re-reading state variables

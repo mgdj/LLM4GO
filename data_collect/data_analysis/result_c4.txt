@@ -1,0 +1,65 @@
+cache re-reading state variables: 130
+using unchecked blocks: 60
+optimize variable storage layout: 58
+merge functions: 55
+reorder comparison statement: 50
+remove unnecessary casting/expression: 43
+use calldata for immutable arguments: 43
+splitting require statements: 31
+skip single-use local variables: 27
+use inline assembly for arithmetic operations: 23
+cache state variables before loops: 23
+use = over +=: 21
+use custom errors: 20
+emit/require before state update: 16
+check value before state update: 14
+use already cached value instead of re-reading from storage: 13
+declare immutable for efficiency: 13
+use assembly: 12
+use pre-increment: 12
+repetitive code optimization: 10
+remove unused variables/functions: 9
+comparison statement order adjustment: 8
+use storage istead of memory: 8
+declare immutable: 8
+using private for constants: 7
+using calldata instead of memory for read-only arguments in external functions saves gas: 7
+using unchecked blocks to save gas: 7
+optimize bool variables: 7
+use assembly for loops to save gas: 7
+declaration outside loops: 6
+emit/require/revert/return before state update: 6
+use bitwise shifts: 6
+cache array length pre-loop: 6
+check before updating state variable with same value: 5
+state variables should be cached in stack variables rather than re-reading them from storage: 5
+do not declare local variables used only once: 5
+merge statements: 4
+mark revert functions payable: 4
+cache function call: 4
+use immutables variables directly instead of caching them in stack: 3
+use name return: 3
+unnecessary casting or expression: 3
+emit local variables instead of state variable: 3
+function modifier removal or reordering: 3
+creating memory variable or emitting should be outside of loop: 3
+use constant: 2
+bytes constants are more efficient than string constants: 2
+functions guaranteed to revert when called by normal users can be marked payable: 2
+merging require()/revert() checks: 2
+when public function is never called internally and is only expected to be invoked externally it is more gas-efficient to explicitly declare it as external: 2
+reorder or remove modifiers: 2
+use cached variable: 2
+!a || !b => !(a & b): 2
+automators/automator.sol: 2
+redundant state variable getters: 2
+pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes: 2
+item: 1
+use delete: 1
+using private rather than public for constants saves gas: 1
+using bools for storage incurs overhead: 1
+++i costs less gas compared to i++ or i += 1 (same for --i vs i-- or i -= 1): 1
+cache function calls: 1
+reorder modifier: 1
+using storage instead of memory: 1
+emit/require/revert before state update: 1

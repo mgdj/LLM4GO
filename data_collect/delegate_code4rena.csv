@@ -1,0 +1,14 @@
+,file,type
+1,/src/libraries/DelegateTokenLib.sol#L20,Optimize variable storage layout
+2,/src/libraries/CreateOffererLib.sol#L89,Optimize variable storage layout
+3,/src/libraries/CreateOffererLib.sol#L98,Optimize variable storage layout
+4,delegate-registry/src/DelegateRegistry.sol#L18,Remove unused variables/functions
+5,/src/libraries/CreateOffererLib.sol#L185,Cache re-reading state variables
+6,delegate-registry/src/DelegateRegistry.sol,Declaration outside loops
+7,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L35,Use assembly for loops to save gas
+8,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L275,Use assembly for loops to save gas
+9,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L312,Use assembly for loops to save gas
+10,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L386,Use assembly for loops to save gas
+11,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L393,Use assembly for loops to save gas
+12,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L417,Use assembly for loops to save gas
+13,Breadcrumbsdelegate-registry/src/DelegateRegistry.sol#L423,Use assembly for loops to save gas

@@ -1,0 +1,37 @@
+mark revert functions payable: 159
+use != 0 instead of > 0 for unsigned integer comparison: 123
+cache array length pre-loop: 107
+use custom errors: 104
+use pre-increment: 100
+optimize bool variables: 90
+use = over +=: 80
+using private for constants: 73
+using unchecked blocks: 63
+cache re-reading state variables: 56
+use calldata for immutable arguments: 47
+use bitwise shifts: 40
+remove unused variables/functions: 30
+check value before state update: 28
+splitting require statements: 21
+use inline assembly for arithmetic operations: 20
+using unchecked blocks to save gas: 18
+use assembly: 15
+declare immutable for efficiency: 13
+use assembly to check for address(0): 11
+use assembly to check for the zero address: 8
+skip single-use local variables: 6
+++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too): 5
+cache array length outside of loop: 5
+declare immutable: 4
+use pre-increment: 4
+using private rather than public for constants saves gas: 3
+functions guaranteed to revert when called by normal users can be marked payable: 3
+a = a + b is more gas effective than a += b for state variables: 2
+avoid declaring unused variables or unused internal function: 2
+assembly tricks: 2
+using bools for storage incurs overhead: 2
+use calldata instead of memory for function arguments that do not get mutated: 2
+state variables should be cached in stack variables rather than re-reading them from storage: 1
+repetitive code optimization: 1
+using private rather than public for constants saves gas saves gas: 1
+use unchecked blocks: 1

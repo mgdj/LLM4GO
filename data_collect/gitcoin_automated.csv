@@ -1,0 +1,23 @@
+,file,type,status
+5,contracts/IdentityStaking.sol#L246,Use = over +=,fp
+6,contracts/IdentityStaking.sol#L452,Use = over +=,fp
+7,contracts/IdentityStaking.sol#L462,Use = over +=,tp
+8,/id-staking-v2/contracts/IdentityStaking.sol#L179,Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+9,/id-staking-v2/contracts/IdentityStaking.sol#L354,Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+10,/id-staking-v2/contracts/IdentityStaking.sol#L545,Using unchecked blocks to save gas[Use assembly to check for address(0)],tp
+11,/id-staking-v2/contracts/IdentityStaking.sol#L189,Cache array length outside of loop,tp
+12,/id-staking-v2/contracts/IdentityStaking.sol#L193,Cache array length outside of loop,tp
+13,/id-staking-v2/contracts/IdentityStaking.sol#L467-#L497,State variables should be cached in stack variables rather than re-reading them from storage,tp
+14,/id-staking-v2/contracts/IdentityStaking.sol#L206,Functions guaranteed to revert when called by normal users can be marked payable,fp
+15,/id-staking-v2/contracts/IdentityStaking.sol#L211,Functions guaranteed to revert when called by normal users can be marked payable,fp
+16,/id-staking-v2/contracts/IdentityStaking.sol#L218,Functions guaranteed to revert when called by normal users can be marked payable,fp
+17,contracts/IdentityStaking.sol#L189,Use pre-increment,tp
+18,contracts/IdentityStaking.sol#L193,Use pre-increment,tp
+19,contracts/IdentityStaking.sol#L441,Use pre-increment,tp
+20,contracts/IdentityStaking.sol#L470,Use pre-increment,tp
+21,/id-staking-v2/contracts/IdentityStaking.sol#L65-#L71,Using private rather than public for constants saves gas saves gas,tp
+22,contracts/IdentityStaking.sol#L189,Using unchecked blocks,tp
+23,contracts/IdentityStaking.sol#L193,Using unchecked blocks,tp
+24,contracts/IdentityStaking.sol#L441,Using unchecked blocks,tp
+25,contracts/IdentityStaking.sol#L470,Using unchecked blocks,tp
+26,/id-staking-v2/contracts/IdentityStaking.sol#L518,Use != 0 instead of > 0 for unsigned integer comparison,fp

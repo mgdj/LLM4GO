@@ -1,0 +1,14 @@
+,file,type
+1,Caller.sol#L196-L199,Using unchecked blocks
+2,ImmutableSplitsDriver.sol#L61-L63,Using unchecked blocks
+3,Drips.sol#L247-L249,Using unchecked blocks
+4,Drips.sol#L450-L459,Using unchecked blocks
+5,Drips.sol#L662-L668,Using unchecked blocks
+6,DripsHub.sol#L613-L616,Using unchecked blocks
+7,Splits.sol#L158-L166,Using unchecked blocks
+8,Drips.sol#L480,Using unchecked blocks
+9,DripsHub.sol#L136,Using unchecked blocks
+10,DripsHub.sol#L636,Using unchecked blocks
+11,Drips.sol#L539-L542,Cache re-reading state variables
+12,Drips.sol#L700,Splitting require statements
+13,Drips.sol#L929,Splitting require statements

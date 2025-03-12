@@ -1,0 +1,27 @@
+,file,type,status
+12,contracts/EthenaMinting.sol#L86,Optimize bool variables,tp
+13,contracts/EthenaMinting.sol#L126,Cache array length pre-loop,tp
+14,contracts/EthenaMinting.sol#L130,Cache array length pre-loop,tp
+15,contracts/EthenaMinting.sol#L363,Cache array length pre-loop,tp
+16,contracts/EthenaMinting.sol#L424,Cache array length pre-loop,tp
+17,contracts/EthenaMinting.sol#L219,Mark revert functions payable,tp
+18,contracts/EthenaMinting.sol#L224,Mark revert functions payable,tp
+19,contracts/EthenaMinting.sol#L229,Mark revert functions payable,tp
+20,contracts/EthenaMinting.sol#L259,Mark revert functions payable,tp
+21,contracts/EthenaMinting.sol#L270,Mark revert functions payable,tp
+22,contracts/EthenaMinting.sol#L277,Mark revert functions payable,tp
+23,contracts/EthenaMinting.sol#L290,Mark revert functions payable,tp
+24,contracts/EthenaMinting.sol#L298,Mark revert functions payable,tp
+25,contracts/SingleAdminAccessControl.sol#L25,Mark revert functions payable,tp
+26,contracts/SingleAdminAccessControl.sol#L41,Mark revert functions payable,tp
+27,contracts/StakedUSDe.sol#L89,Mark revert functions payable,tp
+28,contracts/StakedUSDe.sol#L138,Mark revert functions payable,tp
+29,contracts/StakedUSDe.sol#L148,Mark revert functions payable,tp
+30,contracts/StakedUSDeV2.sol#L126,Mark revert functions payable,tp
+31,contracts/USDe.sol#L23,Mark revert functions payable,tp
+32,contracts/USDe.sol#L33,Mark revert functions payable,tp
+33,contracts/EthenaMinting.sol#L126,Use pre-increment,tp
+34,contracts/EthenaMinting.sol#L130,Use pre-increment,tp
+35,contracts/EthenaMinting.sol#L430,Use != 0 instead of > 0 for unsigned integer comparison,fp
+36,contracts/StakedUSDe.sol#L90,Use != 0 instead of > 0 for unsigned integer comparison,fp
+37,contracts/StakedUSDe.sol#L193,Use != 0 instead of > 0 for unsigned integer comparison,fp

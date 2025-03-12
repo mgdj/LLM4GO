@@ -1,0 +1,22 @@
+,file,type,status
+1,QuestFactory.sol#L70,Use assembly to check for address(0),tp
+2,Quest.sol#L19-24,Optimize bool variables,tp
+3,QuestFactory.sol#L20-30,Optimize bool variables,tp
+4,Optimize bool variables#L70,Cache array length pre-loop,tp
+5,Erc1155Quest.sol#L19,Use calldata for immutable arguments,tp
+6,Erc1155Quest.sol#L67-68,Use calldata for immutable arguments,tp
+7,RabbitHoleReceipt.sol#L110,Use calldata for immutable arguments,tp
+8,RabbitHoleTickets.sol#L94-96,Use calldata for immutable arguments,tp
+9,ReceiptRenderer.sol#L82,Use calldata for immutable arguments,tp
+10,test/SampleERC20.sol#L27-28,Use calldata for immutable arguments,tp
+11,Erc1155Quest.sol#L54,Mark revert functions payable,tp
+12,Erc20Quest.sol#L102,Mark revert functions payable,tp
+13,Quest.sol#L50,Mark revert functions payable,tp
+14,Quest.sol#L150,Mark revert functions payable,tp
+15,QuestFactory.sol#L142,Mark revert functions payable,tp
+16,QuestFactory.sol#L65,Mark revert functions payable,tp
+17,RabbitHoleTickets.sol#L54,Mark revert functions payable,tp
+18,Quest.sol#L70,Use pre-increment,tp
+19,QuestFactory.sol#L226,Use pre-increment,tp
+20,RabbitHoleReceipt.sol#L117,Use pre-increment,tp
+21,RabbitHoleReceipt.sol#L129,Use != 0 instead of > 0 for unsigned integer comparison,fp

@@ -1,0 +1,843 @@
+type
+merge functions
+Cache re-reading state variables
+merge functions
+merge functions
+merge functions
+merge functions
+merge functions
+merge functions
+Emit/require before state update
+Use custom errors
+Use custom errors
+use custom errors
+use custom errors
+use custom errors
+Optimize variable storage layout
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+Optimize variable storage layout
+Optimize variable storage layout
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Using unchecked blocks
+merge functions
+Using private for constants
+Mark revert functions payable
+Mark revert functions payable
+Optimize variable storage layout
+Cache re-reading state variables
+Cache re-reading state variables
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+merge functions
+merge functions
+Use pre-increment
+Use pre-increment
+Use pre-increment
+Use = over +=
+Optimize variable storage layout
+Using unchecked blocks
+Use = over +=
+Declaration outside loops
+Use pre-increment
+Use pre-increment
+Using unchecked blocks
+Using unchecked blocks
+Use custom errors
+Use custom errors
+Emit/require before state update
+merge functions
+merge functions
+Cache re-reading state variables
+Cache re-reading state variables
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Comparison statement order adjustment
+Comparison statement order adjustment
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Optimize variable storage layout
+automators/Automator.sol
+automators/Automator.sol
+Comparison statement order adjustment
+Skip single-use local variables
+Skip single-use local variables
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Remove unused variables/functions
+Cache re-reading state variables
+Declaration outside loops
+Use assembly for loops to save gas
+Use assembly for loops to save gas
+Use assembly for loops to save gas
+Use assembly for loops to save gas
+Use assembly for loops to save gas
+Use assembly for loops to save gas
+Use assembly for loops to save gas
+Cache re-reading state variables
+Skip single-use local variables
+Skip single-use local variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Optimize variable storage layout
+Reorder comparison statement
+Optimize variable storage layout
+Reorder comparison statement
+Remove unnecessary casting/expression
+Cache re-reading state variables
+Cache re-reading state variables
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache state variables before loops
+Cache state variables before loops
+Emit/require before state update
+Use = over +=
+Use = over +=
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Declare immutable for efficiency
+Declare immutable for efficiency
+Declare immutable for efficiency
+Declare immutable for efficiency
+Declare immutable for efficiency
+Declare immutable for efficiency
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Skip single-use local variables
+Skip single-use local variables
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Use = over +=
+Use = over +=
+Cache state variables before loops
+Reorder comparison statement
+Reorder comparison statement
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+merge functions
+Use assembly
+Use assembly
+Check value before state update
+Check value before state update
+Check value before state update
+Declare immutable for efficiency
+merge functions
+merge functions
+merge functions
+merge functions
+Repetitive code optimization
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Optimize variable storage layout
+Repetitive code optimization
+Use = over +=
+Use = over +=
+merge functions
+Cache re-reading state variables
+Cache re-reading state variables
+Declare immutable for efficiency
+Declare immutable for efficiency
+Use constant
+Optimize variable storage layout
+Optimize variable storage layout
+cache function call
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+use constant
+merge functions
+merge functions
+Reorder comparison statement
+Reorder comparison statement
+cache function calls
+Remove unnecessary casting/expression
+Reorder comparison statement
+Emit local variables instead of state variable
+Emit local variables instead of state variable
+Emit local variables instead of state variable
+Declare immutable
+Declare immutable
+Declare immutable
+Remove unnecessary casting/expression
+Reorder comparison statement
+Reorder comparison statement
+Reorder modifier
+Use storage istead of memory
+Use storage istead of memory
+Use storage istead of memory
+Use storage istead of memory
+Use storage istead of memory
+Use storage istead of memory
+Use storage istead of memory
+Use storage istead of memory
+Merge functions
+Skip single-use local variables
+Skip single-use local variables
+Skip single-use local variables
+Skip single-use local variables
+merge functions
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Optimize bool variables
+Optimize bool variables
+Optimize bool variables
+Reorder comparison statement
+Emit/require/revert/return before state update
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+check before updating state variable with same value
+check before updating state variable with same value
+creating memory variable or emitting should be outside of loop
+creating memory variable or emitting should be outside of loop
+State variables should be cached in stack variables rather than re-reading them from storage
+Pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes[reducing their sizes]
+Use immutables variables directly instead of caching them in stack
+Use already cached value instead of re-reading from storage
+Unnecessary casting or expression
+Unnecessary casting or expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Cache state variables before loops
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache state variables before loops
+Cache state variables before loops
+Cache state variables before loops
+Cache state variables before loops
+Cache state variables before loops
+Cache re-reading state variables
+Cache re-reading state variables
+merge functions
+merge functions
+merge functions
+merge functions
+Cache re-reading state variables
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Mark revert functions payable
+Use = over +=
+Use = over +=
+Use = over +=
+Use = over +=
+Use = over +=
+Optimize variable storage layout
+Optimize variable storage layout
+Use bitwise shifts
+Use bitwise shifts
+Use bitwise shifts
+Use bitwise shifts
+Reorder comparison statement
+Reorder comparison statement
+Use pre-increment
+Use custom errors
+Use custom errors
+Use custom errors
+Use custom errors
+merge functions
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+merge functions
+merge functions
+Optimize bool variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Remove unnecessary casting/expression
+merge functions
+Remove unnecessary casting/expression
+Check value before state update
+Remove unnecessary casting/expression
+Cache state variables before loops
+merge functions
+Remove unnecessary casting/expression
+Optimize variable storage layout
+Cache state variables before loops
+Use calldata for immutable arguments
+Cache re-reading state variables
+Use cached variable
+Use cached variable
+Reorder comparison statement
+Reorder comparison statement
+Skip single-use local variables
+Declaration outside loops
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Splitting require statements
+Splitting require statements
+Use immutables variables directly instead of caching them in stack
+Use immutables variables directly instead of caching them in stack
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+Use pre-increment
+merge functions
+Optimize variable storage layout
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Use = over +=
+Use = over +=
+Use assembly
+Use assembly
+Use assembly
+Use pre-increment
+Use pre-increment
+Use pre-increment
+Use pre-increment
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Splitting require statements
+Splitting require statements
+Use assembly
+Use assembly
+Use assembly
+Cache re-reading state variables
+Remove unnecessary casting/expression
+merge functions
+Declare immutable for efficiency
+Check value before state update
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Splitting require statements
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Unnecessary casting or expression
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Do not declare local variables used only once
+Do not declare local variables used only once
+Redundant state variable getters
+Redundant state variable getters
+Use already cached value instead of re-reading from storage
+Using unchecked blocks to save gas[Unchecked Divisions]
+Using unchecked blocks to save gas[Unchecked Divisions]
+Using unchecked blocks to save gas[Unchecked Divisions]
+Using unchecked blocks to save gas[Unchecked Divisions]
+Using unchecked blocks to save gas[Unchecked Divisions]
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Use already cached value instead of re-reading from storage
+Comparison statement order adjustment
+Using calldata instead of memory for read-only arguments in external functions saves gas
+Using calldata instead of memory for read-only arguments in external functions saves gas
+Using calldata instead of memory for read-only arguments in external functions saves gas
+Using calldata instead of memory for read-only arguments in external functions saves gas
+Using calldata instead of memory for read-only arguments in external functions saves gas
+Using calldata instead of memory for read-only arguments in external functions saves gas
+Using calldata instead of memory for read-only arguments in external functions saves gas
+merging require()/revert() checks
+merging require()/revert() checks
+creating memory variable or emitting should be outside of loop
+Comparison statement order adjustment
+Comparison statement order adjustment
+Check value before state update
+Check value before state update
+Check value before state update
+Check value before state update
+Cache state variables before loops
+Cache state variables before loops
+Cache state variables before loops
+Cache state variables before loops
+Cache state variables before loops
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Remove unnecessary casting/expression
+Cache re-reading state variables
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unused variables/functions
+Use custom errors
+Use custom errors
+Use custom errors
+Use custom errors
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Cache re-reading state variables
+Cache re-reading state variables
+Use = over +=
+Using unchecked blocks
+Using unchecked blocks
+Using private for constants
+Using private for constants
+Use custom errors
+Mark revert functions payable
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Cache re-reading state variables
+Splitting require statements
+Splitting require statements
+merge functions
+Optimize variable storage layout
+Optimize variable storage layout
+Use = over +=
+Use = over +=
+Skip single-use local variables
+Emit/require before state update
+Reorder comparison statement
+Declare immutable for efficiency
+Declare immutable for efficiency
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Emit/require before state update
+Emit/require before state update
+Emit/require before state update
+Using storage instead of memory
+Using unchecked blocks
+merge functions
+merge functions
+Use assembly
+Using unchecked blocks
+Remove unnecessary casting/expression
+Repetitive code optimization
+merge functions
+Use assembly
+merge functions
+!A || !B => !(A & B)
+Check value before state update
+Cache array length pre-loop
+Optimize variable storage layout
+Reorder comparison statement
+Optimize variable storage layout
+Function modifier removal or reordering
+Function modifier removal or reordering
+Cache re-reading state variables
+Function modifier removal or reordering
+Cache re-reading state variables
+Cache re-reading state variables
+Using unchecked blocks
+Using unchecked blocks
+merge functions
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+merge functions
+merge functions
+merge functions
+merge statements
+Comparison statement order adjustment
+Comparison statement order adjustment
+State variables should be cached in stack variables rather than re-reading them from storage
+State variables should be cached in stack variables rather than re-reading them from storage
+Using unchecked blocks to save gas
+Using unchecked blocks to save gas
+Do not declare local variables used only once
+Do not declare local variables used only once
+Do not declare local variables used only once
+Cache re-reading state variables
+Optimize variable storage layout
+Emit/require/revert/return before state update
+Emit/require/revert/return before state update
+Emit/require/revert/return before state update
+Emit/require/revert before state update
+Emit/require/revert/return before state update
+merge functions
+Emit/require/revert/return before state update
+Optimize variable storage layout
+Emit/require before state update
+Remove unnecessary casting/expression
+Emit/require before state update
+Skip single-use local variables
+Skip single-use local variables
+Declare immutable for efficiency
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Splitting require statements
+Splitting require statements
+Reorder comparison statement
+Cache re-reading state variables
+reorder or remove modifiers
+reorder or remove modifiers
+Remove unused variables/functions
+Optimize variable storage layout
+Remove unnecessary casting/expression
+Cache re-reading state variables
+Remove unused variables/functions
+Remove unnecessary casting/expression
+Cache re-reading state variables
+Using unchecked blocks
+Cache re-reading state variables
+Remove unused variables/functions
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Remove unused variables/functions
+Emit/require before state update
+Emit/require before state update
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Cache re-reading state variables
+Use custom errors
+Use custom errors
+Use custom errors
+Use custom errors
+Using unchecked blocks
+Cache re-reading state variables
+Cache re-reading state variables
+Optimize bool variables
+Skip single-use local variables
+Use pre-increment
+Use = over +=
+Use = over +=
+Check value before state update
+Check value before state update
+Check value before state update
+Using unchecked blocks
+Skip single-use local variables
+Optimize variable storage layout
+Splitting require statements
+Use calldata for immutable arguments
+Use assembly
+item
+check before updating state variable with same value
+check before updating state variable with same value
+check before updating state variable with same value
+State variables should be cached in stack variables rather than re-reading them from storage
+Pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes
+Using bools for storage incurs overhead
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+State variables should be cached in stack variables rather than re-reading them from storage
+Functions guaranteed to revert when called by normal users can be marked payable
+Functions guaranteed to revert when called by normal users can be marked payable
+++i costs less gas compared to i++ or i += 1 (same for --i vs i-- or i -= 1)
+Using private rather than public for constants saves gas
+merge functions
+merge functions
+merge functions
+merge functions
+merge functions
+Reorder comparison statement
+Cache state variables before loops
+Reorder comparison statement
+Declare immutable
+Declare immutable
+Declare immutable
+Declare immutable
+Declare immutable
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache function call
+Cache function call
+Cache function call
+merge functions
+Remove unused variables/functions
+Skip single-use local variables
+Skip single-use local variables
+Skip single-use local variables
+Skip single-use local variables
+Skip single-use local variables
+Using private for constants
+Using private for constants
+Using private for constants
+merge functions
+Using unchecked blocks
+Skip single-use local variables
+Cache re-reading state variables
+Cache re-reading state variables
+Bytes constants are more efficient than string constants
+Bytes constants are more efficient than string constants
+Use name return
+Use name return
+Use name return
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Use calldata for immutable arguments
+Cache state variables before loops
+Cache state variables before loops
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Splitting require statements
+Splitting require statements
+Skip single-use local variables
+Skip single-use local variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Cache re-reading state variables
+Repetitive code optimization
+Repetitive code optimization
+Repetitive code optimization
+Repetitive code optimization
+Repetitive code optimization
+Repetitive code optimization
+Repetitive code optimization
+Cache state variables before loops
+Cache state variables before loops
+merge functions
+Cache state variables before loops
+Cache state variables before loops
+Optimize bool variables
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+use inline assembly for arithmetic operations
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Cache re-reading state variables
+Cache re-reading state variables
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Reorder comparison statement
+Cache re-reading state variables
+Cache re-reading state variables
+Cache re-reading state variables
+Use = over +=
+Using unchecked blocks
+Using unchecked blocks
+Using unchecked blocks
+Splitting require statements
+Splitting require statements
+Cache re-reading state variables
+Remove unnecessary casting/expression
+merge functions
+Cache re-reading state variables
+use delete
+Using unchecked blocks
+merge functions
+Check value before state update
+merge functions
+merge functions
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Splitting require statements
+Remove unused variables/functions
+Use assembly
+Splitting require statements
+Cache re-reading state variables
+Remove unnecessary casting/expression
+Emit/require before state update
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Optimize variable storage layout
+Cache re-reading state variables
+Cache re-reading state variables
+Emit/require before state update
+Emit/require before state update
+Cache array length pre-loop
+Cache array length pre-loop
+Cache array length pre-loop
+Cache array length pre-loop
+Remove unnecessary casting/expression
+Cache array length pre-loop
+Remove unnecessary casting/expression
+Merge statements
+Remove unnecessary casting/expression
+Using unchecked blocks
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+Using unchecked blocks
+Remove unused variables/functions
+Remove unnecessary casting/expression
+!A || !B => !(A & B)
+Remove unnecessary casting/expression
+Merge statements
+Use calldata for immutable arguments
+Reorder comparison statement
+Reorder comparison statement
+Emit/require before state update
+Emit/require before state update
+Reorder comparison statement
+Declaration outside loops
+Declaration outside loops
+Declaration outside loops
+Use bitwise shifts
+Use bitwise shifts
+Remove unnecessary casting/expression
+Remove unnecessary casting/expression
+merge statements
+Skip single-use local variables
+Using unchecked blocks
+Optimize bool variables
+When public function is never called internally and is only expected to be invoked externally it is more gas-efficient to explicitly declare it as external
+Using private for constants
+When public function is never called internally and is only expected to be invoked externally it is more gas-efficient to explicitly declare it as external
+Skip single-use local variables
+Skip single-use local variables

@@ -1,0 +1,33 @@
+,file,type,status
+1,Caller.sol#L196,Cache array length pre-loop,tp
+2,Drips.sol#L422,Cache array length pre-loop,tp
+3,DripsHub.sol#L613,Cache array length pre-loop,tp
+4,ImmutableSplitsDriver.sol#L61,Cache array length pre-loop,tp
+5,Splits.sol#L127,Cache array length pre-loop,tp
+6,Caller.sol#L147,Use calldata for immutable arguments,tp
+7,DripsHub.sol#L275,Use calldata for immutable arguments,tp
+8,NFTDriver.sol#L263,Use calldata for immutable arguments,tp
+9,Caller.sol#L108,Use custom errors,tp
+10,Drips.sol#L220,Use custom errors,tp
+11,DripsHub.sol#L631,Use custom errors,tp
+12,ImmutableSplitsDriver.sol#L64,Use custom errors,tp
+13,Managed.sol#L47,Use custom errors,tp
+14,Splits.sol#L227,Use custom errors,tp
+15,Managed.sol#L84,Mark revert functions payable,tp
+16,Managed.sol#L122,Mark revert functions payable,tp
+17,Caller.sol#L196,Use pre-increment,tp
+18,Drips.sol#L422,Use pre-increment,tp
+19,DripsHub.sol#L613,Use pre-increment,tp
+20,ImmutableSplitsDriver.sol#L61,Use pre-increment,tp
+21,Splits.sol#L127,Use pre-increment,tp
+22,DripsHub.sol#L56-70,Using private for constants,tp
+23,Drips.sol#L480,Use bitwise shifts,tp
+24,AddressDriver.sol#L132,Use != 0 instead of > 0 for unsigned integer comparison,fp
+25,Drips.sol#L779,Use != 0 instead of > 0 for unsigned integer comparison,fp
+26,DripsHub.sol#L245,Use != 0 instead of > 0 for unsigned integer comparison,fp
+27,ImmutableSplitsDriver.sol#L67,Use != 0 instead of > 0 for unsigned integer comparison,fp
+28,NFTDriver.sol#L69,Use != 0 instead of > 0 for unsigned integer comparison,fp
+29,Drips.sol#L60,Remove unused variables/functions,tp
+30,Drips.sol#L233,Remove unused variables/functions,tp
+31,Splits.sol#L106,Remove unused variables/functions,tp
+32,Splits.sol#L185,Remove unused variables/functions,fp

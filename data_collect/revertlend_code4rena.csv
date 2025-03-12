@@ -1,0 +1,16 @@
+,,type,file
+,,Optimize variable storage layout,InterestRateModel.sol#L23-L25
+074,struct variable,Optimize variable storage layout,V3Vault.sol#L140-L145
+,,Optimize variable storage layout,V3Vault.sol
+,,Optimize variable storage layout,V3Oracle.sol#L43-L53
+075,expression order change,Comparison statement order adjustment,V3Vault.sol
+076,expression order change,Comparison statement order adjustment,AutoExit.sol
+077,state variable,Cache re-reading state variables,V3Vault.sol
+079,repeat computation,Cache re-reading state variables,V3Vault.sol
+080,repeat computation,Cache re-reading state variables,V3Vault.sol
+081,struct variable,Optimize variable storage layout,AutoExit.sol
+083,Check value before state update,automators/Automator.sol
+084,Check value before state update,automators/Automator.sol
+085,statement conversion,Comparison statement order adjustment,Automator.sol
+086,statement conversion,Skip single-use local variables,Swapper.sol
+087,statement conversion,Skip single-use local variables,AutoExit.sol

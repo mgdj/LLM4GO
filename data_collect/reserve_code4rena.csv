@@ -1,0 +1,18 @@
+,file,type
+1,/contracts/p1/AssetRegistry.sol#L120-L132,Cache re-reading state variables
+2,/contracts/p1/mixins/BasketLib.sol,Remove unnecessary casting/expression
+3,/contracts/p1/RToken.sol#L184-257,merge functions
+4,/contracts/p1/Deployer.sol,Declare immutable for efficiency
+5,/contracts/p1/StRSR.sol#L674,Check value before state update
+6,/contracts/plugins/assets/Asset.sol#L86-L106,Remove unnecessary casting/expression
+7,/contracts/plugins/assets/AppreciatingFiatCollateral.sol#L113-116,Remove unnecessary casting/expression
+8,/contracts/plugins/assets/FiatCollateral.sol#L136-139,Remove unnecessary casting/expression
+9,/contracts/plugins/assets/compoundv3/CTokenV3Collateral.sol#L105-110,Remove unnecessary casting/expression
+10,/contracts/plugins/assets/stargate/StargatePoolFiatCollateral.sol#L87-L90,Remove unnecessary casting/expression
+11,/contracts/plugins/assets/RTokenAsset.sol#L86-L94,Remove unnecessary casting/expression
+12,/contracts/plugins/assets/RTokenAsset.sol#L5-L6,Remove unnecessary casting/expression
+13,/contracts/plugins/assets/curve/PoolTokens.sol#L106-L109,Splitting require statements
+14,/contracts/plugins/assets/curve/PoolTokens.sol#L143-L154,Remove unnecessary casting/expression
+15,/contracts/plugins/assets/curve/PoolTokens.sol#L166-L177,Remove unnecessary casting/expression
+16,/contracts/plugins/assets/curve/PoolTokens.sol#L189-L190,Remove unnecessary casting/expression
+17,/contracts/plugins/assets/curve/PoolTokens.sol#L210-L211,Remove unnecessary casting/expression

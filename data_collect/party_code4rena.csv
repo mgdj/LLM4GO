@@ -1,0 +1,13 @@
+,file,type
+1,/contracts/crowdfund/ETHCrowdfundBase.sol#L212,Cache re-reading state variables
+2,/contracts/crowdfund/ETHCrowdfundBase.sol#L222,Skip single-use local variables
+3,/contracts/crowdfund/ETHCrowdfundBase.sol#L237,Skip single-use local variables
+4,/contracts/crowdfund/InitialETHCrowdfund.sol#L325,Cache re-reading state variables
+5,/contracts/crowdfund/ReraiseETHCrowdfund.sol#L352,Cache re-reading state variables
+6,/contracts/party/PartyGovernanceNFT.sol#L149,Cache re-reading state variables
+7,/contracts/party/PartyGovernanceNFT.sol#L181,Cache re-reading state variables
+8,/contracts/party/PartyGovernance.sol#L203,Optimize variable storage layout
+9,/contracts/party/PartyGovernance.sol#L596-L598,Reorder comparison statement
+10,/contracts/party/PartyGovernanceNFT.sol#L55,Optimize variable storage layout
+11,/contracts/party/PartyGovernanceNFT.sol#L274,Reorder comparison statement
+12,/contracts/party/PartyGovernanceNFT.sol#L320,Remove unnecessary casting/expression

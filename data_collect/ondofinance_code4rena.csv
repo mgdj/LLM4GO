@@ -1,0 +1,29 @@
+,file,type
+1,/contracts/rwaOracles/RWADynamicOracle.sol#L295,Optimize variable storage layout
+2,Optimize variable storage layout#L61,Emit/require before state update
+3,/contracts/bridge/DestinationBridge.sol#L337,Remove unnecessary casting/expression
+4,/contracts/rwaOracles/RWADynamicOracle.sol#L30,Emit/require before state update
+5,/contracts/bridge/DestinationBridge.sol#L322,Skip single-use local variables
+6,/contracts/bridge/DestinationBridge.sol#L337,Skip single-use local variables
+7,/contracts/lending/JumpRateModelV2.sol#L24,Declare immutable for efficiency
+8,/contracts/lending/tokens/cCash/CTokenInterfacesModifiedCash.sol#L13-L48,Optimize variable storage layout
+9,/contracts/lending/tokens/cToken/CTokenInterfacesModified.sol#L15-L41,Optimize variable storage layout
+10,/contracts/lending/tokens/cErc20ModifiedDelegator.sol#L187-L218,Optimize variable storage layout
+11,/contracts/lending/tokens/cCash/CTokenCash.sol#L870-L960,Cache re-reading state variables
+12,/contracts/lending/tokens/cToken/CTokenModified.sol#L870-L960,Cache re-reading state variables
+13,/contracts/lending/OndoPriceOracleV2.sol#L114-L116,Cache re-reading state variables
+14,/contracts/lending/tokens/cCash/CTokenCash.sol#L50-L55,Cache re-reading state variables
+15,/contracts/cash/CashManager.sol#L662-L686,Cache re-reading state variables
+16,/contracts/lending/tokens/cCash/CTokenCash.sol#L720-L721,Cache re-reading state variables
+17,/contracts/lending/tokens/cToken/CTokenModified.sol#L720-L721,Cache re-reading state variables
+18,/contracts/lending/OndoPriceOracleV2.sol#L251-L267,Cache re-reading state variables
+19,/contracts/cash/CashManager.sol#L297,Using unchecked blocks
+20,/contracts/lending/tokens/cCash/CTokenCash.sol#L1281,Using unchecked blocks
+21,/contracts/lending/tokens/cToken/CTokenModified.sol#L1284,Using unchecked blocks
+22,/contracts/cash/factory/CashFactory.sol#L127-L133,Using unchecked blocks
+23,/contracts/cash/factory/CashKYCSenderFactory.sol#L137,Using unchecked blocks
+24,/contracts/cash/factory/CashKYCSenderReceiverFactory.sol#L137,Using unchecked blocks
+25,/contracts/cash/kyc/KYCRegistry.sol#L163,Using unchecked blocks
+26,/contracts/lending/OndoPriceOracleV2.sol#L292-L296,Splitting require statements
+27,/contracts/lending/tokens/cCash/CTokenCash.sol#L45-L48,Splitting require statements
+28,/contracts/cash/kyc/KYCRegistry.sol#L79-L112,Reorder comparison statement

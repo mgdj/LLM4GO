@@ -1,0 +1,12 @@
+,file,type,status
+1,WardenPledge.sol#L471,Use != 0 instead of > 0 for unsigned integer comparison,tp
+2,oz/libraries/SafeERC20.sol#L93,Use != 0 instead of > 0 for unsigned integer comparison,tp
+3,oz/utils/Address.sol#L41,Use != 0 instead of > 0 for unsigned integer comparison,tp
+4,WardenPledge.sol#L263,Use bitwise shifts,tp
+5,oz/utils/Pausable.sol#L28,Optimize bool variables,tp
+6,oz/libraries/SafeERC20.sol#L75,Use custom errors,tp
+7,oz/utils/Address.sol#L61,Use custom errors,tp
+8,oz/utils/Ownable.sol#L51,Use custom errors,tp
+9,oz/utils/Pausable.sol#L72,Use custom errors,tp
+10,oz/utils/ReentrancyGuard.sol#L52,Use custom errors,tp
+11,WardenPledge.sol#L22-24,Using private for constants,tp
