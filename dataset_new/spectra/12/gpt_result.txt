@@ -1,0 +1,4 @@
+function totalAssets() public view override returns (uint256) {
+        uint256 balance = IERC4626(ibt).balanceOf(address(this));
+        return IERC4626(ibt).previewRedeem(balance);
+    }

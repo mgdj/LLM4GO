@@ -1,0 +1,14 @@
+function merkleizeSha256(bytes32[] memory leaves) internal pure returns (bytes32) {
+        uint256 length = leaves.length;
+        bytes32[] memory layer = new bytes32[](length - 1);
+        for (uint256 i = 0; i < length - 1; i++) {
+            layer[i] = sha256(abi.encodePacked(leaves[i], leaves[++i]));
+        }
+        while (length > 1) {
+            for (uint256 i = 0; i < length - 1; i++) {
+                layer[i] = sha256(abi.encodePacked(layer[i], layer[++i]));
+            }
+            length /= 2;
+        }
+        return layer[0];
+    }

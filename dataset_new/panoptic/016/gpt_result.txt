@@ -1,0 +1,11 @@
+Recommendations:
+1. Instead of using the logical OR operator (`||`), simplify the conditional check by handling the two conditions separately.
+2. Avoid using the `msg.sender` and `from` variables multiple times in the conditional check.
+
+Optimization code:
+```solidity
+bool authorized = (msg.sender == from) || isApprovedForAll[from][msg.sender];
+if (!authorized) {
+    revert NotAuthorized();
+}
+```

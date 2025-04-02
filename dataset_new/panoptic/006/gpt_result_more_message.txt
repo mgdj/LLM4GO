@@ -1,0 +1,15 @@
+Recommendations:
+1. Use shift right instead of division for optimization.
+2. Avoid unnecessary casting.
+3. Cache the result of (sqrtR % (1 << 32) == 0) outside the calculation.
+
+Optimization_code:
+```solidity
+uint160 sqrtPriceX96;
+uint256 sqrtR; // Assuming sqrtR is already defined somewhere in the code
+
+uint256 sqrtRemainder = sqrtR % (1 << 32);
+uint256 sqrtResult = (sqrtR >> 32) + (sqrtRemainder == 0 ? 0 : 1);
+
+sqrtPriceX96 = uint160(sqrtResult);
+```

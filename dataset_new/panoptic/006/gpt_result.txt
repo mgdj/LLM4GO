@@ -1,0 +1,11 @@
+**Recommendations:**
+1. Avoid unnecessary arithmetic operations.
+2. Use bit manipulation techniques to optimize code.
+3. Minimize the use of division and modulus operations.
+
+**Optimization Code:**
+```solidity
+uint256 intermediate = sqrtR >> 32;
+uint256 remainder = sqrtR & 0xFFFFFFFF; // 2^32 - 1
+sqrtPriceX96 = uint160(intermediate + (remainder > 0 ? 1 : 0));
+```

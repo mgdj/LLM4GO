@@ -1,0 +1,17 @@
+Recommendations:
+1. Use uint256 for rewardX64 instead of uint64 to align with gas optimization practices.
+2. Consider using bytes32 instead of bytes for swapData to save gas.
+
+Optimization Code:
+```solidity
+/// @notice params for execute()
+struct ExecuteParams {
+    uint256 tokenId; // tokenid to process
+    bytes32 swapData; // if its a swap order - must include swap data
+    uint128 liquidity; // liquidity the calculations are based on
+    uint256 amountRemoveMin0; // min amount to be removed from liquidity
+    uint256 amountRemoveMin1; // min amount to be removed from liquidity
+    uint256 deadline; // for uniswap operations - operator promises fair value
+    uint256 reward; // which reward will be used for protocol, can be max configured amount (considering onlyFees)
+}
+```

@@ -1,0 +1,21 @@
+function unstakeNRN(uint256 amount, uint256 tokenId) external {
+        require(_fighterFarmInstance.ownerOf(tokenId) == msg.sender, "Caller does not own fighter");
+        if (amount > amountStaked[tokenId]) {
+            amount = amountStaked[tokenId];
+        }
+        amountStaked[tokenId] -= amount;
+        globalStakedAmount -= amount;
+        stakingFactor[tokenId] = _getStakingFactor(
+            tokenId, 
+            _stakeAtRiskInstance.getStakeAtRisk(tokenId)
+        );
+        _calculatedStakingFactor[tokenId][roundId] = true;
+        hasUnstaked[tokenId][roundId] = true;
+        bool success = _neuronInstance.transfer(msg.sender, amount);
+        if (success) {
+            if (amountStaked[tokenId] == 0) {
+                _fighterFarmInstance.updateFighterStaking(tokenId, false);
+            }
+            emit Unstaked(msg.sender, amount);
+        }
+    }

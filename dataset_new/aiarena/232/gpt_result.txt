@@ -1,0 +1,25 @@
+contract Neuron is ERC20, AccessControl {
+
+    /*//////////////////////////////////////////////////////////////
+                                EVENTS
+    //////////////////////////////////////////////////////////////*/
+
+    event TokensClaimed(address user, uint256 amount);
+    event TokensMinted(address user, uint256 amount);    
+
+    /*//////////////////////////////////////////////////////////////
+                            STATE VARIABLES
+    //////////////////////////////////////////////////////////////*/
+
+    bytes32 private constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    bytes32 private constant SPENDER_ROLE = keccak256("SPENDER_ROLE");
+    bytes32 private constant STAKER_ROLE = keccak256("STAKER_ROLE");
+
+    uint256 private constant INITIAL_TREASURY_MINT = 10**26;
+    uint256 private constant INITIAL_CONTRIBUTOR_MINT = 25 * 10**26;
+    uint256 private constant MAX_SUPPLY = 10**27;
+
+    address public treasuryAddress;
+    address _ownerAddress;
+
+    mapping(address => bool) public isAdmin;

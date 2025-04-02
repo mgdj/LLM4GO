@@ -1,0 +1,1 @@
+You can switch the order of conditions in the if statement to utilize short-circuit evaluation. This ensures that if the first condition (unwrap) is false the second condition (address(weth) == address(token)) won’t even be evaluated.

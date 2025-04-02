@@ -1,0 +1,14 @@
+function _addOwnedCurvesTokenSubject(address owner_, address curvesTokenSubject) internal {
+        if (ownedCurvesTokenSubjects[owner_].length == 0) {
+            ownedCurvesTokenSubjects[owner_].push(curvesTokenSubject);
+            return;
+        }
+        
+        for (uint256 i = 0; i < ownedCurvesTokenSubjects[owner_].length; i++) {
+            if (ownedCurvesTokenSubjects[owner_][i] == curvesTokenSubject) {
+                return;
+            }
+        }
+        
+        ownedCurvesTokenSubjects[owner_].push(curvesTokenSubject);
+    }

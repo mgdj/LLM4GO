@@ -1,0 +1,27 @@
+function _deployERC20(
+        address curvesTokenSubject,
+        string memory name,
+        string memory symbol
+    ) internal returns (address) {
+        if (keccak256(bytes(symbol)) == keccak256(bytes(DEFAULT_SYMBOL))) {
+            _curvesTokenCounter += 1;
+            name = string(abi.encodePacked(name, " ", Strings.toString(_curvesTokenCounter)));
+            symbol = string(abi.encodePacked(symbol, Strings.toString(_curvesTokenCounter)));
+        }
+
+        require(symbolToSubject[symbol] == address(0), "InvalidERC20Metadata");
+
+        address tokenContract = CurvesERC20Factory(curvesERC20Factory).deploy(name, symbol, address(this));
+
+        CurvesExternalData storage externalData = externalCurvesTokens[curvesTokenSubject];
+        
+        externalData.token = tokenContract;
+        externalData.name = name;
+        externalData.symbol = symbol;
+        externalCurvesToSubject[tokenContract] = curvesTokenSubject;
+        symbolToSubject[symbol] = curvesTokenSubject;
+
+        emit TokenDeployed(curvesTokenSubject, tokenContract, name, symbol);
+
+        return address(tokenContract);
+    }

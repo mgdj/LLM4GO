@@ -1,0 +1,5 @@
+function allowToken(address _token) external onlyAuthorized {
+        require(!isTokenAllowed[_token], "Token already allowed");
+        
+        isTokenAllowed[_token] = true;
+    }

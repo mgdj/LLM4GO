@@ -1,0 +1,28 @@
+**Recommendations:**
+1. Remove unnecessary gas costs associated with checking for zero addresses within the loop.
+2. Avoid unnecessary storage writes.
+
+**Optimized Code:**
+```solidity
+function allowlistAssets(Storage storage self, address[] memory assets, address[] memory slashingHandlers) external {
+    require(assets.length == slashingHandlers.length, "LengthsDontMatch");
+    
+    for (uint256 i = 0; i < assets.length; i++) {
+        address asset = assets[i];
+        address slashingHandler = slashingHandlers[i];
+        
+        // Skip if either asset or slashingHandler is a zero address
+        if (asset == address(0) || slashingHandler == address(0)) continue;
+        
+        // Update the slashing handler only if there is a change
+        if (self.assetSlashingHandlers[asset] != slashingHandler) {
+            self.assetSlashingHandlers[asset] = slashingHandler;
+        }
+    }
+}
+```
+
+In this optimized version:
+1. Removed the redundant revert statements.
+2. Incorporated a check to skip the loop iteration if either the asset or slashingHandler is a zero address.
+3. Only update the `assetSlashingHandlers` mapping if there's a change in the slashing handler assignment, reducing unnecessary writes to storage.

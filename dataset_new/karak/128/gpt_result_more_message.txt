@@ -1,0 +1,4 @@
+function pauseNode(INativeNode node, uint256 map) external onlyRolesOrOwner(Constants.MANAGER_ROLE) {
+        require(map != 0, "Invalid map value");
+        node.pause(map);
+    }

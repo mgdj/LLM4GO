@@ -1,0 +1,22 @@
+### Recommendations:
+1. Avoid unnecessary type conversion where possible.
+2. Make use of bitwise operations efficiently.
+3. Minimize the number of operations to reduce gas consumption.
+
+### Optimization Code:
+```solidity
+/// @notice Write the "right" slot to an int256.
+/// @param self the original full int256 bit pattern to be written to
+/// @param right the bit pattern to write into the full pattern in the right half
+/// @return self with right added to its right 128 bits
+function toRightSlot(int256 self, int128 right) internal pure returns (int256) {
+    unchecked {
+        return self + (int256(int256(uint256(right) & RIGHT_HALF_BIT_MASK)) << 128);
+    }
+}
+```
+
+In the optimized code snippet:
+- We removed the type conversion for `right` and directly performed the bitwise AND operation with `RIGHT_HALF_BIT_MASK`.
+- We then cast the result of the operation back to `uint256` to ensure that we're working with positive integers.
+- By applying the left shift operation `<< 128`, we shift the bits to the left by 128 positions, effectively placing the `right` value in the right half of the `self` int256 variable.

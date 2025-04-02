@@ -1,0 +1,19 @@
+function callHookIfInterfaceImplemented(
+        IERC165 dss,
+        bytes memory data,
+        bytes4 interfaceId,
+        bool ignoreFailure,
+        uint32 hookCallGasLimit,
+        uint32 supportsInterfaceGasLimit,
+        uint32 hookGasBuffer
+    ) internal returns (bool) {
+        require(gasleft() >= (supportsInterfaceGasLimit * 64 / 63 + hookGasBuffer), "NotEnoughGas");
+
+        (bool success, bytes memory result) = address(dss).call(abi.encodeWithSelector(IERC165.supportsInterface.selector, interfaceId));
+
+        if (!success || result.length == 0) {
+            emit InterfaceNotSupported();
+            return false;
+        }
+        return callHook(address(dss), data, ignoreFailure, hookCallGasLimit, hookGasBuffer);
+    }

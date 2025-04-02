@@ -1,0 +1,4 @@
+function addSlashableToken(IERC20 token) external onlyOwner {
+        require(address(token) != address(0), "Invalid token address");
+        _config().supportedAssets[token] = true;
+    }

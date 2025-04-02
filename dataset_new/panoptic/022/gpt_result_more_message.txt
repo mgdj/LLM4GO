@@ -1,0 +1,27 @@
+Recommendations:
+1. Use custom errors instead of revert strings to save gas.
+2. Move require checks ahead of state modifications to save gas.
+3. Split require statements that use && to save gas.
+4. Use calldata instead of memory for function arguments that do not get mutated.
+5. Cache state variables outside of loops to avoid redundant reads from storage.
+6. Emit the event outside the loop to save gas.
+
+Optimized code:
+```solidity
+function _revertBatches(uint256 _newLastBatch) internal {
+    require(s.totalBatchesCommitted > _newLastBatch, "v1"); // The last committed batch is less than new last batch
+    require(_newLastBatch >= s.totalBatchesExecuted, "v2"); // Already executed batches cannot be reverted
+
+    if (_newLastBatch < s.totalBatchesVerified) {
+        s.totalBatchesVerified = _newLastBatch;
+    }
+
+    s.totalBatchesCommitted = _newLastBatch;
+
+    if (s.l2SystemContractsUpgradeBatchNumber > _newLastBatch) {
+        delete s.l2SystemContractsUpgradeBatchNumber;
+    }
+
+    emit BlocksRevert(s.totalBatchesCommitted, s.totalBatchesVerified, s.totalBatchesExecuted);
+}
+```

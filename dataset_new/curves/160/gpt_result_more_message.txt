@@ -1,0 +1,8 @@
+function getUserTokensAndClaimable(address user) public view returns (UserClaimData[] memory) {
+        address[] memory tokens = getUserTokens(user);
+        UserClaimData[] memory result = new UserClaimData[](tokens.length);
+        for (uint256 i = 0; i < tokens.length; i++) {
+            result[i] = UserClaimData(getClaimableFees(tokens[i], user), tokens[i]);
+        }
+        return result;
+    }

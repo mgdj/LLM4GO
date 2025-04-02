@@ -1,0 +1,28 @@
+index,state,item,file,result,type,fp_result,fp_gpt,fp_message,ds_result,llama_result,qwen_result,no_static_result,repair_result,fp_no_static
+157,,Using bools for storage incurs overhead,Security.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+158,,Cache array length outside of loop,Curves.sol,true,3.9,fn,fn,fn,true,true,true,true,true
+159,,Cache array length outside of loop,Curves.sol,true,3.9,fn,fn,fn,true,true,true,true,true
+160,,Cache array length outside of loop,FeeSplitter.sol,true,3.9,fn,fn,fn,true,true,true,true,true
+161,,Cache array length outside of loop,FeeSplitter.sol,true,3.9,fp,fp,fp,true,true,true,true,true
+162,,Mark revert functions payable,contracts/Curves.sol#L113,true,1.1,fn,fn,fn,true,false,true,true,true
+167,,Mark revert functions payable,contracts/CurvesERC20.sol#L12,true,1.1,fn,fn,fn,true,true,true,true,true
+169,,Mark revert functions payable,contracts/FeeSplitter.sol#L96,true,1.1,fn,fn,fn,false,true,true,false,false
+170,,Mark revert functions payable,contracts/Security.sol#L23,true,1.1,fn,fn,fn,false,true,true,false,false
+172,,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&Using unchecked blocks to save gas,Curves.sol,true false,2.3 2.2,fn fn,fn fn,fn fp,true true,true false,true false,true false,true false
+173,,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&Using unchecked blocks to save gas,Curves.sol,true false,2.3 2.2,fn fn,fn fn,fn fn,true true,true false,true false,true false,true false
+174,,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&Using unchecked blocks to save gas,FeeSplitter.sol,true true,2.3 2.2,fn fn,fn fn,fn fp,true true,true false,true false,true false,true false
+175,,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&Using unchecked blocks to save gas,FeeSplitter.sol,true false,2.3 2.2,fn fn,fn fp,fn fn,true true,true false,true false,true false,true false
+176,,Using private rather than public for constants saves gas,Curves.sol,true,2.5,fn,fn,fn,true,true,true,false,false
+177,,Use != 0 instead of > 0 for unsigned integer comparison,Curves,true,5.1,fn,fp,fp,true,true,true,true,false
+178,,Use != 0 instead of > 0 for unsigned integer comparison,Curves,false,5.1,fn,fn,fp,true,true,true,true,true
+179,,Use != 0 instead of > 0 for unsigned integer comparison,FeeSplitter,true,5.1,fn,fn,fn,true,true,true,false,false
+180,,Use != 0 instead of > 0 for unsigned integer comparison,FeeSplitter,true,5.1,fn,fp,fn,true,true,true,false,false
+181,expression order change,Comparison statement order adjustment,contracts/FeeSplitter.sol,false,2.7,fn,fn,fn,false,false,false,false,false
+182,expression order change,Comparison statement order adjustment,contracts/Curves.sol,false,2.7,fn,fp,fp,false,false,false,true,false
+183,state variable,Comparison statement order adjustment,contracts/Curves.sol, partially true,2.7,fp,fp,fp,true,false,true,false,false
+184,state variable,State variables should be cached in stack variables rather than re-reading them from storage,contracts/FeeSplitter.sol,false,3.2,fp,fp,fp,true,false,false,false,false
+185,state check,Using unchecked blocks to save gas,contracts/Curves.sol,false,2.2,fn,fn,fp,false,false,false,true,false
+186,state check,Using unchecked blocks to save gas,contracts/Curves.sol,false,2.2,fn,fn,fp,false,true,false,false,false
+187,state variable,Do not declare local variables used only once,contracts/Curves.sol,partially true,3.5,fn,fn,fp,true,true,true,true,true
+188,state variable,Do not declare local variables used only once,contracts/Curves.sol,true,3.5,fn,fn,fn,true,true,true,false,false
+189,state variable,Do not declare local variables used only once,contracts/Curves.sol,true,3.5,fn,fp,fp,true,true,true,true,true

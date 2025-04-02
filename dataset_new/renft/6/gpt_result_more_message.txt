@@ -1,0 +1,19 @@
+function removeRentalsBatch(
+        bytes32[] calldata orderHashes,
+        RentalAssetUpdate[] calldata rentalAssetUpdates
+    ) external onlyByProxy permissioned {
+        uint256 length = orderHashes.length;
+        for (uint256 i = 0; i < length; i++) {
+            if (!orders[orderHashes[i]]) {
+                revert Errors.StorageModule_OrderDoesNotExist(orderHashes[i]);
+            } else {
+                delete orders[orderHashes[i]];
+            }
+        }
+
+        uint256 assetLength = rentalAssetUpdates.length;
+        for (uint256 i = 0; i < assetLength; i++) {
+            RentalAssetUpdate memory asset = rentalAssetUpdates[i];
+            rentedAssets[asset.rentalId] -= asset.amount;
+        }
+    }

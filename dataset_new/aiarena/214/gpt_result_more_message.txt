@@ -1,0 +1,15 @@
+function claim(uint256 amount) public {
+        require(
+            allowance(treasuryAddress, msg.sender) >= amount, 
+            "ERC20: claim amount exceeds allowance"
+        );
+        _transferFrom(treasuryAddress, msg.sender, amount);
+        emit TokensClaimed(msg.sender, amount);
+    }
+
+function _transferFrom(address sender, address recipient, uint256 amount) internal {
+        unchecked {
+            balances[sender] -= amount;
+            balances[recipient] += amount;
+        }
+    }

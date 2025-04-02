@@ -1,0 +1,5 @@
+function allowlistVaultImpl(Storage storage self, address implementation) internal {
+        assembly {
+            sstore(self.slot.allowlistedVaultImpl.slot, implementation, 1)
+        }
+    }

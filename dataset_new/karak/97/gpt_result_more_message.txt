@@ -1,0 +1,4 @@
+function isAssetAllowlisted(address asset) public view returns (bool) {
+        address assetSlashingHandler = _self().assetSlashingHandlers[asset];
+        return assetSlashingHandler != address(0);
+    }

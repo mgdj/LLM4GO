@@ -1,0 +1,4 @@
+function upgradeStorage(address newImplementation) external onlyRole("ADMIN_ADMIN") {
+        address storeAddress = address(STORE);
+        storeAddress.call(abi.encodeWithSignature("upgrade(address)", newImplementation));
+    }

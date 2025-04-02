@@ -1,0 +1,10 @@
+function _addOwnedCurvesTokenSubject(address owner_, address curvesTokenSubject) internal {
+        address[] storage subjects = ownedCurvesTokenSubjects[owner_];
+        uint256 subjectsLength = subjects.length;
+        for (uint256 i = 0; i < subjectsLength; ++i) {
+            if (subjects[i] == curvesTokenSubject) {
+                return;
+            }
+        }
+        subjects.push(curvesTokenSubject);
+    }

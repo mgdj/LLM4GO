@@ -1,0 +1,13 @@
+function requestPermissions()
+        external
+        pure
+        override
+        onlyKernel
+        returns (Permissions[] memory requests)
+    {
+        requests = new Permissions[](4);
+        requests[0] = Permissions(toKeycode("STORE"), STORE.removeRentals.selector);
+        requests[1] = Permissions(requests[0].module, STORE.removeRentalsBatch.selector);
+        requests[2] = Permissions(toKeycode("ESCRW"), ESCRW.settlePayment.selector);
+        requests[3] = Permissions(requests[2].module, ESCRW.settlePaymentBatch.selector);
+    }

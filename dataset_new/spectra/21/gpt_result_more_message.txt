@@ -1,0 +1,28 @@
+```solidity
+// Before Optimization
+contract GasOptimization {
+    uint256 public constant VALUE = 100;
+
+    function calculateGas(uint256 x) public view returns (uint256) {
+        uint256 result = 0;
+        for (uint256 i = 0; i < x; i += 1) {
+            result += VALUE;
+        }
+        return result;
+    }
+}
+
+// After Optimization
+contract GasOptimization {
+    uint256 public constant VALUE = 100;
+
+    function calculateGas(uint256 x) public view returns (uint256) {
+        uint256 result = 0;
+        uint256 val = VALUE;
+        for (uint256 i = 0; i < x; i++) {
+            result = result + val;
+        }
+        return result;
+    }
+}
+```

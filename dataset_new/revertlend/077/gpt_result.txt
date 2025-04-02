@@ -1,0 +1,40 @@
+Recommendations:
+1. Remove unnecessary variable assignments and checks to reduce gas costs.
+2. Simplify the logic to update loan data efficiently.
+
+Optimization_code:
+```solidity
+function onERC721Received(address, address from, uint256 tokenId, bytes calldata data)
+    external
+    override
+    returns (bytes4)
+{
+    require(msg.sender == address(nonfungiblePositionManager) && from != address(this), "WrongContract");
+
+    (uint256 debtExchangeRateX96, uint256 lendExchangeRateX96) = _updateGlobalInterest();
+
+    if (transformedTokenId == 0) {
+        address owner = data.length > 0 ? abi.decode(data, (address)) : from;
+        loans[tokenId] = Loan(0);
+        _addTokenToOwner(owner, tokenId);
+        emit Add(tokenId, owner, 0);
+    } else {
+        uint256 oldTokenId = transformedTokenId;
+        
+        if (tokenId != oldTokenId) {
+            address owner = tokenOwner[oldTokenId];
+
+            transformedTokenId = tokenId;
+            loans[tokenId] = Loan(loans[oldTokenId].debtShares);
+
+            _addTokenToOwner(owner, tokenId);
+            emit Add(tokenId, owner, oldTokenId);
+
+            _cleanupLoan(oldTokenId, debtExchangeRateX96, lendExchangeRateX96, owner);
+            _updateAndCheckCollateral(tokenId, debtExchangeRateX96, lendExchangeRateX96, 0, loans[tokenId].debtShares);
+        }
+    }
+
+    return IERC721Receiver.onERC721Received.selector;
+}
+```

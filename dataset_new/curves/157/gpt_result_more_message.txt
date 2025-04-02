@@ -1,0 +1,8 @@
+contract Security {
+    address public immutable owner;
+    mapping(address => bool) public managers;
+
+    constructor() {
+        owner = msg.sender;
+    }
+}

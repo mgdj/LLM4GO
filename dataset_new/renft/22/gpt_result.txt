@@ -1,0 +1,33 @@
+function _deriveRentalOrderHash(
+        RentalOrder memory order
+    ) internal view returns (bytes32) {
+        bytes32[] memory itemHashes = new bytes32[](order.items.length);
+        bytes32[] memory hookHashes = new bytes32[](order.hooks.length);
+
+        for (uint256 i = 0; i < order.items.length; ++i) {
+            assembly {
+                itemHashes[i] := keccak256(add(add(order.items, 32), mul(i, 32)), mload(add(order.items, 32)))
+            }
+        }
+
+        for (uint256 i = 0; i < order.hooks.length; ++i) {
+            assembly {
+                hookHashes[i] := keccak256(add(add(order.hooks, 32), mul(i, 32)), mload(add(order.hooks, 32)))
+            }
+        }
+
+        return
+            keccak256(
+                abi.encode(
+                    _RENTAL_ORDER_TYPEHASH,
+                    order.seaportOrderHash,
+                    keccak256(abi.encodePacked(itemHashes)),
+                    keccak256(abi.encodePacked(hookHashes)),
+                    order.orderType,
+                    order.lender,
+                    order.renter,
+                    order.startTimestamp,
+                    order.endTimestamp
+                )
+            );
+    }

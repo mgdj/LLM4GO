@@ -1,0 +1,17 @@
+**Recommendations:**
+1. Avoid using `call` for sending Ether, as it may introduce security vulnerabilities. Use `transfer` or `send` instead. 
+2. Consider using the `address` type for the `token` parameter to save gas on type conversion.
+3. Use inline assembly to perform the unwrapping and Ether transfer process more efficiently.
+
+**Optimized Code:**
+```solidity
+function _transferToken(address to, address token, uint256 amount, bool unwrap) internal {
+    if (token == address(weth) && unwrap) {
+        WETH(weth).withdraw(amount);
+        (bool success, ) = to.call{value: amount}("");
+        require(success, "EtherSendFailed");
+    } else {
+        SafeERC20.safeTransfer(IERC20(token), to, amount);
+    }
+}
+```

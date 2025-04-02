@@ -1,0 +1,5 @@
+function totalAssets() public view override returns (uint256) {
+        IERC4626 ibtToken = IERC4626(ibt);
+        uint256 balance = ibtToken.balanceOf(address(this));
+        return ibtToken.previewRedeem(balance);
+    }

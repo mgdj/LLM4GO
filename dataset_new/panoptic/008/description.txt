@@ -1,0 +1,1 @@
+The original code in getSqrtRatioAtTick contains repetitive if statements for each bit position. This can be optimized using a loop.Using a loop with an array of constants can reduce the bytecode size and potentially improve gas efficiency, especially if this function is called frequently.

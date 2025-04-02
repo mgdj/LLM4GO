@@ -1,0 +1,1 @@
+Cache SafeCast.toUint192(oldShares - newShares) and SafeCast.toUint192(newShares - oldShares) can save 2 checked subtractions.

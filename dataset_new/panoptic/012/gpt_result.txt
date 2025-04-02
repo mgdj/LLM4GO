@@ -1,0 +1,26 @@
+Recommendations:
+1. Avoid unnecessary type conversions between int256, int128, and int64 as they consume gas.
+2. Consider simplifying the subtraction logic to reduce gas cost.
+3. Use bitwise operations to optimize calculations where possible.
+
+Optimization_code:
+```solidity
+function sub(int256 x, int256 y) internal pure returns (int256 z) {
+    unchecked {
+        uint128 left = uint128(x >> 128) - uint128(y >> 128); // Extract left part and subtract
+        uint128 right = uint128(x) - uint128(y); // Extract right part and subtract
+
+        if (left > type(int128).max || right > type(int128).max) {
+            revert Errors.UnderOverFlow();
+        }
+
+        return int256(left) << 128 | int256(right); // Combine left and right parts
+    }
+}
+```
+
+In this optimized version:
+1. Replaced individual slot extractions and conversions with bitwise shifting and subtraction directly on the full int256 values, avoiding unnecessary type conversions.
+2. Used uint128 for intermediate calculations as subtraction will inherently handle underflow by wrapping around due to Solidity's two's complement representation.
+3. Checked for potential overflow in the resulting left and right parts and reverted if necessary.
+4. Combined the left and right parts using bitwise shifting and OR operation to reconstruct the final int256 result.

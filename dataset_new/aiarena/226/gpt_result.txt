@@ -1,0 +1,8 @@
+function addAttributeDivisor(uint8[] memory attributeDivisors) external {
+        require(msg.sender == _ownerAddress);
+        require(attributeDivisors.length == attributes.length);
+
+        for (uint256 i = 0; i < attributes.length; i++) {
+            attributeToDnaDivisor[attributes[i]] = attributeDivisors[i];
+        }
+    }

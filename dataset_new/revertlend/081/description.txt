@@ -1,0 +1,14 @@
+deadline, rewardX64 and liquidity can be packed in a single slot.
+SAVES: 4000 Gas, 2 Slots
+
+You can pack the ExecuteParams struct into fewer storage slots by truncating the deadline to a smaller data type such as uint64. deadline can be represented within this range.
+
+A uint64 data type can represent values from 0 to 18,446,744,073,709,551,615. To convert this range into years we need to define the unit of time being represented.
+
+If we consider seconds then: 1 year = 31,536,000 seconds.
+
+So the maximum value a uint64 can represent in years is:
+
+18,446,744,073,709,551,615 seconds / 31,536,000 seconds per year ≈ 584,942,417 years.
+
+This is an astronomically large value and far exceeds any practical use case in most software applications including smart contracts. Therefore, for most practical purposes a uint64 range is sufficient for representing time durations in years.

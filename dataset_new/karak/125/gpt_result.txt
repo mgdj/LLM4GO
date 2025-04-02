@@ -1,0 +1,5 @@
+function pause(uint256 map) external onlyRolesOrOwner(Constants.MANAGER_ROLE) {
+        uint256 gasToUse = gasleft() - 5000;
+        require(gasToUse >= 20000, "Not enough gas to execute this function");
+        _pause(map);
+    }

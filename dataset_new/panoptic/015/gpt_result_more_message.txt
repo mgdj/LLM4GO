@@ -1,0 +1,31 @@
+### Recommendations:
+1. Cache `msg.sender` outside the loop to reduce SLOAD gas cost.
+2. Move `require` statement ahead of state variable modification to save gas in case of early exits.
+3. Use inline assembly for emitting the event to save gas on data copying.
+
+### Optimization Code:
+```solidity
+function setApprovalForAll(address operator, bool approved) public {
+    bool currentApproval = isApprovedForAll[msg.sender][operator];
+    require(currentApproval != approved, "Approval status is the same");
+
+    isApprovedForAll[msg.sender][operator] = approved;
+
+    address sender = msg.sender;
+
+    assembly {
+        let eventCode := 0x0000000000000000000000000000000000000000000000000000000000000002
+        let eventData := or(sender, shiftLeft(operator, 160))
+        switch approved
+        case 0 {
+            eventData := or(eventData, 0x0000000000000000000000000000000000000000000000000000000000000000)
+        }
+        default {
+            eventData := or(eventData, 0x0000000000000000000000000000000000000000000000000000000000000001)
+        }
+        log2(eventCode, eventData, 0, 0)
+    }
+}
+```
+
+This optimized code includes caching `msg.sender` in a variable, moving the `require` statement prior to the state variable modification, and using inline assembly to emit the event, resulting in potential gas savings.

@@ -1,0 +1,24 @@
+**Recommendations:**
+
+1. Minimize the use of event parameters to reduce gas cost.
+2. Try to reduce the number of unnecessary comments to save gas.
+3. Avoid unnecessary struct packing to save gas.
+
+**Optimized Code:**
+
+```solidity
+contract SemiFungiblePositionManager is ERC1155, Multicall {
+
+    event PoolInitialized(address indexed uniswapPool);
+    event TokenizedPositionBurnt(address indexed recipient, uint256 indexed tokenId, uint128 positionSize);
+    event TokenizedPositionMinted(address indexed caller, uint256 indexed tokenId, uint128 positionSize);
+
+    struct PoolAddressAndLock {
+        IUniswapV3Pool pool;
+        bool locked;
+    }
+
+    bool internal constant MINT = false;
+    bool internal constant BURN = true;
+}
+```

@@ -1,0 +1,138 @@
+contract V3Vault is ERC20, Multicall, Ownable, IVault, IERC721Receiver, IErrors {
+    using Math for uint256;
+
+    uint256 private constant Q32 = 2 ** 32;
+    uint256 private constant Q96 = 2 ** 96;
+
+    uint32 public constant MAX_COLLATERAL_FACTOR_X32 = uint32(Q32 * 90 / 100); // 90%
+
+    uint32 public constant MIN_LIQUIDATION_PENALTY_X32 = uint32(Q32 * 2 / 100); // 2%
+    uint32 public constant MAX_LIQUIDATION_PENALTY_X32 = uint32(Q32 * 10 / 100); // 10%
+
+    uint32 public constant MIN_RESERVE_PROTECTION_FACTOR_X32 = uint32(Q32 / 100); //1%
+
+    uint32 public constant MAX_DAILY_LEND_INCREASE_X32 = uint32(Q32 / 10); //10%
+    uint32 public constant MAX_DAILY_DEBT_INCREASE_X32 = uint32(Q32 / 10); //10%
+
+    /// @notice Uniswap v3 position manager
+    INonfungiblePositionManager public immutable nonfungiblePositionManager;
+
+    /// @notice Uniswap v3 factory
+    IUniswapV3Factory public immutable factory;
+
+    /// @notice interest rate model implementation
+    IInterestRateModel public immutable interestRateModel;
+
+    /// @notice oracle implementation
+    IV3Oracle public immutable oracle;
+
+    /// @notice permit2 contract
+    IPermit2 public immutable permit2;
+
+    /// @notice underlying asset for lending / borrowing
+    address public immutable override asset;
+
+    /// @notice decimals of underlying token (are the same as ERC20 share token)
+    uint8 private immutable assetDecimals;
+
+    // events
+    event ApprovedTransform(uint256 indexed tokenId, address owner, address target, bool isActive);
+
+    event Add(uint256 indexed tokenId, address owner, uint256 oldTokenId); // when a token is added replacing another token - oldTokenId > 0
+    event Remove(uint256 indexed tokenId, address recipient);
+
+    event ExchangeRateUpdate(uint256 debtExchangeRateX96, uint256 lendExchangeRateX96);
+    // Deposit and Withdraw events are defined in IERC4626
+    event WithdrawCollateral(
+        uint256 indexed tokenId, address owner, address recipient, uint128 liquidity, uint256 amount0, uint256 amount1
+    );
+    event Borrow(uint256 indexed tokenId, address owner, uint256 assets, uint256 shares);
+    event Repay(uint256 indexed tokenId, address repayer, address owner, uint256 assets, uint256 shares);
+    event Liquidate(
+        uint256 indexed tokenId,
+        address liquidator,
+        address owner,
+        uint256 value,
+        uint256 cost,
+        uint256 amount0,
+        uint256 amount1,
+        uint256 reserve,
+        uint256 missing
+    ); // shows exactly how liquidation amounts were divided
+
+    // admin events
+    event WithdrawReserves(uint256 amount, address receiver);
+    event SetTransformer(address transformer, bool active);
+    event SetLimits(
+        uint256 minLoanSize,
+        uint256 globalLendLimit,
+        uint256 globalDebtLimit,
+        uint256 dailyLendIncreaseLimitMin,
+        uint256 dailyDebtIncreaseLimitMin
+    );
+    event SetReserveFactor(uint32 reserveFactorX32);
+    event SetReserveProtectionFactor(uint32 reserveProtectionFactorX32);
+    event SetTokenConfig(address token, uint32 collateralFactorX32, uint32 collateralValueLimitFactorX32);
+
+    event SetEmergencyAdmin(address emergencyAdmin);
+
+    // configured tokens
+    struct TokenConfig {
+        uint32 collateralFactorX32; // how much this token is valued as collateral
+        uint32 collateralValueLimitFactorX32; // how much asset equivalent may be lent out given this collateral
+        uint192 totalDebtShares; // how much debt shares are theoretically backed by this collateral
+    }
+
+    mapping(address => TokenConfig) public tokenConfigs;
+
+    // percentage of interest which is kept in the protocol for reserves
+    uint32 public reserveFactorX32 = 0;
+
+    // percentage of lend amount which needs to be in reserves before withdrawn
+    uint32 public reserveProtectionFactorX32 = MIN_RESERVE_PROTECTION_FACTOR_X32;
+
+    // total of debt shares - increases when borrow - decreases when repay
+    uint256 public debtSharesTotal = 0;
+
+    // exchange rates are Q96 at the beginning - 1 share token per 1 asset token
+    uint256 public lastExchangeRateUpdate = 0;
+    uint256 public lastDebtExchangeRateX96 = Q96;
+    uint256 public lastLendExchangeRateX96 = Q96;
+
+    uint256 public globalDebtLimit = 0;
+    uint256 public globalLendLimit = 0;
+
+    // minimal size of loan (to protect from non-liquidatable positions because of gas-cost)
+    uint256 public minLoanSize = 0;
+
+    // daily lend increase limit handling
+    uint256 public dailyLendIncreaseLimitMin = 0;
+    uint256 public dailyLendIncreaseLimitLeft = 0;
+    uint256 public dailyLendIncreaseLimitLastReset = 0;
+
+    // daily debt increase limit handling
+    uint256 public dailyDebtIncreaseLimitMin = 0;
+    uint256 public dailyDebtIncreaseLimitLeft = 0;
+    uint256 public dailyDebtIncreaseLimitLastReset = 0;
+
+    // lender balances are handled with ERC-20 mint/burn
+
+    // loans are handled with this struct
+    struct Loan {
+        uint256 debtShares;
+    }
+
+    mapping(uint256 => Loan) public loans; // tokenID -> loan mapping
+
+    // storage variables to handle enumerable token ownership
+    mapping(address => uint256[]) private ownedTokens; // Mapping from owner address to list of owned token IDs
+    mapping(uint256 => uint256) private ownedTokensIndex; // Mapping from token ID to index of the owner tokens list (for removal without loop)
+    mapping(uint256 => address) private tokenOwner; // Mapping from token ID to owner
+
+    uint256 private transformedTokenId = 0; // transient storage (when available in dencun)
+
+    mapping(address => bool) public transformerAllowList; // contracts allowed to transform positions (selected audited contracts e.g. V3Utils)
+    mapping(address => mapping(uint256 => mapping(address => bool))) public transformApprovals; // owners permissions for other addresses to call transform on owners behalf (e.g. AutoRange contract)
+
+    // address which can call special emergency actions without timelock
+    address public emergencyAdmin;

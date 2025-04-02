@@ -1,0 +1,13 @@
+Recommendations:
+1. Use the storage keyword explicitly for the state variable to save gas.
+2. Emit the event only if the approval status has changed to reduce gas consumption.
+
+Optimized code:
+```solidity
+function setApprovalForAll(address operator, bool approved) public {
+    if(isApprovedForAll[msg.sender][operator] != approved) {
+        isApprovedForAll[msg.sender][operator] = approved;
+        emit ApprovalForAll(msg.sender, operator, approved);
+    }
+}
+```

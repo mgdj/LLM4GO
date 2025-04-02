@@ -1,0 +1,27 @@
+**Recommendations:**
+1. Minimize the storage writes by only updating values when necessary.
+2. Avoid unnecessary condition checks and simplify the logic where possible.
+3. Consider removing the `delete` operation for gas optimization.
+
+**Optimized Code:**
+```solidity
+function _revertBatches(uint256 _newLastBatch) internal {
+    require(s.totalBatchesCommitted > _newLastBatch, "v1");
+    require(_newLastBatch >= s.totalBatchesExecuted, "v2");
+
+    if (_newLastBatch < s.totalBatchesVerified) {
+        s.totalBatchesVerified = _newLastBatch;
+    }
+    // Move the following line inside the above condition to reduce unnecessary writes
+    s.totalBatchesCommitted = _newLastBatch;
+
+    // Remove unnecessary delete operation
+    if (s.l2SystemContractsUpgradeBatchNumber > _newLastBatch) {
+        s.l2SystemContractsUpgradeBatchNumber = 0; // intialized to 0 instead of delete
+    }
+
+    emit BlocksRevert(s.totalBatchesCommitted, s.totalBatchesVerified, s.totalBatchesExecuted);
+}
+```
+
+By optimizing the code as shown above, unnecessary operations and storage writes are reduced, leading to potential gas savings during contract execution.

@@ -1,0 +1,14 @@
+function validateVaultsAndSlashPercentages(
+    CoreLib.Storage storage self,
+    SlashRequest memory slashingRequest,
+    IDSS dss
+) internal view {
+    require(!slashingRequest.vaults.hasDuplicates(), "DuplicateSlashingVaults");
+
+    uint256 maxSlashPercentageWad = getDSSMaxSlashablePercentageWad(self, dss);
+    for (uint256 i = 0; i < slashingRequest.vaults.length; i++) {
+        require(self.operatorState[slashingRequest.operator].isVaultStakeToDSS(dss, slashingRequest.vaults[i]), "VaultNotStakedToDSS");
+        require(slashingRequest.slashPercentagesWad[i] > 0, "ZeroSlashPercentageWad");
+        require(slashingRequest.slashPercentagesWad[i] <= maxSlashPercentageWad, "MaxSlashPercentageWadBreached");
+    }
+}

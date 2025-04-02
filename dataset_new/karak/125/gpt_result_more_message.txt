@@ -1,0 +1,6 @@
+function pause(uint256 map) external onlyRolesOrOwner(Constants.MANAGER_ROLE) {
+    unchecked {
+        require(map != 0, "Invalid input");
+    }
+    _pause(map);
+}

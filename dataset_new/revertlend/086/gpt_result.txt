@@ -1,0 +1,64 @@
+Recommendations:
+1. Use inline assembly for simple operations to save gas.
+2. Avoid redundant variable declarations where possible.
+3. Minimize storage reads and writes by grouping them together.
+
+Optimized code:
+```solidity
+function _routerSwap(RouterSwapParams memory params)
+    internal
+    returns (uint256 amountInDelta, uint256 amountOutDelta)
+{
+    if (params.amountIn == 0 || params.swapData.length == 0 || address(params.tokenOut) == address(0)) {
+        return (0, 0);
+    }
+
+    uint256 balanceInBefore;
+    uint256 balanceOutBefore;
+    uint256 balanceInAfter;
+    uint256 balanceOutAfter;
+
+    assembly {
+        balanceInBefore := sload(params.tokenIn.slot)
+        balanceOutBefore := sload(params.tokenOut.slot)
+    }
+
+    (address router, bytes memory routerData) = abi.decode(params.swapData, (address, bytes));
+
+    if (router == zeroxRouter) {
+        ZeroxRouterData memory data = abi.decode(routerData, (ZeroxRouterData));
+        // approve needed amount
+        SafeERC20.safeApprove(params.tokenIn, data.allowanceTarget, params.amountIn);
+        // execute swap
+        (bool success,) = zeroxRouter.call(data.data);
+        if (!success) {
+            revert SwapFailed();
+        }
+        // reset approval
+        SafeERC20.safeApprove(params.tokenIn, data.allowanceTarget, 0);
+    } else if (router == universalRouter) {
+        UniversalRouterData memory data = abi.decode(routerData, (UniversalRouterData));
+        // tokens are transferred to Universalrouter directly (data.commands must include sweep action!)
+        SafeERC20.safeTransfer(params.tokenIn, universalRouter, params.amountIn);
+        IUniversalRouter(universalRouter).execute(data.commands, data.inputs, data.deadline);
+    } else {
+        revert WrongContract();
+    }
+
+    assembly {
+        balanceInAfter := sload(params.tokenIn.slot)
+        balanceOutAfter := sload(params.tokenOut.slot)
+    }
+
+    amountInDelta = balanceInBefore - balanceInAfter;
+    amountOutDelta = balanceOutAfter - balanceOutBefore;
+
+    // amountMin slippage check
+    if (amountOutDelta < params.amountOutMin) {
+        revert SlippageError();
+    }
+
+    // event for any swap with exact swapped value
+    emit Swap(address(params.tokenIn), address(params.tokenOut), amountInDelta, amountOutDelta);
+}
+```

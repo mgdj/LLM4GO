@@ -1,0 +1,41 @@
+Recommendations:
+1. Cache state variables outside of loops to avoid multiple storage reads.
+2. Move `require` and `emit` statements ahead in the code for efficiency.
+3. Update `!= 0` for unsigned integer comparison instead of `> 0`.
+4. Use inline assembly for mathematical operations to reduce gas costs.
+
+Optimization code:
+```solidity
+function _calculateGlobalInterest()
+    internal
+    view
+    returns (uint256 newDebtExchangeRateX96, uint256 newLendExchangeRateX96)
+{
+    uint256 oldDebtExchangeRateX96 = lastDebtExchangeRateX96;
+    uint256 oldLendExchangeRateX96 = lastLendExchangeRateX96;
+
+    uint256 lastRateUpdate = lastExchangeRateUpdate;
+    
+    // Cache state variables outside of loop
+    (, uint256 available,) = _getAvailableBalance(oldDebtExchangeRateX96, oldLendExchangeRateX96);
+    uint256 debt = _convertToAssets(debtSharesTotal, oldDebtExchangeRateX96, Math.Rounding.Up);
+    
+    (uint256 borrowRateX96, uint256 supplyRateX96) = interestRateModel.getRatesPerSecondX96(available, debt);
+    
+    supplyRateX96 = supplyRateX96.mulDiv(Q32 - reserveFactorX32, Q32);
+
+    if (lastRateUpdate != 0) {
+        assembly {
+            // Use inline assembly for more optimized mathematical operations
+            let timestamp := timestamp()
+            newDebtExchangeRateX96 := add(oldDebtExchangeRateX96, mul(mul(oldDebtExchangeRateX96, sub(timestamp, lastRateUpdate), borrowRateX96), div(1, Q96)))
+            newLendExchangeRateX96 := add(oldLendExchangeRateX96, mul(mul(oldLendExchangeRateX96, sub(timestamp, lastRateUpdate), supplyRateX96), div(1, Q96))
+        }
+    } else {
+        newDebtExchangeRateX96 = oldDebtExchangeRateX96;
+        newLendExchangeRateX96 = oldLendExchangeRateX96;
+    }
+}
+```
+
+The provided optimization code implements the recommended gas-saving optimizations mentioned above for your `_calculateGlobalInterest` function.

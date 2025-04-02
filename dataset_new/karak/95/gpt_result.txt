@@ -1,0 +1,6 @@
+function changeStandardImplementation(address newVaultImpl) external onlyOwner {
+    require(newVaultImpl != address(0), "Zero address is not allowed");
+    require(newVaultImpl != Constants.DEFAULT_VAULT_IMPLEMENTATION_FLAG, "Reserved address is not allowed");
+    _self().vaultImpl = newVaultImpl;
+    emit UpgradedAllVaults(newVaultImpl);
+}

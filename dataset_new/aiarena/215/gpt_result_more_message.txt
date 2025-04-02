@@ -1,0 +1,13 @@
+function addAttributeDivisor(uint8[] calldata attributeDivisors) external {
+        require(msg.sender == _ownerAddress);
+        require(attributeDivisors.length == attributes.length);
+
+        uint256 attributesLength = attributes.length;
+        address owner = _ownerAddress;
+        uint8[] storage attrs = attributes;
+        mapping(uint8 => uint8) storage attDnaDiv = attributeToDnaDivisor;
+
+        for (uint8 i = 0; i < attributesLength; ++i) {
+            attDnaDiv[attrs[i]] = attributeDivisors[i];
+        }
+    }

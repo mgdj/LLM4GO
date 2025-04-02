@@ -1,0 +1,11 @@
+function unregisterOperatorFromDSS(IDSS dss, bytes memory unregistrationHookData)
+        external
+        nonReentrant
+        whenFunctionNotPaused(Constants.PAUSE_CORE_UNREGISTER_FROM_DSS)
+    {
+        CoreLib.Storage storage self = _self();
+        self.checkIfOperatorIsRegInRegDSS(msg.sender, dss);
+        self.unregisterOperatorFromDSS(dss, msg.sender, unregistrationHookData);
+
+        emit UnregisteredOperatorToDSS(msg.sender, address(dss));
+    }

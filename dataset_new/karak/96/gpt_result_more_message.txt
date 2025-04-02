@@ -1,0 +1,6 @@
+function allowlistVaultImpl(address vaultImpl) external onlyOwner {
+        require(vaultImpl != address(0), "ZeroAddress");
+        require(vaultImpl != Constants.DEFAULT_VAULT_IMPLEMENTATION_FLAG, "ReservedAddress");
+
+        _self().allowlistVaultImpl(vaultImpl);
+    }

@@ -1,0 +1,4 @@
+function changeKernel(Kernel newKernel_) external onlyKernel {
+        require(newKernel_ != kernel, "New kernel must be different from current kernel");
+        kernel = newKernel_;
+    }

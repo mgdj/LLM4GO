@@ -1,0 +1,23 @@
+function extendCommunityStake(address stakee, uint64 duration) external whenNotPaused {
+    if (stakee == address(0)) {
+      revert AddressCannotBeZero();
+    }
+
+    Stake storage comStake = communityStakes[msg.sender][stakee];
+
+    if (comStake.amount == 0) {
+      revert AmountMustBeGreaterThanZero();
+    }
+
+    uint64 unlockTime = duration + uint64(block.timestamp);
+    uint64 minDuration = uint64(block.timestamp) + 12 weeks;
+    uint64 maxDuration = uint64(block.timestamp) + 104 weeks;
+
+    if (unlockTime < minDuration || unlockTime > maxDuration || unlockTime < comStake.unlockTime) {
+      revert InvalidLockTime();
+    }
+
+    comStake.unlockTime = unlockTime;
+
+    emit CommunityStake(msg.sender, stakee, 0, unlockTime);
+}

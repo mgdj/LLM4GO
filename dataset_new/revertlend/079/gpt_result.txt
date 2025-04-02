@@ -1,0 +1,31 @@
+Recommendations:
+1. Replace the usage of `mulDiv` function with fixed-point arithmetic operations for gas optimization.
+2. Use local variables for duplicate calculations to reduce gas costs.
+3. Minimize the storage variable reads to save gas.
+4. Avoid unnecessary branching for gas efficiency.
+
+Optimized Code:
+```solidity
+function _calculateGlobalInterest()
+    internal
+    view
+    returns (uint256 newDebtExchangeRateX96, uint256 newLendExchangeRateX96)
+{
+    uint256 oldDebtExchangeRateX96 = lastDebtExchangeRateX96;
+    uint256 oldLendExchangeRateX96 = lastLendExchangeRateX96;
+
+    (, uint256 available,) = _getAvailableBalance(oldDebtExchangeRateX96, oldLendExchangeRateX96);
+
+    uint256 debt = _convertToAssets(debtSharesTotal, oldDebtExchangeRateX96, true);
+
+    (uint256 borrowRateX96, uint256 supplyRateX96) = interestRateModel.getRatesPerSecondX96(available, debt);
+
+    uint256 q32MinusReserveFactor = Q32 - reserveFactorX32;
+
+    uint256 oldDebtExchangeRateMulTimestampDiff = oldDebtExchangeRateX96 * (block.timestamp - lastExchangeRateUpdate);
+    uint256 oldLendExchangeRateMulTimestampDiff = oldLendExchangeRateX96 * (block.timestamp - lastExchangeRateUpdate);
+
+    newDebtExchangeRateX96 = lastExchangeRateUpdate > 0 ? oldDebtExchangeRateX96 + oldDebtExchangeRateMulTimestampDiff * borrowRateX96 / Q96 : oldDebtExchangeRateX96;
+    newLendExchangeRateX96 = lastExchangeRateUpdate > 0 ? oldLendExchangeRateX96 + oldLendExchangeRateMulTimestampDiff * supplyRateX96 / Q96 : oldLendExchangeRateX96;
+}
+```

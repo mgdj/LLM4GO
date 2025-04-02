@@ -1,0 +1,39 @@
+```solidity
+function finalizeSlashing(CoreLib.Storage storage self, QueuedSlashing memory queuedSlashing) external {
+    bytes32 slashRoot = calculateRoot(queuedSlashing);
+    require(self.slashingRequests[slashRoot], "InvalidSlashingParams");
+
+    uint256 currentBlockTimestamp = block.timestamp;
+    require(queuedSlashing.timestamp + Constants.SLASHING_VETO_WINDOW <= currentBlockTimestamp, "MinSlashingDelayNotPassed");
+    
+    delete self.slashingRequests[slashRoot];
+
+    uint256 numVaults = queuedSlashing.vaults.length;
+    for (uint256 i = 0; i < numVaults; i++) {
+        IKarakBaseVault(queuedSlashing.vaults[i]).slashAssets(
+            queuedSlashing.earmarkedStakes[i],
+            self.assetSlashingHandlers[IKarakBaseVault(queuedSlashing.vaults[i]).asset()]
+        );
+    }
+
+    IDSS dss = queuedSlashing.dss;
+
+    bytes memory callData = abi.encodeWithSelector(dss.finishSlashingHook.selector, queuedSlashing.operator);
+
+    assembly {
+        let success := call(
+            self.hookCallGasLimit,
+            dss,
+            0,
+            add(callData, 0x20),
+            mload(callData),
+            0,
+            0
+        )
+        if eq(success, 0) {
+            returndatacopy(0, 0, returndatasize())
+            revert(0, returndatasize())
+        }
+    }
+}
+```

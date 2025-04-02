@@ -1,0 +1,51 @@
+**Recommendations:**
+1. Use inline assembly for arithmetic operations.
+2. Use custom errors instead of revert string.
+3. Cache state variables outside of the loop.
+4. Check before updating state variable with the same value.
+
+**Optimized Code:**
+```solidity
+function addLeg(
+    uint256 self,
+    uint256 legIndex,
+    uint256 _optionRatio,
+    uint256 _asset,
+    uint256 _isLong,
+    uint256 _tokenType,
+    uint256 _riskPartner,
+    int24 _strike,
+    int24 _width
+) internal pure returns (uint256 tokenId) {
+    assembly {
+        let optionRatio := _optionRatio
+        let asset := _asset
+        let isLong := _isLong
+        let tokenType := _tokenType
+        let riskPartner := _riskPartner
+        let strike := _strike
+        let width := _width
+        
+        tokenId := addOptionRatio(self, optionRatio, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+        
+        tokenId := addAsset(tokenId, asset, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+        
+        tokenId := addIsLong(tokenId, isLong, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+        
+        tokenId := addTokenType(tokenId, tokenType, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+        
+        tokenId := addRiskPartner(tokenId, riskPartner, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+        
+        tokenId := addStrike(tokenId, strike, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+        
+        tokenId := addWidth(tokenId, width, legIndex)
+        require(tokenId != self, "Same tokenId already exists");
+    }
+}
+```

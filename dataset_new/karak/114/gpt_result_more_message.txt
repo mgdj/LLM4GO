@@ -1,0 +1,8 @@
+function allowlistAssets(address[] calldata assets, address[] calldata slashingHandlers)
+    external
+    onlyRolesOrOwner(Constants.MANAGER_ROLE)
+{
+    address self = _self();
+    self.allowlistAssets(assets, slashingHandlers);
+    emit AllowlistedAssets(assets);
+}

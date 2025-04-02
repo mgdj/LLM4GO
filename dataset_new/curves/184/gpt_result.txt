@@ -1,0 +1,12 @@
+```solidity
+function updateFeeCredit(address token, address account) internal {
+    TokenData storage data = tokensData[token];
+    uint256 balance = balanceOf(token, account);
+    if (balance > 0) {
+        uint256 cumulativeFeePerToken = data.cumulativeFeePerToken;
+        uint256 userFeeOffset = data.userFeeOffset[account];
+        data.unclaimedFees[account] += ((cumulativeFeePerToken - userFeeOffset) * balance) / PRECISION;
+        data.userFeeOffset[account] = cumulativeFeePerToken;
+    }
+}
+```

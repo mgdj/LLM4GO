@@ -1,0 +1,16 @@
+function addRentals(
+        bytes32 orderHash,
+        RentalAssetUpdate[] calldata rentalAssetUpdates
+    ) external payable {
+        // Add the order to storage.
+        orders[orderHash] = true;
+
+        // Add the rented items to storage.
+        uint256 updatesLength = rentalAssetUpdates.length;
+        for (uint256 i = 0; i < updatesLength; ++i) {
+            RentalAssetUpdate memory asset = rentalAssetUpdates[i];
+
+            // Update the order hash for that item.
+            rentedAssets[asset.rentalId] += asset.amount;
+        }
+    }

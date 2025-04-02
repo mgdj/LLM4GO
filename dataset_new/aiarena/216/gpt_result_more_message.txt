@@ -1,0 +1,8 @@
+function getAttributeProbabilities(uint256 generation, string memory attribute) 
+    public 
+    view 
+    returns (uint8[] memory) 
+{
+    uint8[] storage attrProbabilities = attributeProbabilities[generation][attribute];
+    return attrProbabilities;
+}

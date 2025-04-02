@@ -1,0 +1,18 @@
+contract StorageBase {
+
+    mapping(bytes32 => bool) public orders;
+
+    mapping(uint256 => uint256) public rentedAssets;
+
+    mapping(address => uint256) public deployedSafes;
+
+    uint256 public totalSafes;
+
+    mapping(address => address) internal _contractToHook;
+
+    mapping(address => uint8) public hookStatus;
+
+    mapping(address => bool) public whitelistedDelegates;
+
+    mapping(address => bool) public whitelistedExtensions;
+}

@@ -1,0 +1,8 @@
+multiplierPerSecondX96, baseRatePerSecondX96 and jumpMultiplierPerSecondX96 can be packed in single slot by reducing their sizes to uint80 each SAVES: ~4000 Gas, 2 SLOT
+All these three variables are set inside only setValues function where a check is implemented for passed function params and then after dividing by YEAR_SECS constant values are assigned into these state variables. It will make sure that multiplierPerSecondX96, baseRatePerSecondX96 and jumpMultiplierPerSecondX96 maximum values can be MAX_MULTIPLIER_X96 / YEAR_SECS, MAX_BASE_RATE_X96 / YEAR_SECS and MAX_MULTIPLIER_X96 / YEAR_SECS respectively not more than that.
+
+Since these constants are defined in same contract. So their approximate values are:
+
+MAX_MULTIPLIER_X96 / YEAR_SECS < 10**22
+MAX_BASE_RATE_X96 / YEAR_SECS < 7.5*10**20
+While uint80 can hold > ~10**24 So we can easily say that uint80 is sufficient to hold these max values So we can safely reduce the above mentioned storage var. sizes to each uint80 to pack all three into 1 slot and saves 2 storage slots.

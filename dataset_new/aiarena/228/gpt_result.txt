@@ -1,0 +1,17 @@
+function pickWinner(uint256[] calldata winners) external {
+        require(isAdmin[msg.sender]);
+        require(winners.length == winnersPerPeriod, "Incorrect number of winners");
+        require(!isSelectionComplete[roundId], "Winners are already selected");
+        uint256 totalPointsToUpdate;
+        address[] memory winnersToUpdate = new address[](winners.length);
+        for (uint256 i = 0; i < winners.length; i++) {
+            address winnerAddress = _fighterFarmInstance.ownerOf(winners[i]);
+            totalPointsToUpdate += fighterPoints[winners[i]];
+            fighterPoints[winners[i]] = 0;
+            winnersToUpdate[i] = winnerAddress;
+        }
+        totalPoints -= totalPointsToUpdate;
+        winnerAddresses[roundId] = winnersToUpdate;
+        isSelectionComplete[roundId] = true;
+        roundId += 1;
+    }

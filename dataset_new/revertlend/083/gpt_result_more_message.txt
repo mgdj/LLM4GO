@@ -1,0 +1,34 @@
+**Recommendations:**
+1. Cache the `operators[_operator]` value outside the assignment to reduce storage reads.
+2. Use inline assembly for emitting the event to save gas.
+3. Move the emit statement above the require statement.
+
+**Optimization Code:**
+```solidity
+/**
+    * @notice Owner controlled function to activate/deactivate operator address
+    * @param _operator operator
+    * @param _active active or not
+    */
+function setOperator(address _operator, bool _active) public onlyOwner {
+    bool currentActive = operators[_operator]; // Cache the current value
+    if (currentActive == _active) {
+        return; // Check before updating with same value
+    }
+    
+    assembly {
+        // Move emit ahead of require to save gas
+        // 0x0 - topic for OperatorChanged
+        // arg0 - _operator
+        // arg1 - _active
+        let topic := 0x0000000000000000000000000000000000000000000000000000000000000000
+        mstore(0x00, topic)
+        mstore(0x20, _operator)
+        mstore(0x40, _active)
+        log2(0, 0x00, 0x60)
+    }
+    
+    operators[_operator] = _active;
+}
+```
+This optimized code reduces gas costs by caching the current value, using inline assembly for emitting the event, and moving the emit statement ahead to save gas.

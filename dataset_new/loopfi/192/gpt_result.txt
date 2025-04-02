@@ -1,0 +1,5 @@
+function allowToken(address _token) external onlyAuthorized {
+        assembly {
+            sstore(_token.slot, 1)
+        }
+    }

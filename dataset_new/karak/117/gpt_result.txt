@@ -1,0 +1,17 @@
+function requestUpdateVaultStakeInDSS(Operator.StakeUpdateRequest memory vaultStakeUpdateRequest)
+        external
+        nonReentrant
+        whenFunctionNotPaused(Constants.PAUSE_CORE_REQUEST_STAKE_UPDATE)
+        returns (Operator.QueuedStakeUpdate memory updatedStake)
+    {
+        CoreLib.Storage storage self = _self();
+        address operator = msg.sender;
+        require(!self.operators[operator].isStandby, "Operator: ON_STANDBY");
+        require(!self.operators[operator].isStopped, "Operator: STOPPED");
+        require(self.nonce < uint(-1), "CoreLib: UINT_OVERFLOW_NONCE");
+        Operator.QueuedStakeUpdate storage queuedStake = self.queuedStakes[self.nonce++];
+        queuedStake.operator = operator;
+        queuedStake.dss = vaultStakeUpdateRequest.dss;
+        emit RequestedStakeUpdate(queuedStake);
+        return queuedStake;
+    }

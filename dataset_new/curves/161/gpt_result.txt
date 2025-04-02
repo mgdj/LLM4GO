@@ -1,0 +1,20 @@
+function batchClaiming(address[] calldata tokenList) external {
+        uint256 totalClaimable = 0;
+        uint256 x = tokenList.length;
+        address sender = msg.sender;
+        address payable senderPayable = payable(sender);
+        
+        for (uint256 i = 0; i < x; i++) {
+            address token = tokenList[i];
+            updateFeeCredit(token, sender);
+            uint256 claimable = getClaimableFees(token, sender);
+            if (claimable > 0) {
+                tokensData[token].unclaimedFees[sender] = 0;
+                totalClaimable += claimable;
+                emit FeesClaimed(token, sender, claimable);
+            }
+        }
+        
+        if (totalClaimable == 0) revert NoFeesToClaim();
+        senderPayable.transfer(totalClaimable);
+    }

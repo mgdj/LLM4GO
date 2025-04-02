@@ -1,0 +1,46 @@
+```solidity
+contract IdentityStaking is IIdentityStaking, Initializable, UUPSUpgradeable, AccessControlUpgradeable, PausableUpgradeable {
+  error AddressCannotBeZero();
+  error AmountMustBeGreaterThanZero();
+  error CannotStakeOnSelf();
+  error FailedTransfer();
+  error InvalidLockTime();
+  error StakeIsLocked();
+  error AmountTooHigh();
+  error InvalidSlashPercent();
+  error StakerStakeeMismatch();
+  error FundsNotAvailableToRelease();
+  error FundsNotAvailableToReleaseFromRound();
+  error RoundAlreadyBurned();
+  error MinimumBurnRoundDurationNotMet();
+
+  bytes32 public constant SLASHER_ROLE = keccak256("SLASHER_ROLE");
+  bytes32 public constant RELEASER_ROLE = keccak256("RELEASER_ROLE");
+  bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+  struct Stake {
+    uint64 unlockTime;
+    uint88 amount;
+    uint88 slashedAmount;
+    uint16 slashedInRound;
+  }
+
+  mapping(address => uint88) public userTotalStaked;
+  mapping(address => Stake) public selfStakes;
+  mapping(address => mapping(address => Stake)) public communityStakes;
+
+  uint16 public currentSlashRound;
+  uint64 public burnRoundMinimumDuration;
+  uint256 public lastBurnTimestamp;
+  address public burnAddress;
+  mapping(uint16 => uint88) public totalSlashed;
+  IERC20 public token;
+
+  event SelfStake(address indexed staker, uint88 amount, uint64 unlockTime);
+  event CommunityStake(address indexed staker, address indexed stakee, uint88 amount, uint64 unlockTime);
+  event SelfStakeWithdrawn(address indexed staker, uint88 amount);
+  event CommunityStakeWithdrawn(address indexed staker, address indexed stakee, uint88 amount);
+  event Slash(address indexed staker, uint88 amount, uint16 round);
+  event Burn(uint16 indexed round, uint88 amount);
+}
+```

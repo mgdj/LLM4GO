@@ -1,0 +1,13 @@
+### Recommendations:
+1. Avoid unnecessary function calls and checks.
+2. Simplify the conditions.
+
+### Optimization Code:
+```solidity
+function allowlistVaultImpl(address vaultImpl) external onlyOwner {
+    require(vaultImpl != address(0), "Zero address not allowed");
+    require(vaultImpl != Constants.DEFAULT_VAULT_IMPLEMENTATION_FLAG, "Reserved address not allowed");
+
+    _self().allowlistVaultImpl(vaultImpl);
+}
+```

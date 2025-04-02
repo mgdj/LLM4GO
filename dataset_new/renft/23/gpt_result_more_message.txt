@@ -1,0 +1,31 @@
+function _processBaseOrderOffer(
+        Item[] memory rentalItems,
+        SpentItem[] memory offers,
+        uint256 startIndex
+    ) internal pure {
+        if (offers.length == 0) {
+            revert Errors.CreatePolicy_OfferCountZero();
+        }
+
+        ItemType itemType;
+
+        for (uint256 i = 0; i < offers.length; ++i) {
+            SpentItem memory offer = offers[i];
+
+            if (offer.isERC721()) {
+                itemType = ItemType.ERC721;
+            } else if (offer.isERC1155()) {
+                itemType = ItemType.ERC1155;
+            } else {
+                revert Errors.CreatePolicy_SeaportItemTypeNotSupported(offer.itemType);
+            }
+
+            rentalItems[i + startIndex] = Item({
+                itemType: itemType,
+                settleTo: SettleTo.LENDER,
+                token: offer.token,
+                amount: offer.amount,
+                identifier: offer.identifier
+            });
+        }
+    }

@@ -1,0 +1,39 @@
+abstract contract ERC1155 {
+    /*//////////////////////////////////////////////////////////////
+                                 EVENTS
+    //////////////////////////////////////////////////////////////*/
+
+    event TransferSingle(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256 id,
+        uint256 amount
+    );
+
+    event TransferBatch(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256[] ids,
+        uint256[] amounts
+    );
+
+    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+
+    /*//////////////////////////////////////////////////////////////
+                                 ERRORS
+    //////////////////////////////////////////////////////////////*/
+
+    error NotAuthorized();
+
+    error UnsafeRecipient();
+
+    /*//////////////////////////////////////////////////////////////
+                             ERC1155 STORAGE
+    //////////////////////////////////////////////////////////////*/
+
+    mapping(address => mapping(uint256 => uint256)) public balanceOf;
+
+    mapping(address => mapping(address => uint256)) public isApprovedForAll;
+}

@@ -1,0 +1,6 @@
+function setOwner(address _owner) external onlyAuthorized {
+        require(_owner != owner, "Owner address is the same");
+        address previousOwner = owner;
+        owner = _owner;
+        emit OwnerUpdated(_owner);
+    }

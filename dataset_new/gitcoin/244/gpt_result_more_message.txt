@@ -1,0 +1,6 @@
+function pause() external payable onlyRole(PAUSER_ROLE) whenNotPaused {
+    unchecked {
+        require(msg.value == 0);
+        _pause();
+    }
+}

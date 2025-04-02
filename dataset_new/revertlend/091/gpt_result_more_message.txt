@@ -1,0 +1,7 @@
+function setEmergencyAdmin(address admin) external onlyOwner {
+        require(admin != address(0), "Invalid admin address");
+        if(emergencyAdmin != admin) {
+            emergencyAdmin = admin;
+            emit SetEmergencyAdmin(admin);
+        }
+    }

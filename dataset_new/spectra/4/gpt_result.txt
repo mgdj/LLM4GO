@@ -1,0 +1,6 @@
+function storeRatesAtExpiry() public override afterExpiry {
+        require(!ratesAtExpiryStored, "RatesAtExpiryAlreadyStored");
+        ratesAtExpiryStored = true;
+        (ptRate, ibtRate) = _getCurrentPTandIBTRates(false);
+        emit RatesStoredAtExpiry(ibtRate, ptRate);
+    }

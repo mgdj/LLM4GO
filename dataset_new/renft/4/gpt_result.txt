@@ -1,0 +1,18 @@
+function addRentals(
+        bytes32 orderHash,
+        RentalAssetUpdate[] memory rentalAssetUpdates
+    ) external onlyByProxy permissioned {
+        orders[orderHash] = true;
+        
+        // Add the rented items to storage.
+        uint256 length = rentalAssetUpdates.length;
+        uint256[] memory rentedAmounts = new uint256[](length);
+        
+        for (uint256 i = 0; i < length; ++i) {
+            rentedAmounts[i] = rentalAssetUpdates[i].amount;
+        }
+        
+        for (uint256 i = 0; i < length; ++i) {
+            rentedAssets[rentalAssetUpdates[i].rentalId] += rentedAmounts[i];
+        }
+    }

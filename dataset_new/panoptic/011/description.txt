@@ -1,0 +1,1 @@
+Optimize the storage of data in the getLiquidityForAmount1 function by reducing the number of times data is stored in state variables.Refactoring the price calculation into a separate function and returning both values in a single call reduces redundancy and improves gas efficiency.

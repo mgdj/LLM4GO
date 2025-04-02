@@ -1,0 +1,4 @@
+function setFeeRedistributor(address feeRedistributor_) external onlyOwner {
+        require(feeRedistributor_ != address(0), "Invalid feeRedistributor address");
+        feeRedistributor = FeeSplitter(payable(feeRedistributor_));
+    }

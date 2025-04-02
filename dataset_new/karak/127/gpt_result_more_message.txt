@@ -1,0 +1,7 @@
+function pause(uint256 map) external onlyOwner {
+        require(map != 0, "Invalid input");
+        unchecked {
+            _paused = true;
+        }
+        emit Paused(msg.sender, map);
+    }

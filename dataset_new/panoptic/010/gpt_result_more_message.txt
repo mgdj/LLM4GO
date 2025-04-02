@@ -1,0 +1,27 @@
+**Recommendations:**
+1. Replace bitwise AND operation with `!= 0` for unsigned integer comparison for solidity versions below 0.8.12.
+2. Combine repetitive code into a single block for optimization.
+3. Use shift right operation instead of division if possible.
+4. Ensure that all variables are appropriately typed to avoid unnecessary casting.
+
+**Optimization code:**
+```solidity
+// Define constants
+uint256 constant CONSTANT1 = 12345; // Example value
+uint256 constant CONSTANT2 = 67890; // Example value
+// Define absTick variable if not already defined as uint
+uint absTick = 123; // Example value
+// Define sqrtR variable if not already defined as uint
+uint sqrtR = 456; // Example value
+
+// Combine repetitive code into a single block
+if (absTick & 0x1 != 0) {
+    sqrtR = (sqrtR * CONSTANT1) >> 128;
+}
+if (absTick & 0x2 != 0) {
+    sqrtR = (sqrtR * CONSTANT2) >> 128;
+}
+// Repeats for other constants
+```
+
+By following these recommendations and applying the provided optimization code, you can improve gas efficiency in the given Solidity code.

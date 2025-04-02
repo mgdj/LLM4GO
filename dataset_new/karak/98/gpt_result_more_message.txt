@@ -1,0 +1,10 @@
+function changeNodeImplementation(address newNodeImplementation)
+        external
+        onlyOwnerOrRoles(Constants.MANAGER_ROLE)
+        whenFunctionNotPaused(Constants.PAUSE_NATIVEVAULT_NODE_IMPLEMENTATION)
+    {
+       require(newNodeImplementation != address(0), "Zero address provided");
+
+       _state().nodeImpl = newNodeImplementation;
+       emit UpgradedAllNodes(newNodeImplementation);
+   }

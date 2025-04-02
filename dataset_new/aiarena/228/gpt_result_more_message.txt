@@ -1,0 +1,16 @@
+function pickWinner(uint256[] calldata winners) external {
+        require(isAdmin[msg.sender]);
+        require(winners.length == winnersPerPeriod);
+        require(!isSelectionComplete[roundId]);
+
+        address[] memory currentWinnerAddresses = new address[](winners.length);
+        for (uint256 i = 0; i < winners.length; ++i) {
+            currentWinnerAddresses[i] = _fighterFarmInstance.ownerOf(winners[i]);
+            totalPoints -= fighterPoints[winners[i]];
+            fighterPoints[winners[i]] = 0;
+        }
+
+        winnerAddresses[roundId] = currentWinnerAddresses;
+        isSelectionComplete[roundId] = true;
+        ++roundId;
+    }

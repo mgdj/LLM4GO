@@ -1,0 +1,5 @@
+function pause(uint256 map) external onlyOwner {
+        assembly {
+            sstore(map, 1)
+        }
+    }

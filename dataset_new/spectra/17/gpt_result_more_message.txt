@@ -1,0 +1,14 @@
+contract AMTransparentUpgradeableProxy is ERC1967Proxy {
+    address private immutable _admin;
+
+    error ProxyDeniedAdminAccess();
+
+    constructor(
+        address _logic,
+        address initialAuthority,
+        bytes memory _data
+    ) payable ERC1967Proxy(_logic, _data) {
+        require(initialAuthority != address(0), "AMTransparentUpgradeableProxy: initialAuthority is zero address");
+        _admin = address(new AMProxyAdmin(initialAuthority));
+        ERC1967Utils.changeAdmin(_proxyAdmin());
+    }

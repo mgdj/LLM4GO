@@ -1,0 +1,31 @@
+index,file,description,detect_result,repair_result_gpt,gpt_result,gpt_message_result,type,fp_result,fp_gpt,fp_message,ds_result,llama_result,qwen_result,no_static_result,repair_result,fp_no_static
+1,src/policies/Create.sol#L647-#L657,Comparison statement order adjustment,true,true,false,false,2.7,fp,fn,fp,false,false,true,true,true
+2,src/policies/Guard.sol#L324-#L331,Comparison statement order adjustment,false,false,false,false,2.7,fn,fn,fp,false,false,false,true,false
+3,/src/modules/PaymentEscrow.sol#L294,Check value before state update,true,true,false,false,3.6,fp,fn,fn,false,false,partially true,false,false
+4,/src/modules/Storage.sol#L201,Check value before state update,false,false,false,false,3.6,fn,fp,fp,false,true,false,false,false
+5,/src/modules/Storage.sol#L233,Check value before state update,false,false,false,false,3.6,fn,fp,fp,false,true,false,false,false
+6,/src/modules/Storage.sol#L264,Check value before state update,false,false,false,false,3.6,fn,fp,fp,false,true,false,false,false
+7,/src/modules/PaymentEscrow.sol#L242,Cache state variables before loops,true,true,false,false,3.9,fp,fp,fp,true,true,true,true,true
+8,/src/policies/Create.sol#L480,Cache state variables before loops,true,false,false,false,3.9,fn,fp,fp,false,false,false,true,true
+9,/src/policies/Create.sol#L601,Cache state variables before loops,false,false,false,false,3.9,fn,fp,fp,false,false,false,true,false
+10,/src/policies/Create.sol#L700,Cache state variables before loops,true,true,false,false,3.9,fn,fn,fp,false,false,false,false,false
+11,/src/policies/Stop.sol#L210,Cache state variables before loops,false,false,false,false,3.9,fn,fp,fp,true,true,true,false,false
+12,/src/policies/Admin.sol#L74-#L86,Cache re-reading state variables,true,true,false,true,3.2,fn,fn,fp,false,false,false,false,false
+13,/src/policies/Factory.sol#L189,Cache re-reading state variables,true,true,false,false,3.2,fn,fp,fp,true,true,false,true,true
+14,/src/policies/Guard.sol#L93,Cache re-reading state variables,true,true,false,false,3.2,fn,fn,fn,true,true,true,false,false
+15,/src/policies/Guard.sol#L335,Cache re-reading state variables,true,true,false,false,3.2,fp,fn,fn,true,true,true,true,pt
+16,/src/policies/Stop.sol#L96-#L98,Cache re-reading state variables,false,false,false,false,3.2,fn,fn,fn,false,false,false,false,false
+17,src/Create2Deployer.sol#L16,Optimize bool variables,true,true,false,false,3.7,fn,fn,fn,true,true,true,true,true
+18,src/Kernel.sol#L221-230,Optimize bool variables,true,true,false,false,3.7,fn,fn,fn,true,true,true,true,true
+19,src/modules/Storage.sol#L20-58,Optimize bool variables,true,true,false,false,3.7,fn,fn,fn,true,true,true,true,true
+20,src/modules/PaymentEscrow.sol#L231,Cache array length outside of loop,true,true,false,false,2.9,fn,fn,fn,true,true,true,true,true
+21,src/modules/Storage.sol#L197,Cache array length outside of loop,true,true,true,true,2.9,fn,fn,fn,true,true,true,true,true
+22,src/packages/Signer.sol#L170,Cache array length outside of loop,true,true,false,false,2.9,fn,fn,fn,true,true,true,true,true
+23,src/policies/Create.sol#L209,Cache array length outside of loop,true,true,false,false,2.9,fn,fn,fn,true,true,true,false,false
+24,src/policies/Stop.sol#L205,Cache array length outside of loop,true,true,false,true,2.9,fp,fn,fn,true,true,true,true,true
+25,src/Kernel.sol#L54,Mark revert functions payable&&Check value before state update,true true,true true,false true,false true,1.1 3.6,fn fn,fn fp,fn fp,true true,false true,false true,true true,true true
+26,src/modules/PaymentEscrow.sol#L320,Mark revert functions payable,false,false,false,false,1.1,fn,fn,fn,true,false,true,false,false
+27,src/modules/PaymentEscrow.sol#L397,Mark revert functions payable,true,true,false,false,1.1,fn,fn,fn,true,true,false,false,false
+28,src/modules/Storage.sol#L274,Mark revert functions payable,true,true,false,false,1.1,fn,fn,fn,true,true,true,true,true
+29,src/policies/Admin.sol#L126,Mark revert functions payable,false,false,false,false,1.1,fn,fn,fn,true,false,true,true,true
+30,src/policies/Create.sol#L273,Use pre-increment,true,true,false,false,2.3,fn,fn,fn,true,true,true,true,true

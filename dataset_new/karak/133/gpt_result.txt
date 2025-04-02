@@ -1,0 +1,11 @@
+function requestUpdateVaultStakeInDSS(Operator.StakeUpdateRequest memory vaultStakeUpdateRequest)
+    public
+    nonReentrant
+    whenFunctionNotPaused(Constants.PAUSE_CORE_REQUEST_STAKE_UPDATE)
+    returns (Operator.QueuedStakeUpdate memory updatedStake)
+{
+    CoreLib.Storage storage self = _self();
+    self.checkIfOperatorIsRegInRegDSS(msg.sender, vaultStakeUpdateRequest.dss);
+    updatedStake = self.requestUpdateVaultStakeInDSS(vaultStakeUpdateRequest, self.nonce++, msg.sender);
+    emit RequestedStakeUpdate(updatedStake);
+}

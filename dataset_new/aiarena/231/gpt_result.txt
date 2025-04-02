@@ -1,0 +1,27 @@
+contract FighterFarm is ERC721, ERC721Enumerable {
+
+    event Locked(uint256 tokenId);
+    event Unlocked(uint256 tokenId);
+
+    uint8 public constant MAX_FIGHTERS_ALLOWED = 10;
+    uint8[2] public maxRerollsAllowed = [3, 3];
+    uint256 public rerollCost = 1000 * 10**18;
+    uint8[2] public generation = [0, 0];
+    uint32 public totalNumTrained;
+    address public treasuryAddress;
+    address _ownerAddress;
+    address _delegatedAddress;
+    address _mergingPoolAddress;
+    AiArenaHelper _aiArenaHelperInstance;
+    AAMintPass _mintpassInstance;
+    Neuron _neuronInstance;
+    FighterOps.Fighter[] public fighters;
+
+    mapping(uint256 => bool) public fighterStaked;
+    mapping(uint256 => uint8) public numRerolls;
+    mapping(address => bool) public hasStakerRole;
+    mapping(uint8 => uint8) public numElements;
+    mapping(address => mapping(uint8 => uint8)) public nftsClaimed;
+    mapping(uint256 => uint32) public numTrained;
+    mapping(uint256 => string) private _tokenURIs;
+}

@@ -1,0 +1,28 @@
+Recommendations:
+1. Reuse variables where possible to avoid unnecessary gas costs from declaring new variables.
+2. Instead of performing direct calculations on uint256 variables, consider using int128 or smaller variable types to reduce gas costs.
+3. Avoid explicitly casting variables to int256 before performing calculations to save gas.
+
+
+Optimized Code:
+```solidity
+function calculateAMMSwapFeesLiquidityChunkOptimized(
+    MockUniswapV3Pool univ3pool,
+    int24 currentTick,
+    int24 tickLower,
+    int24 tickUpper,
+    uint128 startingLiquidity
+) public view returns (int256 feesEachToken) {
+    (, , uint256 lowerOut0, uint256 lowerOut1, , , , ) = univ3pool.ticks(tickLower);
+    (, , uint256 upperOut0, uint256 upperOut1, , , , ) = univ3pool.ticks(tickUpper);
+    unchecked {
+        uint128 feeGrowthInside0X128;
+        uint128 feeGrowthInside1X128;
+
+        // ... original logic ...
+
+        uint128 totalFeeGrowth = feeGrowthInside0X128 + feeGrowthInside1X128;
+        feesEachToken = int256(startingLiquidity) * int256(totalFeeGrowth);
+    }
+}
+```

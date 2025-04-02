@@ -1,0 +1,10 @@
+function setLoopAddresses(address _loopAddress, address _vaultAddress)
+    external
+    onlyAuthorized
+    onlyBeforeDate(loopActivation)
+{
+    lpETH = ILpETH(_loopAddress);
+    lpETHVault = ILpETHVault(_vaultAddress);
+
+    emit LoopAddressesUpdated(_loopAddress, _vaultAddress);
+}

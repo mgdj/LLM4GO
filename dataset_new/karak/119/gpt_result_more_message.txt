@@ -1,0 +1,7 @@
+function validateStakeUpdateRequest(State storage operatorState, StakeUpdateRequest memory stakeUpdate)
+    internal
+    view
+{
+    require(operatorState.pendingStakeUpdates[stakeUpdate.vault] == bytes32(0), "PendingStakeUpdateRequest");
+    require(operatorState.vaults.contains(stakeUpdate.vault), "VaultNotAChildVault");
+}

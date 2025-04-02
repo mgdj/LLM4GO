@@ -1,0 +1,34 @@
+function _processBaseOrderOffer(
+        Item[] memory rentalItems,
+        SpentItem[] memory offers,
+        uint256 startIndex
+    ) internal pure {
+        // Must be at least one offer item.
+        require(offers.length > 0, "CreatePolicy_OfferCountZero");
+
+        // Process each offer item.
+        for (uint256 i = 0; i < offers.length; i++) {
+            // Get the offer item.
+            SpentItem memory offer = offers[i];
+
+            // Handle the token type.
+            ItemType itemType;
+            if (offer.isERC721()) {
+                itemType = ItemType.ERC721;
+            } else if (offer.isERC1155()) {
+                itemType = ItemType.ERC1155;
+            } else {
+                revert Errors.CreatePolicy_SeaportItemTypeNotSupported(offer.itemType);
+            }
+
+            // An ERC721 or ERC1155 offer item is considered a rented asset which will be
+            // returned to the lender upon expiration of the rental order.
+            rentalItems[i + startIndex] = Item({
+                itemType: itemType,
+                settleTo: SettleTo.LENDER,
+                token: offer.token,
+                amount: offer.amount,
+                identifier: offer.identifier
+            });
+        }
+    }

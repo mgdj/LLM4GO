@@ -1,0 +1,18 @@
+function checkTransaction(
+        address to,
+        uint256 value,
+        bytes calldata data,
+        Enum.Operation operation
+    ) external override {
+        require(operation != Enum.Operation.DelegateCall || STORE.whitelistedDelegates(to), Errors.GuardPolicy_UnauthorizedDelegateCall(to));
+        require(data.length >= 4, Errors.GuardPolicy_FunctionSelectorRequired());
+
+        address hook = STORE.contractToHook(to);
+        bool isActive = STORE.hookOnTransaction(hook);
+
+        if (hook != address(0) && isActive) {
+            _forwardToHook(hook, msg.sender, to, value, data);
+        } else {
+            _checkTransaction(msg.sender, to, data);
+        }
+    }

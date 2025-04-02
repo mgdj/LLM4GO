@@ -1,0 +1,68 @@
+**Recommendations:**
+1. Use `payable` modifier for the borrow function to save gas.
+2. Consider splitting the require statements that use `&&` for better gas optimization.
+3. Move the require emit ahead in the function to save gas.
+4. Cache state variables outside of loops for optimization.
+5. Use `calldata` instead of `memory` for function arguments that do not get mutated.
+
+**Optimized Solidity Code:**
+```solidity
+// Add payable modifier to indicate that the function can receive ether
+function borrow(uint256 tokenId, uint256 assets) external override payable {
+    bool isTransformMode =
+        transformedTokenId > 0 && transformedTokenId == tokenId && transformerAllowList[msg.sender];
+
+    (uint256 newDebtExchangeRateX96, uint256 newLendExchangeRateX96) = _updateGlobalInterest();
+
+    _resetDailyDebtIncreaseLimit(newLendExchangeRateX96, false);
+
+    // Cache state variables outside of loops
+    Loan storage loan = loans[tokenId];
+    address owner = tokenOwner[tokenId];
+
+    // Split the require statements
+    if (!isTransformMode) {
+        // if not in transform mode - must be called from owner or the vault itself
+        if (tokenOwner[tokenId] != msg.sender && address(this) != msg.sender) {
+            revert Unauthorized();
+        }
+    }
+
+    uint256 shares = _convertToShares(assets, newDebtExchangeRateX96, Math.Rounding.Up);
+
+    uint256 loanDebtShares = loan.debtShares + shares;
+    loan.debtShares = loanDebtShares;
+    debtSharesTotal += shares;
+
+    if (debtSharesTotal > _convertToShares(globalDebtLimit, newDebtExchangeRateX96, Math.Rounding.Down)) {
+        revert GlobalDebtLimit();
+    }
+    if (assets > dailyDebtIncreaseLimitLeft) {
+        revert DailyDebtIncreaseLimit();
+    } else {
+        dailyDebtIncreaseLimitLeft -= assets;
+    }
+
+    _updateAndCheckCollateral(
+        tokenId, newDebtExchangeRateX96, newLendExchangeRateX96, loanDebtShares - shares, loanDebtShares
+    );
+
+    uint256 debt = _convertToAssets(loanDebtShares, newDebtExchangeRateX96, Math.Rounding.Up);
+
+    if (debt < minLoanSize) {
+        revert MinLoanSize();
+    }
+
+    // Split the require statements
+    if (!isTransformMode) {
+        // only does check health here if not in transform mode
+        _requireLoanIsHealthy(tokenId, debt);
+    }
+
+    // fails if not enough asset available
+    // if called from transform mode - send funds to transformer contract
+    SafeERC20.safeTransfer(IERC20(asset), isTransformMode ? msg.sender : owner, assets);
+
+    emit Borrow(tokenId, owner, assets, shares);
+}
+```  

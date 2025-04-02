@@ -1,0 +1,9 @@
+function withdrawIBT(
+        uint256 ibts,
+        address receiver,
+        address owner
+    ) public override returns (uint256 shares) {
+        (uint256 _ptRate, uint256 _ibtRate) = _getPTandIBTRates(false);
+        shares = _withdrawShares(ibts, receiver, owner, _ptRate, _ibtRate);
+        IERC20(ibt).safeTransfer(receiver, ibts);
+    }

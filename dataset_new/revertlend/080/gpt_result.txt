@@ -1,0 +1,40 @@
+Recommendations:
+1. Avoid recalculating the same values multiple times by storing them in variables.
+2. Combine the checks for token0 and token1 to reduce redundant code.
+
+Optimization_code:
+```solidity
+function _updateAndCheckCollateral(
+    uint256 tokenId,
+    uint256 debtExchangeRateX96,
+    uint256 lendExchangeRateX96,
+    uint256 oldShares,
+    uint256 newShares
+) internal {
+    if (oldShares != newShares) {
+        (,, address token0, address token1,,,,,,,,) = nonfungiblePositionManager.positions(tokenId);
+
+        uint256 debtSharesDiff = newShares > oldShares ? newShares - oldShares : oldShares - newShares;
+
+        // remove previous collateral - add new collateral
+        tokenConfigs[token0].totalDebtShares += SafeCast.toUint192(newShares - oldShares);
+        tokenConfigs[token1].totalDebtShares += SafeCast.toUint192(newShares - oldShares);
+
+        // check if current value of used collateral is more than allowed limit
+        // if collateral is decreased - never revert
+        uint256 lentAssets = _convertToAssets(totalSupply(), lendExchangeRateX96, Math.Rounding.Up);
+        for (uint8 i = 0; i < 2; i++) {
+            address token = i == 0 ? token0 : token1;
+            uint32 collateralValueLimitFactorX32 = tokenConfigs[token].collateralValueLimitFactorX32;
+            uint256 totalDebtShares = tokenConfigs[token].totalDebtShares;
+            if (
+                collateralValueLimitFactorX32 < type(uint32).max
+                    && _convertToAssets(totalDebtShares, debtExchangeRateX96, Math.Rounding.Up)
+                        > lentAssets * collateralValueLimitFactorX32 / Q32
+            ) {
+                revert CollateralValueLimit();
+            }
+        }
+    }
+}
+```

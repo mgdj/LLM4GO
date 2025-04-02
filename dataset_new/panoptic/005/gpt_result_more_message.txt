@@ -1,0 +1,11 @@
+Recommendations:
+1. Use custom errors instead of revert strings to save gas.
+2. Cache the value of Constants.MAX_V3POOL_TICK in a stack variable to avoid multiple storage reads.
+
+Optimized code:
+```solidity
+uint256 maxV3PoolTick = Constants.MAX_V3POOL_TICK;
+if (absTick > int256(maxV3PoolTick)) {
+    revert Errors.InvalidTick();
+}
+```

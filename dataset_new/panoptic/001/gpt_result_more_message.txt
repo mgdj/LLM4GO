@@ -1,0 +1,26 @@
+**Recommendations:**
+1. Use inline assembly for arithmetic operations to optimize gas consumption.
+2. Cache state variables and calculations outside of loops to avoid repeated storage reads and calculations.
+3. Use custom errors instead of revert strings to save gas.
+4. Remove unnecessary unchecked blocks to simplify the code.
+5. Consider packing variables into fewer storage slots to reduce gas costs.
+
+**Optimized code:**
+```solidity
+// SPDX-License-Identifier: GPL-2.0-or-later
+pragma solidity ^0.8.0;
+
+library LiquidityChunkOptimized {
+    function createChunk(
+        uint256 self,
+        int24 _tickLower,
+        int24 _tickUpper,
+        uint128 amount
+    ) internal pure returns (uint256) {
+        uint256 liquidity = self + uint256(amount);
+        liquidity += uint256(uint24(_tickLower)) << 232;
+        liquidity += uint256(uint24(_tickUpper)) << 208;
+        return liquidity;
+    }
+}
+```

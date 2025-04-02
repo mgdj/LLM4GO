@@ -1,0 +1,6 @@
+function changeKernel(Kernel newKernel_) external onlyKernel {
+        require(address(newKernel_) != address(0), "Invalid kernel address");
+        require(address(newKernel_) != address(kernel), "Same kernel address");
+
+        kernel = newKernel_;
+    }

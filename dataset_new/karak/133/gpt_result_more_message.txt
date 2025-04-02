@@ -1,0 +1,11 @@
+function requestUpdateVaultStakeInDSS(Operator.StakeUpdateRequest memory vaultStakeUpdateRequest)
+        external
+        nonReentrant
+        whenFunctionNotPaused(Constants.PAUSE_CORE_REQUEST_STAKE_UPDATE)
+        returns (Operator.QueuedStakeUpdate memory updatedStake)
+    {
+        CoreLib.Storage storage self = _self();
+        require(!self.isOperatorRegInRegDSS(msg.sender, vaultStakeUpdateRequest.dss), "Operator not registered in Reg DSS");
+        updatedStake = self.requestUpdateVaultStakeInDSS(vaultStakeUpdateRequest, ++self.nonce, msg.sender);
+        emit RequestedStakeUpdate(updatedStake);
+    } 

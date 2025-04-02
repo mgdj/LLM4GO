@@ -1,0 +1,43 @@
+function _processPayOrderOffer(
+        Item[] memory rentalItems,
+        SpentItem[] memory offers,
+        uint256 startIndex
+    ) internal pure {
+        uint256 totalRentals;
+        uint256 totalPayments;
+        ItemType itemType;
+        SettleTo settleTo;
+
+        for (uint256 i; i < offers.length; ++i) {
+            SpentItem memory offer = offers[i];
+
+            if (offer.isERC721()) {
+                itemType = ItemType.ERC721;
+                settleTo = SettleTo.LENDER;
+                totalRentals++;
+            } else if (offer.isERC1155()) {
+                itemType = ItemType.ERC1155;
+                settleTo = SettleTo.LENDER;
+                totalRentals++;
+            } else if (offer.isERC20()) {
+                itemType = ItemType.ERC20;
+                settleTo = SettleTo.RENTER;
+                totalPayments++;
+            } else {
+                revert Errors.CreatePolicy_SeaportItemTypeNotSupported(offer.itemType);
+            }
+
+            uint256 index = i + startIndex; // Store the index calculation to save gas
+            rentalItems[index] = Item({
+                itemType: itemType,
+                settleTo: settleTo,
+                token: offer.token,
+                amount: offer.amount,
+                identifier: offer.identifier
+            });
+        }
+
+        if (totalRentals == 0 || totalPayments == 0) {
+            revert Errors.CreatePolicy_ItemCountZero(totalRentals, totalPayments);
+        }
+    }

@@ -1,0 +1,30 @@
+contract AMTransparentUpgradeableProxy is ERC1967Proxy {
+    // An immutable address for the admin to avoid unnecessary SLOADs before each call
+    // at the expense of removing the ability to change the admin once it's set.
+    // This is acceptable if the admin is always a ProxyAdmin instance or similar contract
+    // with its own ability to transfer the permissions to another account.
+    address private immutable _admin;
+
+    /**
+     * @dev The proxy caller is the current admin, and can't fallback to the proxy target.
+     */
+    error ProxyDeniedAdminAccess();
+
+    /**
+     * @dev Initializes an upgradeable proxy managed by an instance of a {ProxyAdmin} with an `initialOwner`,
+     * backed by the implementation at `_logic`, and optionally initialized with `_data` as explained in
+     * {ERC1967Proxy-constructor}.
+     */
+    constructor(
+        address _logic,
+        address initialAuthority,
+        bytes memory _data
+    ) payable ERC1967Proxy(_logic, _data) {
+        require(
+            initialAuthority != address(0),
+            "AMTransparentUpgradeableProxy: initialAuthority is zero address"
+        );
+        _admin = address(new AMProxyAdmin(initialAuthority));
+        // Set the storage value and emit an event for ERC-1967 compatibility
+        ERC1967Utils.changeAdmin(_proxyAdmin());
+    }

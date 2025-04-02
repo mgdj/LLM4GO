@@ -1,0 +1,30 @@
+contract GameItems is ERC1155 {
+
+    struct GameItemAttributes {
+        string name;
+        bool finiteSupply;
+        bool transferable;
+        uint256 itemsRemaining;
+        uint256 itemPrice;
+        uint256 dailyAllowance;
+    }  
+
+    string public name = "AI Arena Game Items";
+    string public symbol = "AGI";
+    GameItemAttributes[] public allGameItemAttributes;
+    address public treasuryAddress;
+    address ownerAddress;
+    uint256 itemCount = 0;
+    Neuron neuronInstance;
+    
+    mapping(address => mapping(uint256 => uint256)) public allowanceRemaining;
+    mapping(address => mapping(uint256 => uint256)) public dailyAllowanceReplenishTime;
+    mapping(address => bool) public allowedBurningAddresses;
+    mapping(address => bool) public isAdmin;
+    mapping(uint256 => string) private _tokenURIs;
+
+    event BoughtItem(address buyer, uint256 tokenId, uint256 quantity);
+    event Locked(uint256 tokenId);
+    event Unlocked(uint256 tokenId);
+
+}

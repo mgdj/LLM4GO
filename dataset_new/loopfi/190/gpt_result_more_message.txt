@@ -1,0 +1,7 @@
+function setOwner(address _owner) external onlyAuthorized {
+    require(owner != _owner, "Owner already set to this address");
+    
+    owner = _owner;
+
+    emit OwnerUpdated(_owner);
+}

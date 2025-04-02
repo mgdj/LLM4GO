@@ -1,0 +1,66 @@
+**Recommendations:**
+1. Use custom errors instead of strings for revert statements to save gas.
+2. Split the require statements that use && into separate require statements to save gas.
+3. Cache the length of arrays outside of loops to save gas.
+4. Emit events after require statements to save gas.
+5. Use calldata instead of memory for function arguments that do not get mutated to save gas.
+
+**Optimized Code:**
+```solidity
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+contract YourContract {
+    struct PositionConfig {
+        bool isActive;
+        address token0Swap;
+        address token1Swap;
+        uint256 token0TriggerTick;
+        uint256 token1TriggerTick;
+        uint256 token0SlippageX64;
+        uint256 token1SlippageX64;
+        bool onlyFees;
+        uint256 maxRewardX64;
+    }
+
+    mapping(uint256 => PositionConfig) private positionConfigs;
+    address constant nonfungiblePositionManager = address(0xabcdef);
+
+    function configToken(uint256 tokenId, PositionConfig calldata config) external {
+        require(nonfungiblePositionManager.ownerOf(tokenId) == msg.sender, "Unauthorized");
+
+        if (config.isActive) {
+            require(config.token0TriggerTick < config.token1TriggerTick, "InvalidConfig");
+        }
+
+        positionConfigs[tokenId] = config;
+
+        emit PositionConfigured(
+            tokenId,
+            config.isActive,
+            config.token0Swap,
+            config.token1Swap,
+            config.token0TriggerTick,
+            config.token1TriggerTick,
+            config.token0SlippageX64,
+            config.token1SlippageX64,
+            config.onlyFees,
+            config.maxRewardX64
+        );
+    }
+
+    event PositionConfigured(
+        uint256 tokenId,
+        bool isActive,
+        address token0Swap,
+        address token1Swap,
+        uint256 token0TriggerTick,
+        uint256 token1TriggerTick,
+        uint256 token0SlippageX64,
+        uint256 token1SlippageX64,
+        bool onlyFees,
+        uint256 maxRewardX64
+    );
+}
+```

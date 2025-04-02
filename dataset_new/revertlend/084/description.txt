@@ -1,0 +1,1 @@
+As with the previous Instance 1 there is no explicit check to determine whether the _active value being set is different from the current value stored in the vaults mapping for the given _vault address. This lack of a check could result in unnecessary state changes and gas costs if the _active value passed to the function is the same as the current value stored in the mapping.

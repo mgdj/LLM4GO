@@ -1,0 +1,48 @@
+function _settlePayment(
+        Item[] calldata items,
+        OrderType orderType,
+        address lender,
+        address renter,
+        uint256 start,
+        uint256 end
+    ) internal {
+        // Determine whether the rental order has ended.
+        bool isRentalOver = block.timestamp - start >= end - start;
+
+        // Loop through each item in the order.
+        for (uint256 i = 0; i < items.length; ++i) {
+            // Check that the item is a payment.
+            if (items[i].isERC20()) {
+                uint256 paymentAmount = items[i].amount;
+                
+                if (fee != 0) {
+                    uint256 paymentFee = _calculateFee(paymentAmount);
+                    paymentAmount -= paymentFee;
+                }
+
+                _decreaseDeposit(items[i].token, items[i].amount);
+
+                if (orderType.isPayOrder() && !isRentalOver) {
+                    _settlePaymentProRata(
+                        items[i].token,
+                        paymentAmount,
+                        lender,
+                        renter,
+                        block.timestamp - start,
+                        end - start
+                    );
+                }
+                else if ((orderType.isPayOrder() && isRentalOver) || orderType.isBaseOrder()) {
+                    _settlePaymentInFull(
+                        items[i].token,
+                        paymentAmount,
+                        items[i].settleTo,
+                        lender,
+                        renter
+                    );
+                } else {
+                    revert Errors.Shared_OrderTypeNotSupported(uint8(orderType));
+                }
+            }
+        }
+    }

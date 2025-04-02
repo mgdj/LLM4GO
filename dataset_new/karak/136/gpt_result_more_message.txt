@@ -1,0 +1,10 @@
+function initialize(address owner, IERC20[] calldata _supportedAssets) external initializer {
+        _initializeOwner(owner);
+        Config storage config = _config();
+        IERC20[] storage supportedAssets = config.supportedAssets;
+        uint256 supportedAssetsLength = _supportedAssets.length;
+        
+        for (uint256 i = 0; i < supportedAssetsLength; ++i) {
+            supportedAssets[_supportedAssets[i]] = true;
+        }
+    }

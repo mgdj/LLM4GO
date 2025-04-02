@@ -1,0 +1,31 @@
+function claimRewards(
+        string[] calldata modelURIs, 
+        string[] calldata modelTypes,
+        uint256[2][] calldata customAttributes
+    ) 
+        external 
+    {
+        uint32 claimIndex = 0;
+        uint32 lowerBound = numRoundsClaimed[msg.sender];
+        uint32 roundIdLocal = roundId;
+        uint256 modelURIsLength = modelURIs.length;
+        for (uint32 i = lowerBound; i < roundIdLocal; i++) {
+            numRoundsClaimed[msg.sender] += 1;
+            uint256 winnersLength = winnerAddresses[i].length;
+            address[] storage winnerAddressesOfRound = winnerAddresses[i];
+            for (uint32 j = 0; j < winnersLength; j++) {
+                if (msg.sender == winnerAddressesOfRound[j]) {
+                    _fighterFarmInstance.mintFromMergingPool(
+                        msg.sender,
+                        modelURIs[claimIndex],
+                        modelTypes[claimIndex],
+                        customAttributes[claimIndex]
+                    );
+                    claimIndex++;
+                }
+            }
+        }
+        if (claimIndex != 0) {
+            emit Claimed(msg.sender, claimIndex);
+        }
+    }

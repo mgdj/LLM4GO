@@ -1,0 +1,25 @@
+### Recommendations:
+1. **Reuse Variable Assignments**: Since both functions `getAmount1ForLiquidity` and `getLiquidityForAmount1` have identical computations, reuse the variable assignments for `lowPriceX96` and `highPriceX96`.
+2. **Combine Code Logic**: Consider combining the logic that follows the assignments of `lowPriceX96` and `highPriceX96` into a single block to minimize redundant operations.
+
+### Optimization Code:
+```solidity
+function getAmount1ForLiquidity(uint256 liquidityChunk) internal pure returns (uint256 amount1) {
+    (uint160 lowPriceX96, uint160 highPriceX96) = getTickRatios(liquidityChunk);
+    // ...
+}
+
+function getLiquidityForAmount1(uint256 liquidityChunk, uint256 amount1) internal pure returns (uint128 liquidity) {
+    (uint160 lowPriceX96, uint160 highPriceX96) = getTickRatios(liquidityChunk);
+    // ...
+}
+
+function getTickRatios(uint256 liquidityChunk) internal pure returns (uint160, uint160) {
+    uint160 lowPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickLower());
+    uint160 highPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickUpper());
+    return (lowPriceX96, highPriceX96);
+}
+```
+In the above optimized code:
+- Reusable logic for assigning `lowPriceX96` and `highPriceX96` is consolidated into the `getTickRatios` function.
+- Both `getAmount1ForLiquidity` and `getLiquidityForAmount1` functions now call `getTickRatios` to retrieve the values, avoiding duplicate computations.

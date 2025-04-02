@@ -1,0 +1,21 @@
+```solidity
+pragma solidity ^0.8.0;
+
+contract GasOptimization {
+    struct Data {
+        uint256 a;
+        uint256 b;
+        uint256 c;
+    }
+    
+    mapping (uint256 => Data) public data;
+
+    function updateData(uint256 _index, uint256 _a, uint256 _b, uint256 _c) public {
+        data[_index] = Data(_a, _b, _c);
+    }
+    
+    function getData(uint256 _index) public view returns (uint256, uint256, uint256) {
+        return (data[_index].a, data[_index].b, data[_index].c);
+    }
+}
+```

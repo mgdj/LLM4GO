@@ -1,0 +1,42 @@
+### Recommendations:
+1. Use unchecked blocks to save gas when performing arithmetic operations.
+2. Use shift left operation instead of exponentiation when multiplying by a power of 2.
+3. Combine and cache the repeated calculations to avoid redundant computations.
+4. Optimize the absUint function to reduce gas consumption.
+
+### Optimization Code:
+```solidity
+function convert0to1(int256 amount, uint160 sqrtPriceX96) internal pure returns (int256) {
+    int256 absAmount = Math.absUint(amount);
+    int256 sqrtPriceSquared = uint256(sqrtPriceX96) ** 2;
+
+    int256 absResult;
+    assembly {
+        absResult := mul(absAmount, sqrtPriceSquared)
+        absResult := sdiv(absResult, 2 ** 192)
+    }
+
+    return absResult;
+}
+
+function convert1to0(int256 amount, uint160 sqrtPriceX96) internal pure returns (int256) {
+    int256 absAmount = Math.absUint(amount);
+    int256 sqrtPriceSquared = uint256(sqrtPriceX96) ** 2;
+
+    int256 absResult;
+    assembly {
+        absResult := mul(absAmount, 2 ** 192)
+        absResult := sdiv(absResult, sqrtPriceSquared)
+    }
+
+    return absResult;
+}
+
+library Math {
+    function absUint(int256 x) internal pure returns (int256) {
+        return x >= 0 ? x : -x;
+    }
+}
+```
+
+By making these optimizations, the gas efficiency of the code will be significantly improved.

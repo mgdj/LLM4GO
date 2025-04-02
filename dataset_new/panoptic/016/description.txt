@@ -1,0 +1,1 @@
+Employing short-circuit logic can reduce gas usage, especially in conditional checks. In Solidity, logical expressions are evaluated from left to right, and evaluation stops as soon as the outcome is determined. This means if the first condition of an OR (||) expression is true, the second condition won’t be checked, and vice versa for AND (&&) expressions.

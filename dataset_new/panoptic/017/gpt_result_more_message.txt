@@ -1,0 +1,20 @@
+**Recommendations:**
+1. Use unchecked block for incrementing 'i' inside the loop to save gas.
+2. Cache the length of 'ids' array outside of the loop.
+3. Use prefix increment operator (++i) instead of postfix operator (i++) to save gas.
+
+**Optimization Code:**
+```solidity
+uint256 idsLength = ids.length;
+for (uint256 i = 0; i < idsLength; ) {
+    id = ids[i];
+    amount = amounts[i];
+    balanceOf[from][id] -= amount;
+    unchecked {
+        balanceOf[to][id] += amount;
+    }
+    unchecked {
+        ++i;
+    }
+}
+```

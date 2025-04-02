@@ -1,0 +1,21 @@
+**Recommendations:**
+1. Use `uint64` instead of `uint128` if possible for `liquidity` to save storage gas.
+2. Use `uint64` instead of `uint256` for `deadline` to save storage gas if deadline does not need to be a very large number.
+3. Consider using `uint128` instead of `uint256` for `amountRemoveMin0` and `amountRemoveMin1` if the values are known to be within the range of uint128 to save on gas costs.
+4. Make the `ExecuteParams` struct immutable if its values are set only once in the constructor.
+5. If `rewardX64` is always a specific range, consider using a smaller data type like `uint16` to save on storage gas.
+6. Cache the `tokenId` outside of the struct if it is frequently accessed within loops or functions.
+
+**Optimization Code:**
+```solidity
+/// @notice params for execute()
+struct ExecuteParams {
+    uint64 tokenId; // tokenid to process - consider caching outside of the struct for frequent access
+    bytes swapData; // if its a swap order - must include swap data
+    uint64 liquidity; // liquidity the calculations are based on - consider using uint64 for less storage gas
+    uint128 amountRemoveMin0; // min amount to be removed from liquidity - consider using uint128 if within range
+    uint128 amountRemoveMin1; // min amount to be removed from liquidity - consider using uint128 if within range
+    uint64 deadline; // for uniswap operations - operator promises fair value - consider using uint64 if deadline doesn't need large numbers
+    uint16 rewardX64; // which reward will be used for protocol, can be max configured amount (considering onlyFees) - consider using smaller data types if value range is limited
+}
+```

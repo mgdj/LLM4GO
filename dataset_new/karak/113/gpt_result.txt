@@ -1,0 +1,9 @@
+function hasDuplicates(address[] memory arr) external pure returns (bool) {
+        if (arr.length == 0) return false;
+        for (uint256 i = 0; i < arr.length - 1; i++) {
+            for (uint256 j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) return true;
+            }
+        }
+        return false;
+    }

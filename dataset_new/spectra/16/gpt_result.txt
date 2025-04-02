@@ -1,0 +1,12 @@
+YieldToken _registerYieldToken(string _name, string _symbol) internal returns (address) {
+        address ytBeacon = IRegistry(registry).getYTBeacon();
+        require(ytBeacon != address(0), "BeaconNotSet");
+        
+        address ytImpl = IYieldToken(address(0)).initialize(_name, _symbol, address(this));
+        
+        BeaconProxy beacon = new BeaconProxy();
+        beacon.upgradeTo(ytImpl);
+        
+        emit YTDeployed(address(beacon));
+        return address(beacon);
+    }

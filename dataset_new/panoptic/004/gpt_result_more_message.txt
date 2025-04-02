@@ -1,0 +1,13 @@
+**Recommendations:**
+1. Avoid using ternary operator for branching logic as it consumes more gas.
+2. Utilize bitwise arithmetic operations for absolute value calculation to optimize gas usage.
+
+**Optimization Code:**
+```solidity
+function absUint(int256 x) internal pure returns (uint256) {
+    assembly {
+        x := add(x, lt(x, 0) mul -1 x)
+    }
+    return uint256(x);
+}
+```

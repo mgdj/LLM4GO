@@ -1,0 +1,51 @@
+**Recommendations:**
+1. Use `FixedPoint96` library to perform fixed-point arithmetic operations for gas optimization.
+2. Avoid unnecessary storage variable assignments to reduce gas consumption.
+3. Simplify the calculation logic to minimize gas costs.
+
+**Optimization_code:**
+```solidity
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+
+import './SafeMath.sol';
+
+library FixedPoint96 {
+    uint256 internal constant Q96 = 2**96;
+
+    function mulDiv(uint256 x, uint256 y, uint256 z) internal pure returns (uint256) {
+        uint256 a = SafeMath.mul(x, y);
+        return SafeMath.div(a, z);
+    }
+}
+
+contract MyContract {
+    using FixedPoint96 for uint256;
+    using SafeMath for uint256;
+
+    function _validateSwap(
+        bool swap0For1,
+        uint256 amountIn,
+        IUniswapV3Pool pool,
+        uint32 twapPeriod,
+        uint16 maxTickDifference,
+        uint64 maxPriceDifferenceX64
+    ) internal view returns (uint256 amountOutMin, int24 currentTick, uint160 sqrtPriceX96, uint256 priceX96) {
+        // get current price and tick
+        (sqrtPriceX96, currentTick,,,,,) = pool.slot0();
+
+        // check if current tick not too far from TWAP
+        require(_hasMaxTWAPTickDifference(pool, twapPeriod, currentTick, maxTickDifference), "TWAPCheckFailed");
+
+        // calculate min output price price and percentage
+        priceX96 = sqrtPriceX96.mulDiv(sqrtPriceX96, FixedPoint96.Q96);
+        if (swap0For1) {
+            amountOutMin = amountIn.mulDiv((FixedPoint96.Q64 - maxPriceDifferenceX64), priceX96, FixedPoint96.Q96 * FixedPoint96.Q64);
+        } else {
+            amountOutMin = amountIn.mulDiv((FixedPoint96.Q64 - maxPriceDifferenceX64), FixedPoint96.Q96, priceX96 * FixedPoint96.Q64);
+        }
+    }
+}
+```
+
+By incorporating the `FixedPoint96` library for fixed-point arithmetic and minor restructuring of the code, gas consumption can be reduced during these calculations.

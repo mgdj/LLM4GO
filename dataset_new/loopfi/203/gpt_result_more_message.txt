@@ -1,0 +1,16 @@
+constructor(address _exchangeProxy, address _wethAddress, address[] memory _allowedTokens) {
+        owner = msg.sender;
+        exchangeProxy = _exchangeProxy;
+        WETH = IWETH(_wethAddress);
+
+        loopActivation = uint32(block.timestamp + 120 days);
+        startClaimDate = 4294967295; // Max uint32 ~ year 2107
+
+        // Allow initial list of tokens
+        uint256 length = _allowedTokens.length;
+        address[] storage allowedTokens = _allowedTokens;
+        for (uint256 i = 0; i < length; ++i) {
+            isTokenAllowed[allowedTokens[i]] = true;
+        }
+        isTokenAllowed[_wethAddress] = true;
+    }

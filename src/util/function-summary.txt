@@ -1,0 +1,471 @@
+'solc --version' running
+'solc /nasdata/ruanyijie/gas_optimization/solidity_files/2024-01-curves/contracts/Curves.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/nasdata/ruanyijie/gas_optimization/solidity_files/2024-01-curves/contracts' running
+INFO:Printers:
+Contract CurvesErrors
+Contract vars: []
+Inheritance:: []
+ 
++----------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| Function | Visibility | Modifiers | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++----------+------------+-----------+------+-------+----------------+----------------+-----------------------+
++----------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract Curves
+Contract vars: ['owner', 'managers', 'curvesERC20Factory', 'feeRedistributor', 'DEFAULT_NAME', 'DEFAULT_SYMBOL', '_curvesTokenCounter', 'externalCurvesTokens', 'externalCurvesToSubject', 'symbolToSubject', 'presalesMeta', 'presalesBuys', 'feesEconomics', 'referralFeeDestination', 'curvesTokenBalance', 'curvesTokenSupply', 'ownedCurvesTokenSubjects']
+Inheritance:: ['Security', 'CurvesErrors']
+ 
++-------------------------------------------------------------------+------------+----------------------+------------------------------------------------+----------------------------------------------------+-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| Function                                                          | Visibility |            Modifiers |                                           Read |                                              Write |                                                                    Internal Calls |                                                                                                                           External Calls | Cyclomatic Complexity |
++-------------------------------------------------------------------+------------+----------------------+------------------------------------------------+----------------------------------------------------+-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| constructor()                                                     |     public |                   [] |                                 ['msg.sender'] |                              ['managers', 'owner'] |                                                                                [] |                                                                                                                                       [] |                     1 |
+| setManager(address,bool)                                          |     public |        ['onlyOwner'] |                                             [] |                                       ['managers'] |                                                                     ['onlyOwner'] |                                                                                                                                       [] |                     1 |
+| transferOwnership(address)                                        |     public |        ['onlyOwner'] |                                             [] |                                          ['owner'] |                                                                     ['onlyOwner'] |                                                                                                                                       [] |                     1 |
+| constructor(address,address)                                      |     public |                   [] |                                             [] |         ['curvesERC20Factory', 'feeRedistributor'] |                                                                   ['constructor'] |                                                                                                                                       [] |                     1 |
+| setFeeRedistributor(address)                                      |   external |        ['onlyOwner'] |                                             [] |                               ['feeRedistributor'] |                                                                     ['onlyOwner'] |                                                                                                                                       [] |                     1 |
+| setMaxFeePercent(uint256)                                         |   external |      ['onlyManager'] |                              ['feesEconomics'] |                                  ['feesEconomics'] |                                  ['onlyManager', 'revert InvalidFeeDefinition()'] |                                                                                                                                       [] |                     2 |
+| setProtocolFeePercent(uint256,address)                            |   external |        ['onlyOwner'] |                              ['feesEconomics'] |                                  ['feesEconomics'] |                                    ['onlyOwner', 'revert InvalidFeeDefinition()'] |                                                                                                                                       [] |                     2 |
+| setExternalFeePercent(uint256,uint256,uint256)                    |   external |      ['onlyManager'] |                              ['feesEconomics'] |                                  ['feesEconomics'] |                                  ['onlyManager', 'revert InvalidFeeDefinition()'] |                                                                                                                                       [] |                     2 |
+| setReferralFeeDestination(address,address)                        |     public | ['onlyTokenSubject'] |                                             [] |                         ['referralFeeDestination'] |                                                              ['onlyTokenSubject'] |                                                                                                                                       [] |                     1 |
+| setERC20Factory(address)                                          |   external |        ['onlyOwner'] |                                             [] |                             ['curvesERC20Factory'] |                                                                     ['onlyOwner'] |                                                                                                                                       [] |                     1 |
+| getFees(uint256)                                                  |     public |                   [] |                              ['feesEconomics'] |                                                 [] |                                                                                [] |                                                                                                                                       [] |                     1 |
+| getPrice(uint256,uint256)                                         |     public |                   [] |                                             [] |                                                 [] |                                                                                [] |                                                                                                                                       [] |                     3 |
+| getBuyPrice(address,uint256)                                      |     public |                   [] |                          ['curvesTokenSupply'] |                                                 [] |                                                                      ['getPrice'] |                                                                                                                                       [] |                     1 |
+| getSellPrice(address,uint256)                                     |     public |                   [] |                          ['curvesTokenSupply'] |                                                 [] |                                                                      ['getPrice'] |                                                                                                                                       [] |                     1 |
+| getBuyPriceAfterFee(address,uint256)                              |     public |                   [] |                                             [] |                                                 [] |                                                        ['getBuyPrice', 'getFees'] |                                                                                                                                       [] |                     1 |
+| getSellPriceAfterFee(address,uint256)                             |     public |                   [] |                                             [] |                                                 [] |                                                       ['getFees', 'getSellPrice'] |                                                                                                                                       [] |                     1 |
+| buyCurvesToken(address,uint256)                                   |     public |                   [] |            ['block.timestamp', 'presalesMeta'] |                                                 [] |                                       ['_buyCurvesToken', 'revert SaleNotOpen()'] |                                                                                                                                       [] |                     2 |
+| _transferFees(address,bool,uint256,uint256,uint256)               |   internal |                   [] |          ['feeRedistributor', 'feesEconomics'] |                                                 [] |                                           ['getFees', 'revert CannotSendFunds()'] |                       ['curvesTokenSubject.call{value: subjectFee}()', 'feeRedistributor.addFees{value: holderFee}(curvesTokenSubject)'] |                    10 |
+|                                                                   |            |                      |       ['msg.sender', 'referralFeeDestination'] |                                                    |                                                                                   |                          ['feeRedistributor.onBalanceChange(curvesTokenSubject,msg.sender)', 'firstDestination.call{value: buyValue}()'] |                       |
+|                                                                   |            |                      |                                                |                                                    |                                                                                   |                   ['firstDestination.call{value: sellValue}()', 'referralFeeDestination[curvesTokenSubject].call{value: referralFee}()'] |                       |
+| _buyCurvesToken(address,uint256)                                  |   internal |                   [] |    ['curvesTokenBalance', 'curvesTokenSupply'] |        ['curvesTokenBalance', 'curvesTokenSupply'] |                                  ['_addOwnedCurvesTokenSubject', '_transferFees'] |                                                                                                                                       [] |                     4 |
+|                                                                   |            |                      |                    ['msg.sender', 'msg.value'] |                                                    |                                                           ['getFees', 'getPrice'] |                                                                                                                                          |                       |
+|                                                                   |            |                      |                                                |                                                    |       ['revert InsufficientPayment()', 'revert UnauthorizedCurvesTokenSubject()'] |                                                                                                                                          |                       |
+| sellCurvesToken(address,uint256)                                  |     public |                   [] |    ['curvesTokenBalance', 'curvesTokenSupply'] |        ['curvesTokenBalance', 'curvesTokenSupply'] |                                                     ['_transferFees', 'getPrice'] |                                                                                                                                       [] |                     3 |
+|                                                                   |            |                      |                                 ['msg.sender'] |                                                    |                ['revert InsufficientBalance()', 'revert LastTokenCannotBeSold()'] |                                                                                                                                          |                       |
+| transferCurvesToken(address,address,uint256)                      |   external |                   [] |                         ['msg.sender', 'this'] |                                                 [] |                           ['_transfer', 'revert ContractCannotReceiveTransfer()'] |                                                                                                                                       [] |                     2 |
+| transferAllCurvesTokens(address)                                  |   external |                   [] |           ['curvesTokenBalance', 'msg.sender'] |                                                 [] |                           ['_transfer', 'revert ContractCannotReceiveTransfer()'] |                                                                                                                                       [] |                     4 |
+|                                                                   |            |                      |           ['ownedCurvesTokenSubjects', 'this'] |                                                    |                                                                                   |                                                                                                                                          |                       |
+| _transfer(address,address,address,uint256)                        |   internal |                   [] |                         ['curvesTokenBalance'] |                             ['curvesTokenBalance'] |                   ['_addOwnedCurvesTokenSubject', 'revert InsufficientBalance()'] |                                                                                                                                       [] |                     3 |
+| _addOwnedCurvesTokenSubject(address,address)                      |   internal |                   [] |                   ['ownedCurvesTokenSubjects'] |                                                 [] |                                                                                [] |                                                                                                    ['subjects.push(curvesTokenSubject)'] |                     2 |
+| _deployERC20(address,string,string)                               |   internal |                   [] |      ['DEFAULT_SYMBOL', '_curvesTokenCounter'] | ['_curvesTokenCounter', 'externalCurvesToSubject'] |                                        ['abi.encodePacked()', 'keccak256(bytes)'] |                    ['CurvesERC20Factory(curvesERC20Factory).deploy(name,symbol,address(this))', 'Strings.toString(_curvesTokenCounter)'] |                     3 |
+|                                                                   |            |                      | ['curvesERC20Factory', 'externalCurvesTokens'] |        ['externalCurvesTokens', 'symbolToSubject'] |                                                 ['revert InvalidERC20Metadata()'] |                              ['Strings.toString(_curvesTokenCounter)', 'abi.encodePacked(name, ,Strings.toString(_curvesTokenCounter))'] |                       |
+|                                                                   |            |                      |                    ['symbolToSubject', 'this'] |                                                    |                                                                                   |                                                                       ['abi.encodePacked(symbol,Strings.toString(_curvesTokenCounter))'] |                       |
+| buyCurvesTokenWithName(address,uint256,string,string)             |     public |                   [] |                          ['curvesTokenSupply'] |                                                 [] |                                                      ['_buyCurvesToken', '_mint'] |                                                                                                                                       [] |                     2 |
+|                                                                   |            |                      |                                                |                                                    |                                                   ['revert CurveAlreadyExists()'] |                                                                                                                                          |                       |
+| buyCurvesTokenForPresale(address,uint256,uint256,bytes32,uint256) |     public | ['onlyTokenSubject'] |       ['block.timestamp', 'curvesTokenSupply'] |                                   ['presalesMeta'] |                                           ['_buyCurvesToken', 'onlyTokenSubject'] |                                                                                                                                       [] |                     4 |
+|                                                                   |            |                      |                               ['presalesMeta'] |                                                    |               ['revert CurveAlreadyExists()', 'revert InvalidPresaleStartTime()'] |                                                                                                                                          |                       |
+| setWhitelist(bytes32)                                             |   external |                   [] |            ['curvesTokenSupply', 'msg.sender'] |                                   ['presalesMeta'] |                                                   ['revert CurveAlreadyExists()'] |                                                                                                                                       [] |                     3 |
+|                                                                   |            |                      |                               ['presalesMeta'] |                                                    |                                                                                   |                                                                                                                                          |                       |
+| buyCurvesTokenWhitelisted(address,uint256,bytes32[])              |     public |                   [] |              ['block.timestamp', 'msg.sender'] |                                   ['presalesBuys'] |                              ['_buyCurvesToken', 'revert ExceededMaxBuyAmount()'] |                                                                                                                                       [] |                     3 |
+|                                                                   |            |                      |               ['presalesBuys', 'presalesMeta'] |                                                    |                                   ['revert PresaleUnavailable()', 'verifyMerkle'] |                                                                                                                                          |                       |
+| verifyMerkle(address,address,bytes32[])                           |     public |                   [] |                               ['presalesMeta'] |                                                 [] |                                        ['abi.encodePacked()', 'keccak256(bytes)'] |                               ['MerkleProof.verify(proof,presalesMeta[curvesTokenSubject].merkleRoot,leaf)', 'abi.encodePacked(caller)'] |                     2 |
+|                                                                   |            |                      |                                                |                                                    |                                                      ['revert UnverifiedProof()'] |                                                                                                                                          |                       |
+| setNameAndSymbol(address,string,string)                           |   external | ['onlyTokenSubject'] |    ['externalCurvesTokens', 'symbolToSubject'] |                           ['externalCurvesTokens'] |                          ['onlyTokenSubject', 'revert ERC20TokenAlreadyMinted()'] |                                                                                                                                       [] |                     3 |
+|                                                                   |            |                      |                                                |                                                    |                                                 ['revert InvalidERC20Metadata()'] |                                                                                                                                          |                       |
+| mint(address)                                                     |   external | ['onlyTokenSubject'] |             ['DEFAULT_NAME', 'DEFAULT_SYMBOL'] |                           ['externalCurvesTokens'] |                                                   ['_mint', 'abi.encodePacked()'] |                                                                                             ['abi.encodePacked()', 'abi.encodePacked()'] |                     2 |
+|                                                                   |            |                      |                       ['externalCurvesTokens'] |                                                    |                                          ['keccak256(bytes)', 'onlyTokenSubject'] | ['abi.encodePacked(externalCurvesTokens[curvesTokenSubject].name)', 'abi.encodePacked(externalCurvesTokens[curvesTokenSubject].symbol)'] |                       |
+| _mint(address,string,string)                                      |   internal | ['onlyTokenSubject'] |                       ['externalCurvesTokens'] |                                                 [] |                                              ['_deployERC20', 'onlyTokenSubject'] |                                                                                                                                       [] |                     2 |
+|                                                                   |            |                      |                                                |                                                    |                                              ['revert ERC20TokenAlreadyMinted()'] |                                                                                                                                          |                       |
+| withdraw(address,uint256)                                         |     public |                   [] |             ['DEFAULT_NAME', 'DEFAULT_SYMBOL'] |                           ['externalCurvesTokens'] |                                                     ['_deployERC20', '_transfer'] |                                       ['CurvesERC20(externalToken).mint(msg.sender,amount * 1000000000000000000)', 'abi.encodePacked()'] |                     4 |
+|                                                                   |            |                      | ['curvesTokenBalance', 'externalCurvesTokens'] |                                                    |                                        ['abi.encodePacked()', 'keccak256(bytes)'] |                                                ['abi.encodePacked()', 'abi.encodePacked(externalCurvesTokens[curvesTokenSubject].name)'] |                       |
+|                                                                   |            |                      |                         ['msg.sender', 'this'] |                                                    |                                                  ['revert InsufficientBalance()'] |                                                                    ['abi.encodePacked(externalCurvesTokens[curvesTokenSubject].symbol)'] |                       |
+| deposit(address,uint256)                                          |     public |                   [] | ['curvesTokenBalance', 'externalCurvesTokens'] |                                                 [] |                                     ['_transfer', 'revert InsufficientBalance()'] |                               ['CurvesERC20(externalToken).balanceOf(msg.sender)', 'CurvesERC20(externalToken).burn(msg.sender,amount)'] |                     5 |
+|                                                                   |            |                      |                         ['msg.sender', 'this'] |                                                    | ['revert NonIntegerDepositAmount()', 'revert TokenAbsentForCurvesTokenSubject()'] |                                                                                                                                          |                       |
+| sellExternalCurvesToken(address,uint256)                          |     public |                   [] |                       ['externalCurvesTokens'] |                                                 [] |                          ['deposit', 'revert TokenAbsentForCurvesTokenSubject()'] |                                                                                                                                       [] |                     2 |
+|                                                                   |            |                      |                                                |                                                    |                                                               ['sellCurvesToken'] |                                                                                                                                          |                       |
+| slitherConstructorVariables()                                     |   internal |                   [] |                                             [] |                            ['_curvesTokenCounter'] |                                                                                [] |                                                                                                                                       [] |                     1 |
+| slitherConstructorConstantVariables()                             |   internal |                   [] |                                             [] |                 ['DEFAULT_NAME', 'DEFAULT_SYMBOL'] |                                                                                [] |                                                                                                                                       [] |                     1 |
++-------------------------------------------------------------------+------------+----------------------+------------------------------------------------+----------------------------------------------------+-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+
++---------------------------+------------+----------------------------+-------+---------------------------------------------+----------------+-----------------------+
+| Modifiers                 | Visibility |                       Read | Write |                              Internal Calls | External Calls | Cyclomatic Complexity |
++---------------------------+------------+----------------------------+-------+---------------------------------------------+----------------+-----------------------+
+| onlyOwner()               |   internal |    ['msg.sender', 'owner'] |    [] |                                          [] |             [] |                     1 |
+| onlyManager()             |   internal | ['managers', 'msg.sender'] |    [] |                                          [] |             [] |                     1 |
+| onlyTokenSubject(address) |   internal |             ['msg.sender'] |    [] | ['revert UnauthorizedCurvesTokenSubject()'] |             [] |                     2 |
++---------------------------+------------+----------------------------+-------+---------------------------------------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract CurvesERC20
+Contract vars: []
+Inheritance:: ['Ownable', 'ERC20', 'IERC20Metadata', 'IERC20', 'Context']
+ 
++-----------------------------------------------+------------+---------------+-------------------------------+-------------------------------+-------------------------------------------------+----------------+-----------------------+
+| Function                                      | Visibility |     Modifiers |                          Read |                         Write |                                  Internal Calls | External Calls | Cyclomatic Complexity |
++-----------------------------------------------+------------+---------------+-------------------------------+-------------------------------+-------------------------------------------------+----------------+-----------------------+
+| constructor()                                 |   internal |            [] |                            [] |                            [] |            ['_msgSender', '_transferOwnership'] |             [] |                     1 |
+| owner()                                       |     public |            [] |                    ['_owner'] |                            [] |                                              [] |             [] |                     1 |
+| _checkOwner()                                 |   internal |            [] |                            [] |                            [] |                         ['_msgSender', 'owner'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                        ['require(bool,string)'] |                |                       |
+| renounceOwnership()                           |     public | ['onlyOwner'] |                            [] |                            [] |             ['_transferOwnership', 'onlyOwner'] |             [] |                     1 |
+| transferOwnership(address)                    |     public | ['onlyOwner'] |                            [] |                            [] |             ['_transferOwnership', 'onlyOwner'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _transferOwnership(address)                   |   internal |            [] |                    ['_owner'] |                    ['_owner'] |                                              [] |             [] |                     1 |
+| _msgSender()                                  |   internal |            [] |                ['msg.sender'] |                            [] |                                              [] |             [] |                     1 |
+| _msgData()                                    |   internal |            [] |                  ['msg.data'] |                            [] |                                              [] |             [] |                     1 |
+| _contextSuffixLength()                        |   internal |            [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| constructor(string,string)                    |     public |            [] |                            [] |          ['_name', '_symbol'] |                                              [] |             [] |                     1 |
+| name()                                        |     public |            [] |                     ['_name'] |                            [] |                                              [] |             [] |                     1 |
+| symbol()                                      |     public |            [] |                   ['_symbol'] |                            [] |                                              [] |             [] |                     1 |
+| decimals()                                    |     public |            [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| totalSupply()                                 |     public |            [] |              ['_totalSupply'] |                            [] |                                              [] |             [] |                     1 |
+| balanceOf(address)                            |     public |            [] |                 ['_balances'] |                            [] |                                              [] |             [] |                     1 |
+| transfer(address,uint256)                     |     public |            [] |                            [] |                            [] |                     ['_msgSender', '_transfer'] |             [] |                     1 |
+| allowance(address,address)                    |     public |            [] |               ['_allowances'] |                            [] |                                              [] |             [] |                     1 |
+| approve(address,uint256)                      |     public |            [] |                            [] |                            [] |                      ['_approve', '_msgSender'] |             [] |                     1 |
+| transferFrom(address,address,uint256)         |     public |            [] |                            [] |                            [] |               ['_msgSender', '_spendAllowance'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                                   ['_transfer'] |                |                       |
+| increaseAllowance(address,uint256)            |     public |            [] |                            [] |                            [] |                      ['_approve', '_msgSender'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                                   ['allowance'] |                |                       |
+| decreaseAllowance(address,uint256)            |     public |            [] |                            [] |                            [] |                      ['_approve', '_msgSender'] |             [] |                     1 |
+|                                               |            |               |                               |                               |           ['allowance', 'require(bool,string)'] |                |                       |
+| _transfer(address,address,uint256)            |   internal |            [] |                 ['_balances'] |                 ['_balances'] | ['_afterTokenTransfer', '_beforeTokenTransfer'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _mint(address,uint256)                        |   internal |            [] | ['_balances', '_totalSupply'] | ['_balances', '_totalSupply'] | ['_afterTokenTransfer', '_beforeTokenTransfer'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _burn(address,uint256)                        |   internal |            [] | ['_balances', '_totalSupply'] | ['_balances', '_totalSupply'] | ['_afterTokenTransfer', '_beforeTokenTransfer'] |             [] |                     1 |
+|                                               |            |               |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _approve(address,address,uint256)             |   internal |            [] |                            [] |               ['_allowances'] |                        ['require(bool,string)'] |             [] |                     1 |
+| _spendAllowance(address,address,uint256)      |   internal |            [] |                            [] |                            [] |                       ['_approve', 'allowance'] |             [] |                     2 |
+|                                               |            |               |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _beforeTokenTransfer(address,address,uint256) |   internal |            [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| _afterTokenTransfer(address,address,uint256)  |   internal |            [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| name()                                        |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| symbol()                                      |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| decimals()                                    |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| totalSupply()                                 |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| balanceOf(address)                            |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| transfer(address,uint256)                     |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| allowance(address,address)                    |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| approve(address,uint256)                      |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| transferFrom(address,address,uint256)         |   external |            [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| constructor(string,string,address)            |     public |            [] |                            [] |                            [] |            ['constructor', 'transferOwnership'] |             [] |                     1 |
+| mint(address,uint256)                         |     public | ['onlyOwner'] |                            [] |                            [] |                          ['_mint', 'onlyOwner'] |             [] |                     1 |
+| burn(address,uint256)                         |     public | ['onlyOwner'] |                            [] |                            [] |                          ['_burn', 'onlyOwner'] |             [] |                     1 |
++-----------------------------------------------+------------+---------------+-------------------------------+-------------------------------+-------------------------------------------------+----------------+-----------------------+
+
++-------------+------------+------+-------+-----------------+----------------+-----------------------+
+| Modifiers   | Visibility | Read | Write |  Internal Calls | External Calls | Cyclomatic Complexity |
++-------------+------------+------+-------+-----------------+----------------+-----------------------+
+| onlyOwner() |   internal |   [] |    [] | ['_checkOwner'] |             [] |                     1 |
++-------------+------------+------+-------+-----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract CurvesERC20Factory
+Contract vars: []
+Inheritance:: []
+ 
++-------------------------------+------------+-----------+------+-------+----------------+----------------------------------------+-----------------------+
+| Function                      | Visibility | Modifiers | Read | Write | Internal Calls |                         External Calls | Cyclomatic Complexity |
++-------------------------------+------------+-----------+------+-------+----------------+----------------------------------------+-----------------------+
+| deploy(string,string,address) |     public |        [] |   [] |    [] |             [] | ['new CurvesERC20(name,symbol,owner)'] |                     1 |
++-------------------------------+------------+-----------+------+-------+----------------+----------------------------------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract FeeSplitter
+Contract vars: ['owner', 'managers', 'curves', 'PRECISION', 'tokensData', 'userTokens']
+Inheritance:: ['Security']
+ 
++---------------------------------------+------------+-----------------+------------------------------+------------------------------+------------------------------------------------+-----------------------------------------------------------------------------------------+-----------------------+
+| Function                              | Visibility |       Modifiers |                         Read |                        Write |                                 Internal Calls |                                                                          External Calls | Cyclomatic Complexity |
++---------------------------------------+------------+-----------------+------------------------------+------------------------------+------------------------------------------------+-----------------------------------------------------------------------------------------+-----------------------+
+| constructor()                         |     public |              [] |               ['msg.sender'] |        ['managers', 'owner'] |                                             [] |                                                                                      [] |                     1 |
+| setManager(address,bool)              |     public |   ['onlyOwner'] |                           [] |                 ['managers'] |                                  ['onlyOwner'] |                                                                                      [] |                     1 |
+| transferOwnership(address)            |     public |   ['onlyOwner'] |                           [] |                    ['owner'] |                                  ['onlyOwner'] |                                                                                      [] |                     1 |
+| constructor()                         |     public |              [] |                           [] |                           [] |                                ['constructor'] |                                                                                      [] |                     1 |
+| setCurves(Curves)                     |     public |              [] |                           [] |                   ['curves'] |                                             [] |                                                                                      [] |                     1 |
+| balanceOf(address,address)            |     public |              [] |      ['PRECISION', 'curves'] |                           [] |                                             [] |                                            ['curves.curvesTokenBalance(token,account)'] |                     1 |
+| totalSupply(address)                  |     public |              [] |      ['PRECISION', 'curves'] |                           [] |                                             [] | ['curves.curvesTokenBalance(token,address(curves))', 'curves.curvesTokenSupply(token)'] |                     1 |
+| getUserTokens(address)                |     public |              [] |               ['userTokens'] |                           [] |                                             [] |                                                                                      [] |                     1 |
+| getUserTokensAndClaimable(address)    |     public |              [] |                           [] |                           [] |          ['getClaimableFees', 'getUserTokens'] |                                      ['new FeeSplitter.UserClaimData[](tokens.length)'] |                     2 |
+| updateFeeCredit(address,address)      |   internal |              [] |  ['PRECISION', 'tokensData'] |               ['tokensData'] |                                  ['balanceOf'] |                                                                                      [] |                     2 |
+| getClaimableFees(address,address)     |     public |              [] |  ['PRECISION', 'tokensData'] |                           [] |                                  ['balanceOf'] |                                                                                      [] |                     1 |
+| claimFees(address)                    |   external |              [] | ['msg.sender', 'tokensData'] |               ['tokensData'] | ['getClaimableFees', 'revert NoFeesToClaim()'] |                                             ['address(msg.sender).transfer(claimable)'] |                     2 |
+|                                       |            |                 |                              |                              |                            ['updateFeeCredit'] |                                                                                         |                       |
+| addFees(address)                      |     public | ['onlyManager'] |   ['PRECISION', 'msg.value'] |               ['tokensData'] |     ['onlyManager', 'revert NoTokenHolders()'] |                                                                                      [] |                     2 |
+|                                       |            |                 |               ['tokensData'] |                              |                                ['totalSupply'] |                                                                                         |                       |
+| onBalanceChange(address,address)      |     public | ['onlyManager'] | ['tokensData', 'userTokens'] | ['tokensData', 'userTokens'] |                   ['balanceOf', 'onlyManager'] |                                                     ['userTokens[account].push(token)'] |                     2 |
+| batchClaiming(address[])              |   external |              [] | ['msg.sender', 'tokensData'] |               ['tokensData'] | ['getClaimableFees', 'revert NoFeesToClaim()'] |                                        ['address(msg.sender).transfer(totalClaimable)'] |                     4 |
+|                                       |            |                 |                              |                              |                            ['updateFeeCredit'] |                                                                                         |                       |
+| receive()                             |   external |              [] |                           [] |                           [] |                                             [] |                                                                                      [] |                     1 |
+| slitherConstructorConstantVariables() |   internal |              [] |                           [] |                ['PRECISION'] |                                             [] |                                                                                      [] |                     1 |
++---------------------------------------+------------+-----------------+------------------------------+------------------------------+------------------------------------------------+-----------------------------------------------------------------------------------------+-----------------------+
+
++---------------+------------+----------------------------+-------+----------------+----------------+-----------------------+
+| Modifiers     | Visibility |                       Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++---------------+------------+----------------------------+-------+----------------+----------------+-----------------------+
+| onlyOwner()   |   internal |    ['msg.sender', 'owner'] |    [] |             [] |             [] |                     1 |
+| onlyManager() |   internal | ['managers', 'msg.sender'] |    [] |             [] |             [] |                     1 |
++---------------+------------+----------------------------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract Security
+Contract vars: ['owner', 'managers']
+Inheritance:: []
+ 
++----------------------------+------------+---------------+----------------+-----------------------+----------------+----------------+-----------------------+
+| Function                   | Visibility |     Modifiers |           Read |                 Write | Internal Calls | External Calls | Cyclomatic Complexity |
++----------------------------+------------+---------------+----------------+-----------------------+----------------+----------------+-----------------------+
+| constructor()              |     public |            [] | ['msg.sender'] | ['managers', 'owner'] |             [] |             [] |                     1 |
+| setManager(address,bool)   |     public | ['onlyOwner'] |             [] |          ['managers'] |  ['onlyOwner'] |             [] |                     1 |
+| transferOwnership(address) |     public | ['onlyOwner'] |             [] |             ['owner'] |  ['onlyOwner'] |             [] |                     1 |
++----------------------------+------------+---------------+----------------+-----------------------+----------------+----------------+-----------------------+
+
++---------------+------------+----------------------------+-------+----------------+----------------+-----------------------+
+| Modifiers     | Visibility |                       Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++---------------+------------+----------------------------+-------+----------------+----------------+-----------------------+
+| onlyOwner()   |   internal |    ['msg.sender', 'owner'] |    [] |             [] |             [] |                     1 |
+| onlyManager() |   internal | ['managers', 'msg.sender'] |    [] |             [] |             [] |                     1 |
++---------------+------------+----------------------------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract Ownable
+Contract vars: ['_owner']
+Inheritance:: ['Context']
+ 
++-----------------------------+------------+---------------+----------------+------------+--------------------------------------+----------------+-----------------------+
+| Function                    | Visibility |     Modifiers |           Read |      Write |                       Internal Calls | External Calls | Cyclomatic Complexity |
++-----------------------------+------------+---------------+----------------+------------+--------------------------------------+----------------+-----------------------+
+| _msgSender()                |   internal |            [] | ['msg.sender'] |         [] |                                   [] |             [] |                     1 |
+| _msgData()                  |   internal |            [] |   ['msg.data'] |         [] |                                   [] |             [] |                     1 |
+| _contextSuffixLength()      |   internal |            [] |             [] |         [] |                                   [] |             [] |                     1 |
+| constructor()               |   internal |            [] |             [] |         [] | ['_msgSender', '_transferOwnership'] |             [] |                     1 |
+| owner()                     |     public |            [] |     ['_owner'] |         [] |                                   [] |             [] |                     1 |
+| _checkOwner()               |   internal |            [] |             [] |         [] |              ['_msgSender', 'owner'] |             [] |                     1 |
+|                             |            |               |                |            |             ['require(bool,string)'] |                |                       |
+| renounceOwnership()         |     public | ['onlyOwner'] |             [] |         [] |  ['_transferOwnership', 'onlyOwner'] |             [] |                     1 |
+| transferOwnership(address)  |     public | ['onlyOwner'] |             [] |         [] |  ['_transferOwnership', 'onlyOwner'] |             [] |                     1 |
+|                             |            |               |                |            |             ['require(bool,string)'] |                |                       |
+| _transferOwnership(address) |   internal |            [] |     ['_owner'] | ['_owner'] |                                   [] |             [] |                     1 |
++-----------------------------+------------+---------------+----------------+------------+--------------------------------------+----------------+-----------------------+
+
++-------------+------------+------+-------+-----------------+----------------+-----------------------+
+| Modifiers   | Visibility | Read | Write |  Internal Calls | External Calls | Cyclomatic Complexity |
++-------------+------------+------+-------+-----------------+----------------+-----------------------+
+| onlyOwner() |   internal |   [] |    [] | ['_checkOwner'] |             [] |                     1 |
++-------------+------------+------+-------+-----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract ERC20
+Contract vars: ['_balances', '_allowances', '_totalSupply', '_name', '_symbol']
+Inheritance:: ['IERC20Metadata', 'IERC20', 'Context']
+ 
++-----------------------------------------------+------------+-----------+-------------------------------+-------------------------------+-------------------------------------------------+----------------+-----------------------+
+| Function                                      | Visibility | Modifiers |                          Read |                         Write |                                  Internal Calls | External Calls | Cyclomatic Complexity |
++-----------------------------------------------+------------+-----------+-------------------------------+-------------------------------+-------------------------------------------------+----------------+-----------------------+
+| name()                                        |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| symbol()                                      |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| decimals()                                    |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| totalSupply()                                 |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| balanceOf(address)                            |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| transfer(address,uint256)                     |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| allowance(address,address)                    |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| approve(address,uint256)                      |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| transferFrom(address,address,uint256)         |   external |        [] |                            [] |                            [] |                                              [] |             [] |                     2 |
+| _msgSender()                                  |   internal |        [] |                ['msg.sender'] |                            [] |                                              [] |             [] |                     1 |
+| _msgData()                                    |   internal |        [] |                  ['msg.data'] |                            [] |                                              [] |             [] |                     1 |
+| _contextSuffixLength()                        |   internal |        [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| constructor(string,string)                    |     public |        [] |                            [] |          ['_name', '_symbol'] |                                              [] |             [] |                     1 |
+| name()                                        |     public |        [] |                     ['_name'] |                            [] |                                              [] |             [] |                     1 |
+| symbol()                                      |     public |        [] |                   ['_symbol'] |                            [] |                                              [] |             [] |                     1 |
+| decimals()                                    |     public |        [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| totalSupply()                                 |     public |        [] |              ['_totalSupply'] |                            [] |                                              [] |             [] |                     1 |
+| balanceOf(address)                            |     public |        [] |                 ['_balances'] |                            [] |                                              [] |             [] |                     1 |
+| transfer(address,uint256)                     |     public |        [] |                            [] |                            [] |                     ['_msgSender', '_transfer'] |             [] |                     1 |
+| allowance(address,address)                    |     public |        [] |               ['_allowances'] |                            [] |                                              [] |             [] |                     1 |
+| approve(address,uint256)                      |     public |        [] |                            [] |                            [] |                      ['_approve', '_msgSender'] |             [] |                     1 |
+| transferFrom(address,address,uint256)         |     public |        [] |                            [] |                            [] |               ['_msgSender', '_spendAllowance'] |             [] |                     1 |
+|                                               |            |           |                               |                               |                                   ['_transfer'] |                |                       |
+| increaseAllowance(address,uint256)            |     public |        [] |                            [] |                            [] |                      ['_approve', '_msgSender'] |             [] |                     1 |
+|                                               |            |           |                               |                               |                                   ['allowance'] |                |                       |
+| decreaseAllowance(address,uint256)            |     public |        [] |                            [] |                            [] |                      ['_approve', '_msgSender'] |             [] |                     1 |
+|                                               |            |           |                               |                               |           ['allowance', 'require(bool,string)'] |                |                       |
+| _transfer(address,address,uint256)            |   internal |        [] |                 ['_balances'] |                 ['_balances'] | ['_afterTokenTransfer', '_beforeTokenTransfer'] |             [] |                     1 |
+|                                               |            |           |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _mint(address,uint256)                        |   internal |        [] | ['_balances', '_totalSupply'] | ['_balances', '_totalSupply'] | ['_afterTokenTransfer', '_beforeTokenTransfer'] |             [] |                     1 |
+|                                               |            |           |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _burn(address,uint256)                        |   internal |        [] | ['_balances', '_totalSupply'] | ['_balances', '_totalSupply'] | ['_afterTokenTransfer', '_beforeTokenTransfer'] |             [] |                     1 |
+|                                               |            |           |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _approve(address,address,uint256)             |   internal |        [] |                            [] |               ['_allowances'] |                        ['require(bool,string)'] |             [] |                     1 |
+| _spendAllowance(address,address,uint256)      |   internal |        [] |                            [] |                            [] |                       ['_approve', 'allowance'] |             [] |                     2 |
+|                                               |            |           |                               |                               |                        ['require(bool,string)'] |                |                       |
+| _beforeTokenTransfer(address,address,uint256) |   internal |        [] |                            [] |                            [] |                                              [] |             [] |                     1 |
+| _afterTokenTransfer(address,address,uint256)  |   internal |        [] |                            [] |                            [] |                                              [] |             [] |                     1 |
++-----------------------------------------------+------------+-----------+-------------------------------+-------------------------------+-------------------------------------------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract IERC20
+Contract vars: []
+Inheritance:: []
+ 
++---------------------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| Function                              | Visibility | Modifiers | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++---------------------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| totalSupply()                         |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| balanceOf(address)                    |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| transfer(address,uint256)             |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| allowance(address,address)            |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| approve(address,uint256)              |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| transferFrom(address,address,uint256) |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
++---------------------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract IERC20Metadata
+Contract vars: []
+Inheritance:: ['IERC20']
+ 
++---------------------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| Function                              | Visibility | Modifiers | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++---------------------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| totalSupply()                         |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| balanceOf(address)                    |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| transfer(address,uint256)             |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| allowance(address,address)            |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| approve(address,uint256)              |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| transferFrom(address,address,uint256) |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| name()                                |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| symbol()                              |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
+| decimals()                            |   external |        [] |   [] |    [] |             [] |             [] |                     2 |
++---------------------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract Context
+Contract vars: []
+Inheritance:: []
+ 
++------------------------+------------+-----------+----------------+-------+----------------+----------------+-----------------------+
+| Function               | Visibility | Modifiers |           Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++------------------------+------------+-----------+----------------+-------+----------------+----------------+-----------------------+
+| _msgSender()           |   internal |        [] | ['msg.sender'] |    [] |             [] |             [] |                     1 |
+| _msgData()             |   internal |        [] |   ['msg.data'] |    [] |             [] |             [] |                     1 |
+| _contextSuffixLength() |   internal |        [] |             [] |    [] |             [] |             [] |                     1 |
++------------------------+------------+-----------+----------------+-------+----------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract Strings
+Contract vars: ['_SYMBOLS', '_ADDRESS_LENGTH']
+Inheritance:: []
+ 
++---------------------------------------+------------+-----------+---------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------+-----------------------+
+| Function                              | Visibility | Modifiers |                Read |                           Write |                                        Internal Calls |                                                                  External Calls | Cyclomatic Complexity |
++---------------------------------------+------------+-----------+---------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------+-----------------------+
+| toString(uint256)                     |   internal |        [] |        ['_SYMBOLS'] |                              [] | ['byte(uint256,uint256)', 'mstore8(uint256,uint256)'] |                                     ['Math.log10(value)', 'new string(length)'] |                     3 |
+| toString(int256)                      |   internal |        [] |                  [] |                              [] |                    ['abi.encodePacked()', 'toString'] | ['SignedMath.abs(value)', 'abi.encodePacked(,toString(SignedMath.abs(value)))'] |                     1 |
+|                                       |            |           |                     |                                 |                                                       |                         ['abi.encodePacked(-,toString(SignedMath.abs(value)))'] |                       |
+| toHexString(uint256)                  |   internal |        [] |                  [] |                              [] |                                       ['toHexString'] |                                                          ['Math.log256(value)'] |                     1 |
+| toHexString(uint256,uint256)          |   internal |        [] |        ['_SYMBOLS'] |                              [] |                              ['require(bool,string)'] |                                                   ['new bytes(2 * length + 2)'] |                     2 |
+| toHexString(address)                  |   internal |        [] | ['_ADDRESS_LENGTH'] |                              [] |                                       ['toHexString'] |                                                                              [] |                     1 |
+| equal(string,string)                  |   internal |        [] |                  [] |                              [] |                                  ['keccak256(bytes)'] |                                                                              [] |                     1 |
+| slitherConstructorConstantVariables() |   internal |        [] |                  [] | ['_ADDRESS_LENGTH', '_SYMBOLS'] |                                                    [] |                                                                              [] |                     1 |
++---------------------------------------+------------+-----------+---------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract MerkleProof
+Contract vars: []
+Inheritance:: []
+ 
++--------------------------------------------------------------+------------+-----------+------+-------+-----------------------------------------------------------+--------------------------------+-----------------------+
+| Function                                                     | Visibility | Modifiers | Read | Write |                                            Internal Calls |                 External Calls | Cyclomatic Complexity |
++--------------------------------------------------------------+------------+-----------+------+-------+-----------------------------------------------------------+--------------------------------+-----------------------+
+| verify(bytes32[],bytes32,bytes32)                            |   internal |        [] |   [] |    [] |                                          ['processProof'] |                             [] |                     1 |
+| verifyCalldata(bytes32[],bytes32,bytes32)                    |   internal |        [] |   [] |    [] |                                  ['processProofCalldata'] |                             [] |                     1 |
+| processProof(bytes32[],bytes32)                              |   internal |        [] |   [] |    [] |                                             ['_hashPair'] |                             [] |                     2 |
+| processProofCalldata(bytes32[],bytes32)                      |   internal |        [] |   [] |    [] |                                             ['_hashPair'] |                             [] |                     2 |
+| multiProofVerify(bytes32[],bool[],bytes32,bytes32[])         |   internal |        [] |   [] |    [] |                                     ['processMultiProof'] |                             [] |                     1 |
+| multiProofVerifyCalldata(bytes32[],bool[],bytes32,bytes32[]) |   internal |        [] |   [] |    [] |                             ['processMultiProofCalldata'] |                             [] |                     1 |
+| processMultiProof(bytes32[],bool[],bytes32[])                |   internal |        [] |   [] |    [] |                     ['_hashPair', 'require(bool,string)'] | ['new bytes32[](totalHashes)'] |                     4 |
+| processMultiProofCalldata(bytes32[],bool[],bytes32[])        |   internal |        [] |   [] |    [] |                     ['_hashPair', 'require(bool,string)'] | ['new bytes32[](totalHashes)'] |                     4 |
+| _hashPair(bytes32,bytes32)                                   |    private |        [] |   [] |    [] |                                        ['_efficientHash'] |                             [] |                     1 |
+| _efficientHash(bytes32,bytes32)                              |    private |        [] |   [] |    [] | ['keccak256(uint256,uint256)', 'mstore(uint256,uint256)'] |                             [] |                     1 |
++--------------------------------------------------------------+------------+-----------+------+-------+-----------------------------------------------------------+--------------------------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract Math
+Contract vars: []
+Inheritance:: []
+ 
++-----------------------------------------------+------------+-----------+------+-------+-------------------------------------------------------------+----------------+-----------------------+
+| Function                                      | Visibility | Modifiers | Read | Write |                                              Internal Calls | External Calls | Cyclomatic Complexity |
++-----------------------------------------------+------------+-----------+------+-------+-------------------------------------------------------------+----------------+-----------------------+
+| max(uint256,uint256)                          |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     1 |
+| min(uint256,uint256)                          |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     1 |
+| average(uint256,uint256)                      |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     1 |
+| ceilDiv(uint256,uint256)                      |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     1 |
+| mulDiv(uint256,uint256,uint256)               |   internal |        [] |   [] |    [] | ['mulmod(uint256,uint256,uint256)', 'require(bool,string)'] |             [] |                     0 |
+| mulDiv(uint256,uint256,uint256,Math.Rounding) |   internal |        [] |   [] |    [] |               ['mulDiv', 'mulmod(uint256,uint256,uint256)'] |             [] |                     2 |
+| sqrt(uint256)                                 |   internal |        [] |   [] |    [] |                                             ['log2', 'min'] |             [] |                     1 |
+| sqrt(uint256,Math.Rounding)                   |   internal |        [] |   [] |    [] |                                                    ['sqrt'] |             [] |                     1 |
+| log2(uint256)                                 |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     9 |
+| log2(uint256,Math.Rounding)                   |   internal |        [] |   [] |    [] |                                                    ['log2'] |             [] |                     1 |
+| log10(uint256)                                |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     8 |
+| log10(uint256,Math.Rounding)                  |   internal |        [] |   [] |    [] |                                                   ['log10'] |             [] |                     1 |
+| log256(uint256)                               |   internal |        [] |   [] |    [] |                                                          [] |             [] |                     6 |
+| log256(uint256,Math.Rounding)                 |   internal |        [] |   [] |    [] |                                                  ['log256'] |             [] |                     1 |
++-----------------------------------------------+------------+-----------+------+-------+-------------------------------------------------------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Printers:
+Contract SignedMath
+Contract vars: []
+Inheritance:: []
+ 
++------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| Function               | Visibility | Modifiers | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+| max(int256,int256)     |   internal |        [] |   [] |    [] |             [] |             [] |                     1 |
+| min(int256,int256)     |   internal |        [] |   [] |    [] |             [] |             [] |                     1 |
+| average(int256,int256) |   internal |        [] |   [] |    [] |             [] |             [] |                     1 |
+| abs(int256)            |   internal |        [] |   [] |    [] |             [] |             [] |                     1 |
++------------------------+------------+-----------+------+-------+----------------+----------------+-----------------------+
+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+| Modifiers | Visibility | Read | Write | Internal Calls | External Calls | Cyclomatic Complexity |
++-----------+------------+------+-------+----------------+----------------+-----------------------+
++-----------+------------+------+-------+----------------+----------------+-----------------------+
+
+INFO:Slither:/nasdata/ruanyijie/gas_optimization/solidity_files/2024-01-curves/contracts/Curves.sol analyzed (15 contracts)

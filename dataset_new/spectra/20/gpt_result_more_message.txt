@@ -1,0 +1,2 @@
+contract AMProxyAdmin is AccessManaged {
+    string public immutable UPGRADE_INTERFACE_VERSION = "5.0.0";

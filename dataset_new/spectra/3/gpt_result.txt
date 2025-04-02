@@ -1,0 +1,15 @@
+```solidity
+function _getCurrentPTandIBTRates(bool roundUpPTRate) internal view returns (uint256, uint256) {
+        uint256 currentIBTRate = 0;
+
+        if (IERC4626(ibt).totalAssets() != 0) {
+            currentIBTRate = IERC4626(ibt).previewRedeem(ibtUnit).toRay(_assetDecimals);
+        }
+
+        uint256 currentPTRate = currentIBTRate < ibtRate
+            ? ptRate.mulDiv(currentIBTRate, ibtRate, roundUpPTRate ? Math.Rounding.Ceil : Math.Rounding.Floor)
+            : ptRate;
+
+        return (currentPTRate, currentIBTRate);
+    }
+```  

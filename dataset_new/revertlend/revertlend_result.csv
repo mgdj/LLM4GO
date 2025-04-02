@@ -1,0 +1,23 @@
+index,state,item,file,result,type,fp_result,fp_gpt,fp_message,ds_result,llama_result,qwen_result,no_static_result,repair_result,fp_no_static
+073,state variable,Using private rather than public for constants saves gas,V3Oracle.sol,true,2.5,fn,fn,fn,true,true,true,true,pt
+074,struct variable,Pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes[re-ordering the variables],V3Oracle.sol,partially true,3.4,fp,fn,fp,partially true,false,false,true,false
+075,expression order change,Comparison statement order adjustment,V3Vault.sol,false,2.7,fn,fn,fp,false,false,false,false,false
+076,expression order change,Do not declare local variables used only once,AutoExit.sol,true,2.7,fn,fp,fp,true,true,true,false,false
+077,state variable,State variables should be cached in stack variables rather than re-reading them from storage,V3Vault.sol,true,3.2,fn,fn,fn,true,true,true,true,true
+078,,Using bools for storage incurs overhead,V3Vault.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+079,repeat computation,Use already cached value instead of re-reading from storage,V3Vault.sol,true,3.2,fn,fn,fp,true,false,true,true,pt
+080,repeat computation,Use already cached value instead of re-reading from storage,V3Vault.sol,true,3.2,fp,fp,fp,true,false,true,true,true
+081,struct variable,Pack the variables into fewer storage slots by re-ordering the variables or reducing their sizes[reducing sizes],AutoExit.sol,false,3.4,fp,fn,fp,partially true,false,partially true,false,false
+082,,Using bools for storage incurs overhead,automators/Automator.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+083,state check,check before updating state variable with same value,automators/Automator.sol,true,3.6,fn,fp,fp,true,true,true,true,true
+084,state check,check before updating state variable with same value,automators/Automator.sol,true,3.6,fn,fn,fn,true,true,true,true,true
+085,statement conversion,Comparison statement order adjustment,Automator.sol,true,2.7,fn,fn,fp,false,false,false,false,false
+086,statement conversion,Do not declare local variables used only once,Swapper.sol,true,3.5,fn,fn,fn,true,true,true,true,pt
+087,statement conversion,Do not declare local variables used only once,AutoExit.sol,true,3.5,fn,fn,fp,true,true,true,false,false
+088,,Use calldata instead of memory for function arguments that do not get mutated,transformers/V3Utils.sol,true,3.1,fn,fn,fn,true,true,true,false,false
+089,,check before updating state variable with same value,transformers/AutoCompound.sol,true,3.6,fn,fn,fn,true,true,true,true,true
+090,,Functions guaranteed to revert when called by normal users can be marked payable,V3Oracle.sol,false,1.1,fn,fn,fn,true,true,true,false,false
+091,,check before updating state variable with same value,V3Oracle.sol,true,3.6,fn,fn,fp,true,true,true,true,true
+092,,Using private rather than public for constants saves gas,InterestRateModel.sol,true,2.5,fn,fn,fn,true,true,true,true,true
+093,,Using private rather than public for constants saves gas,V3Vault.sol,true,2.5,fp,fn,fp,true,true,true,true,true
+094,,Using private rather than public for constants saves gas,AutoCompound.sol,true,2.5,fn,fn,fn,true,true,true,true,true

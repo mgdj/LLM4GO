@@ -1,0 +1,6 @@
+function pause() external onlyRole(PAUSER_ROLE) whenNotPaused {
+    if (_status == Status.RUNNING) {
+      _status = Status.PAUSED;
+      emit Paused(msg.sender);
+    }
+  }

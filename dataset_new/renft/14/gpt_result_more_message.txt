@@ -1,0 +1,16 @@
+function requestPermissions()
+        external
+        view
+        override
+        onlyKernel
+        returns (Permissions[] memory requests)
+    {
+        requests = new Permissions[](2);
+        Permissions storage permission1 = requests[0];
+        permission1.id = toKeycode("STORE");
+        permission1.selector = STORE.updateHookPath.selector;
+
+        Permissions storage permission2 = requests[1];
+        permission2.id = toKeycode("STORE");
+        permission2.selector = STORE.updateHookStatus.selector;
+    }

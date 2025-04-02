@@ -1,0 +1,15 @@
+function validateVaultConfigs(Storage storage self, VaultLib.Config[] calldata vaultConfigs, address implementation)
+        public
+        view
+    {
+        if (implementation != address(0) && !isVaultImplAllowlisted(self, implementation)) {
+            revert VaultImplNotAllowlisted();
+        }
+        address[] storage assetSlashingHandlers = self.assetSlashingHandlers;
+        uint256 len = vaultConfigs.length;
+        for (uint256 i = 0; i < len; ++i) {
+            if (assetSlashingHandlers[vaultConfigs[i].asset] == address(0)) {
+                revert AssetNotAllowlisted();
+            }
+        }
+    }

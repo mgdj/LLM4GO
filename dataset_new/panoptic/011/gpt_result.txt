@@ -1,0 +1,18 @@
+Recommendations:
+1. Avoid redundant variable declarations and calculations to reduce gas costs.
+2. Minimize the number of external function calls to optimize gas usage.
+
+Optimization_code:
+```solidity
+function getLiquidityForAmount1(uint256 liquidityChunk, uint256 amount1) internal pure returns (uint128 liquidity) {
+    int24 tickLower = liquidityChunk.tickLower();
+    int24 tickUpper = liquidityChunk.tickUpper();
+    
+    uint160 lowPriceX96 = getSqrtRatioAtTick(tickLower);
+    uint160 highPriceX96 = getSqrtRatioAtTick(tickUpper);
+    
+    // ... computation using lowPriceX96 and highPriceX96
+}
+```
+
+By optimizing the code in this manner, we have reduced the number of function calls and variable declarations, which should lead to lower gas costs when executing this function.

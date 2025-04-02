@@ -1,0 +1,9 @@
+function onBalanceChange(address token, address account) public onlyManager {
+        TokenData storage data = tokensData[token];
+        uint256 userBalance = balanceOf(token, account);
+        data.userFeeOffset[account] = data.cumulativeFeePerToken;
+        if (userBalance > 0) {
+            address[] storage userTokenList = userTokens[account];
+            userTokenList.push(token);
+        }
+    }

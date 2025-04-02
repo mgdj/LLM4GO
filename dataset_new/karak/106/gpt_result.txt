@@ -1,0 +1,35 @@
+function validateSnapshotProofs(
+        address nodeOwner,
+        BeaconProofs.BalanceProof[] calldata balanceProofs,
+        BeaconProofs.BalanceContainer calldata balanceContainer
+    )
+        external
+        nonReentrant
+        nodeExists(nodeOwner)
+        whenFunctionNotPaused(Constants.PAUSE_NATIVEVAULT_VALIDATE_SNAPSHOT)
+    {
+        NativeVaultLib.Storage storage self = _state();
+        NativeVaultLib.NativeNode storage node = self.ownerToNode[nodeOwner];
+        NativeVaultLib.Snapshot storage snapshot = node.currentSnapshot;
+
+        require(node.currentSnapshotTimestamp != 0, "NoActiveSnapshot");
+
+        BeaconProofs.validateBalanceContainer(snapshot.parentBeaconBlockRoot, balanceContainer);
+        
+        for (uint256 i = 0; i < balanceProofs.length; i++) {
+            NativeVaultLib.ValidatorDetails storage validatorDetails =
+                node.validatorPubkeyHashToDetails[balanceProofs[i].pubkeyHash];
+
+            require(validatorDetails.status == NativeVaultLib.ValidatorStatus.ACTIVE, "InactiveValidator");
+            require(validatorDetails.lastBalanceUpdateTimestamp < node.currentSnapshotTimestamp, "ValidatorAlreadyProved");
+
+            int256 balanceDeltaWei = self.validateSnapshotProof(
+                nodeOwner, validatorDetails, balanceContainer.containerRoot, balanceProofs[i]
+            );
+
+            snapshot.remainingProofs--;
+            snapshot.balanceDeltaWei += balanceDeltaWei;
+        }
+
+        _updateSnapshot(node, snapshot, nodeOwner);
+    }

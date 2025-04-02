@@ -1,0 +1,49 @@
+**Recommendations for gas optimization:**
+1. Eliminate unnecessary external calls to reduce gas costs.
+2. Reduce scratch space usage to optimize gas consumption.
+
+**Optimized Solidity code:**
+```
+function createWithPermit(
+    uint256 tokenId,
+    address owner,
+    address recipient,
+    uint256 deadline,
+    uint8 v,
+    bytes32 r,
+    bytes32 s
+) external override {
+    require(msg.sender == owner, "Unauthorized");
+
+    assembly {
+        // Compute the current offset of the free memory pointer to optimize scratch space
+        let offset := mload(0x40)
+        
+        // Prepare the data for permit function call
+        mstore(0x00, tokenId)
+        mstore(0x20, deadline)
+        mstore(0x40, v)
+        mstore(0x60, r)
+        mstore(0x80, s)
+        
+        // Call permit function using the pre-defined storage slot for nonfungiblePositionManager
+        let success := call(gas(), sload(nonFungiblePositionManagerSlot), 0, 0, 0xa0, 0, 0)
+        if iszero(success) {
+            revert(0, 0)
+        }
+        
+        // Prepare the data for safeTransferFrom function call
+        mstore(0x00, owner)
+        mstore(0x20, recipient)
+        
+        // Call safeTransferFrom function using the pre-defined storage slot for nonfungiblePositionManager
+        success := call(gas(), sload(nonFungiblePositionManagerSlot), 0, 0, 0x40, 0, 0)
+        if iszero(success) {
+            revert(0, 0)
+        }
+        
+        // Reset the free memory pointer to the original offset to reduce unused scratch space
+        mstore(0x40, offset)
+    }
+}
+```

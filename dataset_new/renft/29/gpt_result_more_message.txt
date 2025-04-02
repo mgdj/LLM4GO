@@ -1,0 +1,5 @@
+function upgradeStorage(address newImplementation) external onlyRole("ADMIN_ADMIN") {
+        if(newImplementation != address(0)) {
+            STORE.upgrade(newImplementation);
+        }
+    }

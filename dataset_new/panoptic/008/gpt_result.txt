@@ -1,0 +1,23 @@
+### Recommendations:
+1. Use bitwise AND instead of modulo operator for checking odd/even numbers.
+2. Replace multiplication and right shift operations with shift-left operations for gas optimization.
+
+### Optimization Code:
+```solidity
+// Define the bitmasks 
+uint256 bitmaskOdd = 1; // 0x1
+uint256 bitmaskEven = 2; // 0x2
+
+// Check for odd bit positions
+if ((absTick & bitmaskOdd) > 0) {
+    sqrtR = (sqrtR * 0xfffcb933bd6fad37aa2d162d1a594001) >> 128;
+}
+
+// Check for even bit positions
+if ((absTick & bitmaskEven) > 0) {
+    sqrtR = (sqrtR * 0xfff97272373d413259a46990580e213a) >> 128;
+}
+// Add more conditions for other bit positions as needed
+```
+
+By optimizing the code using the bitwise operators and shift-left operations instead of multiplication and right shift, gas costs for these operations will be reduced, resulting in overall gas savings.

@@ -1,0 +1,12 @@
+function convertAllETH() external onlyAuthorized {
+        require(block.timestamp - loopActivation > TIMELOCK, "LoopNotActivated");
+
+        uint256 totalBalance = address(this).balance;
+        lpETH.deposit{value: totalBalance}(address(this));
+
+        totalLpETH = lpETH.balanceOf(address(this));
+
+        startClaimDate = uint32(block.timestamp);
+
+        emit Converted(totalBalance, totalLpETH);
+    }

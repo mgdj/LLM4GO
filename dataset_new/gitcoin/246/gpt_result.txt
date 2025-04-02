@@ -1,0 +1,55 @@
+function slash(
+    address[] calldata selfStakers,
+    address[] calldata communityStakers,
+    address[] calldata communityStakees,
+    uint88 percent
+) external onlyRole(SLASHER_ROLE) whenNotPaused {
+    require(percent > 0 && percent <= 100, "InvalidSlashPercent");
+    
+    uint256 numSelfStakers = selfStakers.length;
+    uint256 numCommunityStakers = communityStakers.length;
+
+    require(numCommunityStakers == communityStakees.length, "StakerStakeeMismatch");
+
+    for (uint256 i = 0; i < numSelfStakers; i++) {
+        address staker = selfStakers[i];
+        uint88 slashedAmount = (percent * selfStakes[staker].amount) / 100;
+        Stake storage sStake = selfStakes[staker];
+
+        updateSlashAmount(sStake, currentSlashRound, slashedAmount);
+
+        emit Slash(staker, slashedAmount, currentSlashRound);
+    }
+
+    for (uint256 i = 0; i < numCommunityStakers; i++) {
+        address staker = communityStakers[i];
+        address stakee = communityStakees[i];
+        uint88 slashedAmount = (percent * communityStakes[staker][stakee].amount) / 100;
+        Stake storage comStake = communityStakes[staker][stakee];
+
+        updateSlashAmount(comStake, currentSlashRound, slashedAmount);
+
+        emit Slash(staker, slashedAmount, currentSlashRound);
+    }
+}
+
+function updateSlashAmount(
+    Stake storage stake,
+    uint256 currentRound,
+    uint88 slashedAmount
+) internal {
+    if (stake.slashedInRound != 0 && stake.slashedInRound != currentRound) {
+        if (stake.slashedInRound == currentRound - 1) {
+            totalSlashed[currentRound - 1] -= stake.slashedAmount;
+            totalSlashed[currentRound] += stake.slashedAmount;
+        } else {
+            stake.slashedAmount = 0;
+        }
+    }
+
+    totalSlashed[currentRound] += slashedAmount;
+    stake.slashedInRound = currentRound;
+    stake.slashedAmount += slashedAmount;
+    stake.amount -= slashedAmount;
+    userTotalStaked[address(stake)] -= slashedAmount;
+}

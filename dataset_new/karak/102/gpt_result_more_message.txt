@@ -1,0 +1,12 @@
+function allowlistAssets(Storage storage self, address[] calldata assets, address[] calldata slashingHandlers)
+        external
+    {
+        require(assets.length == slashingHandlers.length, "LengthsDontMatch");
+        
+        for (uint256 i = 0; i < assets.length; ++i) {
+            address asset = assets[i];
+            address slashingHandler = slashingHandlers[i];
+            require(slashingHandler != address(0) && asset != address(0), "ZeroAddress");
+            self.assetSlashingHandlers[asset] = slashingHandler;
+        }
+    }

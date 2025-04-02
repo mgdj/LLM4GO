@@ -1,0 +1,67 @@
+```solidity
+function _addResultPoints(
+        uint8 battleResult, 
+        uint256 tokenId, 
+        uint256 eloFactor, 
+        uint256 mergingPortion,
+        address fighterOwner
+    ) 
+        private 
+    {
+        uint256 curStakeAtRisk;
+        uint256 points = 0;
+
+        uint256 stakeAtRisk = _stakeAtRiskInstance.getStakeAtRisk(tokenId);
+        
+        if (!_calculatedStakingFactor[tokenId][roundId]) {
+            stakingFactor[tokenId] = _getStakingFactor(tokenId, stakeAtRisk);
+            _calculatedStakingFactor[tokenId][roundId] = true;
+        }
+
+        curStakeAtRisk = (bpsLostPerLoss * (amountStaked[tokenId] + stakeAtRisk)) / 100;
+        
+        if (battleResult == 0) {
+            if (stakeAtRisk == 0) {
+                points = stakingFactor[tokenId] * eloFactor;
+            }
+
+            uint256 mergingPoints = (points * mergingPortion) / 100;
+            points -= mergingPoints;
+            _mergingPoolInstance.addPoints(tokenId, mergingPoints);
+
+            curStakeAtRisk = curStakeAtRisk > stakeAtRisk ? stakeAtRisk : curStakeAtRisk;
+
+            if (curStakeAtRisk > 0) {
+                _stakeAtRiskInstance.reclaimNRN(curStakeAtRisk, tokenId, fighterOwner);
+                amountStaked[tokenId] += curStakeAtRisk;
+            }
+
+            accumulatedPointsPerFighter[tokenId][roundId] += points;
+            accumulatedPointsPerAddress[fighterOwner][roundId] += points;
+            totalAccumulatedPoints[roundId] += points;
+            if (points > 0) {
+                emit PointsChanged(tokenId, points, true);
+            }
+        } else if (battleResult == 2) {
+            if (curStakeAtRisk > amountStaked[tokenId]) {
+                curStakeAtRisk = amountStaked[tokenId];
+            }
+            if (accumulatedPointsPerFighter[tokenId][roundId] > 0) {
+                points = stakingFactor[tokenId] * eloFactor;
+                points = points > accumulatedPointsPerFighter[tokenId][roundId] ? accumulatedPointsPerFighter[tokenId][roundId] : points;
+                
+                accumulatedPointsPerFighter[tokenId][roundId] -= points;
+                accumulatedPointsPerAddress[fighterOwner][roundId] -= points;
+                totalAccumulatedPoints[roundId] -= points;
+                if (points > 0) {
+                    emit PointsChanged(tokenId, points, false);
+                }
+            } else {
+                if (_neuronInstance.transfer(_stakeAtRiskAddress, curStakeAtRisk)) {
+                    _stakeAtRiskInstance.updateAtRiskRecords(curStakeAtRisk, tokenId, fighterOwner);
+                    amountStaked[tokenId] -= curStakeAtRisk;
+                }
+            }
+        }
+    }
+```  

@@ -1,0 +1,42 @@
+Recommendations:
+1. Cache the results of `getSqrtRatioAtTick()` outside of the repeated calls in both functions to reduce gas costs.
+2. Use `unchecked` blocks for the arithmetic operations to save gas.
+3. Use bitwise shift operations instead of division to optimize gas usage.
+4. Consider using custom error messages instead of revert strings for better gas efficiency.
+5. Ensure that variables are not declared but not used within the functions.
+
+Optimized Code:
+```solidity
+function getAmount1ForLiquidity(uint256 liquidityChunk) internal pure returns (uint256 amount1) {
+    uint160 lowPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickLower());
+    uint160 highPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickUpper());
+
+    // Cache getSqrtRatioAtTick results
+    uint160 sqrtRatioLower = lowPriceX96;
+    uint160 sqrtRatioUpper = highPriceX96;
+
+    // Perform calculations using cached values
+    unchecked {
+        // Your logic here using sqrtRatioLower and sqrtRatioUpper
+    }
+}
+
+function getLiquidityForAmount1(uint256 liquidityChunk, uint256 amount1) internal pure returns (uint128 liquidity) {
+    uint160 lowPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickLower());
+    uint160 highPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickUpper());
+
+    // Cache getSqrtRatioAtTick results
+    uint160 sqrtRatioLower = lowPriceX96;
+    uint160 sqrtRatioUpper = highPriceX96;
+
+    // Perform calculations using cached values
+    unchecked {
+        // Your logic here using sqrtRatioLower and sqrtRatioUpper
+    }
+}
+```
+
+In the optimized code:
+- Results of `getSqrtRatioAtTick()` are cached outside the repeated calls.
+- `unchecked` blocks are used for arithmetic operations.
+- Actual calculations using the cached values are to be implemented by replacing the comment `// Your logic here using sqrtRatioLower and sqrtRatioUpper`.

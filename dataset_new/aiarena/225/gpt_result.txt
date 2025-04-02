@@ -1,0 +1,14 @@
+constructor(uint8[][] memory probabilities) {
+        _ownerAddress = msg.sender;
+
+        // Initialize the probabilities for each attribute
+        addAttributeProbabilities(0, probabilities);
+
+        uint256 attributesLength = attributes.length;
+        uint8[] memory defaultAttributeDivisor = [2, 3, 4, 5]; // Define defaultAttributeDivisor array
+
+        for (uint8 i = 0; i < probabilities.length; i++) {
+            attributeProbabilities[0][attributes[i]] = probabilities[i];
+            attributeToDnaDivisor[attributes[i]] = defaultAttributeDivisor[i];
+        }
+    }

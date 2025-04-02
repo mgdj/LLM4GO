@@ -1,0 +1,20 @@
+Recommendations:
+1. Use inline assembly for bitwise operations to save gas.
+2. Cache state variables outside of the function.
+3. Use shift left operation instead of addition to optimize gas usage.
+
+Optimized Code:
+```solidity
+function toLeftSlot(uint256 self, uint128 left) internal pure returns (uint256) {
+    // Cache state variables outside of the function
+    uint256 leftShifted = uint256(left) << 128;
+    
+    // Use inline assembly for bitwise operations
+    assembly {
+        // Perform bitwise OR to combine self and leftShifted
+        self := or(self, leftShifted)
+    }
+    
+    return self;
+}
+```

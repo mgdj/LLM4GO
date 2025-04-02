@@ -1,0 +1,1 @@
+No need to cache params.tokenIn.balanceOf(address(this)) and params.tokenOut.balanceOf(address(this)) in stack variable in balanceInAfter and balanceOutAfter respectively, since they are used only once.

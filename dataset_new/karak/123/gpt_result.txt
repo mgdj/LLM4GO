@@ -1,0 +1,28 @@
+function processInclusionProofKeccak(bytes memory proof, bytes32 leaf, uint256 index)
+        internal
+        pure
+        returns (bytes32)
+    {
+        require(proof.length % 32 == 0, "Merkle.processInclusionProofKeccak: proof length should be a multiple of 32");
+        bytes32 computedHash = leaf;
+        uint256 proofLength = proof.length;
+        uint256 currentIndex = 32;
+        assembly {
+            for { } lt(currentIndex, proofLength) { currentIndex := add(currentIndex, 32) } {
+                let proofElem := mload(add(proof, currentIndex))
+                let leftSibling := computedHash
+                let rightSibling := proofElem
+                let newIndex := div(index, 2)
+                if eq(mod(index, 2), 0) {
+                    proofElem := computedHash
+                    leftSibling := proofElem
+                    rightSibling := computedHash
+                }
+                mstore(0x00, leftSibling)
+                mstore(0x20, rightSibling)
+                computedHash := keccak256(0x00, 0x40)
+                index := newIndex
+            }
+        }
+        return computedHash;
+    }

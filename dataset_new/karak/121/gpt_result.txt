@@ -1,0 +1,15 @@
+function cancelSlashing(CoreLib.Storage storage self, QueuedSlashing memory queuedSlashing) external {
+        bytes32 slashRoot = calculateRoot(queuedSlashing);
+        require(self.slashingRequests[slashRoot], "InvalidSlashingParams");
+        delete self.slashingRequests[slashRoot];
+        
+        HookLib.callHookIfInterfaceImplemented({
+            dss: queuedSlashing.dss,
+            data: abi.encodeWithSelector(queuedSlashing.dss.cancelSlashingHook.selector, queuedSlashing.operator),
+            interfaceId: queuedSlashing.dss.cancelSlashingHook.selector,
+            ignoreFailure: true,
+            hookCallGasLimit: self.hookCallGasLimit,
+            supportsInterfaceGasLimit: self.supportsInterfaceGasLimit,
+            hookGasBuffer: self.hookGasBuffer
+        });
+    }

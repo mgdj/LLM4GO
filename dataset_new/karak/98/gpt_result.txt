@@ -1,0 +1,18 @@
+**Recommendations:**
+1. Remove unnecessary function modifiers if not essential for security.
+2. Implement direct assignment instead of using additional checks and unnecessary function calls.
+3. Minimize event emissions to reduce gas consumption.
+
+**Optimized Code:**
+```solidity
+function changeNodeImplementation(address newNodeImplementation) external {
+    require(msg.sender == owner() || hasRole(Constants.MANAGER_ROLE, msg.sender), "Unauthorized");
+
+    require(!functionIsPaused(Constants.PAUSE_NATIVEVAULT_NODE_IMPLEMENTATION), "Function paused");
+
+    require(newNodeImplementation != address(0), "Zero address not allowed");
+
+    _state().nodeImpl = newNodeImplementation;
+    emit UpgradedAllNodes(newNodeImplementation);
+}
+```

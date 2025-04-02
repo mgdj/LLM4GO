@@ -1,0 +1,3 @@
+library RayMath {
+    uint256 internal constant RAY_UNIT = 1e27;
+}

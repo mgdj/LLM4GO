@@ -1,0 +1,11 @@
+function registerOperatorToDSS(IDSS dss, bytes calldata registrationHookData)
+        external
+        whenFunctionNotPaused(Constants.PAUSE_CORE_REGISTER_TO_DSS)
+        nonReentrant
+        payable
+    {
+        CoreLib.Storage storage self = _self();
+        require(self.isDSSRegistered(dss), "DSSNotRegistered");
+        self.registerOperatorToDSS(dss, msg.sender, registrationHookData);
+        emit RegisteredOperatorToDSS(msg.sender, address(dss));
+}

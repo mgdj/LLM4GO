@@ -1,0 +1,15 @@
+**Recommendations:**
+1. Utilize bit shifting operations instead of multiplication and division to optimize gas consumption.
+2. Combine similar conditional statements to reduce gas usage.
+
+**Optimization Code:**
+```solidity
+uint128 constant DIVISOR = 1 << 128;
+uint128[] constants = [CONSTANT1, CONSTANT2, ...]; // add more constants as needed
+
+for (uint i = 0; i < constants.length; i++) {
+    if (absTick & (1 << i) != 0) {
+        sqrtR = (sqrtR * constants[i]) >> 128;
+    }
+}
+``` 

@@ -1,0 +1,130 @@
+[⠒] Compiling...
+[⠒] Compiling 3 files with Solc 0.8.20
+[⠑] Solc 0.8.20 finished in 2.37s
+Compiler run successful!
+
+Ran 47 tests for test/PrelaunchPoints.t.sol:PrelaunchPointsTest
+[PASS] testAllowToken() (gas: 53173)
+[PASS] testAllowTokenFailNotAuthorized() (gas: 33223)
+[PASS] testClaim(uint256) (runs: 256, μ: 326818, ~: 326589)
+[PASS] testClaimAndStake(uint256) (runs: 256, μ: 388760, ~: 388545)
+[PASS] testClaimAndStakeFailBeforeConvert(uint256) (runs: 256, μ: 180324, ~: 180096)
+[PASS] testClaimAndStakeFailTwice(uint256) (runs: 256, μ: 351140, ~: 350919)
+[PASS] testClaimAndStakeSeveralUsers(uint256,uint256,uint256) (runs: 256, μ: 602017, ~: 602045)
+[PASS] testClaimFailBeforeConvert(uint256) (runs: 256, μ: 180467, ~: 180228)
+[PASS] testClaimFailTwice(uint256) (runs: 256, μ: 351047, ~: 350805)
+[PASS] testClaimSeveralUsers(uint256,uint256,uint256) (runs: 256, μ: 531528, ~: 531506)
+[PASS] testConvertAllETH(uint256) (runs: 256, μ: 267639, ~: 267413)
+[PASS] testConvertAllFailActivation(uint256) (runs: 256, μ: 172960, ~: 172960)
+[PASS] testLock(uint256) (runs: 256, μ: 145639, ~: 145516)
+[PASS] testLockETH(uint256) (runs: 256, μ: 90106, ~: 90106)
+[PASS] testLockETHFailActivation(uint256) (runs: 256, μ: 100042, ~: 100042)
+[PASS] testLockETHFailZero() (gas: 34064)
+[PASS] testLockETHFor(uint256) (runs: 256, μ: 90372, ~: 90372)
+[PASS] testLockETHForFailActivation(uint256) (runs: 256, μ: 100177, ~: 100177)
+[PASS] testLockETHForFailZero() (gas: 34263)
+[PASS] testLockFailTokenNotAllowed(uint256) (runs: 256, μ: 94698, ~: 94410)
+[PASS] testLockFailZero() (gas: 36908)
+[PASS] testLockFor(uint256) (runs: 256, μ: 145983, ~: 145826)
+[PASS] testLockForFailActivation(uint256) (runs: 256, μ: 148919, ~: 148646)
+[PASS] testLockForFailTokenNotAllowed(uint256) (runs: 256, μ: 94900, ~: 94612)
+[PASS] testLockForFailZero() (gas: 37223)
+[PASS] testLockailActivation(uint256) (runs: 256, μ: 149046, ~: 148739)
+[PASS] testRecoverERC20() (gas: 685106)
+[PASS] testRecoverERC20FailLRT(uint256) (runs: 256, μ: 97451, ~: 97370)
+[PASS] testRecoverERC20FailLpETH(uint256) (runs: 256, μ: 93260, ~: 93193)
+[PASS] testReentrancyOnClaim() (gas: 302333)
+[PASS] testReentrancyOnWithdraw() (gas: 126724)
+[PASS] testSetEmergencyMode() (gas: 35031)
+[PASS] testSetEmergencyModeFailNotAuthorized() (gas: 32784)
+[PASS] testSetLoopAddressesFailAfterDeadline(uint256) (runs: 256, μ: 121136, ~: 121136)
+[PASS] testSetLoopAddressesFailTwice() (gas: 93299)
+[PASS] testSetOwner() (gas: 37580)
+[PASS] testSetOwnerFailNotAuthorized() (gas: 33125)
+[PASS] testWithdraw(uint256) (runs: 256, μ: 239757, ~: 239483)
+[PASS] testWithdrawAfterConvertEmergencyMode(uint256) (runs: 256, μ: 316162, ~: 315788)
+[PASS] testWithdrawBeforeActivationEmergencyMode(uint256) (runs: 256, μ: 206702, ~: 206362)
+[PASS] testWithdrawETH(uint256) (runs: 256, μ: 176610, ~: 176610)
+[PASS] testWithdrawETHBeforeActivationEmergencyMode(uint256) (runs: 256, μ: 145884, ~: 145884)
+[PASS] testWithdrawETHFailAfterConvert(uint256) (runs: 256, μ: 289722, ~: 289503)
+[PASS] testWithdrawETHFailBeforeActivation(uint256) (runs: 256, μ: 113073, ~: 113073)
+[PASS] testWithdrawETHFailNotReceive(uint256) (runs: 256, μ: 191511, ~: 191511)
+[PASS] testWithdrawFailAfterConvert(uint256) (runs: 256, μ: 278843, ~: 278541)
+[PASS] testWithdrawFailBeforeActivation(uint256) (runs: 256, μ: 171784, ~: 171651)
+Suite result: ok. 47 passed; 0 failed; 0 skipped; finished in 119.67s (2539.24s CPU time)
+| src/PrelaunchPoints.sol:PrelaunchPoints contract |                 |       |        |        |         |
+|--------------------------------------------------|-----------------|-------|--------|--------|---------|
+| Deployment Cost                                  | Deployment Size |       |        |        |         |
+| 1778764                                          | 8434            |       |        |        |         |
+| Function Name                                    | min             | avg   | median | max    | # calls |
+| TIMELOCK                                         | 337             | 337   | 337    | 337    | 3073    |
+| allowToken                                       | 24008           | 35204 | 35204  | 46401  | 2       |
+| balances                                         | 715             | 715   | 715    | 715    | 3840    |
+| claim                                            | 25019           | 53896 | 63064  | 67864  | 1792    |
+| claimAndStake                                    | 24975           | 75542 | 85684  | 119884 | 1280    |
+| convertAllETH                                    | 25846           | 92118 | 112018 | 112018 | 2817    |
+| emergencyMode                                    | 362             | 362   | 362    | 362    | 1       |
+| isTokenAllowed                                   | 678             | 678   | 678    | 678    | 1       |
+| lock                                             | 24380           | 70993 | 86165  | 86249  | 2049    |
+| lockETH                                          | 23704           | 65192 | 70431  | 70431  | 5635    |
+| lockETHFor                                       | 23893           | 47212 | 23916  | 70622  | 513     |
+| lockFor                                          | 24636           | 45989 | 26961  | 86507  | 769     |
+| loopActivation                                   | 441             | 441   | 441    | 441    | 4098    |
+| owner                                            | 384             | 384   | 384    | 384    | 2       |
+| recoverERC20                                     | 26389           | 27696 | 28599  | 59292  | 513     |
+| setEmergencyMode                                 | 23780           | 28797 | 28804  | 28804  | 770     |
+| setLoopAddresses                                 | 26557           | 52371 | 53549  | 53549  | 5891    |
+| setOwner                                         | 23987           | 26128 | 26128  | 28269  | 2       |
+| startClaimDate                                   | 442             | 442   | 442    | 442    | 1793    |
+| totalLpETH                                       | 428             | 428   | 428    | 428    | 1792    |
+| totalSupply                                      | 385             | 385   | 385    | 385    | 2560    |
+| withdraw                                         | 24114           | 32303 | 34657  | 55317  | 2560    |
+
+
+| src/mock/AttackContract.sol:AttackContract contract |                 |       |        |       |         |
+|-----------------------------------------------------|-----------------|-------|--------|-------|---------|
+| Deployment Cost                                     | Deployment Size |       |        |       |         |
+| 301665                                              | 1467            |       |        |       |         |
+| Function Name                                       | min             | avg   | median | max   | # calls |
+| attackClaim                                         | 33883           | 33883 | 33883  | 33883 | 1       |
+| attackWithdraw                                      | 31408           | 31408 | 31408  | 31408 | 1       |
+
+
+| src/mock/MockERC20.sol:ERC20Token contract |                 |       |        |       |         |
+|--------------------------------------------|-----------------|-------|--------|-------|---------|
+| Deployment Cost                            | Deployment Size |       |        |       |         |
+| 520711                                     | 2400            |       |        |       |         |
+| Function Name                              | min             | avg   | median | max   | # calls |
+| balanceOf                                  | 562             | 562   | 562    | 562   | 2       |
+| mint                                       | 68433           | 68433 | 68433  | 68433 | 1       |
+
+
+| src/mock/MockLRT.sol:LRToken contract |                 |       |        |       |         |
+|---------------------------------------|-----------------|-------|--------|-------|---------|
+| Deployment Cost                       | Deployment Size |       |        |       |         |
+| 520384                                | 2383            |       |        |       |         |
+| Function Name                         | min             | avg   | median | max   | # calls |
+| approve                               | 46311           | 46363 | 46359  | 46407 | 2816    |
+| balanceOf                             | 562             | 562   | 562    | 562   | 1536    |
+| mint                                  | 68433           | 68433 | 68433  | 68433 | 47      |
+
+
+| src/mock/MockLpETH.sol:MockLpETH contract |                 |     |        |      |         |
+|-------------------------------------------|-----------------|-----|--------|------|---------|
+| Deployment Cost                           | Deployment Size |     |        |      |         |
+| 544686                                    | 2515            |     |        |      |         |
+| Function Name                             | min             | avg | median | max  | # calls |
+| balanceOf                                 | 540             | 892 | 540    | 2540 | 4353    |
+
+
+| src/mock/MockLpETHVault.sol:MockLpETHVault contract |                 |     |        |     |         |
+|-----------------------------------------------------|-----------------|-----|--------|-----|---------|
+| Deployment Cost                                     | Deployment Size |     |        |     |         |
+| 529973                                              | 2455            |     |        |     |         |
+| Function Name                                       | min             | avg | median | max | # calls |
+| balanceOf                                           | 540             | 540 | 540    | 540 | 768     |
+
+
+
+
+Ran 1 test suite in 121.29s (119.67s CPU time): 47 tests passed, 0 failed, 0 skipped (47 total tests)

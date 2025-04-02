@@ -1,0 +1,24 @@
+Recommendations:
+1. Cache the result of getSqrtRatioAtTick(liquidityChunk.tickLower()) and getSqrtRatioAtTick(liquidityChunk.tickUpper()) outside of the computation to save gas on redundant function calls.
+2. Use inline assembly for arithmetic operations if necessary to optimize gas costs.
+
+Optimization code:
+```solidity
+function getLiquidityForAmount1(uint256 liquidityChunk, uint256 amount1) internal pure returns (uint128 liquidity) {
+    uint160 lowPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickLower());
+    uint160 highPriceX96 = getSqrtRatioAtTick(liquidityChunk.tickUpper());
+
+    // Cache the results of getSqrtRatioAtTick calls
+    uint160 tickLower = liquidityChunk.tickLower();
+    uint160 tickUpper = liquidityChunk.tickUpper();
+    uint160 sqrtRatioLower = getSqrtRatioAtTick(tickLower);
+    uint160 sqrtRatioUpper = getSqrtRatioAtTick(tickUpper);
+
+    // ... computation using lowPriceX96 and highPriceX96
+
+    // Example of using inline assembly for arithmetic operations
+    assembly {
+        // Perform optimized arithmetic operations here if needed
+    }
+}
+```

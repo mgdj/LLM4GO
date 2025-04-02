@@ -1,0 +1,16 @@
+function _buyCurvesToken(address curvesTokenSubject, uint256 amount) internal {
+        if (!(curvesTokenSupply[curvesTokenSubject] > 0 || curvesTokenSubject == msg.sender)) revert UnauthorizedCurvesTokenSubject();
+
+        uint256 price = getPrice(curvesTokenSupply[curvesTokenSubject], amount);
+        (, , , , uint256 totalFee) = getFees(price);
+
+        require(msg.value >= price + totalFee, "InsufficientPayment");
+
+        curvesTokenBalance[curvesTokenSubject][msg.sender] += amount;
+        curvesTokenSupply[curvesTokenSubject] += amount;
+        _transferFees(curvesTokenSubject, true, price, amount, curvesTokenSupply[curvesTokenSubject] - amount);
+
+        if (curvesTokenBalance[curvesTokenSubject][msg.sender] == amount) {
+            _addOwnedCurvesTokenSubject(msg.sender, curvesTokenSubject);
+        }
+    }

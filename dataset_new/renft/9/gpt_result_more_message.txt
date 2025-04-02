@@ -1,0 +1,47 @@
+function _rentFromZone(
+    RentPayload memory payload,
+    SeaportPayload memory seaportPayload
+) internal {
+    require(_isValidOrderMetadata(payload.metadata, seaportPayload.zoneHash), "Invalid order metadata");
+    require(_isValidSafeOwner(seaportPayload.fulfiller, payload.fulfillment.recipient), "Invalid safe owner");
+    _executionInvariantChecks(seaportPayload.totalExecutions, payload.fulfillment.recipient);
+
+    Item[] memory items = _convertToItems(seaportPayload.offer, seaportPayload.consideration, payload.metadata.orderType);
+
+    if (payload.metadata.orderType.isBaseOrder() || payload.metadata.orderType.isPayOrder()) {
+        bytes memory rentalAssetUpdates;
+        for (uint256 i = 0; i < items.length; ++i) {
+            if (items[i].isRental()) {
+                rentalAssetUpdates = _insert(rentalAssetUpdates, items[i].toRentalId(payload.fulfillment.recipient), items[i].amount);
+            }
+        }
+
+        RentalOrder memory order = RentalOrder({
+            seaportOrderHash: seaportPayload.orderHash,
+            items: items,
+            hooks: payload.metadata.hooks,
+            orderType: payload.metadata.orderType,
+            lender: seaportPayload.offerer,
+            renter: payload.intendedFulfiller,
+            rentalWallet: payload.fulfillment.recipient,
+            startTimestamp: block.timestamp,
+            endTimestamp: block.timestamp + payload.metadata.rentDuration
+        });
+
+        bytes32 orderHash = _deriveRentalOrderHash(order);
+
+        STORE.addRentals(orderHash, _convertToStatic(rentalAssetUpdates));
+
+        for (uint256 i = 0; i < items.length; ++i) {
+            if (items[i].isERC20()) {
+                ESCRW.increaseDeposit(items[i].token, items[i].amount);
+            }
+        }
+
+        if (payload.metadata.hooks.length > 0) {
+            _addHooks(payload.metadata.hooks, seaportPayload.offer, payload.fulfillment.recipient);
+        }
+
+        _emitRentalOrderStarted(order, orderHash, payload.metadata.emittedExtraData);
+    }
+}

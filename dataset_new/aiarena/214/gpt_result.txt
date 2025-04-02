@@ -1,0 +1,8 @@
+function claim(uint256 amount) external {
+        uint256 spenderAllowance = allowance(treasuryAddress, msg.sender);
+        require(spenderAllowance >= amount, "ERC20: claim amount exceeds allowance");
+        
+        _approve(treasuryAddress, msg.sender, spenderAllowance - amount);
+        _transfer(treasuryAddress, msg.sender, amount);
+        emit TokensClaimed(msg.sender, amount);
+    }

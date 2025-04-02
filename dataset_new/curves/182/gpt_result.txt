@@ -1,0 +1,13 @@
+function deposit(address curvesTokenSubject, uint256 amount) public {
+        require(amount % 1 ether == 0, "NonIntegerDepositAmount");
+
+        address externalToken = externalCurvesTokens[curvesTokenSubject].token;
+        uint256 tokenAmount = amount / 1 ether;
+
+        require(externalToken != address(0), "TokenAbsentForCurvesTokenSubject");
+        require(amount <= CurvesERC20(externalToken).balanceOf(msg.sender), "InsufficientBalance");
+        require(tokenAmount <= curvesTokenBalance[curvesTokenSubject][address(this)], "InsufficientBalance");
+
+        CurvesERC20(externalToken).burn(msg.sender, amount);
+        _transfer(curvesTokenSubject, address(this), msg.sender, tokenAmount);
+}

@@ -1,0 +1,6 @@
+function onBalanceChange(address token, address account) public onlyManager {
+        TokenData storage data = tokensData[token];
+        uint256 balance = balanceOf(token, account);
+        data.userFeeOffset[account] = data.cumulativeFeePerToken;
+        if (balance != 0) userTokens[account].push(token);
+    }

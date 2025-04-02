@@ -1,0 +1,20 @@
+### Recommendations:
+1. Use unchecked block for optimized gas usage in arithmetic operations.
+2. Avoid unnecessary casting for performance improvement.
+
+### Optimization Code:
+```solidity
+/// @notice Write the "right" slot to an int256.
+/// @param self the original full int256 bit pattern to be written to
+/// @param right the bit pattern to write into the full pattern in the right half
+/// @return self with right added to its right 128 bits
+function toRightSlot(int256 self, int128 right) internal pure returns (int256) {
+    unchecked {
+        return self + int256(uint256(right) & RIGHT_HALF_BIT_MASK);
+    }
+}
+```
+
+In the optimization code provided above:
+- Removed unnecessary casting of `right` to `int256` for improved gas usage.
+- Utilized the unchecked block for efficient arithmetic operation.

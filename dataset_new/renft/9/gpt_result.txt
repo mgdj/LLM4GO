@@ -1,0 +1,83 @@
+function _rentFromZone(
+        RentPayload memory payload,
+        SeaportPayload memory seaportPayload
+    ) internal {
+        // Check: make sure order metadata is valid with the given seaport order zone hash.
+        _isValidOrderMetadata(payload.metadata, seaportPayload.zoneHash);
+
+        // Check: verify the fulfiller of the order is an owner of the recipient safe.
+        _isValidSafeOwner(seaportPayload.fulfiller, payload.fulfillment.recipient);
+
+        // Check: verify each execution was sent to the expected destination.
+        _executionInvariantChecks(
+            seaportPayload.totalExecutions,
+            payload.fulfillment.recipient
+        );
+
+        // Check: validate and process seaport offer and consideration items based
+        // on the order type.
+        Item[] memory items = _convertToItems(
+            seaportPayload.offer,
+            seaportPayload.consideration,
+            payload.metadata.orderType
+        );
+
+        // PAYEE orders are considered mirror-images of a PAY order. So, PAYEE orders
+        // do not need to be processed in the same way that other order types do.
+        if (
+            payload.metadata.orderType.isBaseOrder() ||
+            payload.metadata.orderType.isPayOrder()
+        ) {
+            bytes memory rentalAssetUpdates;
+            uint256 len = items.length;
+            assembly {
+                rentalAssetUpdates := mload(0x40)
+                mstore(rentalAssetUpdates, 0)
+            }
+
+            for (uint256 i; i < len; ++i) {
+                if (items[i].isRental()) {
+                    assembly {
+                        let rentalId := items[i].toRentalId(payload.fulfillment.recipient)
+                        let amount := items[i].amount
+                        let updateSize := add(65, mload(rentalAssetUpdates))
+                        mstore(rentalAssetUpdates, updateSize)
+                        mstore(add(rentalAssetUpdates, updateSize), rentalId)
+                        mstore(add(rentalAssetUpdates, add(updateSize, 32)), amount)
+                    }
+                }
+            }
+
+            RentalOrder memory order = RentalOrder({
+                seaportOrderHash: seaportPayload.orderHash,
+                items: items,
+                hooks: payload.metadata.hooks,
+                orderType: payload.metadata.orderType,
+                lender: seaportPayload.offerer,
+                renter: payload.intendedFulfiller,
+                rentalWallet: payload.fulfillment.recipient,
+                startTimestamp: block.timestamp,
+                endTimestamp: block.timestamp + payload.metadata.rentDuration
+            });
+
+            bytes32 orderHash = _deriveRentalOrderHash(order);
+
+            STORE.addRentals(orderHash, _convertToStatic(rentalAssetUpdates));
+
+            for (uint256 i = 0; i < len; ++i) {
+                if (items[i].isERC20()) {
+                    ESCRW.increaseDeposit(items[i].token, items[i].amount);
+                }
+            }
+
+            if (payload.metadata.hooks.length > 0) {
+                _addHooks(
+                    payload.metadata.hooks,
+                    seaportPayload.offer,
+                    payload.fulfillment.recipient
+                );
+            }
+
+            _emitRentalOrderStarted(order, orderHash, payload.metadata.emittedExtraData);
+        }
+    }

@@ -1,0 +1,3 @@
+Lack of a check could potentially result in unnecessary state changes and gas costs if the _active value passed to the function is the same as the current value stored in the operators mapping.
+
+Adding a simple check to compare the new _active value with the current value stored in the mapping before updating it could optimize gas usage and prevent unnecessary state changes.

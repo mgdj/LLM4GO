@@ -1,0 +1,39 @@
+function initialize(
+        address _ibt,
+        uint256 _duration,
+        address _initialAuthority
+    ) external initializer {
+        require(_ibt != address(0), "AddressError");
+        require(_initialAuthority != address(0), "AddressError");
+
+        require(IERC4626(_ibt).totalAssets() != 0, "RateError");
+
+        _asset = IERC4626(_ibt).asset();
+        duration = _duration;
+        expiry = _duration + block.timestamp;
+
+        string memory _ibtSymbol = IERC4626(_ibt).symbol();
+        string memory name = NamingUtil.genPTName(_ibtSymbol, expiry);
+        string memory symbol = NamingUtil.genPTSymbol(_ibtSymbol, expiry);
+
+        __ERC20_init(name, symbol);
+        __ERC20Permit_init(name);
+        __Pausable_init();
+        __ReentrancyGuard_init();
+        __AccessManaged_init(_initialAuthority);
+
+        _ibtDecimals = IERC4626(_ibt).decimals();
+        _assetDecimals = PrincipalTokenUtil._tryGetTokenDecimals(_asset);
+
+        require(_assetDecimals >= MIN_DECIMALS && _assetDecimals <= _ibtDecimals && _ibtDecimals <= MAX_DECIMALS, "InvalidDecimals");
+
+        ibt = _ibt;
+        ibtUnit = 10 ** _ibtDecimals;
+        ibtRate = IERC4626(ibt).previewRedeem(ibtUnit).toRay(_assetDecimals);
+        ptRate = RayMath.RAY_UNIT;
+
+        yt = _deployYT(
+            NamingUtil.genYTName(_ibtSymbol, expiry),
+            NamingUtil.genYTSymbol(_ibtSymbol, expiry)
+        );
+    }

@@ -1,0 +1,23 @@
+function merkleizeSha256(bytes32[] memory leaves) internal pure returns (bytes32) {
+        uint256 numNodesInLayer = leaves.length / 2;
+        bytes32[] memory layer = new bytes32[](numNodesInLayer);
+        
+        for (uint256 i = 0; i < numNodesInLayer; i++) {
+            assembly {
+                layer := add(layer, 0x20)
+                mstore(layer, sha256(abi.encodePacked(mload(add(leaves, mul(i, 0x40))), mload(add(leaves, add(mul(i, 0x40), 0x20)))))
+            }
+        }
+        
+        while (numNodesInLayer != 0) {
+            for (uint256 i = 0; i < numNodesInLayer; i++) {
+                assembly {
+                    layer := add(layer, 0x20)
+                    mstore(layer, sha256(abi.encodePacked(mload(add(add(layer, mul(i, 0x20)), 0x20)), mload(add(add(layer, add(mul(i, 0x20), 0x40)), 0x20))))
+                }
+            }
+            numNodesInLayer /= 2;
+        }
+        
+        return layer[0];
+    }

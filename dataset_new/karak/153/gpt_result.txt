@@ -1,0 +1,16 @@
+function validateValidatorProof(
+        uint40 validatorIndex,
+        bytes32[] calldata validatorFields,
+        bytes calldata validatorProof,
+        bytes32 beaconStateRoot
+    ) internal view {
+        require(validatorFields.length == NUM_FIELDS, "InvalidValidatorFieldsLength");
+
+        bytes32 validatorRoot = Merkle.merkleizeSha256(validatorFields);
+
+        uint256 index = (CONTAINER_IDX << (VALIDATOR_HEIGHT + 1)) | uint256(validatorIndex);
+
+        require(validatorProof.length == 32 * ((VALIDATOR_HEIGHT + 1) + BEACON_STATE_HEIGHT), "InvalidValidatorFieldsProofLength");
+
+        require(Merkle.verifyInclusionSha256(validatorProof, beaconStateRoot, validatorRoot, index), "InvalidValidatorFieldsProofInclusion");
+    }

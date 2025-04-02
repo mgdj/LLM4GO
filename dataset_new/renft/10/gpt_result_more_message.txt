@@ -1,0 +1,20 @@
+function _executionInvariantChecks(
+        ReceivedItem[] calldata executions,
+        address expectedRentalSafe
+    ) internal view {
+        address escrw = address(ESCRW);
+        
+        for (uint256 i = 0; i < executions.length; ++i) {
+            ReceivedItem memory execution = executions[i];
+            
+            if (execution.isERC20()) {
+                require(execution.recipient == escrw, "Invalid recipient for ERC20");
+            } else if (execution.isRental()) {
+                require(execution.recipient == expectedRentalSafe, "Invalid recipient for rental");
+            } else {
+                revert Errors.CreatePolicy_SeaportItemTypeNotSupported(
+                    execution.itemType
+                );
+            }
+        }
+    }

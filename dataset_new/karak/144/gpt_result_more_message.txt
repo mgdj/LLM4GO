@@ -1,0 +1,20 @@
+function validateBalance(bytes32 balanceRoot, uint40 validatorIndex, BalanceProof calldata proof)
+        private view
+        returns (uint256 validatorBalanceWei)
+    {
+        require(proof.proof.length == 32 * (BALANCE_HEIGHT + 1), "InvalidBalanceProof");
+
+        uint256 balanceIndex = validatorIndex >> 2;
+
+        require(
+            Merkle.verifyInclusionSha256({
+                proof: proof.proof,
+                root: balanceRoot,
+                leaf: proof.balanceRoot,
+                index: balanceIndex
+            }), "InvalidBalanceProof");
+
+        // Extract the individual validator's balance from the `balanceRoot`
+        uint256 bitShiftAmount = (validatorIndex & 3) << 6;
+        return uint256(uint64(bytes8(uint64(proof.balanceRoot << bitShiftAmount)))) * 1 gwei;
+    }

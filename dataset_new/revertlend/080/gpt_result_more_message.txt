@@ -1,0 +1,42 @@
+**Recommendations:**
+1. Use custom errors instead of revert strings to save gas.
+2. Cache state variables outside of loops to avoid redundant storage reads.
+3. Split require statements that use && to save gas.
+
+**Optimization Code:**
+```solidity
+function _updateAndCheckCollateral(
+    uint256 tokenId,
+    uint256 debtExchangeRateX96,
+    uint256 lendExchangeRateX96,
+    uint256 oldShares,
+    uint256 newShares
+) internal {
+    if (oldShares != newShares) {
+        (,, address token0, address token1,,,,,,,,) = nonfungiblePositionManager.positions(tokenId);
+
+        // remove previous collateral - add new collateral
+        uint192 sharesDiff = newShares > oldShares ? SafeCast.toUint192(newShares - oldShares) : SafeCast.toUint192(oldShares - newShares);
+        tokenConfigs[token0].totalDebtShares += sharesDiff;
+        tokenConfigs[token1].totalDebtShares += sharesDiff;
+
+        if (newShares > oldShares) {
+            uint256 lentAssets = _convertToAssets(totalSupply(), lendExchangeRateX96, Math.Rounding.Up);
+
+            if (tokenConfigs[token0].collateralValueLimitFactorX32 < type(uint32).max) {
+                uint256 token0DebtAssets = _convertToAssets(tokenConfigs[token0].totalDebtShares, debtExchangeRateX96, Math.Rounding.Up);
+                if (token0DebtAssets > lentAssets * tokenConfigs[token0].collateralValueLimitFactorX32 / Q32) {
+                    revert CollateralValueLimit();
+                }
+            }
+
+            if (tokenConfigs[token1].collateralValueLimitFactorX32 < type(uint32).max) {
+                uint256 token1DebtAssets = _convertToAssets(tokenConfigs[token1].totalDebtShares, debtExchangeRateX96, Math.Rounding.Up);
+                if (token1DebtAssets > lentAssets * tokenConfigs[token1].collateralValueLimitFactorX32 / Q32) {
+                    revert CollateralValueLimit();
+                }
+            }
+        }
+    }
+}
+```

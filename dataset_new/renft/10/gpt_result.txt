@@ -1,0 +1,20 @@
+function _executionInvariantChecks(
+        ReceivedItem[] memory executions,
+        address expectedRentalSafe
+    ) internal view {
+        for (uint256 i = 0; i < executions.length; ++i) {
+            ReceivedItem memory execution = executions[i];
+
+            if (execution.isERC20()) {
+                require(address(ESCRW) == execution.recipient, "Recipient check failed.");
+            }
+            else if (execution.isRental()) {
+                require(expectedRentalSafe == execution.recipient, "Recipient check failed.");
+            }
+            else {
+                revert Errors.CreatePolicy_SeaportItemTypeNotSupported(
+                    execution.itemType
+                );
+            }
+        }
+    }

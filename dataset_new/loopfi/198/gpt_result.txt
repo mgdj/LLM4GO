@@ -1,0 +1,22 @@
+function withdraw(address _token) external {
+        require(emergencyMode, "CurrentlyNotPossible");
+        require(block.timestamp > loopActivation, "CurrentlyNotPossible");
+        require(block.timestamp < startClaimDate, "NoLongerPossible");
+
+        uint256 lockedAmount = balances[msg.sender][_token];
+        balances[msg.sender][_token] = 0;
+
+        require(lockedAmount > 0, "CannotWithdrawZero");
+
+        if (_token == ETH) {
+            require(block.timestamp < startClaimDate, "UseClaimInstead");
+
+            totalSupply -= lockedAmount;
+            (bool sent,) = msg.sender.call{value: lockedAmount}("");
+            require(sent, "FailedToSendEther");
+        } else {
+            IERC20(_token).safeTransfer(msg.sender, lockedAmount);
+        }
+
+        emit Withdrawn(msg.sender, _token, lockedAmount);
+    }

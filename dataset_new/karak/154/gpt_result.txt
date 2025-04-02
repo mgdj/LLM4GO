@@ -1,0 +1,12 @@
+function validateBalanceContainer(bytes32 beaconBlockRoot, BalanceContainer calldata proof) internal view {
+        require(proof.proof.length == 32 * (BEACON_BLOCK_HEADER_HEIGHT + BEACON_STATE_HEIGHT), "InvalidBalanceRootProof");
+
+        if (
+            !Merkle.verifyInclusionSha256({
+                proof: proof.proof,
+                root: beaconBlockRoot,
+                leaf: proof.containerRoot,
+                index: (BEACON_STATE_ROOT_IDX << BEACON_STATE_HEIGHT) | BALANCE_CONTAINER_IDX
+            })
+        ) revert "InvalidBalanceRootProof";
+    }

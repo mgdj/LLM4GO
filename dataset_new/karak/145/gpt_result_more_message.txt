@@ -1,0 +1,22 @@
+function callHook(
+        address target,
+        bytes memory data,
+        bool ignoreFailure,
+        uint32 hookCallGasLimit,
+        uint32 hookGasBuffer
+    ) internal returns (bool) {
+        if (gasleft() < (hookCallGasLimit * 64 / 63 + hookGasBuffer)) revert NotEnoughGas();
+
+        (bool success, bytes32 returnData) = performLowLevelCallAndLimitReturnData(target, data, hookCallGasLimit);
+
+        if (!ignoreFailure && !success) revert DSSHookCallReverted(returnData);
+
+        if (success) {
+            bytes32 eventData = returnData;
+            emit HookCallSucceeded(eventData);
+        } else {
+            bytes32 eventData = returnData;
+            emit HookCallFailed(eventData);
+        }
+        return success;
+    }

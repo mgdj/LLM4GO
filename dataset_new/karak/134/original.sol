@@ -1,0 +1,37 @@
+function validateSnapshotProofs(
+        address nodeOwner,
+        BeaconProofs.BalanceProof[] calldata balanceProofs,
+        BeaconProofs.BalanceContainer calldata balanceContainer
+    )
+        external
+        nonReentrant
+        nodeExists(nodeOwner)
+        whenFunctionNotPaused(Constants.PAUSE_NATIVEVAULT_VALIDATE_SNAPSHOT)
+    {
+        NativeVaultLib.Storage storage self = _state();
+        NativeVaultLib.NativeNode storage node = self.ownerToNode[nodeOwner];
+        NativeVaultLib.Snapshot memory snapshot = node.currentSnapshot;
+
+        if (node.currentSnapshotTimestamp == 0) revert NoActiveSnapshot();
+
+        BeaconProofs.validateBalanceContainer(snapshot.parentBeaconBlockRoot, balanceContainer);
+
+        for (uint256 i = 0; i < balanceProofs.length; i++) {
+            NativeVaultLib.ValidatorDetails memory validatorDetails =
+                node.validatorPubkeyHashToDetails[balanceProofs[i].pubkeyHash];
+
+            if (validatorDetails.status != NativeVaultLib.ValidatorStatus.ACTIVE) revert InactiveValidator();
+            if (validatorDetails.lastBalanceUpdateTimestamp >= node.currentSnapshotTimestamp) {
+                revert ValidatorAlreadyProved();
+            }
+
+            int256 balanceDeltaWei = self.validateSnapshotProof(
+                nodeOwner, validatorDetails, balanceContainer.containerRoot, balanceProofs[i]
+            );
+
+            snapshot.remainingProofs--;
+            snapshot.balanceDeltaWei += balanceDeltaWei;
+        }
+
+        _updateSnapshot(node, snapshot, nodeOwner);
+    }

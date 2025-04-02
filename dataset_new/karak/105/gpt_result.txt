@@ -1,0 +1,22 @@
+library CoreLib {
+    using Operator for Operator.State;
+
+    struct Storage {
+        mapping(address => Operator.State) operatorState;
+        // Vault
+        mapping(address => address) vaultToImplMap;
+        mapping(address => bool) allowlistedVaultImpl;
+        // Assets
+        mapping(address => address) assetSlashingHandlers;
+        // DSS
+        mapping(bytes32 => bool) slashingRequests;
+        mapping(IDSS => uint256) dssMaxSlashablePercentageWad;
+        address vaultImpl;
+        uint96 vaultNonce;
+        address vetoCommittee;
+        uint96 nonce;
+        uint32 hookCallGasLimit;
+        uint32 supportsInterfaceGasLimit;
+        uint32 hookGasBuffer;
+    }
+}

@@ -1,0 +1,27 @@
+Recommendations:
+1. Cache state variables outside of the unchecked block to save gas.
+2. Use unchecked block for the arithmetic operations to save gas.
+
+Optimized code:
+```solidity
+function calculateAMMSwapFeesLiquidityChunkOptimized(
+    MockUniswapV3Pool univ3pool,
+    int24 currentTick,
+    int24 tickLower,
+    int24 tickUpper,
+    uint128 startingLiquidity
+) public view returns (int256 feesEachToken) {
+    (, , uint256 lowerOut0, uint256 lowerOut1, , , , ) = univ3pool.ticks(tickLower);
+    (, , uint256 upperOut0, uint256 upperOut1, , , , ) = univ3pool.ticks(tickUpper);
+    
+    uint256 feeGrowthInside0X128;
+    uint256 feeGrowthInside1X128;
+        
+    // ... original logic ...
+    
+    unchecked {
+        uint256 totalFeeGrowth = feeGrowthInside0X128 + feeGrowthInside1X128;
+        feesEachToken = int256(uint256(startingLiquidity)) * int256(totalFeeGrowth);
+    }
+}
+```

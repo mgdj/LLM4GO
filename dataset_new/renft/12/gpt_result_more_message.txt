@@ -1,0 +1,30 @@
+function requestPermissions()
+        external
+        view
+        override
+        onlyKernel
+        returns (Permissions[] memory requests)
+    {
+        requests = new Permissions[](8);
+        requests[0] = Permissions(
+            toKeycode("STORE"),
+            STORE.toggleWhitelistExtension.selector
+        );
+        requests[1] = Permissions(
+            toKeycode("STORE"),
+            STORE.toggleWhitelistDelegate.selector
+        );
+        requests[2] = Permissions(toKeycode("STORE"), STORE.upgrade.selector);
+        requests[3] = Permissions(toKeycode("STORE"), STORE.freeze.selector);
+
+        bytes32 keyEscrw = toKeycode("ESCRW");
+        bytes4 selectorSkim = ESCRW.skim.selector;
+        bytes4 selectorSetFee = ESCRW.setFee.selector;
+        bytes4 selectorUpgrade = ESCRW.upgrade.selector;
+        bytes4 selectorFreeze = ESCRW.freeze.selector;
+
+        requests[4] = Permissions(keyEscrw, selectorSkim);
+        requests[5] = Permissions(keyEscrw, selectorSetFee);
+        requests[6] = Permissions(keyEscrw, selectorUpgrade);
+        requests[7] = Permissions(keyEscrw, selectorFreeze);
+    }  

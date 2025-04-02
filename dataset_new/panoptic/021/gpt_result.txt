@@ -1,0 +1,30 @@
+**Recommendations:**
+1. Combine the individual functions calls into a single function to reduce the number of function call overheads.
+2. Remove the unnecessary `tokenId` reassignment in each step and update the function arguments in-place.
+3. Avoid duplicating the `legIndex` parameter in each function call by passing it once.
+4. Consider using inline assembly for low-level optimizations if needed.
+
+**Optimization_code:**
+```solidity
+function addLeg(
+    uint256 self,
+    uint256 legIndex,
+    uint256 _optionRatio,
+    uint256 _asset,
+    uint256 _isLong,
+    uint256 _tokenType,
+    uint256 _riskPartner,
+    int24 _strike,
+    int24 _width
+) internal pure returns (uint256 tokenId) {
+    tokenId = addOptionRatio(self, _optionRatio, legIndex);
+    addAsset(self, _asset, legIndex);
+    addIsLong(self, _isLong, legIndex);
+    addTokenType(self, _tokenType, legIndex);
+    addRiskPartner(self, _riskPartner, legIndex);
+    addStrike(self, _strike, legIndex);
+    addWidth(self, _width, legIndex);
+    
+    tokenId = self;
+}
+```

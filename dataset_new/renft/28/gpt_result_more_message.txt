@@ -1,0 +1,7 @@
+function addRentalSafe(address safe) external onlyByProxy permissioned {
+        // Register the safe as deployed.
+        deployedSafes[safe] = totalSafes + 1;
+
+        // Increment totalSafes in a single operation.
+        totalSafes = deployedSafes[safe];
+    }

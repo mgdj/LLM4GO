@@ -1,0 +1,35 @@
+**Recommendations:**
+1. Avoid unnecessary variable assignments and condition checks.
+2. Simplify conditional logic to reduce gas costs.
+3. Minimize the number of storage writes.
+
+**Optimization_code:**
+```solidity
+function configToken(uint256 tokenId, PositionConfig calldata config) external {
+    require(nonfungiblePositionManager.ownerOf(tokenId) == msg.sender, "Unauthorized");
+
+    require(config.isActive && config.token0TriggerTick < config.token1TriggerTick, "InvalidConfig");
+
+    positionConfigs[tokenId] = config;
+
+    emit PositionConfigured(
+        tokenId,
+        config.isActive,
+        config.token0Swap,
+        config.token1Swap,
+        config.token0TriggerTick,
+        config.token1TriggerTick,
+        config.token0SlippageX64,
+        config.token1SlippageX64,
+        config.onlyFees,
+        config.maxRewardX64
+    );
+}
+```
+
+In the optimized code:
+1. Removed the unnecessary owner variable assignment and directly checked ownership in the require statement.
+2. Combined the conditional checks into a single require statement for simplicity.
+3. Reduced gas costs by minimizing variable assignments and optimizing the conditional logic.
+
+These optimizations aim to make the code more efficient and reduce gas consumption during contract execution.

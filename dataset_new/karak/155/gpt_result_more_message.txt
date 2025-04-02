@@ -1,0 +1,6 @@
+function allowlistVaultImpl(Storage storage self, address implementation) internal {
+        require(implementation != address(0), "Invalid implementation address");
+        if (!self.allowlistedVaultImpl[implementation]) {
+            self.allowlistedVaultImpl[implementation] = true;
+        }
+    }

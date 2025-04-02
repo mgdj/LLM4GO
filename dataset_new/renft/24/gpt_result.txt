@@ -1,0 +1,44 @@
+function _removeHooks(
+        Hook[] calldata hooks,
+        Item[] calldata rentalItems,
+        address rentalWallet
+    ) internal {
+        // Define hook target, item index, and item.
+        address target;
+        uint256 itemIndex;
+        Item memory item;
+
+        for (uint256 i = 0; i < hooks.length; i++) {
+            target = hooks[i].target;
+
+            if (!STORE.hookOnStop(target)) {
+                revert Errors.Shared_DisabledHook(target);
+            }
+
+            itemIndex = hooks[i].itemIndex;
+            item = rentalItems[itemIndex];
+
+            if (!item.isRental()) {
+                revert Errors.Shared_NonRentalHookItem(itemIndex);
+            }
+
+            try
+                IHook(target).onStop{gas: 80000}(
+                    rentalWallet,
+                    item.token,
+                    item.identifier,
+                    item.amount,
+                    hooks[i].extraData
+                )
+            {} catch Error(string memory revertReason) {
+                revert Errors.Shared_HookFailString(revertReason);
+            } catch Panic(uint256 errorCode) {
+                string memory stringErrorCode = LibString.toString(errorCode);
+                revert Errors.Shared_HookFailString(
+                    string.concat("Hook reverted: Panic code ", stringErrorCode)
+                );
+            } catch (bytes memory revertData) {
+                revert Errors.Shared_HookFailBytes(revertData);
+            }
+        }
+    }

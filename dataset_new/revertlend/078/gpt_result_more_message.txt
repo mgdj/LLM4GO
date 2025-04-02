@@ -1,0 +1,34 @@
+Recommendations:
+1. Use custom errors instead of revert strings to save gas.
+2. Split require() statements that use && to save gas.
+3. Check before updating the state variable with the same value.
+4. Cache state variables outside of loops.
+5. For Solidity versions below 0.8.12, use != 0 instead of > 0 for unsigned integer comparison.
+
+Optimized code:
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+contract YourContract {
+    function createWithPermit(
+        uint256 tokenId,
+        address owner,
+        address recipient,
+        uint256 deadline,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external override {
+        if (msg.sender != owner) {
+            revert Unauthorized();
+        }
+
+        nonfungiblePositionManager.permit(address(this), tokenId, deadline, v, r, s);
+        
+        // Check before updating the state variable with the same value
+        if (nonfungiblePositionManager.ownerOf(tokenId) != address(this)) {
+            nonfungiblePositionManager.safeTransferFrom(owner, address(this), tokenId, abi.encode(recipient));
+        }
+    }
+}
+```

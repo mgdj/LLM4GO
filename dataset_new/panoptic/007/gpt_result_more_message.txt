@@ -1,0 +1,8 @@
+**Recommendations:**
+1. Use `!= 0` instead of `> 0` for unsigned integer comparison to save gas.
+2. Split the `require()` statement to save gas.
+
+**Optimized code:**
+```solidity
+require(denominator != 0, "Denominator should be greater than 0");
+```

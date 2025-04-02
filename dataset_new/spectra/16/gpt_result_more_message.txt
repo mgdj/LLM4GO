@@ -1,0 +1,18 @@
+function _deployYT(string memory _name, string memory _symbol) internal returns (address _yt) {
+        require(IRegistry(registry).getYTBeacon() != address(0), "BeaconNotSet");
+        
+        _yt = address(
+            new BeaconProxy{
+                salt: keccak256(abi.encodePacked(address(this), _name, _symbol))}
+                (
+                ytBeacon,
+                abi.encodeWithSelector(
+                    IYieldToken(address(0)).initialize.selector,
+                    _name,
+                    _symbol,
+                    address(this)
+                )
+            )
+        );
+        emit YTDeployed(_yt);
+    }

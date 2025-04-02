@@ -1,0 +1,8 @@
+function upgradeAndCall(
+        IAMTransparentUpgradeableProxy proxy,
+        address implementation,
+        bytes calldata data
+    ) external payable restricted {
+        (bool success,) = address(proxy).call{value: msg.value}(abi.encodeWithSignature("upgradeToAndCall(address,bytes)", implementation, data));
+        require(success, "upgradeAndCall: call failed");
+    }

@@ -1,0 +1,119 @@
+contract RankedBattle {
+
+    /// @dev Extend functionality of the FixedPointMathLib library to the uint data type.
+    using FixedPointMathLib for uint;
+
+    /*//////////////////////////////////////////////////////////////
+                                EVENTS
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Event emitted when staked.
+    event Staked(address from, uint256 amount);
+
+    /// @notice Event emitted when unstaked.
+    event Unstaked(address from, uint256 amount);
+
+    /// @notice Event emitted when claimed.
+    event Claimed(address claimer, uint256 amount);
+
+    /// @notice Event emitted when points are added or subtracted from a fighter.
+    event PointsChanged(uint256 tokenId, uint256 points, bool increased);    
+
+    /*//////////////////////////////////////////////////////////////
+                                STRUCTS
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Struct for battle record.
+    struct BattleRecord {
+        uint32 wins;
+        uint32 ties;
+        uint32 loses;
+    }
+
+    /*//////////////////////////////////////////////////////////////
+                            STATE VARIABLES
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Voltage cost per match initiated
+    uint8 public constant VOLTAGE_COST = 10;
+
+    /// @notice Number of total battles.
+    uint256 public totalBattles = 0;
+
+    /// @notice Number of overall staked amount.
+    uint256 public globalStakedAmount = 0;
+
+    /// @notice Current round number.
+    uint256 public roundId = 0;
+
+    /// @notice Amount of basis points that get taken away from a player's stake when they lose in 
+    /// a point deficit.
+    uint256 public bpsLostPerLoss = 10;
+
+    /// The StakeAtRisk contract address.
+    address _stakeAtRiskAddress;
+
+    /// The address that has owner privileges (initially the contract deployer).
+    address _ownerAddress;
+
+    /// @notice The address in charge of updating battle records.
+    address _gameServerAddress;
+
+    /*//////////////////////////////////////////////////////////////
+                            CONTRACT INSTANCES
+    //////////////////////////////////////////////////////////////*/ 
+
+    /// @notice The neuron contract instance.
+    Neuron _neuronInstance;
+
+    /// @notice The fighter farm contract instance.
+    FighterFarm _fighterFarmInstance;
+
+    /// @notice The voltage manager contract instance.
+    VoltageManager _voltageManagerInstance;
+
+    /// @notice The merging pool contract instance.
+    MergingPool _mergingPoolInstance;
+
+    /// @notice The stake at risk contract instance.
+    StakeAtRisk _stakeAtRiskInstance;
+
+    /*//////////////////////////////////////////////////////////////
+                                MAPPINGS
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Maps addresses that are admins.
+    mapping(address => bool) public isAdmin;
+
+    /// @notice Mapping of token id to battle record struct.
+    mapping(uint256 => BattleRecord) public fighterBattleRecord;
+
+    /// @notice Mapping of address to the amount of NRNs they have claimed.
+    mapping(address => uint256) public amountClaimed;
+
+    /// @notice Maps the user address to the number of rounds they've claimed for
+    mapping(address => uint32) public numRoundsClaimed;
+
+    /// @notice Maps address to round ID to track accumulated points.
+    mapping(address => mapping(uint256 => uint256)) public accumulatedPointsPerAddress;
+
+    /// @notice Maps token ID to round ID to track accumulated points.
+    mapping(uint256 => mapping(uint256 => uint256)) public accumulatedPointsPerFighter;
+
+    /// @notice Maps round ID to total accumulated points.
+    mapping(uint256 => uint256) public totalAccumulatedPoints;
+
+    /// @notice Mapping of roundID to nrn distribution amount for a ranked period.
+    mapping(uint256 => uint256) public rankedNrnDistribution;
+
+    /// @notice Maps the token ID to the round ID and indicates whether it is Unstaked or not.
+    mapping(uint256 => mapping(uint256 => bool)) public hasUnstaked;
+
+    /// @notice Mapping of token id to staked amount.
+    mapping(uint256 => uint256) public amountStaked;
+
+    /// @notice Mapping of token id to staking factor.
+    mapping(uint256 => uint256) public stakingFactor;
+
+    /// @notice Indicates whether we have calculated the staking factor for a given round and token.
+    mapping(uint256 => mapping(uint256 => bool)) _calculatedStakingFactor;

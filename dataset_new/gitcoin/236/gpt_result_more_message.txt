@@ -1,0 +1,22 @@
+function communityStake(address stakee, uint88 amount, uint64 duration) external payable whenNotPaused {
+    require(stakee != msg.sender, "CannotStakeOnSelf");
+    require(stakee != address(0), "AddressCannotBeZero");
+    require(amount != 0, "AmountMustBeGreaterThanZero");
+
+    uint64 unlockTime = duration + uint64(block.timestamp);
+
+    require(
+        unlockTime >= block.timestamp + 12 weeks &&
+        unlockTime <= block.timestamp + 104 weeks &&
+        unlockTime > communityStakes[msg.sender][stakee].unlockTime,
+        "InvalidLockTime"
+    );
+
+    communityStakes[msg.sender][stakee].amount = communityStakes[msg.sender][stakee].amount + amount;
+    communityStakes[msg.sender][stakee].unlockTime = unlockTime;
+    userTotalStaked[msg.sender] = userTotalStaked[msg.sender] + amount;
+
+    emit CommunityStake(msg.sender, stakee, amount, unlockTime);
+
+    require(token.transferFrom(msg.sender, address(this), amount), "FailedTransfer");
+}

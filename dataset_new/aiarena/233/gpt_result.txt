@@ -1,0 +1,46 @@
+```solidity
+contract RankedBattle {
+
+    using FixedPointMathLib for uint;
+
+    event Staked(address from, uint256 amount);
+    event Unstaked(address from, uint256 amount);
+    event Claimed(address claimer, uint256 amount);
+    event PointsChanged(uint256 tokenId, uint256 points, bool increased);
+
+    struct BattleRecord {
+        uint32 wins;
+        uint32 ties;
+        uint32 loses;
+    }
+
+    uint8 public constant VOLTAGE_COST = 10;
+    uint256 public totalBattles = 0;
+    uint256 public globalStakedAmount = 0;
+    uint256 public roundId = 0;
+    uint256 public bpsLostPerLoss = 10;
+    address _stakeAtRiskAddress;
+    address _ownerAddress;
+    address _gameServerAddress;
+    
+    Neuron _neuronInstance;
+    FighterFarm _fighterFarmInstance;
+    VoltageManager _voltageManagerInstance;
+    MergingPool _mergingPoolInstance;
+    StakeAtRisk _stakeAtRiskInstance;
+
+    mapping(address => bool) public isAdmin;
+    mapping(uint256 => BattleRecord) public fighterBattleRecord;
+    mapping(address => uint256) public amountClaimed;
+    mapping(address => uint32) public numRoundsClaimed;
+    
+    mapping(address => mapping(uint256 => uint256)) public accumulatedPointsPerAddress;
+    mapping(uint256 => mapping(uint256 => uint256)) public accumulatedPointsPerFighter;
+    mapping(uint256 => uint256) public totalAccumulatedPoints;
+    mapping(uint256 => uint256) public rankedNrnDistribution;
+    mapping(uint256 => mapping(uint256 => bool)) public hasUnstaked;
+    mapping(uint256 => uint256) public amountStaked;
+    mapping(uint256 => uint256) public stakingFactor;
+    mapping(uint256 => mapping(uint256 => bool)) _calculatedStakingFactor;
+}
+```

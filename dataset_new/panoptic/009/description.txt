@@ -1,0 +1,1 @@
+The getAmount1ForLiquidity and getLiquidityForAmount1 functions have redundant calls to getSqrtRatioAtTick.Refactoring the repeated logic into a separate function calculatePriceX96 improves code reusability and readability, potentially reducing gas costs due to decreased code duplication.

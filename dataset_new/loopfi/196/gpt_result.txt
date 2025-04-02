@@ -1,0 +1,25 @@
+function _processLock(address _token, uint256 _amount, address _receiver, bytes32 _referral)
+        internal
+        onlyBeforeDate(loopActivation)
+    {
+        require(_amount > 0, "CannotLockZero");
+        
+        if (_token == ETH) {
+            totalSupply += _amount;
+            balances[_receiver][ETH] += _amount;
+        } else {
+            require(isTokenAllowed[_token], "TokenNotAllowed");
+
+            IERC20(_token).safeTransferFrom(msg.sender, address(this), _amount);
+
+            if (_token == address(WETH)) {
+                WETH.withdraw(_amount);
+                totalSupply += _amount;
+                balances[_receiver][ETH] += _amount;
+            } else {
+                balances[_receiver][_token] += _amount;
+            }
+        }
+
+        emit Locked(_receiver, _amount, _token, _referral);
+    }

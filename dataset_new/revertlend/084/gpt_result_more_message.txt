@@ -1,0 +1,19 @@
+Recommendations:
+1. Cache state variables outside of the function to avoid multiple read operations.
+2. Move the emit statement before the require statement to prevent unnecessary gas consumption.
+3. Use a custom error message instead of a revert string for better gas optimization.
+4. Consider using inline assembly for more complex arithmetic operations in advanced gas optimization scenarios.
+
+Optimized code:
+```solidity
+function setVault(address _vault, bool _active) public onlyOwner {
+    emit VaultChanged(_vault, _active);
+    
+    bool currentStatus = vaults[_vault];
+    if (currentStatus == _active) {
+        return;
+    }
+    
+    vaults[_vault] = _active;
+}
+```

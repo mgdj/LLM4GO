@@ -1,0 +1,1 @@
+Prevent unnecessary writes to the blockchain when the new state is the same as the existing state. This avoids the gas cost associated with state updates.

@@ -1,0 +1,66 @@
+contract Curves is CurvesErrors, Security {
+    address public curvesERC20Factory;
+    FeeSplitter public feeRedistributor;
+    string private constant DEFAULT_NAME = "Curves";
+    string private constant DEFAULT_SYMBOL = "CURVES";
+    // Counter for CURVES tokens minted
+    uint256 private _curvesTokenCounter = 0;
+
+    struct ExternalTokenMeta {
+        string name;
+        string symbol;
+        address token;
+    }
+
+    struct PresaleMeta {
+        uint256 startTime;
+        bytes32 merkleRoot;
+        uint256 maxBuy;
+    }
+
+    mapping(address => ExternalTokenMeta) public externalCurvesTokens;
+    mapping(address => address) public externalCurvesToSubject;
+    mapping(string => address) public symbolToSubject;
+
+    mapping(address => PresaleMeta) public presalesMeta;
+    mapping(address => mapping(address => uint256)) public presalesBuys;
+
+    struct FeesEconomics {
+        address protocolFeeDestination;
+        uint256 protocolFeePercent;
+        uint256 subjectFeePercent;
+        uint256 referralFeePercent;
+        uint256 holdersFeePercent;
+        uint256 maxFeePercent;
+    }
+
+    FeesEconomics public feesEconomics;
+    mapping(address => address) public referralFeeDestination;
+
+    event Trade(
+        address trader,
+        address subject,
+        bool isBuy,
+        uint256 tokenAmount,
+        uint256 ethAmount,
+        uint256 protocolEthAmount,
+        uint256 subjectEthAmount,
+        uint256 supply
+    );
+
+    event Transfer(address indexed curvesTokenSubject, address indexed from, address indexed to, uint256 value);
+    event WhitelistUpdated(address indexed presale, bytes32 indexed root);
+    event TokenDeployed(address indexed curvesTokenSubject, address indexed erc20token, string name, string symbol);
+
+    // TokenSubject => (Holder => Balance)
+    mapping(address => mapping(address => uint256)) public curvesTokenBalance;
+
+    // TokenSubject => Supply
+    mapping(address => uint256) public curvesTokenSupply;
+
+    mapping(address => address[]) private ownedCurvesTokenSubjects;
+
+    modifier onlyTokenSubject(address curvesTokenSubject) {
+        if (curvesTokenSubject != msg.sender) revert UnauthorizedCurvesTokenSubject();
+        _;
+    }

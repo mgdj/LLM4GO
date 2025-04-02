@@ -1,0 +1,23 @@
+function selfStake(uint88 amount, uint64 duration) external whenNotPaused {
+    require(amount != 0, "AmountMustBeGreaterThanZero");
+
+    uint64 unlockTime = duration + uint64(block.timestamp);
+    uint64 currentTimestamp = uint64(block.timestamp);
+    uint64 minUnlockTime = currentTimestamp + 12 weeks;
+    uint64 maxUnlockTime = currentTimestamp + 104 weeks;
+    uint64 userUnlockTime = selfStakes[msg.sender].unlockTime;
+
+    require(
+      unlockTime >= minUnlockTime && unlockTime <= maxUnlockTime && unlockTime > userUnlockTime,
+      "InvalidLockTime"
+    );
+
+    SelfStakeData storage userSelfStake = selfStakes[msg.sender];
+    userSelfStake.amount += amount;
+    userSelfStake.unlockTime = unlockTime;
+    userTotalStaked[msg.sender] += amount;
+
+    emit SelfStake(msg.sender, amount, unlockTime);
+
+    require(token.transferFrom(msg.sender, address(this), amount), "FailedTransfer");
+}

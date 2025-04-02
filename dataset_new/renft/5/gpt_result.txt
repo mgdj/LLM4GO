@@ -1,0 +1,12 @@
+function removeRentals(
+        bytes32 orderHash,
+        RentalAssetUpdate[] calldata rentalAssetUpdates
+    ) external onlyByProxy permissioned {
+        require(orders[orderHash], Errors.StorageModule_OrderDoesNotExist(orderHash));
+        delete orders[orderHash];
+        
+        for (uint256 i = 0; i < rentalAssetUpdates.length; ++i) {
+            RentalAssetUpdate calldata asset = rentalAssetUpdates[i];
+            rentedAssets[asset.rentalId] -= asset.amount;
+        }
+    }

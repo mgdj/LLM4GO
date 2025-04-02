@@ -1,0 +1,25 @@
+function _validateData(address _token, uint256 _amount, Exchange _exchange, bytes calldata _data) internal view {
+        address inputToken;
+        address outputToken;
+        uint256 inputTokenAmount;
+        address recipient;
+        bytes4 selector;
+
+        if (_exchange == Exchange.UniswapV3) {
+            (inputToken, outputToken, inputTokenAmount, recipient, selector) = _decodeUniswapV3Data(_data);
+            if (selector != UNI_SELECTOR || outputToken != address(WETH)) {
+                revert WrongSelectorOrDataTokens(selector, inputToken, outputToken);
+            }
+        } else if (_exchange == Exchange.TransformERC20) {
+            (inputToken, outputToken, inputTokenAmount, selector) = _decodeTransformERC20Data(_data);
+            if (selector != TRANSFORM_SELECTOR || outputToken != ETH) {
+                revert WrongSelectorOrDataTokens(selector, inputToken, outputToken);
+            }
+        } else {
+            revert WrongExchange();
+        }
+
+        if (inputToken != _token || inputTokenAmount != _amount || (recipient != address(this) && recipient != address(0))) {
+            revert WrongDataTokensAmountRecipient(inputToken, outputToken, inputTokenAmount, recipient);
+        }
+    }

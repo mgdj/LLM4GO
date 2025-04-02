@@ -1,0 +1,11 @@
+function buyCurvesTokenWithName(
+        address curvesTokenSubject,
+        uint256 amount,
+        string memory name,
+        string memory symbol
+    ) public payable {
+        require(curvesTokenSupply[curvesTokenSubject] == 0, "CurveAlreadyExists");
+        
+        _buyCurvesToken(curvesTokenSubject, amount);
+        _mint(curvesTokenSubject, name, symbol);
+    }

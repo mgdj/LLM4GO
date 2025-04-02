@@ -1,0 +1,1 @@
+No need to cache nonfungiblePositionManager.ownerOf(tokenId) in stack variable owner since this is used only once in the function.

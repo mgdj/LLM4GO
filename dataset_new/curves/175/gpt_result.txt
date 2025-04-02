@@ -1,0 +1,18 @@
+function batchClaiming(address[] calldata tokenList) external {
+        uint256 totalClaimable;
+        uint256 length = tokenList.length;
+        
+        for (uint256 i = 0; i < length; i++) {
+            address token = tokenList[i];
+            updateFeeCredit(token, msg.sender);
+            uint256 claimable = getClaimableFees(token, msg.sender);
+            if (claimable > 0) {
+                tokensData[token].unclaimedFees[msg.sender] = 0;
+                totalClaimable += claimable;
+                emit FeesClaimed(token, msg.sender, claimable);
+            }
+        }
+        
+        require(totalClaimable > 0, "NoFeesToClaim");
+        payable(msg.sender).transfer(totalClaimable);
+    }

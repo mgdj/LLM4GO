@@ -1,0 +1,24 @@
+**Recommendations:**
+1. Use inline assembly for bitwise operations and multiplication to save gas.
+2. Cache bitwise results in variables outside the loop to avoid recomputation.
+3. Pack multiple bitwise constants into a single operation to reduce gas cost.
+
+**Optimization:**
+```solidity
+assembly {
+    let absTickAnd := and(absTick, 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE)
+    let sqrtR_updated := sqrtR
+
+    // Check for each bit position starting from the least significant bit
+    // Pack multiple bitwise constants into a single operation
+    if iszero(eq(and(absTickAnd, 0x1), 0)) {
+        sqrtR_updated := mul(sqrtR_updated, 0xfffcb933bd6fad37aa2d162d1a594001) >> 128
+    }
+    if iszero(eq(and(absTickAnd, 0x2), 0)) {
+        sqrtR_updated := mul(sqrtR_updated, 0xfff97272373d413259a46990580e213a) >> 128
+    } 
+    // Repeat for other bit positions...
+
+    sqrtR := sqrtR_updated
+}
+```

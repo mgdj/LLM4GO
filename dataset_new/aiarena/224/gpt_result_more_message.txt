@@ -1,0 +1,6 @@
+function setNewRound(uint256 roundId_) external {
+        require(msg.sender == _rankedBattleAddress, "Not authorized to set new round");
+        if (_sweepLostStake()) {
+            roundId = roundId_;
+        }
+    }

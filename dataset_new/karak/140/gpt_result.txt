@@ -1,0 +1,5 @@
+contract Core is Initializable, ReentrancyGuard, Pauser {
+    string public constant VERSION = "2.0.0";
+
+    bytes32 internal constant STORAGE_SLOT = 0x13c729cff436dc8ac22d145f2c778f6a709d225083f39538cc5e2674f2f10700;
+}

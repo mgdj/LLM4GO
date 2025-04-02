@@ -1,0 +1,28 @@
+function createGameItem(
+    string calldata name_,
+    string calldata tokenURI,
+    bool finiteSupply,
+    bool transferable,
+    uint256 itemsRemaining,
+    uint256 itemPrice,
+    uint16 dailyAllowance
+) public {
+    require(isAdmin[msg.sender], "Not an admin");
+    
+    allGameItemAttributes.length++;
+    uint256 index = allGameItemAttributes.length - 1;
+    GameItemAttributes storage newItem = allGameItemAttributes[index];
+    
+    newItem.name = name_;
+    newItem.finiteSupply = finiteSupply;
+    newItem.transferable = transferable;
+    newItem.itemsRemaining = itemsRemaining;
+    newItem.itemPrice = itemPrice;
+    newItem.dailyAllowance = dailyAllowance;
+    
+    if (!transferable) {
+        emit Locked(index);
+    }
+    
+    setTokenURI(index, tokenURI);
+}

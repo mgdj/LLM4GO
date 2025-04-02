@@ -1,0 +1,80 @@
+contract IdentityStaking is IIdentityStaking, Initializable, UUPSUpgradeable, AccessControlUpgradeable, PausableUpgradeable {
+    /***** SECTION 0: Errors, State, Events *****/
+
+    /// @dev Address parameter cannot be zero
+    error AddressCannotBeZero();
+
+    /// @dev Stake amount must be greater than zero
+    error AmountMustBeGreaterThanZero();
+
+    /// @dev A community stake cannot be placed on the staker's own address
+    error CannotStakeOnSelf();
+
+    /// @dev An ERC20 transfer failed
+    error FailedTransfer();
+
+    /// @dev The lock time must be between 12 and 104 weeks, and after any existing lock
+    error InvalidLockTime();
+
+    /// @dev The stake is still locked and cannot be withdrawn
+    error StakeIsLocked();
+
+    /// @dev The requested withdrawal amount is greater than the stake
+    error AmountTooHigh();
+
+    /// @dev The slash percent must be between 1 and 100
+    error InvalidSlashPercent();
+
+    /// @dev The staker and stakee arrays must be the same length
+    error StakerStakeeMismatch();
+
+    /// @dev The requested funds are greater than the slashed amount for this user
+    error FundsNotAvailableToRelease();
+
+    /// @dev The requested funds are not available to release for this user from the given round
+    error FundsNotAvailableToReleaseFromRound();
+
+    /// @dev The round has already been burned and its slashed stake cannot be released
+    error RoundAlreadyBurned();
+
+    /// @dev The minimum burn round duration has not been met, controlled by the `burnRoundMinimumDuration`
+    error MinimumBurnRoundDurationNotMet();
+
+    /* SECTION 1: State Variables and Constants */
+
+    /// @notice Role held by addresses which are permitted to submit a slash.
+    bytes32 private constant SLASHER_ROLE = keccak256("SLASHER_ROLE");
+
+    /// @notice Role held by addresses which are permitted to release an un-burned slash.
+    bytes32 private constant RELEASER_ROLE = keccak256("RELEASER_ROLE");
+
+    /// @notice Role held by addresses which are permitted to pause the contract.
+    bytes32 private constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+    struct Stake {
+        uint64 unlockTime;
+        uint88 amount;
+        uint88 slashedAmount;
+        uint16 slashedInRound;
+    }
+
+    uint16 private currentSlashRound;
+    uint64 private burnRoundMinimumDuration;
+    uint256 private lastBurnTimestamp;
+    address private burnAddress;
+    IERC20 private token;
+
+    mapping(address => uint88) private userTotalStaked;
+    mapping(address => Stake) private selfStakes;
+    mapping(address => mapping(address => Stake)) private communityStakes;
+    mapping(uint16 => uint88) private totalSlashed;
+
+    /* SECTION 2: Events */
+
+    event SelfStake(address indexed staker, uint88 amount, uint64 unlockTime);
+    event CommunityStake(address indexed staker, address indexed stakee, uint88 amount, uint64 unlockTime);
+    event SelfStakeWithdrawn(address indexed staker, uint88 amount);
+    event CommunityStakeWithdrawn(address indexed staker, address indexed stakee, uint88 amount);
+    event Slash(address indexed staker, uint88 amount, uint16 round);
+    event Burn(uint16 indexed round, uint88 amount);
+}

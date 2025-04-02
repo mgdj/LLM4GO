@@ -1,0 +1,10 @@
+**Recommendations:**
+1. Remove the usage of the emit keyword for emitting events as it consumes extra gas.
+2. Use the internal visibility keyword for the onlyOwner modifier to optimize gas consumption.
+
+**Optimization Code:**
+```solidity
+function setVault(address _vault, bool _active) public onlyOwner {
+    vaults[_vault] = _active;
+}
+```

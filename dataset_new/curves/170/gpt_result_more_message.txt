@@ -1,0 +1,6 @@
+function setManager(address manager_, bool value) public onlyOwner {
+        require(manager_ != address(0), "Invalid manager address");
+        if (managers[manager_] != value) {
+            managers[manager_] = value;
+        }
+    }

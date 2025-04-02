@@ -1,0 +1,35 @@
+function _addHooks(
+        Hook[] memory hooks,
+        SpentItem[] memory offerItems,
+        address rentalWallet
+    ) internal {
+        address target;
+        uint256 itemIndex;
+        SpentItem memory offer;
+
+        for (uint256 i = 0; i < hooks.length; i++) {
+            target = hooks[i].target;
+
+            if (!STORE.hookOnStart(target)) {
+                revert Errors.Shared_DisabledHook(target);
+            }
+
+            itemIndex = hooks[i].itemIndex;
+            offer = offerItems[itemIndex];
+
+            if (!offer.isRental()) {
+                revert Errors.Shared_NonRentalHookItem(itemIndex);
+            }
+
+            try
+                IHook(target).onStart{gas: 80000}(rentalWallet, offer.token, offer.identifier, offer.amount, hooks[i].extraData)
+            {} catch Error(string memory revertReason) {
+                revert Errors.Shared_HookFailString(revertReason);
+            } catch Panic(uint256 errorCode) {
+                string memory stringErrorCode = LibString.toString(errorCode);
+                revert Errors.Shared_HookFailString(string.concat("Hook reverted: Panic code ", stringErrorCode));
+            } catch (bytes memory revertData) {
+                revert Errors.Shared_HookFailBytes(revertData);
+            }
+        }
+    }

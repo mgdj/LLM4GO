@@ -1,0 +1,9 @@
+function extendCommunityStake(address stakee, uint64 duration) external whenNotPaused {
+    require(stakee != address(0), "AddressCannotBeZero");
+    Stake storage comStake = communityStakes[msg.sender][stakee];
+    require(comStake.amount > 0, "AmountMustBeGreaterThanZero");
+    uint64 unlockTime = duration + uint64(block.timestamp);
+    require(unlockTime >= block.timestamp + 12 weeks && unlockTime <= block.timestamp + 104 weeks && unlockTime >= comStake.unlockTime, "InvalidLockTime");
+    comStake.unlockTime = unlockTime;
+    emit CommunityStake(msg.sender, stakee, 0, unlockTime);
+}

@@ -1,0 +1,6 @@
+To pack the struct efficiently you can rearrange the storage variables to minimize padding between variables. This optimization can help save gas costs by reducing the number of storage slots used.
+
+Below recommended optimization can be made to this struct to save 1 storage slot per key in the mapping where this TokenConfig struct used.
+
+*Note: I have tested this by adding test variable of TokenConfig type and run forge command forge inspect src/V3Oracle.sol:V3Oracle storage --pretty for both struct Optimized and Un-optimized. Unoptimized will take 3 storage slots while optimized one will take only 2 storage slots.
+

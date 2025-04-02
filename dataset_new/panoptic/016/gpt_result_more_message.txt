@@ -1,0 +1,10 @@
+**Recommendations:**
+1. Use custom errors instead of revert strings to save gas.
+2. Split the require statement that uses && to save gas.
+
+**Optimization Code:**
+```solidity
+error NotAuthorized();
+
+require(!(msg.sender == from) && !(isApprovedForAll[from][msg.sender]), "NotAuthorized");
+```

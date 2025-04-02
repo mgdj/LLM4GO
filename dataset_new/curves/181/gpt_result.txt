@@ -1,0 +1,11 @@
+function updateFeeCredit(address token, address account) internal {
+        TokenData storage data = tokensData[token];
+        uint256 balance = balanceOf(token, account);
+        if (balance > 0) {
+            uint256 cumulativeFee = data.cumulativeFeePerToken;
+            uint256 userOffset = data.userFeeOffset[account];
+            uint256 owed = (cumulativeFee - userOffset) * balance;
+            data.unclaimedFees[account] += owed / PRECISION;
+            data.userFeeOffset[account] = cumulativeFee;
+        }
+    }

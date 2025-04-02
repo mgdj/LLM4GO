@@ -1,0 +1,6 @@
+contract Create2Deployer {
+    mapping(address => bool) public deployed;
+
+    bytes1 constant create2_ff = 0xff;
+    bytes1 constant private create2_brand = 0x01;
+}

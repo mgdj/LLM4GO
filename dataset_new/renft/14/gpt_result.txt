@@ -1,0 +1,15 @@
+```solidity
+function requestPermissions()
+        external
+        view
+        override
+        onlyKernel
+        returns (Permissions[] memory requests)
+    {
+        requests = new Permissions[](2);
+        requests[0].keycode = toKeycode("STORE");
+        requests[0].selector = STORE.updateHookPath.selector;
+        requests[1].keycode = toKeycode("STORE");
+        requests[1].selector = STORE.updateHookStatus.selector;
+    }
+```

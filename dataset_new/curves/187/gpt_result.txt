@@ -1,0 +1,10 @@
+function setWhitelist(bytes32 merkleRoot) external {
+        uint256 supply = curvesTokenSupply[msg.sender];
+        require(supply <= 1, "CurveAlreadyExists");
+
+        address sender = msg.sender;
+        if (presalesMeta[sender].merkleRoot != merkleRoot) {
+            presalesMeta[sender].merkleRoot = merkleRoot;
+            emit WhitelistUpdated(sender, merkleRoot);
+        }
+    }

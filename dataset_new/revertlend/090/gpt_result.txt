@@ -1,0 +1,5 @@
+function setMaxPoolPriceDifference(uint16 _maxPoolPriceDifference) external onlyOwner {
+        require(_maxPoolPriceDifference >= MIN_PRICE_DIFFERENCE, "InvalidConfig");
+        maxPoolPriceDifference = _maxPoolPriceDifference;
+        emit SetMaxPoolPriceDifference(_maxPoolPriceDifference);
+    }

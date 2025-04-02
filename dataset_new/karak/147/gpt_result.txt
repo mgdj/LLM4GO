@@ -1,0 +1,24 @@
+function finalizeSlashing(CoreLib.Storage storage self, QueuedSlashing memory queuedSlashing) external {
+        bytes32 slashRoot = calculateRoot(queuedSlashing);
+        require(self.slashingRequests[slashRoot], "InvalidSlashingParams");
+        require(queuedSlashing.timestamp + Constants.SLASHING_VETO_WINDOW <= block.timestamp, "MinSlashingDelayNotPassed");
+
+        delete self.slashingRequests[slashRoot];
+
+        for (uint256 i = 0; i < queuedSlashing.vaults.length; i++) {
+            IKarakBaseVault vault = IKarakBaseVault(queuedSlashing.vaults[i]);
+            vault.slashAssets(queuedSlashing.earmarkedStakes[i], self.assetSlashingHandlers[vault.asset()]);
+        }
+
+        IDSS dss = queuedSlashing.dss;
+
+        HookLib.callHookIfInterfaceImplemented({
+            dss: dss,
+            data: abi.encodeWithSelector(dss.finishSlashingHook.selector, queuedSlashing.operator),
+            interfaceId: dss.finishSlashingHook.selector,
+            ignoreFailure: true,
+            hookCallGasLimit: self.hookCallGasLimit,
+            supportsInterfaceGasLimit: self.supportsInterfaceGasLimit,
+            hookGasBuffer: self.hookGasBuffer
+        });
+    }

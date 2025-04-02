@@ -1,0 +1,61 @@
+nohup: ignoring input
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/23
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/23/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/26
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/26/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/28
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/28/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/3
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/3/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/6
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/6/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/8
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/8/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/11
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/11/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/14
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/14/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/2
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/2/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/7
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/7/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/9
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/9/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/10
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/10/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/15
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/15/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/22
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/22/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/27
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/27/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/29
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/29/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/30
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/30/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/21
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/21/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/24
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/24/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/1
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/1/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/4
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/4/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/13
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/13/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/16
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/16/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/18
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/18/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/5
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/5/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/12
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/12/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/17
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/17/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/19
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/19/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/20
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/20/gpt_result.txt
+/nasdata/ruanyijie/gas_optimization/dataset_new/renft/25
+Content has been written to /nasdata/ruanyijie/gas_optimization/dataset_new/renft/25/gpt_result.txt

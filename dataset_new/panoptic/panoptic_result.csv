@@ -1,0 +1,23 @@
+index,state,item,file,result,type,fp_result,fp_gpt,fp_message,ds_result,llama_result,qwen_result,no_static_result,repair_result,fp_no_static
+001,statement merging,Merge similar statements or functions,SemiFungiblePositionManager.sol,true,2.11,fn,fn,fn,false,false,true,true,true
+002,statement merging,Merge similar statements or functions,FeesCalc.sol,false,2.11,fn,fn,fn,false,false,false,false,false
+003,efficient calculation,use inline assembly for arithmetic operations,PanopticMath.sol,false,4.1,fn,fn,fn,false,false,false,false,false
+004,efficient calculation,efficient absolute value calculation,Math.sol,true,2.4,fn,fp,fn,false,false,true,false,false
+005,statement conversion,if revert=>require,Math.sol,false,2.10,fn,fn,fn,false,false,false,false,false
+006,efficient calculation,efficient absolute value calculation,Math.sol,false,2.4,fn,fn,fn,false,false,false,false,false
+007,expression reduction,Use != 0 instead of > 0 for unsigned integer comparison,Math.sol,true,5.1,fn,fn,fn,true,true,true,true,true
+008,statement merging,Merge similar statements or functions,Math.sol,false,2.11,fn,fn,fp,true,false,true,false,false
+009,statement merging,Merge similar statements or functions,Math.sol,false,2.11,fn,fn,fn,false,false,false,false,false
+010,statement merging,Avoid declaring unused variables or unused internal function,Math.sol,true,1.3,fn,fn,fn,true,true,true,false,false
+011,statement merging,Avoid declaring unused variables or unused internal function,Math.sol,true,1.3,fn,fn,fn,true,true,true,false,false
+012,statement merging,use inline assembly for arithmetic operations,LeftRight.sol,false,4.1,fn,fn,fn,false,false,false,true,pt
+013,efficient calculation,Use shift right/left instead of division/multiplication if possible,LeftRight.sol,false,2.6,fn,fn,fn,false,false,false,false,false
+014,efficient calculation,use inline assembly for arithmetic operations,LeftRight.sol,false,4.1,fn,fn,fn,false,false,false,false,false
+015,efficient calculation,check before updating state variable with same value,ERC1155Minimal.sol,true,3.6,fn,fp,fp,true,true,true,true,true
+016,expression reduction,!A || !B => !(A & B),ERC1155Minimal.sol,true,1.1,fn,fn,fn,true,false,false,false,false
+017,loop variable,Cache array length outside of loop,ERC1155Minimal.sol,true,2.9,fn,fn,fn,true,true,true,false,false
+018,,Using bools for storage incurs overhead,SemiFungiblePositionManager.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+019,,Using bools for storage incurs overhead,ERC1155Minimal.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+020,,Cache array length outside of loop,Multicall.sol,true,2.9,fn,fn,fn,true,true,true,true,true
+021,,Cache array length outside of loop,ERC1155Minimal.sol,true,2.9,fn,fn,fn,true,true,true,true,true
+022,,Cache array length outside of loop,ERC1155Minimal.sol,true,2.9,fn,fn,fn,true,true,true,true,true

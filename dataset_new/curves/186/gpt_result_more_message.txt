@@ -1,0 +1,11 @@
+function sellCurvesToken(address curvesTokenSubject, uint256 amount) public payable {
+        if (curvesTokenSupply[curvesTokenSubject] <= amount) revert LastTokenCannotBeSold();
+        if (curvesTokenBalance[curvesTokenSubject][msg.sender] < amount) revert InsufficientBalance();
+
+        uint256 price = getPrice(curvesTokenSupply[curvesTokenSubject] - amount, amount);
+
+        curvesTokenBalance[curvesTokenSubject][msg.sender] -= amount; 
+        curvesTokenSupply[curvesTokenSubject] -= amount;
+
+        _transferFees(curvesTokenSubject, false, price, amount, curvesTokenSupply[curvesTokenSubject]);
+}

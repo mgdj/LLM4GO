@@ -1,0 +1,4 @@
+function _isValidSafeOwner(address owner, address safe) internal view {
+        require(STORE.deployedSafes(safe) != 0, Errors.CreatePolicy_InvalidRentalSafe(safe));
+        require(ISafe(safe).isOwner(owner), Errors.CreatePolicy_InvalidSafeOwner(owner, safe));
+    }

@@ -1,0 +1,16 @@
+Recommendations:
+1. Remove emitting the event outside of the if condition to save gas.
+2. Consider using a modifier instead of the onlyOwner function modifier.
+
+Optimization_code:
+```solidity
+/**
+    * @notice Owner controlled function to activate/deactivate operator address
+    * @param _operator operator
+    * @param _active active or not
+    */
+function setOperator(address _operator, bool _active) public onlyOwner {
+    operators[_operator] = _active;
+    emit OperatorChanged(_operator, _active);
+}
+```

@@ -1,0 +1,11 @@
+contract VoltageManager {
+    event VoltageRemaining(address indexed spender, uint8 voltage);
+
+    address public _ownerAddress;
+    GameItems public _gameItemsContractInstance;
+
+    mapping(address => bool) public allowedVoltageSpenders;
+    mapping(address => uint32) public ownerVoltageReplenishTime;
+    mapping(address => uint8) public ownerVoltage;
+    mapping(address => bool) public isAdmin;
+}

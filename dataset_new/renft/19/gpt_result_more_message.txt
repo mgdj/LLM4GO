@@ -1,0 +1,21 @@
+contract StorageBase {
+
+    mapping(bytes32 => bool) public orders;
+
+    mapping(uint256 => uint256) public rentedAssets;
+
+    mapping(address => uint256) public deployedSafes;
+    
+    // Records the total amount of deployed safes.
+    uint256 public totalSafes;
+
+    mapping(address => address) internal _contractToHook;
+
+    // Mapping of a bitmap which denotes the hook functions that are enabled.
+    mapping(address => uint8) public hookStatus;
+
+    mapping(address => bool) public whitelistedDelegates;
+
+    // Allows for the safe registration of extensions that can be enabled on a safe.
+    mapping(address => bool) public whitelistedExtensions;
+}

@@ -1,0 +1,41 @@
+**Recommendations:**
+
+1. Use internal functions within the smart contract instead of external functions to reduce gas costs.
+2. Avoid unnecessary storage operations by making use of local variables and memory data locations.
+3. Reduce the number of loop iterations or find more efficient ways to loop through data.
+
+**Optimization Code:**
+
+```solidity
+pragma solidity ^0.8.0;
+
+contract GasOptimization {
+    
+    uint[] public nums;
+
+    function addToNums(uint _num) external {
+        nums.push(_num);
+    }
+
+    function getSum() external view returns (uint) {
+        uint sum;
+        for (uint i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        return sum;
+    }
+    
+    function optimizedGetSum() internal view returns (uint) {
+        uint sum;
+        uint[] memory _nums = nums;
+        for (uint i = 0; i < _nums.length; i++) {
+            sum += _nums[i];
+        }
+        return sum;
+    }
+
+    function optimizedAddToNums(uint _num) internal {
+        nums.push(_num);
+    }
+}
+```

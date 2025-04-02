@@ -1,0 +1,3 @@
+function addRentalSafe(address safe) external onlyByProxy permissioned {
+        deployedSafes[safe] = ++totalSafes;
+    }

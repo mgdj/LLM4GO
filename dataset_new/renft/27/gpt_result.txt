@@ -1,0 +1,10 @@
+function skim(address token, address to) external onlyByProxy permissioned {
+        uint256 syncedBalance = balanceOf[token];
+        uint256 trueBalance = IERC20(token).balanceOf(address(this));
+        
+        if (trueBalance > syncedBalance) {
+            uint256 skimmedBalance = trueBalance - syncedBalance;
+            _safeTransfer(token, to, skimmedBalance);
+            emit Events.FeeTaken(token, skimmedBalance);
+        }
+    }

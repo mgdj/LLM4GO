@@ -1,0 +1,10 @@
+**Recommendations:**
+1. Use inline assembly to perform the absolute value calculation efficiently.
+2. Avoid unnecessary type casting and multiple operations in the conditional check.
+
+**Optimization_code:**
+```solidity
+if (absTick > Constants.MAX_V3POOL_TICK) revert Errors.InvalidTick();
+```
+
+By applying the provided optimization, we removed the unnecessary type casting and simplified the conditional check, leading to gas savings.

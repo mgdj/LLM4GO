@@ -1,0 +1,5 @@
+function withdraw(address to, uint256 weiAmount) external nonReentrant onlyOwner {
+        (bool success, ) = payable(to).call{value: weiAmount}("");
+        require(success, "Transfer failed");
+        emit NodeETHWithdrawn(address(this), to, weiAmount);
+    }

@@ -1,0 +1,50 @@
+function _settlePayment(
+        Item[] calldata items,
+        OrderType orderType,
+        address lender,
+        address renter,
+        uint256 start,
+        uint256 end
+    ) internal {
+        // Calculate the time values.
+        uint256 elapsedTime = block.timestamp - start;
+        uint256 totalTime = end - start;
+
+        // Determine whether the rental order has ended.
+        bool isRentalOver = elapsedTime >= totalTime;
+
+        // Loop through each item in the order.
+        for (uint256 i = 0; i < items.length; ++i) {
+            // Get the item.
+            Item memory item = items[i];
+
+            // Check that the item is a payment.
+            if (item.isERC20()) {
+                // Take the payment amount directly since there is no fee.
+                uint256 paymentAmount = item.amount;
+
+                // Effect: Decrease the token balance.
+                _decreaseDeposit(item.token, item.amount);
+
+                // Based on the order type and rental status, settle the payment.
+                if (orderType.isPayOrder() && !isRentalOver) {
+                    _settlePaymentProRata(
+                        item.token,
+                        paymentAmount,
+                        lender,
+                        renter,
+                        elapsedTime,
+                        totalTime
+                    );
+                } else {
+                    _settlePaymentInFull(
+                        item.token,
+                        paymentAmount,
+                        item.settleTo,
+                        lender,
+                        renter
+                    );
+                }
+            }
+        }
+    }

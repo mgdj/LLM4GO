@@ -1,0 +1,6 @@
+At line 488, we assign _newLastBatch to state variable s.totalBatchesCommitted. Since this value is not being changed, we can re-use _newLastBatch at line 496, to avoid additional reading of a state variable: emit BlocksRevert(_newLastBatch, s.totalBatchesVerified, s.totalBatchesExecuted);.
+Moreover, s.totalBatchesExecuted is used twice and can be cached.
+At line 485, when the condition if fulfilled, we will be reading s.totalBatchesVerified three times (line 485, 486, 487). We can re-factor the code to avoid additional reading of s.totalBatchesVerified. This is what needs to be done:
+move s.totalBatchesCommitted = _newLastBatch higher
+move if (s.l2SystemContractsUpgradeBatchNumber > _newLastBatch) higher
+rewrite if (_newLastBatch < s.totalBatchesVerified) to if-else condition, when if block will be executed, we will avoid additional reading. Please notice that in that case, we will read s.totalBatchesVerified only twice (explained in the comment section)

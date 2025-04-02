@@ -1,0 +1,55 @@
+### Recommendations:
+1. Use custom errors instead of revert strings to save gas.
+2. Split require() statements that use && saves gas.
+3. Use != 0 instead of > 0 for unsigned integer comparison in Solidity versions below 0.8.12.
+4. Cache state variables outside of loops.
+5. Cache array length outside of loops.
+6. Move require emit ahead to save gas.
+7. Check before updating state variable with the same value.
+8. Use calldata instead of memory for function arguments that do not get mutated.
+
+### Optimization Code:
+```solidity
+// Updated optimized code
+function configToken(uint256 tokenId, PositionConfig calldata config) external {
+    address owner = nonfungiblePositionManager.ownerOf(tokenId);
+    if (owner != msg.sender) {
+        revert Unauthorized();
+    }
+
+    if (config.isActive != true) {
+        // Use custom errors and split require() statements
+        revert InvalidConfig();
+    } else {
+        if (config.token0TriggerTick >= config.token1TriggerTick) {
+            // Split require() statements
+            revert InvalidConfig();
+        }
+    }
+
+    // Cache state variables and array length
+    PositionConfig storage currentConfig = positionConfigs[tokenId];
+    currentConfig = config;
+
+    // Move require emit ahead
+    emit PositionConfigured(
+        tokenId,
+        config.isActive,
+        config.token0Swap,
+        config.token1Swap,
+        config.token0TriggerTick,
+        config.token1TriggerTick,
+        config.token0SlippageX64,
+        config.token1SlippageX64,
+        config.onlyFees,
+        config.maxRewardX64
+    );
+}
+```
+
+In the optimized code:
+- Custom errors are used for revert statements.
+- Require statements are split for better optimization.
+- State variable is cached outside the loop for gas saving.
+- Require emit is moved ahead for efficiency.
+- Checking the condition before updating the state variable with the same value to avoid unnecessary updates.

@@ -1,0 +1,21 @@
+index,file,description,detect_result,repair_result_gpt,gpt_result,gpt_message_result,type,fp_result,fp_gpt,fp_message,ds_result,llama_result,qwen_result,no_static_result,repair_result,fp_no_static
+1,src/tokens/PrincipalToken.sol#L560C5-L578C6,Reorder comparison statement,true,true,false,false,2.7,fp,fp,fp,false,false,false,true,pt
+2,src/tokens/PrincipalToken.sol#L59,Optimize variable storage layout,true,partially true,false,false,3.4,fp,fn,fn,true,true,true,true,pt
+3,src/tokens/PrincipalToken.sol#L906C2-L914C6,Cache re-reading state variables,true,true,false,true,3.2,fn,fn,fn,true,true,true,true,pt
+4,src/tokens/PrincipalToken.sol#L414-L416,Cache re-reading state variables,false,false,false,false,3.2,fn,fp,fp,false,false,false,false,false
+5,/src/libraries/PrincipalTokenUtil.sol#L75C12-L75C86,Using unchecked blocks,true,partially true,false,false,2.2,fp,fp,fn,true,true,true,true,pt
+6,/src/libraries/PrincipalTokenUtil.sol#L104C21-L105C65,Using unchecked blocks,false,false,false,false,2.2,fn,fp,fn,true,true,true,false,false
+7,src/tokens/PrincipalToken.sol#L714-L715,Use = over +=,true,partially true,false,true,2.8,fn,fn,fn,true,true,true,true,true
+8,src/tokens/PrincipalToken.sol#L47,Optimize bool variables,true,true,false,false,3.7,fn,fn,fp,true,true,true,true,true
+9,src/tokens/PrincipalToken.sol#L136-L156,Cache re-reading state variables,false,false,false,false,3.2,fn,fn,fn,true,true,true,true,true
+10,src/tokens/PrincipalToken.sol#L182-L183,Cache re-reading state variables,true,true,false,false,3.2,fp,fp,fp,true,true,true,false,false
+11,src/tokens/PrincipalToken.sol#L312,Cache re-reading state variables,true,true,false,false,3.2,fn,fn,fn,true,true,true,true,true
+12,src/tokens/PrincipalToken.sol#L499,Cache re-reading state variables,true,true,false,true,3.2,fn,fn,fn,true,true,true,true,true
+13,src/tokens/PrincipalToken.sol#L628,Cache re-reading state variables,true,true,false,false,3.2,fn,fn,fp,true,true,true,true,true
+14,src/tokens/PrincipalToken.sol#L903,Cache re-reading state variables,true,true,false,true,3.2,fp,fp,fp,true,true,true,true,true
+15,src/proxy/AMProxyAdmin.sol#L43,Use calldata for immutable arguments,true,true,true,true,3.1,fn,fn,fn,true,true,true,true,true
+16,src/tokens/PrincipalToken.sol#L724,Use calldata for immutable arguments,true,true,false,false,3.1,fn,fn,fn,true,true,true,true,true
+17,src/proxy/AMTransparentUpgradeableProxy.sol#L86,Declare immutable for efficiency,true,true,false,false,3.3,fn,fn,fp,true,true,true,false,false
+18,src/tokens/PrincipalToken.sol#L106,Declare immutable for efficiency,true,true,false,false,3.3,fp,fn,fp,true,true,true,true,true
+19,src/libraries/RayMath.sol#L12,Using private for constants,true,true,false,false,2.5,fn,fn,fn,true,true,true,true,true
+20,src/proxy/AMProxyAdmin.sol#L23,Using private for constants,true,true,false,false,2.5,fn,fn,fn,true,true,true,true,true

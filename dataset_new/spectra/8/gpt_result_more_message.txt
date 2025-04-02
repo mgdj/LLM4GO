@@ -1,0 +1,37 @@
+contract PrincipalToken is
+    ERC20PermitUpgradeable,
+    AccessManagedUpgradeable,
+    ReentrancyGuardUpgradeable,
+    PausableUpgradeable,
+    IPrincipalToken
+{
+    using SafeERC20 for IERC20;
+    using RayMath for uint256;
+    using Math for uint256;
+
+    uint256 private constant MIN_DECIMALS = 6;
+    uint256 private constant MAX_DECIMALS = 18;
+    bytes32 private constant ON_FLASH_LOAN = keccak256("ERC3156FlashBorrower.onFlashLoan");
+
+    address private immutable registry;
+
+    address private rewardsProxy;
+    bool private ratesAtExpiryStored;
+    address private ibt;
+    address private _asset;
+    address private yt;
+    uint256 private ibtUnit;
+    uint256 private _ibtDecimals;
+    uint256 private _assetDecimals;
+
+    uint256 private ptRate;
+    uint256 private ibtRate;
+    uint256 private unclaimedFeesInIBT;
+    uint256 private totalFeesInIBT;
+    uint256 private expiry;
+    uint256 private duration;
+
+    mapping(address => uint256) private ibtRateOfUser;
+    mapping(address => uint256) private ptRateOfUser;
+    mapping(address => uint256) private yieldOfUserInIBT;
+}

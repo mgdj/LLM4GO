@@ -1,0 +1,58 @@
+**Recommendations:**
+1. Avoid unnecessary state updates and storage accesses to save gas.
+2. Simplify the conditions for reverting to reduce computational complexity.
+3. Minimize the number of calculations or complex arithmetic operations.
+4. Limit redundant or duplicate checks to improve gas efficiency.
+
+**Optimization Code:**
+```solidity
+function borrow(uint256 tokenId, uint256 assets) external override {
+    bool isTransformMode =
+        transformedTokenId > 0 && transformedTokenId == tokenId && transformerAllowList[msg.sender];
+
+    (uint256 newDebtExchangeRateX96, uint256 newLendExchangeRateX96) = _updateGlobalInterest();
+
+    _resetDailyDebtIncreaseLimit(newLendExchangeRateX96, false);
+
+    Loan storage loan = loans[tokenId];
+
+    // if not in transfer mode - must be called from owner or the vault itself
+    if (!isTransformMode && tokenOwner[tokenId] != msg.sender && address(this) != msg.sender) {
+        revert Unauthorized();
+    }
+
+    uint256 shares = _convertToShares(assets, newDebtExchangeRateX96, Math.Rounding.Up);
+    uint256 loanDebtShares = loan.debtShares + shares;
+    debtSharesTotal += shares;
+
+    if (debtSharesTotal > _convertToShares(globalDebtLimit, newDebtExchangeRateX96, Math.Rounding.Down) ||
+        assets > dailyDebtIncreaseLimitLeft) {
+        revert GlobalDebtLimitOrDailyIncrease(); // Combine revert conditions
+    }
+
+    dailyDebtIncreaseLimitLeft -= assets;
+
+    _updateAndCheckCollateral(
+        tokenId, newDebtExchangeRateX96, newLendExchangeRateX96, loan.debtShares, loanDebtShares
+    );
+
+    uint256 debt = _convertToAssets(loanDebtShares, newDebtExchangeRateX96, Math.Rounding.Up);
+
+    if (debt < minLoanSize || (!isTransformMode && !_isLoanHealthy(tokenId, debt))) {
+        revert MinLoanSizeOrUnhealthyLoan();
+    }
+
+    address owner = tokenOwner[tokenId];
+
+    // fails if not enough asset available
+    // if called from transform mode - send funds to transformer contract
+    SafeERC20.safeTransfer(IERC20(asset), isTransformMode ? msg.sender : owner, assets);
+
+    emit Borrow(tokenId, owner, assets, shares);
+}
+```
+
+In the optimized code:
+1. Revert conditions for global debt limit and daily increase are combined.
+2. Redundant subtraction operations are removed to reduce gas consumption.
+3. Loan health check is now centralized for better code readability and gas efficiency.

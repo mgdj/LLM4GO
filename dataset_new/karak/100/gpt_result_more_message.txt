@@ -1,0 +1,26 @@
+function startRedeem(uint256 shares, address beneficiary)
+        external
+        whenFunctionNotPaused(Constants.PAUSE_VAULT_START_REDEEM)
+        nonReentrant
+        returns (bytes32 withdrawalKey)
+    {
+        require(shares != 0, "ZeroShares");
+        require(beneficiary != address(0), "ZeroAddress");
+
+        (VaultLib.State storage state, VaultLib.Config storage config) = _storage();
+        address staker = msg.sender;
+
+        uint256 assets = convertToAssets(shares);
+
+        withdrawalKey = WithdrawLib.calculateWithdrawKey(staker, state.stakerToWithdrawNonce[staker]++);
+
+        WithdrawLib.Withdrawal storage withdrawal = state.withdrawalMap[withdrawalKey];
+        withdrawal.staker = staker;
+        withdrawal.start = uint96(block.timestamp);
+        withdrawal.shares = shares;
+        withdrawal.beneficiary = beneficiary;
+
+        this.transferFrom(msg.sender, address(this), shares);
+
+        emit StartedRedeem(staker, config.operator, shares, withdrawalKey, assets);
+    }

@@ -1,0 +1,34 @@
+index,state,item,file,result,type,fp_result,fp_gpt,fp_message,ds_result,llama_result,qwen_result,no_static_result,repair_result,fp_no_static
+3,,skip single-use local variables,/src/RankedBattle.sol#L284,true,3.5,true,false,false,true,true,true,false,false
+4,,Check value before state update,/src/RankedBattle.sol#L466-L471,true,3.6,false,false,false,true,true,true,false,false
+6,,Cache state variables before loops,/src/MergingPool.sol#L150,true,3.9,false,false,false,false,false,false,true,pt
+205,expression reduction,Using bools for storage incurs overhead,src/FighterFarm.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+206,expression reduction,Using bools for storage incurs overhead,src/GameItems.sol,true,3.7,fp,fn,fp,true,true,true,true,true
+207,expression reduction,Using bools for storage incurs overhead,src/MergingPool.sol, partially true,3.7,fn,fn,fp,true,true,true,true,true
+208,expression reduction,Using bools for storage incurs overhead,src/Neuron.sol,true,3.7,fn,fn,fn,true,true,true,false,false
+209,expression reduction,Using bools for storage incurs overhead,src/RankedBattle.sol,true,3.7,fn,fn,fn,true,true,true,true,true
+210,expression reduction,Using bools for storage incurs overhead,src/VoltageManager.sol,true,3.7,fn,fn,fp,true,true,true,false,false
+211,loop variable,Cache array length outside of loop,src/FighterFarm.sol,true,2.9,fn,fn,fp,true,true,true,true,true
+212,state variable,State variables should be cached in stack variables rather than re-reading them from storage,src/FighterFarm.sol,true,3.2,fp,fn,fp,false,false,false,false,false
+213,state variable,State variables should be cached in stack variables rather than re-reading them from storage,src/GameItems.sol,true,3.2,fn,fp,fp,true,true,true,false,false
+214,state variable,State variables should be cached in stack variables rather than re-reading them from storage,src/Neuron.sol,true,3.2,fn,fp,fp,true,true,false,false,false
+215,efficient calculation,Use calldata instead of memory for function arguments that do not get mutated,src/AiArenaHelper.sol,true,3.1,fn,fn,fn,true,true,true,true,true
+216,efficient calculation,Use calldata instead of memory for function arguments that do not get mutated,src/AiArenaHelper.sol,true,3.1,fn,fn,fn,true,true,true,true,true
+217,efficient calculation,Use calldata instead of memory for function arguments that do not get mutated,src/GameItems.sol,true,3.1,fn,fn,fn,true,true,true,true,true
+218,expression reduction,use custom errors instead of revert strings to save gas,src/AiArenaHelper.sol,true,1.2,fn,fn,fn,true,true,true,false,false
+219,expression reduction,use custom errors instead of revert strings to save gas,src/FighterFarm.sol,true,1.2,fn,fn,fn,true,true,true,true,pt
+220,expression reduction,use custom errors instead of revert strings to save gas,src/GameItems.sol,true,1.2,fp,fp,fp,true,true,true,false,false
+221,expression reduction,use custom errors instead of revert strings to save gas,src/MergingPool.sol,true,1.2,fn,fn,fn,true,true,true,true,true
+222,expression reduction,use custom errors instead of revert strings to save gas,src/Neuron.sol,true,1.2,fn,fn,fn,true,true,true,false,false
+223,expression reduction,use custom errors instead of revert strings to save gas,src/RankedBattle.sol,true,1.2,fn,fp,fp,true,true,true,true,true
+224,expression reduction,use custom errors instead of revert strings to save gas,src/StakeAtRisk.sol,true,1.2,fn,fn,fn,true,true,true,true,pt
+225,loop variable,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&&use unchecked block,src/AiArenaHelper.sol,true false,2.3 2.2,fn fn,fn fp,fn fp,true true,true false,true false,true false,true false
+226,loop variable,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&&use unchecked block,src/AiArenaHelper.sol,true false,2.3 2.2,fn fn,fn fp,fn fp,true true,true false,true false,true true,true true
+227,loop variable,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&&use unchecked block,src/FighterFarm.sol,true true,2.3 2.2,fn fn,fn fp,fn fp,true true,true false,true false,true false,true false
+228,loop variable,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&&use unchecked block,src/MergingPool.sol,true false,2.3 2.2,fn fp,fn fp,fn fp,true true,true false,true false,true false,true false
+229,loop variable,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&&use unchecked block,src/Neuron.sol,true false,2.3 2.2,fn fn,fn fn,fn fn,true true,true false,true false,true true,true true
+230,loop variable,++i costs less gas than i++ especially when it's used in for-loops (--i/i-- too)&&use unchecked block,src/RankedBattle.sol,true false,2.3 2.2,fn fn,fn fn,fn fn,true true,true false,true false,true false,true false
+231,expression reduction,Using private rather than public for constants saves gas,src/FighterFarm.sol,partly true,2.5,fp,fn,fp,true,true,true,false,false
+232,expression reduction,Using private rather than public for constants saves gas,src/Neuron.sol,true,2.5,fn,fn,fp,true,true,true,true,pt
+233,expression reduction,Using private rather than public for constants saves gas,src/RankedBattle.sol,true,2.5,fn,fn,fn,true,true,true,false,false
+234,efficient calculation,Splitting require() statements that use && saves gas,src/FighterFarm.sol,true,2.1,fn,fn,fn,true,true,true,false,false

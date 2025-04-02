@@ -1,0 +1,8 @@
+contract Vault is ERC4626, Initializable, Ownable, Pauser, ReentrancyGuard, ExtSloads, IVault {
+    using VaultLib for VaultLib.State;
+
+    string public constant VERSION = "2.0.0";
+
+    bytes32 internal constant STATE_SLOT = 0xdaaeb4082c39d618241ebb2112c1dd43bfc15f024749ed42d1d43097364b6b93;
+    bytes32 internal constant CONFIG_SLOT = 0x199bc26c7abac40c2aa10e4b9c2a21fadfd0d9304bd79c85d43842c325cbf785;
+}

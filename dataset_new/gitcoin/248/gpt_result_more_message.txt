@@ -1,0 +1,26 @@
+function release(
+    address staker,
+    address stakee,
+    uint88 amountToRelease,
+    uint16 slashRound
+  ) external onlyRole(RELEASER_ROLE) whenNotPaused {
+    require(slashRound >= currentSlashRound - 1, "RoundAlreadyBurned");
+    require(stakee != address(0), "AddressCannotBeZero");
+    require(staker != address(0), "AddressCannotBeZero");
+
+    if (staker == stakee) {
+      require(amountToRelease <= selfStakes[staker].slashedAmount, "FundsNotAvailableToRelease");
+      require(selfStakes[staker].slashedInRound == slashRound, "FundsNotAvailableToReleaseFromRound");
+
+      selfStakes[staker].slashedAmount -= amountToRelease;
+      selfStakes[staker].amount += amountToRelease;
+    } else {
+      require(amountToRelease <= communityStakes[staker][stakee].slashedAmount, "FundsNotAvailableToRelease");
+      require(communityStakes[staker][stakee].slashedInRound == slashRound, "FundsNotAvailableToReleaseFromRound");
+
+      communityStakes[staker][stakee].slashedAmount -= amountToRelease;
+      communityStakes[staker][stakee].amount += amountToRelease;
+    }
+
+    totalSlashed[slashRound] -= amountToRelease;
+  }

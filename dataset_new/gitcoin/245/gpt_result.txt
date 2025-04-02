@@ -1,0 +1,30 @@
+function initialize(
+    address tokenAddress,
+    address _burnAddress,
+    address initialAdmin,
+    address[] calldata initialSlashers,
+    address[] calldata initialReleasers
+  ) public initializer {
+    require(tokenAddress != address(0), "AddressCannotBeZero");
+
+    __AccessControl_init();
+    __Pausable_init();
+
+    _grantRole(DEFAULT_ADMIN_ROLE, initialAdmin);
+    _grantRole(PAUSER_ROLE, initialAdmin);
+
+    for (uint256 i = 0; i < initialSlashers.length; i++) {
+      _grantRole(SLASHER_ROLE, initialSlashers[i]);
+    }
+
+    for (uint256 i = 0; i < initialReleasers.length; i++) {
+      _grantRole(RELEASER_ROLE, initialReleasers[i]);
+    }
+
+    token = IERC20(tokenAddress);
+    burnAddress = _burnAddress;
+
+    currentSlashRound = 1;
+    burnRoundMinimumDuration = 90 days;
+    lastBurnTimestamp = block.timestamp;
+  }

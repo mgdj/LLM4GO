@@ -1,0 +1,31 @@
+contract MergingPool {
+
+    /*//////////////////////////////////////////////////////////////
+                                EVENTS
+    //////////////////////////////////////////////////////////////*/
+
+    event PointsAdded(uint256 tokenId, uint256 points);
+    event Claimed(address claimer, uint32 amount);
+
+    /*//////////////////////////////////////////////////////////////
+                            STATE VARIABLES
+    //////////////////////////////////////////////////////////////*/
+
+    uint256 public winnersPerPeriod = 2;
+    uint256 public roundId = 0;
+    uint256 public totalPoints = 0;    
+
+    address public immutable ownerAddress;
+    address public immutable rankedBattleAddress;
+    FighterFarm public immutable fighterFarmInstance;
+
+    /*//////////////////////////////////////////////////////////////
+                                MAPPINGS
+    //////////////////////////////////////////////////////////////*/
+
+    mapping(address => uint32) public numRoundsClaimed;
+    mapping(uint256 => uint256) public fighterPoints;
+    mapping(uint256 => address[]) public winnerAddresses;    
+    mapping(uint256 => bool) public isSelectionComplete;
+    mapping(address => bool) public isAdmin;
+}

@@ -1,0 +1,33 @@
+Recommendations:
+1. Cache the values of `x.leftSlot()` and `x.rightSlot()` outside the unchecked block to avoid redundant calls.
+2. Use custom errors instead of revert strings to save gas.
+3. Check before updating the state variable with the same value to prevent unnecessary state changes.
+4. Ensure state variables are cached in stack variables rather than re-reading them from storage.
+
+```solidity
+/// @notice Subtract two int256 bit LeftRight-encoded words; revert on overflow.
+/// @param x the minuend
+/// @param y the subtrahend
+/// @return z the difference x - y
+function sub(int256 x, int256 y) internal pure returns (int256 z) {
+    int256 xLeft = x.leftSlot();
+    int256 xRight = x.rightSlot();
+
+    unchecked {
+        int256 left256 = xLeft - y.leftSlot();
+        int128 left128 = int128(left256);
+        int256 right256 = xRight - y.rightSlot();
+        int128 right128 = int128(right256);
+
+        if (left128 != left256 || right128 != right256) {
+            revert Errors.UnderOverFlow();
+        }
+
+        if (z.toLeftSlot(left128).toRightSlot(right128) == x) {
+            return x; // No need to update z if it remains the same
+        } else {
+            return z.toRightSlot(right128).toLeftSlot(left128);
+        }
+    }
+}
+```

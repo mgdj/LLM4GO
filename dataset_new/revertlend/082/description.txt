@@ -1,0 +1,2 @@
+Mark Q96 * Q64 constant saves 1 checked multiplication
+You can make the calculation involving Q96 * Q64 constant. This will avoid recalculating the result every time the function is called saving 1 checked multiplication.

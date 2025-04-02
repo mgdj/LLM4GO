@@ -1,0 +1,44 @@
+abstract contract ERC1155 {
+    /// @notice Emitted when only a single token is transferred
+    /// @param operator the user who initiated the transfer
+    /// @param from the user who sent the tokens
+    /// @param to the user who received the tokens
+    /// @param id the ERC1155 token id
+    /// @param amount the amount of tokens transferred
+    event TransferSingle(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256 id,
+        uint256 amount
+    );
+
+    /// @notice Emitted when multiple tokens are transferred from one user to another
+    /// @param operator the user who initiated the transfer
+    /// @param from the user who sent the tokens
+    /// @param to the user who received the tokens
+    /// @param ids the ERC1155 token ids
+    /// @param amounts the amounts of tokens transferred
+    event TransferBatch(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256[] ids,
+        uint256[] amounts
+    );
+
+    /// @notice Emitted when an operator is approved to transfer all tokens on behalf of a user
+    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+
+    // emitted when a user attempts to transfer tokens they do not own nor are approved to transfer
+    error NotAuthorized();
+
+    // emitted when an attempt is made to initiate a transfer to a recipient that fails to signal support for ERC1155
+    error UnsafeRecipient();
+
+    // Token balances for each user
+    mapping(address => mapping(uint256 => uint256)) public balanceOf;
+
+    // Approved addresses for each user
+    mapping(address => mapping(address => uint256)) public isApprovedForAll;
+}

@@ -1,0 +1,11 @@
+function transferAllCurvesTokens(address to) external {
+        if (to == address(this)) revert ContractCannotReceiveTransfer();
+        address[] storage subjects = ownedCurvesTokenSubjects[msg.sender];
+        for (uint256 i = 0; i < subjects.length; i++) {
+            address subjectAddress = subjects[i];
+            uint256 amount = curvesTokenBalance[subjectAddress][msg.sender];
+            if (amount > 0) {
+                _transfer(subjectAddress, msg.sender, to, amount);
+            }
+        }
+    }

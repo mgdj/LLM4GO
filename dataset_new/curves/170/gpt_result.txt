@@ -1,0 +1,5 @@
+function setManager(address manager_, bool value) public onlyOwner {
+        require(managers[manager_] != value, "Value is already set");
+        
+        managers[manager_] = value;
+    }

@@ -1,0 +1,60 @@
+function slash(
+    address[] calldata selfStakers,
+    address[] calldata communityStakers,
+    address[] calldata communityStakees,
+    uint88 percent
+  ) external onlyRole(SLASHER_ROLE) whenNotPaused {
+    require(percent != 0 && percent <= 100, "InvalidSlashPercent");
+
+    uint256 numSelfStakers = selfStakers.length;
+    uint256 numCommunityStakers = communityStakers.length;
+
+    require(numCommunityStakers == communityStakees.length, "StakerStakeeMismatch");
+
+    for (uint256 i = 0; i < numSelfStakers; i++) {
+      address staker = selfStakers[i];
+      Stake storage sStake = selfStakes[staker];
+      uint88 slashedAmount = (percent * sStake.amount) / 100;
+
+      if (sStake.slashedInRound != 0 && sStake.slashedInRound != currentSlashRound) {
+        if (sStake.slashedInRound == currentSlashRound - 1) {
+          totalSlashed[currentSlashRound - 1] -= sStake.slashedAmount;
+          totalSlashed[currentSlashRound] += sStake.slashedAmount;
+        } else {
+          sStake.slashedAmount = 0;
+        }
+      }
+
+      totalSlashed[currentSlashRound] += slashedAmount;
+      sStake.slashedInRound = currentSlashRound;
+      sStake.slashedAmount += slashedAmount;
+      sStake.amount -= slashedAmount;
+      userTotalStaked[staker] -= slashedAmount;
+
+      emit Slash(staker, slashedAmount, currentSlashRound);
+    }
+
+    for (uint256 i = 0; i < numCommunityStakers; i++) {
+      address staker = communityStakers[i];
+      address stakee = communityStakees[i];
+      Stake storage comStake = communityStakes[staker][stakee];
+      uint88 slashedAmount = (percent * comStake.amount) / 100;
+
+      if (comStake.slashedInRound != 0 && comStake.slashedInRound != currentSlashRound) {
+        if (comStake.slashedInRound == currentSlashRound - 1) {
+          totalSlashed[currentSlashRound - 1] -= comStake.slashedAmount;
+          totalSlashed[currentSlashRound] += comStake.slashedAmount;
+        } else {
+          comStake.slashedAmount = 0;
+        }
+      }
+
+      totalSlashed[currentSlashRound] += slashedAmount;
+      comStake.slashedInRound = currentSlashRound;
+      comStake.slashedAmount += slashedAmount;
+      comStake.amount -= slashedAmount;
+      userTotalStaked[staker] -= slashedAmount;
+
+      emit Slash(staker, slashedAmount, currentSlashRound);
+    }
+  }

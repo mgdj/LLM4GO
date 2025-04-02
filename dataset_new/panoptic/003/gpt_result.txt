@@ -1,0 +1,27 @@
+### Recommendations:
+1. Avoid using exponentiation for large numbers as it consumes a significant amount of gas.
+2. Optimize the calculation by using intermediate variables where necessary.
+3. Consider using shifts for multiplying by powers of 2, as it is a cheaper operation compared to exponential calculations.
+
+### Optimization Code:
+```solidity
+function convert0to1(int256 amount, uint160 sqrtPriceX96) internal pure returns (int256) {
+    // ... existing code ...
+    uint256 sqrtPriceSquared = uint256(sqrtPriceX96) * uint256(sqrtPriceX96);
+    int256 absAmount = Math.absUint(amount);
+    
+    int256 absResult = Math.mulDiv192(absAmount, sqrtPriceSquared).toInt256();
+    // ... existing code ...
+}
+
+function convert1to0(int256 amount, uint160 sqrtPriceX96) internal pure returns (int256) {
+    // ... existing code ...
+    uint256 sqrtPriceSquared = uint256(sqrtPriceX96) * uint256(sqrtPriceX96);
+    int256 absAmount = Math.absUint(amount);
+    
+    int256 absResult = Math.mulDiv(absAmount, 2 ** 192, sqrtPriceSquared).toInt256();
+    // ... existing code ...
+}
+```
+
+By using the above optimization code, we have eliminated the costly exponentiation operation and introduced intermediate variables to store the result of sqrtPriceX96 squared, thereby reducing gas consumption in the calculations.

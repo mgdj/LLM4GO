@@ -1,0 +1,7 @@
+function setupAirdrop(address[] calldata recipients, uint256[] calldata amounts) external {
+        require(isAdmin[msg.sender]);
+        uint256 recipientsLength = recipients.length;
+        for (uint256 i = 0; i < recipientsLength; i++) {
+            _approve(treasuryAddress, recipients[i], amounts[i]);
+        }
+    }

@@ -1,0 +1,7 @@
+function isSmartContract(address addr) external view returns (bool) {
+        bool isContract;
+        assembly {
+            isContract := gt(extcodesize(addr), 0)
+        }
+        return isContract;
+    }

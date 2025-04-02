@@ -1,0 +1,21 @@
+function initialize(
+        address _owner,
+        address _operator,
+        address _depositToken,
+        string memory _name,
+        string memory _symbol,
+        bytes memory _extraData
+    ) external initializer {
+        _initializeOwner(_owner);
+        __Pauser_init();
+
+        (uint8 result,,bool decimalsSuccess) = _tryGetAssetDecimals(address(_depositToken));
+        VaultLib.Config storage config = _config();
+
+        config.asset = _depositToken;
+        config.name = _name;
+        config.symbol = _symbol;
+        config.decimals = !decimalsSuccess ? _DEFAULT_UNDERLYING_DECIMALS : result;
+        config.operator = _operator;
+        config.extraData = _extraData;
+    }

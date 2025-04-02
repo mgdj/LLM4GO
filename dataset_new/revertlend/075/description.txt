@@ -1,0 +1,1 @@
+Since transformedTokenId == tokenId, check that both should be equal. We can use tokenId instead of transformedTokenId and check tokenId for 0 and also, we don’t have check the second condition we can remove transformedTokenId == tokenId in this check.
