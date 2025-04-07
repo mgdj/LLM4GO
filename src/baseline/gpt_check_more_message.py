@@ -62,7 +62,7 @@ for subdir in os.listdir(parent_directory):
     # print(ask_question)
     client = OpenAI(
         base_url='https://api.openai-proxy.org/v1',
-        api_key='sk-cEOsqGI9gAOrxgqQ6D1B9U3nvZrpzsy98m03RDfrNf9XOYwP',
+        api_key='Your_Api_Key',
     )
     chat_completion = client.chat.completions.create(
         model="gpt-3.5-turbo",

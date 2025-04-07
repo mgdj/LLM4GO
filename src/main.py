@@ -63,7 +63,7 @@ def gpt_check_contract(content,problems,result_path):
     print(result_path)
     client = OpenAI(
         base_url='https://api.openai-proxy.org/v1',
-        api_key='sk-cEOsqGI9gAOrxgqQ6D1B9U3nvZrpzsy98m03RDfrNf9XOYwP',
+        api_key='Your_Api_Key',
     )
     chat_completion = client.chat.completions.create(
         model="chatgpt-4o-latest",
@@ -86,7 +86,7 @@ def gpt_check_function(content,problems,result_path):
     print(result_path)
     client = OpenAI(
         base_url='https://api.openai-proxy.org/v1',
-        api_key='sk-cEOsqGI9gAOrxgqQ6D1B9U3nvZrpzsy98m03RDfrNf9XOYwP',
+        api_key='Your_Api_Key',
     )
     chat_completion = client.chat.completions.create(
         model="chatgpt-4o-latest",
